@@ -198,19 +198,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-r" id="toc-what-is-r" class="nav-link active" data-scroll-target="#what-is-r">What is R?</a></li>
+  <li><a href="#what-is-r" id="toc-what-is-r" class="nav-link active" data-scroll-target="#what-is-r">What is R?</a>
+  <ul class="collapse">
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  </ul></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a>
+  <ul class="collapse">
   <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
   <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a>
   <ul class="collapse">
   <li><a href="#structure-of-the-rstudio-interface" id="toc-structure-of-the-rstudio-interface" class="nav-link" data-scroll-target="#structure-of-the-rstudio-interface">Structure of the RStudio interface</a></li>
+  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link" data-scroll-target="#rstudio-cloud">RStudio Cloud</a></li>
   </ul></li>
-  <li><a href="#first-steps" id="toc-first-steps" class="nav-link" data-scroll-target="#first-steps">First Steps</a></li>
-  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a></li>
+  </ul></li>
+  <li><a href="#first-steps" id="toc-first-steps" class="nav-link" data-scroll-target="#first-steps">First Steps</a>
+  <ul class="collapse">
+  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a>
+  <ul class="collapse">
+  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts">Scripts</a></li>
+  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio Projects</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a>
   <ul class="collapse">
   <li><a href="#package-for-this-tutorial" id="toc-package-for-this-tutorial" class="nav-link" data-scroll-target="#package-for-this-tutorial">Package for this tutorial</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -220,15 +232,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="what-is-r" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-r">What is R?</h2>
-</section>
+<section id="what-is-r" class="level1">
+<h1>What is R?</h1>
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section"></h2>
 </section>
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
 </section>
+<section id="installation" class="level1">
+<h1>Installation</h1>
 <section id="r" class="level2">
 <h2 class="anchored" data-anchor-id="r">R</h2>
 </section>
@@ -236,8 +247,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="rstudio">RStudio</h2>
 <section id="structure-of-the-rstudio-interface" class="level3">
 <h3 class="anchored" data-anchor-id="structure-of-the-rstudio-interface">Structure of the RStudio interface</h3>
-<section id="script_pane" class="level4">
-<h4 class="anchored" data-anchor-id="script_pane">Script Pane</h4>
+<section id="script-pane" class="level4">
+<h4 class="anchored" data-anchor-id="script-pane">Script Pane</h4>
 </section>
 <section id="console" class="level4">
 <h4 class="anchored" data-anchor-id="console">Console</h4>
@@ -250,9 +261,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Tadaa, we just wrote our first line of code.</p>
 </section>
 </section>
+<section id="rstudio-cloud" class="level3">
+<h3 class="anchored" data-anchor-id="rstudio-cloud">RStudio Cloud</h3>
 </section>
-<section id="first-steps" class="level2">
-<h2 class="anchored" data-anchor-id="first-steps">First Steps</h2>
+</section>
+</section>
+<section id="first-steps" class="level1">
+<h1>First Steps</h1>
 <p>Some of the most basic things you can do in <code>R</code> is are basic mathematical operations. In your <a href="#console">console</a>, type the following code lines and press <code>Enter</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
@@ -268,16 +283,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>By the way: Code lines, that are preceded by a <code>#</code> are commented out, and will not be evaluated.</p>
-</section>
 <section id="workflow" class="level2">
 <h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
-<section id="scripts" class="level4">
-<h4 class="anchored" data-anchor-id="scripts">Scripts</h4>
+<section id="scripts" class="level3">
+<h3 class="anchored" data-anchor-id="scripts">Scripts</h3>
 <p>When only coding in our <a href="#console">console</a> we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our code that is worth saving into a <a href="#script_pane">script</a>.</p>
+</section>
+<section id="rstudio-projects" class="level3">
+<h3 class="anchored" data-anchor-id="rstudio-projects">RStudio Projects</h3>
 <p>Over time, it will become increasingly hard to organize all your files, working directories and workspaces in a reasonable manner. For this, RStudio Projects can be used (highly recommended).</p>
 </section>
-<section id="exercises" class="level4">
-<h4 class="anchored" data-anchor-id="exercises">Exercises</h4>
+<section id="exercises" class="level3">
+<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
 <ol type="1">
 <li>Create a new folder folder for this tutorial, where all your files will go.</li>
 <li>Create a new RStudio project and open it.</li>
@@ -292,6 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>There is a package available for this tutorial, which will provide interactive exercises. Please install:</p>
 
 
+</section>
 </section>
 </section>
 
