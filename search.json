@@ -35,6 +35,13 @@
     "text": "Workflow\n\nScripts\nWhen only coding in our console we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our code that is worth saving into a script.\nOver time, it will become increasingly hard to organize all your files, working directories and workspaces in a reasonable manner. For this, RStudio Projects can be used (highly recommended).\n\n\nExercises\n\nCreate a new folder folder for this tutorial, where all your files will go.\nCreate a new RStudio project and open it.\nCreate a new R Script and open it."
   },
   {
+    "objectID": "getting_started.html#packages",
+    "href": "getting_started.html#packages",
+    "title": "R - Open Research Summer School",
+    "section": "Packages",
+    "text": "Packages\n\nPackage for this tutorial\nThere is a package available for this tutorial, which will provide interactive exercises. Please install:"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "R Workshop",
