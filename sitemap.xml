@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/about.html</loc>
-    <lastmod>2023-07-22T16:46:59.214Z</lastmod>
+    <lastmod>2023-07-22T17:02:01.464Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/index.html</loc>
-    <lastmod>2023-07-22T16:46:58.190Z</lastmod>
+    <lastmod>2023-07-22T17:02:00.340Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/Getting Started.html</loc>
+    <lastmod>2023-07-22T17:02:01.004Z</lastmod>
   </url>
 </urlset>
