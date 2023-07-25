@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R - Open Research Summer School – getting_started</title>
+<title>R - Open Research Summer School – the_big_picture</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -134,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./getting_started.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./getting_started.html">What is R?</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -182,7 +148,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./getting_started.html" class="sidebar-item-text sidebar-link active">
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">What is R?</span></a>
   </div>
 </li>
@@ -198,29 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-r" id="toc-what-is-r" class="nav-link active" data-scroll-target="#what-is-r">What is R?</a>
-  <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  </ul></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a>
-  <ul class="collapse">
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
-  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a>
-  <ul class="collapse">
-  <li><a href="#optional-posit-cloud" id="toc-optional-posit-cloud" class="nav-link" data-scroll-target="#optional-posit-cloud">Optional: posit Cloud</a></li>
-  <li><a href="#structure-of-the-rstudio-interface" id="toc-structure-of-the-rstudio-interface" class="nav-link" data-scroll-target="#structure-of-the-rstudio-interface">Structure of the RStudio interface</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#first-steps" id="toc-first-steps" class="nav-link" data-scroll-target="#first-steps">First Steps</a>
-  <ul class="collapse">
-  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a>
-  <ul class="collapse">
-  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts">Scripts</a></li>
-  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio Projects</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
-  </ul></li>
-  <li><a href="#about-this-workshop" id="toc-about-this-workshop" class="nav-link" data-scroll-target="#about-this-workshop">About this workshop</a></li>
-  </ul></li>
+  <li><a href="#the-big-picture" id="toc-the-big-picture" class="nav-link active" data-scroll-target="#the-big-picture">The big picture</a></li>
   </ul>
 </nav>
     </div>
@@ -229,95 +173,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="what-is-r" class="level1">
-<h1>What is R?</h1>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
-</section>
-</section>
-<section id="installation" class="level1">
-<h1>Installation</h1>
-<section id="r" class="level2">
-<h2 class="anchored" data-anchor-id="r">R</h2>
-</section>
-<section id="rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="rstudio">RStudio</h2>
-<section id="optional-posit-cloud" class="level3">
-<h3 class="anchored" data-anchor-id="optional-posit-cloud">Optional: posit Cloud</h3>
-<p>In case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and probably for the following week).</p>
-<ol type="1">
-<li>Go to <a href="https://posit.cloud/">posit Cloud</a>.</li>
-<li>Click on <code>GET STARTED</code>.</li>
-<li>Create an account (it’s free) and login.</li>
-<li>On the upper right, click on <code>New Project</code>. This will create a new RStudio project, which you can use the same way as described in this tutorial.</li>
-</ol>
-</section>
-<section id="structure-of-the-rstudio-interface" class="level3">
-<h3 class="anchored" data-anchor-id="structure-of-the-rstudio-interface">Structure of the RStudio interface</h3>
-<section id="script-pane" class="level4">
-<h4 class="anchored" data-anchor-id="script-pane">Script Pane</h4>
-</section>
-<section id="console" class="level4">
-<h4 class="anchored" data-anchor-id="console">Console</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Hello World!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Hello World!"</code></pre>
-</div>
-</div>
-<p>Tadaa, we just wrote our first line of code.</p>
-</section>
-</section>
-</section>
-</section>
-<section id="first-steps" class="level1">
-<h1>First Steps</h1>
-<p>Some of the most basic things you can do in <code>R</code> are basic mathematical operations. In your <a href="#console">console</a>, type the following code lines and press <code>Enter</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># substract</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># multiply</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">*</span> <span class="dv">4</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># divide</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>By the way: Code lines, that are preceded by a <code>#</code> are commented out, and will not be evaluated.</p>
-<section id="workflow" class="level2">
-<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
-<section id="scripts" class="level3">
-<h3 class="anchored" data-anchor-id="scripts">Scripts</h3>
-<p>When only coding in our <a href="#console">console</a> we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our code that is worth saving into a <a href="#script_pane">script</a>.</p>
-</section>
-<section id="rstudio-projects" class="level3">
-<h3 class="anchored" data-anchor-id="rstudio-projects">RStudio Projects</h3>
-<p>Over time, it will become increasingly hard to organize all your files, working directories and workspaces in a reasonable manner. For this, RStudio Projects can be used (highly recommended).</p>
-</section>
-<section id="exercises" class="level3">
-<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
-<ol type="1">
-<li>Create a new folder for this tutorial, where all your files will go.</li>
-<li>Create a new RStudio project and open it. Got to <code>File</code> - <code>New Project</code> - <code>Existing Directory</code> and select the path of the folder you created in step <code>1</code>.</li>
-<li>Create a new R Script by clicking on <code>File</code> - <code>New File</code> - <code>R Script</code>. Save it in you folder.<br>
-<em>Tipp: Within your project folder create a folder named <code>R</code>, where all your R Scripts will go. You can do the same for <code>data</code>, <code>plots</code> etc. later on. This will help you to structure your working directory.</em></li>
-</ol>
-</section>
-</section>
-<section id="about-this-workshop" class="level2">
-<h2 class="anchored" data-anchor-id="about-this-workshop">About this workshop</h2>
-<p>This workshop will use a tutorial package (you will learn more about packages later) that can be run from within <code>R</code> and will provide interactive exercises. For now, please install that tutorial package by typing (and evaluating) the following code into your newly created R Script:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"nickhaf/tutoR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>For each chapter, there will be a short theory part. Most of the exercises can be run interactively with the <code>tutoR</code> package, but some will incourage you to use the RStudio environment, to get more familiar with it.</p>
+<section id="the-big-picture" class="level1">
+<h1>The big picture</h1>
+<p>Now that we have completed our set up, let’s dive right into programming with <code>R</code>. In this chapter, we will go through a “mini-project”, which follows a typical workflow when working with data in <code>R</code>. We will install and load packages, load data, perform some operations on this data, calculate some summary statistics and plot them. In later chapters, we will go into a little bit more depth for each topic. If you want to have more in depth information instead of following the whole workflow first, you can also jump to the according chapter and read the theory. But make sure to come back to this chapter for the final exercise.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

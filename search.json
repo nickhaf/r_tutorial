@@ -1,5 +1,26 @@
 [
   {
+    "objectID": "the_big_picture.html",
+    "href": "the_big_picture.html",
+    "title": "The big picture",
+    "section": "",
+    "text": "The big picture\nNow that we have completed our set up, let’s dive right into programming with R. In this chapter, we will go through a “mini-project”, which follows a typical workflow when working with data in R. We will install and load packages, load data, perform some operations on this data, calculate some summary statistics and plot them. In later chapters, we will go into a little bit more depth for each topic. If you want to have more in depth information instead of following the whole workflow first, you can also jump to the according chapter and read the theory. But make sure to come back to this chapter for the final exercise."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R Workshop",
+    "section": "",
+    "text": "The following tutorial will teach you the basics of R. It is designed to be self paced, so you can work in you own tempo.\n\n\n\nLearn the basics of programming in R as needed for the rest of the Open Research Summer School."
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "R Workshop",
+    "section": "",
+    "text": "The following tutorial will teach you the basics of R. It is designed to be self paced, so you can work in you own tempo.\n\n\n\nLearn the basics of programming in R as needed for the rest of the Open Research Summer School."
+  },
+  {
     "objectID": "getting_started.html#r",
     "href": "getting_started.html#r",
     "title": "What is R?",
@@ -25,20 +46,6 @@
     "href": "getting_started.html#about-this-workshop",
     "title": "What is R?",
     "section": "About this workshop",
-    "text": "About this workshop\nThis workshop will use a tutorial package (you will learn more about packages later) that can be run from within R and will provide interactive exercises. For now, please install that tutorial package by typing (and evaluating) the following code into your newly created R Script:\n\ninstall.packages(\"devtools\")\ndevtools::install_github(\"nickhaf/tutoR\")"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "R Workshop",
-    "section": "",
-    "text": "The following tutorial will teach you the basics of R. It is designed to be self paced, so you can work in you own tempo.\n\n\n\nLearn the basics of programming in R as needed for the rest of the Open Research Summer School."
-  },
-  {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "R Workshop",
-    "section": "",
-    "text": "The following tutorial will teach you the basics of R. It is designed to be self paced, so you can work in you own tempo.\n\n\n\nLearn the basics of programming in R as needed for the rest of the Open Research Summer School."
+    "text": "About this workshop\nThis workshop will use a tutorial package (you will learn more about packages later) that can be run from within R and will provide interactive exercises. For now, please install that tutorial package by typing (and evaluating) the following code into your newly created R Script:\n\ninstall.packages(\"devtools\")\ndevtools::install_github(\"nickhaf/tutoR\")\n\nFor each chapter, there will be a short theory part. Most of the exercises can be run interactively with the tutoR package, but some will incourage you to use the RStudio environment, to get more familiar with it."
   }
 ]
