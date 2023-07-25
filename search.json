@@ -4,14 +4,21 @@
     "href": "the_big_picture.html",
     "title": "The big picture",
     "section": "",
-    "text": "Now that we have completed our set up, let’s dive right into programming with R. In this chapter, we will go through a “mini-project”, which follows a typical workflow when working with data in R. We will install and load packages, load data, perform some operations on this data, calculate some summary statistics and plot them. In later chapters, we will go into a little bit more depth for each topic. If you want to have more in depth information instead of following the whole workflow first, you can also jump to the according chapter and read the theory. But make sure to come back to this chapter for the final exercise.\n\n\nPackages are extensions to the base R you get by default. We already installed our first packages in About this workshop."
+    "text": "Now that we have completed our set up, let’s dive right into programming with R. In this chapter, we will go through a “mini-project”, which follows a typical workflow when working with data in R. We will install and load packages, load data, perform some operations on this data, calculate some summary statistics and plot them. In later chapters, we will go into a little bit more depth for each topic. If you want to have more in depth information instead of following the whole workflow first, you can also jump to the according chapter and read the theory. But make sure to come back to this chapter for the final exercise.\n\n\nPackages are extensions to the base R you get by default. We already installed our first packages in About this workshop. Let’s keep doing that and install the following package as well:\n\ninstall.packages(\"tidyverse\")\n\nJust by installing the packages, we can’t use them. We also have to load them into our R session:\n\nlibrary(tutoR)\nlibrary(tidyverse)\n\nThe top of your R Script should look something like this:\n\ninstall.packages(\"devtools\")\ndevtools::install_github(\"nickhaf/tutoR\")\ninstall.packages(\"tidyverse\")\n\nlibrary(tutoR)\nlibrary(tidyverse)\nIcons from https://icons8.de."
   },
   {
     "objectID": "the_big_picture.html#packages",
     "href": "the_big_picture.html#packages",
     "title": "The big picture",
     "section": "",
-    "text": "Packages are extensions to the base R you get by default. We already installed our first packages in About this workshop."
+    "text": "Packages are extensions to the base R you get by default. We already installed our first packages in About this workshop. Let’s keep doing that and install the following package as well:\n\ninstall.packages(\"tidyverse\")\n\nJust by installing the packages, we can’t use them. We also have to load them into our R session:\n\nlibrary(tutoR)\nlibrary(tidyverse)\n\nThe top of your R Script should look something like this:\n\ninstall.packages(\"devtools\")\ndevtools::install_github(\"nickhaf/tutoR\")\ninstall.packages(\"tidyverse\")\n\nlibrary(tutoR)\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "getting_started.html",
+    "href": "getting_started.html",
+    "title": "What is R?",
+    "section": "",
+    "text": "Icons from https://icons8.de."
   },
   {
     "objectID": "getting_started.html#r",
@@ -46,7 +53,7 @@
     "href": "index.html",
     "title": "R Workshop",
     "section": "",
-    "text": "The following tutorial will teach you the basics of R. It is designed to be self paced, so you can work in you own tempo.\n\n\n\nLearn the basics of programming in R as needed for the rest of the Open Research Summer School."
+    "text": "The following tutorial will teach you the basics of R. It is designed to be self paced, so you can work in you own tempo.\n\n\n\nLearn the basics of programming in R as needed for the rest of the Open Research Summer School.\nIcons from https://icons8.de."
   },
   {
     "objectID": "index.html#welcome",
@@ -60,6 +67,6 @@
     "href": "packages.html",
     "title": "Packages",
     "section": "",
-    "text": "Packages"
+    "text": "Packages\nPackages are extensions to the base R you get by default. We can compare them somewhat to apps in an appstore:\n First, we have to install the package: install.packages(\"packagename\").\n\nMost of the openly available packages lie on CRAN (Comprehensive R Archive Network). But you can also download packages form other sources, for example GitHub. This is what you did when downloading the tutoR package in About this workshop.\n\n Then, we have to load them in each session where we want to use them (like tipping on the app icon): library(packagename).\n\nNote that in install.packages(\"packagename\") we have to put the package into quotation marks, when calling library(packagename) not.\n\n\n\n\n\nIcons from https://icons8.de."
   }
 ]
