@@ -219,10 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio Projects</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a>
-  <ul class="collapse">
-  <li><a href="#package-for-this-tutorial" id="toc-package-for-this-tutorial" class="nav-link" data-scroll-target="#package-for-this-tutorial">Package for this tutorial</a></li>
-  </ul></li>
+  <li><a href="#about-this-workshop" id="toc-about-this-workshop" class="nav-link" data-scroll-target="#about-this-workshop">About this workshop</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -247,9 +244,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="rstudio">RStudio</h2>
 <section id="optional-posit-cloud" class="level3">
 <h3 class="anchored" data-anchor-id="optional-posit-cloud">Optional: posit Cloud</h3>
-<p>In case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the Posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and propably for the following week).</p>
+<p>In case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and probably for the following week).</p>
 <ol type="1">
-<li>Go to <a href="https://posit.cloud/">Posit Cloud</a>.</li>
+<li>Go to <a href="https://posit.cloud/">posit Cloud</a>.</li>
 <li>Click on <code>GET STARTED</code>.</li>
 <li>Create an account (it’s free) and login.</li>
 <li>On the upper right, click on <code>New Project</code>. This will create a new RStudio project, which you can use the same way as described in this tutorial.</li>
@@ -275,7 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="first-steps" class="level1">
 <h1>First Steps</h1>
-<p>Some of the most basic things you can do in <code>R</code> is are basic mathematical operations. In your <a href="#console">console</a>, type the following code lines and press <code>Enter</code>.</p>
+<p>Some of the most basic things you can do in <code>R</code> are basic mathematical operations. In your <a href="#console">console</a>, type the following code lines and press <code>Enter</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span>
@@ -303,20 +300,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercises" class="level3">
 <h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
 <ol type="1">
-<li>Create a new folder folder for this tutorial, where all your files will go.</li>
-<li>Create a new RStudio project and open it.</li>
-<li>Create a new R Script and open it.</li>
+<li>Create a new folder for this tutorial, where all your files will go.</li>
+<li>Create a new RStudio project and open it. Got to <code>File</code> - <code>New Project</code> - <code>Existing Directory</code> and select the path of the folder you created in step <code>1</code>.</li>
+<li>Create a new R Script by clicking on <code>File</code> - <code>New File</code> - <code>R Script</code>. Save it in you folder.<br>
+<em>Tipp: Within your project folder create a folder named <code>R</code>, where all your R Scripts will go. You can do the same for <code>data</code>, <code>plots</code> etc. later on. This will help you to structure your working directory.</em></li>
 </ol>
 </section>
 </section>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<section id="package-for-this-tutorial" class="level3">
-<h3 class="anchored" data-anchor-id="package-for-this-tutorial">Package for this tutorial</h3>
-<p>There is a package available for this tutorial, which will provide interactive exercises. Please install:</p>
+<section id="about-this-workshop" class="level2">
+<h2 class="anchored" data-anchor-id="about-this-workshop">About this workshop</h2>
+<p>This workshop will use a tutorial package (you will learn more about packages later) that can be run from within <code>R</code> and will provide interactive exercises. For now, please install that tutorial package by typing (and evaluating) the following code into your newly created R Script:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"nickhaf/tutoR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
-</section>
 </section>
 </section>
 

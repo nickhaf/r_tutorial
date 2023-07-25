@@ -11,21 +11,21 @@
     "href": "getting_started.html#rstudio",
     "title": "What is R?",
     "section": "RStudio",
-    "text": "RStudio\n\nOptional: posit Cloud\nIn case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the Posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and propably for the following week).\n\nGo to Posit Cloud.\nClick on GET STARTED.\nCreate an account (it’s free) and login.\nOn the upper right, click on New Project. This will create a new RStudio project, which you can use the same way as described in this tutorial.\n\n\n\nStructure of the RStudio interface\n\nScript Pane\n\n\nConsole\n\n\"Hello World!\"\n\n[1] \"Hello World!\"\n\n\nTadaa, we just wrote our first line of code."
+    "text": "RStudio\n\nOptional: posit Cloud\nIn case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and probably for the following week).\n\nGo to posit Cloud.\nClick on GET STARTED.\nCreate an account (it’s free) and login.\nOn the upper right, click on New Project. This will create a new RStudio project, which you can use the same way as described in this tutorial.\n\n\n\nStructure of the RStudio interface\n\nScript Pane\n\n\nConsole\n\n\"Hello World!\"\n\n[1] \"Hello World!\"\n\n\nTadaa, we just wrote our first line of code."
   },
   {
     "objectID": "getting_started.html#workflow",
     "href": "getting_started.html#workflow",
     "title": "What is R?",
     "section": "Workflow",
-    "text": "Workflow\n\nScripts\nWhen only coding in our console we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our code that is worth saving into a script.\n\n\nRStudio Projects\nOver time, it will become increasingly hard to organize all your files, working directories and workspaces in a reasonable manner. For this, RStudio Projects can be used (highly recommended).\n\n\nExercises\n\nCreate a new folder folder for this tutorial, where all your files will go.\nCreate a new RStudio project and open it.\nCreate a new R Script and open it."
+    "text": "Workflow\n\nScripts\nWhen only coding in our console we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our code that is worth saving into a script.\n\n\nRStudio Projects\nOver time, it will become increasingly hard to organize all your files, working directories and workspaces in a reasonable manner. For this, RStudio Projects can be used (highly recommended).\n\n\nExercises\n\nCreate a new folder for this tutorial, where all your files will go.\nCreate a new RStudio project and open it. Got to File - New Project - Existing Directory and select the path of the folder you created in step 1.\nCreate a new R Script by clicking on File - New File - R Script. Save it in you folder.\nTipp: Within your project folder create a folder named R, where all your R Scripts will go. You can do the same for data, plots etc. later on. This will help you to structure your working directory."
   },
   {
-    "objectID": "getting_started.html#packages",
-    "href": "getting_started.html#packages",
+    "objectID": "getting_started.html#about-this-workshop",
+    "href": "getting_started.html#about-this-workshop",
     "title": "What is R?",
-    "section": "Packages",
-    "text": "Packages\n\nPackage for this tutorial\nThere is a package available for this tutorial, which will provide interactive exercises. Please install:"
+    "section": "About this workshop",
+    "text": "About this workshop\nThis workshop will use a tutorial package (you will learn more about packages later) that can be run from within R and will provide interactive exercises. For now, please install that tutorial package by typing (and evaluating) the following code into your newly created R Script:\n\ninstall.packages(\"devtools\")\ndevtools::install_github(\"nickhaf/tutoR\")"
   },
   {
     "objectID": "index.html",
