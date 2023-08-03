@@ -222,6 +222,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load Data</a></li>
+  <li><a href="#take-a-look" id="toc-take-a-look" class="nav-link" data-scroll-target="#take-a-look">Take a look</a></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data wrangling</a>
+  <ul class="collapse">
+  <li><a href="#merging-data" id="toc-merging-data" class="nav-link" data-scroll-target="#merging-data">Merging data</a></li>
+  <li><a href="#clean-up-data" id="toc-clean-up-data" class="nav-link" data-scroll-target="#clean-up-data">Clean up data</a></li>
+  <li><a href="#subsetting-data" id="toc-subsetting-data" class="nav-link" data-scroll-target="#subsetting-data">Subsetting data</a></li>
+  <li><a href="#regression-time-vs.-year" id="toc-regression-time-vs.-year" class="nav-link" data-scroll-target="#regression-time-vs.-year">Regression Time vs.&nbsp;year</a></li>
+  <li><a href="#plot-the-data" id="toc-plot-the-data" class="nav-link" data-scroll-target="#plot-the-data">Plot the data</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -236,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now that we have completed our set up, let’s dive right into programming with <code>R</code>. In this chapter, we will go through a “mini-project”, which follows a typical workflow when working with data in <code>R</code>. We will install and load packages, load data, perform some operations on this data, calculate some summary statistics and plot them. In later chapters, we will go into a little bit more depth for each topic. If you want to have more in depth information instead of following the whole workflow first, you can also jump to the according chapter and read the theory. But make sure to come back to this chapter for the final exercise.</p>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p><a href="\packages.qmd">Packages</a> are extensions to the <code>base R</code> you get by default. We already installed our first packages in <a href="getting_started.qmd#about-this-workshop">About this workshop</a>. Let’s keep doing that and install the following package as well:</p>
+<p><a href="\packages.qmd">Packages</a> are extensions to the <code>base R</code> you get by default. We already installed our first packages in <a href="\getting_started.qmd#about-this-workshop">About this workshop</a>. Let’s keep doing that and install the following package as well:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -257,9 +266,150 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="load-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-data">Load Data</h2>
-<p><a href="\load_data.qmd">Data is loaded</a> into R so you can work with it. Let’s do just that with an example data set:</p>
+<p><a href="\load_data.qmd">Data is loaded</a> into R so you can work with it. Let’s do just that. First, you need to download the file “london_marathon.csv” from <a href="https://github.com/nickhaf/r_tutorial/tree/getting_started/raw_data">this link</a> and save it in your project folder (<em>Tip: Save it in a new subfolder named “raw_data” or somewhat similar.</em>). The data comes from the <a href="https://github.com/nrennie/LondonMarathon">LondonMarathon</a> package. Then, you can load it into R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"./raw_data/london_marathon.rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will load the data into R. You can see it popping up in your <code>Environment</code> pane on the upper right. Note we used the <code>load()</code> function to load a data set with the ending <code>.rda</code>. Here you can find a more thourough discussion about <a href="\load_data.qmd">loading data</a>. It is important you use the correct path, because otherwise R will not find your data file. Here the RStudio project we have created earlier comes in handy. It automatically knows our file lies within our project folder, which is why we can use a <strong>relative path</strong>, that starts at the project path and looks into the folder <code>raw_data</code> to open the file. Otherwise, we would have to use an <strong>absolute path</strong> (like “C:/Users/hafiznij/Documents/GitHub/r_tutorial/raw_data/london_marathon.rda” which will only work on my notebook, and only if my project stays in on this path.</p>
+</section>
+<section id="take-a-look" class="level2">
+<h2 class="anchored" data-anchor-id="take-a-look">Take a look</h2>
+<p>Now that we have our data loaded safely into R, we can get an overview with a multitude of commands. One of the most important ones might be <code>View()</code>, which will open the data set excel-style in a new window:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(london_marathon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Especially for bigger data sets, it might be more feasable to only look at the structure and not the whole data set:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(london_marathon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Classes 'tbl_df', 'tbl' and 'data.frame':   42 obs. of  8 variables:
+ $ Date            : Date, format: "1981-03-29" "1982-05-09" ...
+ $ Year            : num  1981 1982 1983 1984 1985 ...
+ $ Applicants      : num  20000 90000 60000 70000 83000 80000 80000 73000 72000 73000 ...
+ $ Accepted        : num  7747 18059 19735 21142 22274 ...
+ $ Starters        : num  7055 16350 16500 16992 17500 ...
+ $ Finishers       : num  6255 15116 15793 15675 15873 ...
+ $ Raised          : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Official charity: chr  NA NA NA NA ...</code></pre>
+</div>
+</div>
+<p>On the left we can see the columns of this data.frame, named <code>Date</code>, <code>Year</code>, <code>Applicants</code> etc … Further on the right we see the first values in each column, for example <code>1981</code>, <code>1982</code> etc …</p>
+</section>
+<section id="data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling">Data wrangling</h2>
+<p>Now, lets do something fun with this data. We want to answer the question if people have gotten faster at running marathons over that last 40 years. We will use a Some sort of regression using the times or f</p>
+<section id="merging-data" class="level3">
+<h3 class="anchored" data-anchor-id="merging-data">Merging data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"./raw_data/winners.rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="clean-up-data" class="level3">
+<h3 class="anchored" data-anchor-id="clean-up-data">Clean up data</h3>
+<p>Remove NAs, select relevant columns, Build another Time column</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>winners<span class="sc">$</span>Minutes_total <span class="ot">&lt;-</span> winners<span class="sc">$</span>Hours <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span> winners<span class="sc">$</span>Minutes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="subsetting-data" class="level3">
+<h3 class="anchored" data-anchor-id="subsetting-data">Subsetting data</h3>
+<p>Divide by Category (Wheelchar vs.&nbsp;no wheelchair)</p>
+</section>
+<section id="regression-time-vs.-year" class="level3">
+<h3 class="anchored" data-anchor-id="regression-time-vs.-year">Regression Time vs.&nbsp;year</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>women <span class="ot">&lt;-</span> winners[winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Women"</span>, ]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>lm_rs <span class="ot">&lt;-</span> <span class="fu">lm</span>(Minutes_total <span class="sc">~</span> Year, women)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_rs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Minutes_total ~ Year, data = women)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7.1827 -1.5880  0.0532  1.7458  7.6944 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 614.65116   70.01127   8.779 5.79e-11 ***
+Year         -0.23588    0.03497  -6.745 3.78e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.846 on 41 degrees of freedom
+Multiple R-squared:  0.526, Adjusted R-squared:  0.5144 
+F-statistic:  45.5 on 1 and 41 DF,  p-value: 3.777e-08</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 614 min bei Year = 0, für jedes Jahr -0.23 Min weniger:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 614 + 2020 * -0.236</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_rs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="the_big_picture_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="the_big_picture_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="the_big_picture_files/figure-html/unnamed-chunk-6-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="the_big_picture_files/figure-html/unnamed-chunk-6-4.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="plot-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="plot-the-data">Plot the data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ggplot2)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># winners %&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   filter(Category %in% c("Men", "Women")) %&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(data = ., aes(x = Year,</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#                             y = Minutes_total, </span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                      colour = Nationality, </span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#                      shape = Category)) +</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_point()</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># winners %&gt;%</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   filter(Category %in% c("Wheelchair Men", "Wheelchair Women")) %&gt;%</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(data = ., aes(x = Year,</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">#                             y = Minutes_total, </span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">#                      colour = Nationality, </span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#                      shape = Category)) +</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_point()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Für die Übung. </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("tidytuesdayR")</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytuesdayR)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="st">'2022-08-16'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>--- Compiling #TidyTuesday Information for 2022-08-16 ----</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>--- There are 3 files available ---</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>--- Starting Download ---</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Downloading file 1 of 3: `characters.csv`
+    Downloading file 2 of 3: `myers_briggs.csv`
+    Downloading file 3 of 3: `psych_stats.csv`</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>--- Download complete ---</code></pre>
+</div>
+</div>
 
 
+</section>
 </section>
 </section>
 
