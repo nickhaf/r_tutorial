@@ -39,7 +39,7 @@
     "href": "setup.html#about-this-workshop",
     "title": "What is R?",
     "section": "About this workshop",
-    "text": "About this workshop\nThis workshop will use a tutorial package (you will learn more about packages later) that can be run from within R and will provide interactive exercises. For now, please install that tutorial package by typing (and evaluating) the following code into your newly created R Script:\n\ninstall.packages(\"devtools\")\ndevtools::install_github(\"nickhaf/tutoR\")\n\nFor each chapter, there will be a short theory part. Most of the exercises can be run interactively with the tutoR package, but some will incourage you to use the RStudio environment, to get more familiar with it."
+    "text": "About this workshop\nThis workshop will use a tutorial package (you will learn more about packages later) that can be run from within R and will provide interactive exercises. For now, please install that tutorial package by typing (and evaluating) the following code into your newly created R Script:\n\ninstall.packages(\"devtools\")\ndevtools::install_github(\"nickhaf/tutoR\")\n\nFor each chapter, there will be a short theory part. Most of the exercises can be run interactively with the tutoR package, but some will encourage you to use the RStudio environment, to get more familiar with it."
   },
   {
     "objectID": "the_big_picture.html",
