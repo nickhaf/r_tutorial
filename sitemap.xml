@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/load_data.html</loc>
-    <lastmod>2023-08-08T15:14:07.914Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/setup.html</loc>
-    <lastmod>2023-08-08T15:13:43.982Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/the_big_picture.html</loc>
-    <lastmod>2023-08-08T15:13:19.555Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/index.html</loc>
-    <lastmod>2023-08-08T15:13:20.443Z</lastmod>
+    <lastmod>2023-08-08T15:39:58.902Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/packages.html</loc>
-    <lastmod>2023-08-08T15:13:44.398Z</lastmod>
+    <lastmod>2023-08-08T15:39:12.765Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/data_types.html</loc>
+    <lastmod>2023-08-08T15:39:11.977Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/index.html</loc>
+    <lastmod>2023-08-08T15:38:48.525Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/the_big_picture.html</loc>
+    <lastmod>2023-08-08T15:38:47.749Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/setup.html</loc>
+    <lastmod>2023-08-08T15:39:11.629Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/subsetting.html</loc>
+    <lastmod>2023-08-08T15:39:12.357Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/data_structures.html</loc>
+    <lastmod>2023-08-08T15:39:35.810Z</lastmod>
   </url>
 </urlset>
