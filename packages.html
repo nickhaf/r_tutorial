@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./data_types.html" rel="next">
-<link href="./load_data.html" rel="prev">
+<link href="./load_data.html" rel="next">
+<link href="./data_structures.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -180,8 +214,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./load_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Load data</span></a>
+  <a href="./data_types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">data_types.html</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -192,14 +232,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_types.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">data_types.html</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./data_structures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data structures</span></a>
+  <a href="./load_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Load data</span></a>
   </div>
 </li>
       </ul>
@@ -231,7 +265,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a>
+  <ul class="collapse">
+  <li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages">Install packages</a></li>
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
+  <li><a href="#conflicts" id="toc-conflicts" class="nav-link" data-scroll-target="#conflicts">Conflicts</a></li>
+  <li><a href="#deliberate-package-management" id="toc-deliberate-package-management" class="nav-link" data-scroll-target="#deliberate-package-management">Deliberate package management</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -242,14 +282,108 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="packages" class="level1">
 <h1>Packages</h1>
-<p>Packages are extensions to the <code>base R</code> you get by default. We can compare them somewhat to apps in an appstore:</p>
+<p>Packages are extensions to the <code>base R</code> you get by default. Most times they provide many new functions, bundled around a specific use case. When working with R you will have to rely heavily on packages developed by others. There are many, many great packages out there facilitating your work with R and making possible many different analyses, visualizations and many more.</p>
+<p>We can compare them somewhat to apps in an appstore:</p>
 <p><img src="./pictures/playstore.png" class="img-fluid" width="19"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> First, we have to install the package: <code>install.packages("packagename")</code>. - Most of the openly available packages lie on <a href="https://cran.r-project.org/">CRAN</a> (Comprehensive R Archive Network). But you can also download packages form other sources, for example <a href="https://github.com/">GitHub</a>. This is what you did when downloading the <code>tutoR</code> package in <a href="./setup.html#about-this-workshop">About this workshop</a>.</p>
 <p><img src="./pictures/app.png" class="img-fluid" width="19"><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Then, we have to load them in each session where we want to use them (like tipping on the app icon): <code>library(packagename)</code>.</p>
 <ul>
 <li>Note that in <code>install.packages("packagename")</code> we have to put the package into quotation marks, when calling <code>library(packagename)</code> not.</li>
 </ul>
+<section id="install-packages" class="level2">
+<h2 class="anchored" data-anchor-id="install-packages">Install packages</h2>
+<p>Before we can use packages we have to install them once. Most packages are hosted via the Comprehensive R Archive Network (CRAN), to install a package from there, we can use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("aRtsy")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>But often packages are only (or as well) provided via GitHub. To install a package from there, use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"cutterkom/generativeart"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="load-packages" class="level2">
+<h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
+<p>After installing a package, we have to load it into our R session:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(aRtsy)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we are free to use it, in this case to generate some artwork:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set.seed(1)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#canvas_collatz(colors = colorPalette("lava"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="conflicts" class="level2">
+<h2 class="anchored" data-anchor-id="conflicts">Conflicts</h2>
+<p>Of course it can happen that different packages include functions with the same name. For example, look at the warnings we get when installing and then loading the packages <code>ggplot2</code> and <code>psych</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"psych"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'psych'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:ggplot2':
+
+    %+%, alpha</code></pre>
+</div>
+</div>
+<p>There seems to be a function named <code>alpha</code> which is included in both packages (but not the same function, just the same name). The warning message notifies us that the object <code>alpha</code> from <code>ggplot2</code> is masked, so if we call it, the <code>alpha</code> function from the <code>psych</code> package is used. To solve that quandary, we can use the <code>::</code> operator. In front we write the package name, and behind it the name of the function we want to use from that package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">alpha</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="deliberate-package-management" class="level2">
+<h2 class="anchored" data-anchor-id="deliberate-package-management">Deliberate package management</h2>
+<p>Finally, a quick note on package management and reproducability of your code. R versions and package versions <strong>will</strong> change over time, in which case also the output of your code might change. Therefore, it is good practice to save the R version and package versions, so your code stays (kind of) reproducable for a longer period of time. The most straight forward thing to do is to just write down your R-version and the package versions at the top of your script. Call the versions you use with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.3.1 (2023-06-16)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 22.04.3 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.20.so;  LAPACK version 3.10.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
+ [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
+ [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
+[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
+
+time zone: UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices datasets  utils     methods   base     
+
+other attached packages:
+[1] psych_2.3.6   ggplot2_3.4.2
+
+loaded via a namespace (and not attached):
+ [1] vctrs_0.6.3       nlme_3.1-162      cli_3.6.1         knitr_1.43       
+ [5] rlang_1.1.1       xfun_0.39         generics_0.1.3    renv_1.0.0       
+ [9] jsonlite_1.8.7    glue_1.6.2        colorspace_2.1-0  htmltools_0.5.5  
+[13] scales_1.2.1      fansi_1.0.4       rmarkdown_2.23    grid_4.3.1       
+[17] evaluate_0.21     munsell_0.5.0     tibble_3.2.1      fastmap_1.1.1    
+[21] yaml_2.3.7        lifecycle_1.0.3   compiler_4.3.1    dplyr_1.1.2      
+[25] pkgconfig_2.0.3   rstudioapi_0.15.0 lattice_0.21-8    digest_0.6.32    
+[29] R6_2.5.1          tidyselect_1.2.0  utf8_1.2.3        parallel_4.3.1   
+[33] mnormt_2.1.1      pillar_1.9.0      magrittr_2.0.3    withr_2.5.0      
+[37] tools_4.3.1       gtable_0.3.3     </code></pre>
+</div>
+</div>
+<p>A more elegant approach to manage your packages is to use a dedicated package like <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a>, which will make it a lot easier to manage your package versions. But this is past the scope of this workshop, just keep in mind it might be something rewarding to look at, if you should start to programm more with R. Instead, let’s look at how to get data into R in the next chapter, so we can actually get to work with it.</p>
 
 
+</section>
 </section>
 
 
@@ -495,13 +629,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./load_data.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Load data</span>
+      <a href="./data_structures.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data structures</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./data_types.html" class="pagination-link">
-        <span class="nav-page-text">data_types.html</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./load_data.html" class="pagination-link">
+        <span class="nav-page-text">Load data</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
