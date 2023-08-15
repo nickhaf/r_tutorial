@@ -53,42 +53,42 @@
     "href": "basics.html",
     "title": "Basic operations",
     "section": "",
-    "text": "Let’s take a quick look at the most important basic operations in R.\n\n\n\n# sum\n1 + 2\n\n# substract\n2 - 4\n\n# multiply\n4 * 4\n\n# divide\n3/2\n\n\n\n\nThe boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\n\ndat_structs &lt;- data.frame(\"Operator\" = c(\"&lt;\", \"&gt;\", \"==\", \"!=\", \"&lt;=\", \"&gt;=\"),\n                          \"Description\" = c(\"less than\", \"greater than\", \"equal to\", \"not equal to\", \"less or equal\", \"greater or equal\")\n)\n\nknitr::kable(dat_structs, \"pipe\",\n             col.names = c(\"Operator\", \"Description\")\n             ) \n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n\n\n\n\n\n\nWe can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE\n\n\n\n\n\nThe operator &lt;- assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- !(10 &gt; 1)\n\n\n\n\nEverything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeate 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:\n\n\n\nOne of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments …"
+    "text": "Let’s take a quick look at the most important basic operations in R.\n\n\nWe can use R as a calculator:\n\n# sum\n1 + 2\n\n# substract\n2 - 4\n\n# multiply\n4 * 4\n\n# divide\n3/2\n\n\n\n\nWe can create objects in R by using the assignment operator &lt;-, which assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\nresult\n\n[1] 2\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- !(10 &gt; 1)\nlog_result\n\n[1] FALSE\n\n\n\n\n\nThe boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\n\ndat_structs &lt;- data.frame(\"Operator\" = c(\"&lt;\", \"&gt;\", \"==\", \"!=\", \"&lt;=\", \"&gt;=\"),\n                          \"Description\" = c(\"less than\", \"greater than\", \"equal to\", \"not equal to\", \"less or equal\", \"greater or equal\")\n)\n\nknitr::kable(dat_structs, \"pipe\",\n             col.names = c(\"Operator\", \"Description\")\n             ) \n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n\n\n\nMainly we will use these logical operation to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined.\n\n\n\nWe can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE\n\n!(1:10 != c(1, 2))\n\n [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\n\n\n\nEverything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeat 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:\n\n\n\nOne of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments …"
   },
   {
     "objectID": "basics.html#basic-mathematical-operations",
     "href": "basics.html#basic-mathematical-operations",
     "title": "Basic operations",
     "section": "",
-    "text": "# sum\n1 + 2\n\n# substract\n2 - 4\n\n# multiply\n4 * 4\n\n# divide\n3/2"
-  },
-  {
-    "objectID": "basics.html#comparisons-and-logical-operators",
-    "href": "basics.html#comparisons-and-logical-operators",
-    "title": "Basic operations",
-    "section": "",
-    "text": "The boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\n\ndat_structs &lt;- data.frame(\"Operator\" = c(\"&lt;\", \"&gt;\", \"==\", \"!=\", \"&lt;=\", \"&gt;=\"),\n                          \"Description\" = c(\"less than\", \"greater than\", \"equal to\", \"not equal to\", \"less or equal\", \"greater or equal\")\n)\n\nknitr::kable(dat_structs, \"pipe\",\n             col.names = c(\"Operator\", \"Description\")\n             ) \n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal"
-  },
-  {
-    "objectID": "basics.html#section",
-    "href": "basics.html#section",
-    "title": "Basic operations",
-    "section": "",
-    "text": "We can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE"
+    "text": "We can use R as a calculator:\n\n# sum\n1 + 2\n\n# substract\n2 - 4\n\n# multiply\n4 * 4\n\n# divide\n3/2"
   },
   {
     "objectID": "basics.html#assignment-operator",
     "href": "basics.html#assignment-operator",
     "title": "Basic operations",
     "section": "",
-    "text": "The operator &lt;- assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- !(10 &gt; 1)"
+    "text": "We can create objects in R by using the assignment operator &lt;-, which assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\nresult\n\n[1] 2\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- !(10 &gt; 1)\nlog_result\n\n[1] FALSE"
+  },
+  {
+    "objectID": "basics.html#comparisons-and-logical-operators",
+    "href": "basics.html#comparisons-and-logical-operators",
+    "title": "Basic operations",
+    "section": "",
+    "text": "The boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\n\ndat_structs &lt;- data.frame(\"Operator\" = c(\"&lt;\", \"&gt;\", \"==\", \"!=\", \"&lt;=\", \"&gt;=\"),\n                          \"Description\" = c(\"less than\", \"greater than\", \"equal to\", \"not equal to\", \"less or equal\", \"greater or equal\")\n)\n\nknitr::kable(dat_structs, \"pipe\",\n             col.names = c(\"Operator\", \"Description\")\n             ) \n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n\n\n\nMainly we will use these logical operation to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined."
+  },
+  {
+    "objectID": "basics.html#section",
+    "href": "basics.html#section",
+    "title": "Basic operations",
+    "section": "",
+    "text": "We can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE\n\n!(1:10 != c(1, 2))\n\n [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE"
   },
   {
     "objectID": "basics.html#functions",
     "href": "basics.html#functions",
     "title": "Basic operations",
     "section": "",
-    "text": "Everything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeate 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:"
+    "text": "Everything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeat 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:"
   },
   {
     "objectID": "basics.html#help",
