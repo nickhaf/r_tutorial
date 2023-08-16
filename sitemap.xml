@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/nickhaf/r_tutorial/load_data.html</loc>
-    <lastmod>2023-08-16T10:58:48.586Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/packages.html</loc>
-    <lastmod>2023-08-16T10:58:01.045Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/Manipulation.html</loc>
-    <lastmod>2023-08-16T10:57:12.901Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/index.html</loc>
-    <lastmod>2023-08-16T10:56:48.929Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/basics.html</loc>
-    <lastmod>2023-08-16T10:56:23.017Z</lastmod>
+    <loc>https://github.com/nickhaf/r_tutorial/setup.html</loc>
+    <lastmod>2023-08-16T12:47:12.984Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/the_big_picture.html</loc>
-    <lastmod>2023-08-16T10:56:48.501Z</lastmod>
+    <lastmod>2023-08-16T12:46:26.039Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nickhaf/r_tutorial/setup.html</loc>
-    <lastmod>2023-08-16T10:57:12.513Z</lastmod>
+    <loc>https://github.com/nickhaf/r_tutorial/Manipulation.html</loc>
+    <lastmod>2023-08-16T12:45:32.402Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/index.html</loc>
+    <lastmod>2023-08-16T12:44:45.029Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/subsetting.html</loc>
-    <lastmod>2023-08-16T10:57:37.041Z</lastmod>
+    <lastmod>2023-08-16T12:44:20.468Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/data_structures.html</loc>
-    <lastmod>2023-08-16T10:58:25.013Z</lastmod>
+    <lastmod>2023-08-16T12:44:44.641Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/basics.html</loc>
+    <lastmod>2023-08-16T12:45:08.649Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/packages.html</loc>
+    <lastmod>2023-08-16T12:45:56.338Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/load_data.html</loc>
+    <lastmod>2023-08-16T12:46:49.511Z</lastmod>
   </url>
 </urlset>
