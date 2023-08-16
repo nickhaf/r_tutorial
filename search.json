@@ -1,31 +1,150 @@
 [
   {
-    "objectID": "setup.html",
-    "href": "setup.html",
-    "title": "Setup",
+    "objectID": "load_data.html",
+    "href": "load_data.html",
+    "title": "Load data",
     "section": "",
-    "text": "In case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and probably for the following week).\n\nGo to posit Cloud.\nClick on GET STARTED.\nCreate an account (it’s free) and login.\nOn the upper right, click on New Project. This will create a new RStudio project, which you can use the same way as described in this tutorial.\n\n\n\n\n\n\n\n\n\n\n\"Hello World!\"\n\n[1] \"Hello World!\"\n\n\nTadaa, we just wrote our first line of code."
+    "text": "There are many different data types out there, of which many can be loaded into R. Depending on the type, different commands are used within R. Sometimes, we will have to use additional packages to get access to that function, mainly readxl and haven.\n\n\n\n\n\n\n\n\n\nData.type\nImport\nExport\n\n\n\n\nR objects (.Rdata, .rda)\nload()\nsave()\n\n\nsingle R object (.Rds)\nreadRDS()\nsaveRDS()\n\n\ntext-files (.txt)\nread.table()\nwrite.table()\n\n\n.csv-files (.csv)\nread.csv()\nwrite.csv()\n\n\nExcel-files (.xlsx)\nreadxl::read_excel()\nwritexl::write_xlsx()\n\n\nSPSS-files (.sav)\nhaven::read_sav()\nhaven::write_sav()\n\n\nSAS-files (.sas)\nhaven::read_sas()\nhaven::write_sas()\n\n\nStata-files (.stata)\nhaven::read_dta()\nhaven::write_dta()\n\n\n\n\n\n\n\nYou can head to a specific file by using the full path (absolute path): \"C:\\Users\\hafiznij\\Documents\\GitHub\\r_tutorial\\raw_data\\winners.rda\". This approach has some disadvantages: it will only work on my notebook. If i want to continue my project on another device, i will have to change the path. The same goes for other people who want to work with my project. So, to keep these paths more reproducable, we should always use relative paths if possible: \".\\raw_data\\winners.rda\". This will always work independently of the device i am working on, as long as i am in the correct working directory.\nThe working directory is the path R is currently working in. I can obtain it by typing:\n\ngetwd()\n\n[1] \"/home/runner/work/r_tutorial/r_tutorial\"\n\n\nLuckily, as long as we work with RStudio projects, we don’t have to deal with that, as the working directory is set automatically by the project.\nNow take a look at the working directory and the relative path i used for loading the winners.rda. Notice something? Correct, both paths combined equal the absolute path to the file. So by splitting it up, we obtain a more reproducible path, that works independent of where the current working directory is."
   },
   {
-    "objectID": "setup.html#rstudio",
-    "href": "setup.html#rstudio",
-    "title": "Setup",
+    "objectID": "load_data.html#data-types",
+    "href": "load_data.html#data-types",
+    "title": "Load data",
     "section": "",
-    "text": "In case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and probably for the following week).\n\nGo to posit Cloud.\nClick on GET STARTED.\nCreate an account (it’s free) and login.\nOn the upper right, click on New Project. This will create a new RStudio project, which you can use the same way as described in this tutorial.\n\n\n\n\n\n\n\n\n\n\n\"Hello World!\"\n\n[1] \"Hello World!\"\n\n\nTadaa, we just wrote our first line of code."
+    "text": "There are many different data types out there, of which many can be loaded into R. Depending on the type, different commands are used within R. Sometimes, we will have to use additional packages to get access to that function, mainly readxl and haven.\n\n\n\n\n\n\n\n\n\nData.type\nImport\nExport\n\n\n\n\nR objects (.Rdata, .rda)\nload()\nsave()\n\n\nsingle R object (.Rds)\nreadRDS()\nsaveRDS()\n\n\ntext-files (.txt)\nread.table()\nwrite.table()\n\n\n.csv-files (.csv)\nread.csv()\nwrite.csv()\n\n\nExcel-files (.xlsx)\nreadxl::read_excel()\nwritexl::write_xlsx()\n\n\nSPSS-files (.sav)\nhaven::read_sav()\nhaven::write_sav()\n\n\nSAS-files (.sas)\nhaven::read_sas()\nhaven::write_sas()\n\n\nStata-files (.stata)\nhaven::read_dta()\nhaven::write_dta()"
   },
   {
-    "objectID": "setup.html#workflow",
-    "href": "setup.html#workflow",
-    "title": "Setup",
-    "section": "Workflow",
-    "text": "Workflow\n\nScripts\nWhen only coding in our console we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our code that is worth saving into a script.\n\n\nRStudio Projects\nOver time, it will become increasingly hard to organize all your files, working directories and workspaces in a reasonable manner. For this, RStudio Projects can be used (highly recommended).\n\n\nExercises\n\nCreate a new folder for this tutorial, where all your files will go.\nCreate a new RStudio project and open it. Got to File - New Project - Existing Directory and select the path of the folder you created in step 1.\nCreate a new R Script by clicking on File - New File - R Script. Save it in you folder.\nTipp: Within your project folder create a folder named R, where all your R Scripts will go. You can do the same for data, plots etc. later on. This will help you to structure your working directory."
+    "objectID": "load_data.html#absolute-paths-vs.-relative-paths",
+    "href": "load_data.html#absolute-paths-vs.-relative-paths",
+    "title": "Load data",
+    "section": "",
+    "text": "You can head to a specific file by using the full path (absolute path): \"C:\\Users\\hafiznij\\Documents\\GitHub\\r_tutorial\\raw_data\\winners.rda\". This approach has some disadvantages: it will only work on my notebook. If i want to continue my project on another device, i will have to change the path. The same goes for other people who want to work with my project. So, to keep these paths more reproducable, we should always use relative paths if possible: \".\\raw_data\\winners.rda\". This will always work independently of the device i am working on, as long as i am in the correct working directory.\nThe working directory is the path R is currently working in. I can obtain it by typing:\n\ngetwd()\n\n[1] \"/home/runner/work/r_tutorial/r_tutorial\"\n\n\nLuckily, as long as we work with RStudio projects, we don’t have to deal with that, as the working directory is set automatically by the project.\nNow take a look at the working directory and the relative path i used for loading the winners.rda. Notice something? Correct, both paths combined equal the absolute path to the file. So by splitting it up, we obtain a more reproducible path, that works independent of where the current working directory is."
   },
   {
-    "objectID": "setup.html#about-this-workshop",
-    "href": "setup.html#about-this-workshop",
-    "title": "Setup",
-    "section": "About this workshop",
-    "text": "About this workshop\nThis workshop will use a tutorial package (you will learn more about packages later) that can be run from within R and will provide interactive exercises. For now, please install that tutorial package by typing (and evaluating) the following code into your newly created R Script:\n\ninstall.packages(\"devtools\")\ndevtools::install_github(\"nickhaf/tutoR\")\n\nFor each chapter, there will be a short theory part. Most of the exercises can be run interactively with the tutoR package, but some will encourage you to use the RStudio environment, to get more familiar with it.\nFeel free to use any resources at you disposal to solve the exercises. That’s how you would also do it in real live. Just make sure you understand why your solution works (or why it doesn’t)."
+    "objectID": "packages.html",
+    "href": "packages.html",
+    "title": "Packages",
+    "section": "",
+    "text": "Packages are extensions to the base R you get by default. Most times they provide many new functions, bundled around a specific use case. When working with R you will have to rely heavily on packages developed by others. There are many, many great packages out there facilitating your work with R and making possible many different analyses, visualizations and many more.\nWe can compare them somewhat to apps in an appstore:\n1 First, we have to install the package: install.packages(\"packagename\"). - Most of the openly available packages lie on CRAN (Comprehensive R Archive Network). But you can also download packages form other sources, for example GitHub. This is what you did when downloading the tutoR package in About this workshop.\n2 Then, we have to load them in each session where we want to use them (like tipping on the app icon): library(packagename).\n\nNote that in install.packages(\"packagename\") we have to put the package into quotation marks, when calling library(packagename) not.\n\n\n\nBefore we can use packages we have to install them once. Most packages are hosted via the Comprehensive R Archive Network (CRAN), to install a package from there, we can use:\n\ninstall.packages(\"aRtsy\")\n\nBut often packages are only (or as well) provided via GitHub. To install a package from there, use:\n\ndevtools::install_github(\"cutterkom/generativeart\")\n\n\n\n\nAfter installing a package, we have to load it into our R session:\n\n#library(aRtsy)\n\nNow we are free to use it, in this case to generate some artwork:\n\n#set.seed(1)\n#canvas_collatz(colors = colorPalette(\"lava\"))\n\n\n\n\nOf course it can happen that different packages include functions with the same name. For example, look at the warnings we get when installing and then loading the packages ggplot2 and psych:\n\ninstall.packages(\"ggplot2\")\ninstall.packages(\"psych\")\n\n\nlibrary(ggplot2)\nlibrary(psych)\n\n\nAttaching package: 'psych'\n\n\nThe following objects are masked from 'package:ggplot2':\n\n    %+%, alpha\n\n\nThere seems to be a function named alpha which is included in both packages (but not the same function, just the same name). The warning message notifies us that the object alpha from ggplot2 is masked, so if we call it, the alpha function from the psych package is used. To solve that quandary, we can use the :: operator. In front we write the package name, and behind it the name of the function we want to use from that package:\n\nggplot2::alpha()\npsych::alpha()\n\n\n\n\nFinally, a quick note on package management and reproducability of your code. R versions and package versions will change over time, in which case also the output of your code might change. Therefore, it is good practice to save the R version and package versions, so your code stays (kind of) reproducable for a longer period of time. The most straight forward thing to do is to just write down your R-version and the package versions at the top of your script. Call the versions you use with:\n\nsessionInfo()\n\nR version 4.3.1 (2023-06-16)\nPlatform: x86_64-pc-linux-gnu (64-bit)\nRunning under: Ubuntu 22.04.3 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 \nLAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.20.so;  LAPACK version 3.10.0\n\nlocale:\n [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       \n [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   \n [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          \n[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   \n\ntime zone: UTC\ntzcode source: system (glibc)\n\nattached base packages:\n[1] stats     graphics  grDevices datasets  utils     methods   base     \n\nother attached packages:\n[1] psych_2.3.6   ggplot2_3.4.2\n\nloaded via a namespace (and not attached):\n [1] vctrs_0.6.3       nlme_3.1-162      cli_3.6.1         knitr_1.43       \n [5] rlang_1.1.1       xfun_0.39         generics_0.1.3    renv_1.0.0       \n [9] jsonlite_1.8.7    glue_1.6.2        colorspace_2.1-0  htmltools_0.5.5  \n[13] scales_1.2.1      fansi_1.0.4       rmarkdown_2.23    grid_4.3.1       \n[17] evaluate_0.21     munsell_0.5.0     tibble_3.2.1      fastmap_1.1.1    \n[21] yaml_2.3.7        lifecycle_1.0.3   compiler_4.3.1    dplyr_1.1.2      \n[25] pkgconfig_2.0.3   rstudioapi_0.15.0 lattice_0.21-8    digest_0.6.32    \n[29] R6_2.5.1          tidyselect_1.2.0  utf8_1.2.3        parallel_4.3.1   \n[33] mnormt_2.1.1      pillar_1.9.0      magrittr_2.0.3    withr_2.5.0      \n[37] tools_4.3.1       gtable_0.3.3     \n\n\nA more elegant approach to manage your packages is to use a dedicated package like renv, which will make it a lot easier to manage your package versions. But this is past the scope of this workshop, just keep in mind it might be something rewarding to look at, if you should start to programm more with R. Instead, let’s look at how to get data into R in the next chapter, so we can actually get to work with it."
+  },
+  {
+    "objectID": "packages.html#install-packages",
+    "href": "packages.html#install-packages",
+    "title": "Packages",
+    "section": "",
+    "text": "Before we can use packages we have to install them once. Most packages are hosted via the Comprehensive R Archive Network (CRAN), to install a package from there, we can use:\n\ninstall.packages(\"aRtsy\")\n\nBut often packages are only (or as well) provided via GitHub. To install a package from there, use:\n\ndevtools::install_github(\"cutterkom/generativeart\")"
+  },
+  {
+    "objectID": "packages.html#load-packages",
+    "href": "packages.html#load-packages",
+    "title": "Packages",
+    "section": "",
+    "text": "After installing a package, we have to load it into our R session:\n\n#library(aRtsy)\n\nNow we are free to use it, in this case to generate some artwork:\n\n#set.seed(1)\n#canvas_collatz(colors = colorPalette(\"lava\"))"
+  },
+  {
+    "objectID": "packages.html#conflicts",
+    "href": "packages.html#conflicts",
+    "title": "Packages",
+    "section": "",
+    "text": "Of course it can happen that different packages include functions with the same name. For example, look at the warnings we get when installing and then loading the packages ggplot2 and psych:\n\ninstall.packages(\"ggplot2\")\ninstall.packages(\"psych\")\n\n\nlibrary(ggplot2)\nlibrary(psych)\n\n\nAttaching package: 'psych'\n\n\nThe following objects are masked from 'package:ggplot2':\n\n    %+%, alpha\n\n\nThere seems to be a function named alpha which is included in both packages (but not the same function, just the same name). The warning message notifies us that the object alpha from ggplot2 is masked, so if we call it, the alpha function from the psych package is used. To solve that quandary, we can use the :: operator. In front we write the package name, and behind it the name of the function we want to use from that package:\n\nggplot2::alpha()\npsych::alpha()"
+  },
+  {
+    "objectID": "packages.html#deliberate-package-management",
+    "href": "packages.html#deliberate-package-management",
+    "title": "Packages",
+    "section": "",
+    "text": "Finally, a quick note on package management and reproducability of your code. R versions and package versions will change over time, in which case also the output of your code might change. Therefore, it is good practice to save the R version and package versions, so your code stays (kind of) reproducable for a longer period of time. The most straight forward thing to do is to just write down your R-version and the package versions at the top of your script. Call the versions you use with:\n\nsessionInfo()\n\nR version 4.3.1 (2023-06-16)\nPlatform: x86_64-pc-linux-gnu (64-bit)\nRunning under: Ubuntu 22.04.3 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 \nLAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.20.so;  LAPACK version 3.10.0\n\nlocale:\n [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       \n [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   \n [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          \n[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   \n\ntime zone: UTC\ntzcode source: system (glibc)\n\nattached base packages:\n[1] stats     graphics  grDevices datasets  utils     methods   base     \n\nother attached packages:\n[1] psych_2.3.6   ggplot2_3.4.2\n\nloaded via a namespace (and not attached):\n [1] vctrs_0.6.3       nlme_3.1-162      cli_3.6.1         knitr_1.43       \n [5] rlang_1.1.1       xfun_0.39         generics_0.1.3    renv_1.0.0       \n [9] jsonlite_1.8.7    glue_1.6.2        colorspace_2.1-0  htmltools_0.5.5  \n[13] scales_1.2.1      fansi_1.0.4       rmarkdown_2.23    grid_4.3.1       \n[17] evaluate_0.21     munsell_0.5.0     tibble_3.2.1      fastmap_1.1.1    \n[21] yaml_2.3.7        lifecycle_1.0.3   compiler_4.3.1    dplyr_1.1.2      \n[25] pkgconfig_2.0.3   rstudioapi_0.15.0 lattice_0.21-8    digest_0.6.32    \n[29] R6_2.5.1          tidyselect_1.2.0  utf8_1.2.3        parallel_4.3.1   \n[33] mnormt_2.1.1      pillar_1.9.0      magrittr_2.0.3    withr_2.5.0      \n[37] tools_4.3.1       gtable_0.3.3     \n\n\nA more elegant approach to manage your packages is to use a dedicated package like renv, which will make it a lot easier to manage your package versions. But this is past the scope of this workshop, just keep in mind it might be something rewarding to look at, if you should start to programm more with R. Instead, let’s look at how to get data into R in the next chapter, so we can actually get to work with it."
+  },
+  {
+    "objectID": "packages.html#footnotes",
+    "href": "packages.html#footnotes",
+    "title": "Packages",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nIcons from icons8.de.↩︎\nIcons from icons8.de.↩︎"
+  },
+  {
+    "objectID": "Manipulation.html",
+    "href": "Manipulation.html",
+    "title": "New columns",
+    "section": "",
+    "text": "Adding new columns to a data frame is pretty straight forward. We just define the column name, and then assign it some input:\n\npersons &lt;- data.frame(name = c(\"Anna\", \"Alex\", \"John\", \"Jessi\"),\n                      age = c(19, 17, 18, 18),\n                      birth_month = c(\"Jan\", \"Sep\", \"Oct\", \"Mar\"),\n                      big5_extro = c(3.5, 2, 4.5, 4.2)\n                      )\n\npersons$big5_neuro &lt;- c(3, 4, 1, 2)\n\nOr, using the tidyverse:\n\n\nlibrary(dplyr)\npersons &lt;- persons %&gt;%\n  mutate(big5_open = c(3, 4, 3, 4))"
+  },
+  {
+    "objectID": "Manipulation.html#merging-data-frames",
+    "href": "Manipulation.html#merging-data-frames",
+    "title": "New columns",
+    "section": "Merging data frames",
+    "text": "Merging data frames"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R Workshop",
+    "section": "",
+    "text": "The following tutorial will teach you the basics of R. It is designed to be self paced, so you can work in you own tempo.\n\n\n\nLearn the basics of programming in R as needed for the rest of the Open Research Summer School."
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "R Workshop",
+    "section": "",
+    "text": "The following tutorial will teach you the basics of R. It is designed to be self paced, so you can work in you own tempo.\n\n\n\nLearn the basics of programming in R as needed for the rest of the Open Research Summer School."
+  },
+  {
+    "objectID": "basics.html",
+    "href": "basics.html",
+    "title": "Basic operations",
+    "section": "",
+    "text": "Let’s take a quick look at the most important basic operations in R.\n\n\nWe can use R as a calculator:\n\n(1 + 2) * 3^2\n2 - 3/log(8)\n\n\n\n\nWe can create objects in R by using the assignment operator &lt;-, which assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\nresult\n\n[1] 2\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- !(10 &gt; 1)\nlog_result\n\n[1] FALSE\n\n\n\n\n\nThe boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\nThese are the comparison operators you will typically use:\n\n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n\n\n\nMainly we will use these logical operation to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined.\n\n\n\nWe can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE\n\n!(1:10 != c(1, 2))\n\n [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\n\n\n\nEverything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeat 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:\n\n\n\nOne of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments … In the next chapter we will take a very quick look at R’s data types.\n\n\n\n\nLoad the tutoR package and start the exercises about the basic operations by typing the following code into your console:\n\n\nlearnr::run_tutorial(name = \"basics\", package = \"tutoR\")"
+  },
+  {
+    "objectID": "basics.html#basic-mathematical-operations",
+    "href": "basics.html#basic-mathematical-operations",
+    "title": "Basic operations",
+    "section": "",
+    "text": "We can use R as a calculator:\n\n(1 + 2) * 3^2\n2 - 3/log(8)"
+  },
+  {
+    "objectID": "basics.html#assignment-operator",
+    "href": "basics.html#assignment-operator",
+    "title": "Basic operations",
+    "section": "",
+    "text": "We can create objects in R by using the assignment operator &lt;-, which assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\nresult\n\n[1] 2\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- !(10 &gt; 1)\nlog_result\n\n[1] FALSE"
+  },
+  {
+    "objectID": "basics.html#comparisons-and-logical-operators",
+    "href": "basics.html#comparisons-and-logical-operators",
+    "title": "Basic operations",
+    "section": "",
+    "text": "The boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\nThese are the comparison operators you will typically use:\n\n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n\n\n\nMainly we will use these logical operation to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined."
+  },
+  {
+    "objectID": "basics.html#section",
+    "href": "basics.html#section",
+    "title": "Basic operations",
+    "section": "",
+    "text": "We can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE\n\n!(1:10 != c(1, 2))\n\n [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE"
+  },
+  {
+    "objectID": "basics.html#functions",
+    "href": "basics.html#functions",
+    "title": "Basic operations",
+    "section": "",
+    "text": "Everything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeat 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:"
+  },
+  {
+    "objectID": "basics.html#help",
+    "href": "basics.html#help",
+    "title": "Basic operations",
+    "section": "",
+    "text": "One of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments … In the next chapter we will take a very quick look at R’s data types."
+  },
+  {
+    "objectID": "basics.html#exercise",
+    "href": "basics.html#exercise",
+    "title": "Basic operations",
+    "section": "",
+    "text": "Load the tutoR package and start the exercises about the basic operations by typing the following code into your console:\n\n\nlearnr::run_tutorial(name = \"basics\", package = \"tutoR\")"
   },
   {
     "objectID": "the_big_picture.html",
@@ -77,32 +196,32 @@
     "text": "Conclusion\nIn this tutorial we learned, that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. Either follow the course, or navigate to the chapters you are most interested in."
   },
   {
-    "objectID": "Manipulation.html",
-    "href": "Manipulation.html",
-    "title": "New columns",
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Setup",
     "section": "",
-    "text": "Adding new columns to a data frame is pretty straight forward. We just define the column name, and then assign it some input:\n\npersons &lt;- data.frame(name = c(\"Anna\", \"Alex\", \"John\", \"Jessi\"),\n                      age = c(19, 17, 18, 18),\n                      birth_month = c(\"Jan\", \"Sep\", \"Oct\", \"Mar\"),\n                      big5_extro = c(3.5, 2, 4.5, 4.2)\n                      )\n\npersons$big5_neuro &lt;- c(3, 4, 1, 2)\n\nOr, using the tidyverse:\n\n\nlibrary(dplyr)\npersons &lt;- persons %&gt;%\n  mutate(big5_open = c(3, 4, 3, 4))"
+    "text": "In case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and probably for the following week).\n\nGo to posit Cloud.\nClick on GET STARTED.\nCreate an account (it’s free) and login.\nOn the upper right, click on New Project. This will create a new RStudio project, which you can use the same way as described in this tutorial.\n\n\n\n\n\n\n\n\n\n\n\"Hello World!\"\n\n[1] \"Hello World!\"\n\n\nTadaa, we just wrote our first line of code."
   },
   {
-    "objectID": "Manipulation.html#merging-data-frames",
-    "href": "Manipulation.html#merging-data-frames",
-    "title": "New columns",
-    "section": "Merging data frames",
-    "text": "Merging data frames"
+    "objectID": "setup.html#rstudio",
+    "href": "setup.html#rstudio",
+    "title": "Setup",
+    "section": "",
+    "text": "In case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and probably for the following week).\n\nGo to posit Cloud.\nClick on GET STARTED.\nCreate an account (it’s free) and login.\nOn the upper right, click on New Project. This will create a new RStudio project, which you can use the same way as described in this tutorial.\n\n\n\n\n\n\n\n\n\n\n\"Hello World!\"\n\n[1] \"Hello World!\"\n\n\nTadaa, we just wrote our first line of code."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "R Workshop",
-    "section": "",
-    "text": "The following tutorial will teach you the basics of R. It is designed to be self paced, so you can work in you own tempo.\n\n\n\nLearn the basics of programming in R as needed for the rest of the Open Research Summer School."
+    "objectID": "setup.html#workflow",
+    "href": "setup.html#workflow",
+    "title": "Setup",
+    "section": "Workflow",
+    "text": "Workflow\n\nScripts\nWhen only coding in our console we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our code that is worth saving into a script.\n\n\nRStudio Projects\nOver time, it will become increasingly hard to organize all your files, working directories and workspaces in a reasonable manner. For this, RStudio Projects can be used (highly recommended).\n\n\nExercises\n\nCreate a new folder for this tutorial, where all your files will go.\nCreate a new RStudio project and open it. Got to File - New Project - Existing Directory and select the path of the folder you created in step 1.\nCreate a new R Script by clicking on File - New File - R Script. Save it in you folder.\nTipp: Within your project folder create a folder named R, where all your R Scripts will go. You can do the same for data, plots etc. later on. This will help you to structure your working directory."
   },
   {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "R Workshop",
-    "section": "",
-    "text": "The following tutorial will teach you the basics of R. It is designed to be self paced, so you can work in you own tempo.\n\n\n\nLearn the basics of programming in R as needed for the rest of the Open Research Summer School."
+    "objectID": "setup.html#about-this-workshop",
+    "href": "setup.html#about-this-workshop",
+    "title": "Setup",
+    "section": "About this workshop",
+    "text": "About this workshop\nThis workshop will use a tutorial package (you will learn more about packages later) that can be run from within R and will provide interactive exercises. For now, please install that tutorial package by typing (and evaluating) the following code into your newly created R Script:\n\ninstall.packages(\"devtools\")\ndevtools::install_github(\"nickhaf/tutoR\")\n\nFor each chapter, there will be a short theory part. Most of the exercises can be run interactively with the tutoR package, but some will encourage you to use the RStudio environment, to get more familiar with it.\nFeel free to use any resources at you disposal to solve the exercises. That’s how you would also do it in real live. Just make sure you understand why your solution works (or why it doesn’t)."
   },
   {
     "objectID": "subsetting.html",
@@ -173,124 +292,5 @@
     "title": "Data structures",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nTable from Advanced R.↩︎"
-  },
-  {
-    "objectID": "basics.html",
-    "href": "basics.html",
-    "title": "Basic operations",
-    "section": "",
-    "text": "Let’s take a quick look at the most important basic operations in R.\n\n\nWe can use R as a calculator:\n\n(1 + 2) * 3^2\n2 - 3/log(8)\n\n\n\n\nWe can create objects in R by using the assignment operator &lt;-, which assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\nresult\n\n[1] 2\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- !(10 &gt; 1)\nlog_result\n\n[1] FALSE\n\n\n\n\n\nThe boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\nThese are the comparison operators you will typically use:\n\n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n\n\n\nMainly we will use these logical operation to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined.\n\n\n\nWe can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE\n\n!(1:10 != c(1, 2))\n\n [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\n\n\n\nEverything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeat 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:\n\n\n\nOne of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments … In the next chapter we will take a very quick look at R’s data types.\n\n\n\n\nLoad the tutoR package and start the exercises about the basic operations by typing the following code into your console:\n\n\nlearnr::run_tutorial(name = \"basics\", package = \"tutoR\")"
-  },
-  {
-    "objectID": "basics.html#basic-mathematical-operations",
-    "href": "basics.html#basic-mathematical-operations",
-    "title": "Basic operations",
-    "section": "",
-    "text": "We can use R as a calculator:\n\n(1 + 2) * 3^2\n2 - 3/log(8)"
-  },
-  {
-    "objectID": "basics.html#assignment-operator",
-    "href": "basics.html#assignment-operator",
-    "title": "Basic operations",
-    "section": "",
-    "text": "We can create objects in R by using the assignment operator &lt;-, which assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\nresult\n\n[1] 2\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- !(10 &gt; 1)\nlog_result\n\n[1] FALSE"
-  },
-  {
-    "objectID": "basics.html#comparisons-and-logical-operators",
-    "href": "basics.html#comparisons-and-logical-operators",
-    "title": "Basic operations",
-    "section": "",
-    "text": "The boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\nThese are the comparison operators you will typically use:\n\n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n\n\n\nMainly we will use these logical operation to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined."
-  },
-  {
-    "objectID": "basics.html#section",
-    "href": "basics.html#section",
-    "title": "Basic operations",
-    "section": "",
-    "text": "We can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE\n\n!(1:10 != c(1, 2))\n\n [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE"
-  },
-  {
-    "objectID": "basics.html#functions",
-    "href": "basics.html#functions",
-    "title": "Basic operations",
-    "section": "",
-    "text": "Everything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeat 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:"
-  },
-  {
-    "objectID": "basics.html#help",
-    "href": "basics.html#help",
-    "title": "Basic operations",
-    "section": "",
-    "text": "One of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments … In the next chapter we will take a very quick look at R’s data types."
-  },
-  {
-    "objectID": "basics.html#exercise",
-    "href": "basics.html#exercise",
-    "title": "Basic operations",
-    "section": "",
-    "text": "Load the tutoR package and start the exercises about the basic operations by typing the following code into your console:\n\n\nlearnr::run_tutorial(name = \"basics\", package = \"tutoR\")"
-  },
-  {
-    "objectID": "packages.html",
-    "href": "packages.html",
-    "title": "Packages",
-    "section": "",
-    "text": "Packages are extensions to the base R you get by default. Most times they provide many new functions, bundled around a specific use case. When working with R you will have to rely heavily on packages developed by others. There are many, many great packages out there facilitating your work with R and making possible many different analyses, visualizations and many more.\nWe can compare them somewhat to apps in an appstore:\n1 First, we have to install the package: install.packages(\"packagename\"). - Most of the openly available packages lie on CRAN (Comprehensive R Archive Network). But you can also download packages form other sources, for example GitHub. This is what you did when downloading the tutoR package in About this workshop.\n2 Then, we have to load them in each session where we want to use them (like tipping on the app icon): library(packagename).\n\nNote that in install.packages(\"packagename\") we have to put the package into quotation marks, when calling library(packagename) not.\n\n\n\nBefore we can use packages we have to install them once. Most packages are hosted via the Comprehensive R Archive Network (CRAN), to install a package from there, we can use:\n\ninstall.packages(\"aRtsy\")\n\nBut often packages are only (or as well) provided via GitHub. To install a package from there, use:\n\ndevtools::install_github(\"cutterkom/generativeart\")\n\n\n\n\nAfter installing a package, we have to load it into our R session:\n\n#library(aRtsy)\n\nNow we are free to use it, in this case to generate some artwork:\n\n#set.seed(1)\n#canvas_collatz(colors = colorPalette(\"lava\"))\n\n\n\n\nOf course it can happen that different packages include functions with the same name. For example, look at the warnings we get when installing and then loading the packages ggplot2 and psych:\n\ninstall.packages(\"ggplot2\")\ninstall.packages(\"psych\")\n\n\nlibrary(ggplot2)\nlibrary(psych)\n\n\nAttaching package: 'psych'\n\n\nThe following objects are masked from 'package:ggplot2':\n\n    %+%, alpha\n\n\nThere seems to be a function named alpha which is included in both packages (but not the same function, just the same name). The warning message notifies us that the object alpha from ggplot2 is masked, so if we call it, the alpha function from the psych package is used. To solve that quandary, we can use the :: operator. In front we write the package name, and behind it the name of the function we want to use from that package:\n\nggplot2::alpha()\npsych::alpha()\n\n\n\n\nFinally, a quick note on package management and reproducability of your code. R versions and package versions will change over time, in which case also the output of your code might change. Therefore, it is good practice to save the R version and package versions, so your code stays (kind of) reproducable for a longer period of time. The most straight forward thing to do is to just write down your R-version and the package versions at the top of your script. Call the versions you use with:\n\nsessionInfo()\n\nR version 4.3.1 (2023-06-16)\nPlatform: x86_64-pc-linux-gnu (64-bit)\nRunning under: Ubuntu 22.04.3 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 \nLAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.20.so;  LAPACK version 3.10.0\n\nlocale:\n [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       \n [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   \n [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          \n[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   \n\ntime zone: UTC\ntzcode source: system (glibc)\n\nattached base packages:\n[1] stats     graphics  grDevices datasets  utils     methods   base     \n\nother attached packages:\n[1] psych_2.3.6   ggplot2_3.4.2\n\nloaded via a namespace (and not attached):\n [1] vctrs_0.6.3       nlme_3.1-162      cli_3.6.1         knitr_1.43       \n [5] rlang_1.1.1       xfun_0.39         generics_0.1.3    renv_1.0.0       \n [9] jsonlite_1.8.7    glue_1.6.2        colorspace_2.1-0  htmltools_0.5.5  \n[13] scales_1.2.1      fansi_1.0.4       rmarkdown_2.23    grid_4.3.1       \n[17] evaluate_0.21     munsell_0.5.0     tibble_3.2.1      fastmap_1.1.1    \n[21] yaml_2.3.7        lifecycle_1.0.3   compiler_4.3.1    dplyr_1.1.2      \n[25] pkgconfig_2.0.3   rstudioapi_0.15.0 lattice_0.21-8    digest_0.6.32    \n[29] R6_2.5.1          tidyselect_1.2.0  utf8_1.2.3        parallel_4.3.1   \n[33] mnormt_2.1.1      pillar_1.9.0      magrittr_2.0.3    withr_2.5.0      \n[37] tools_4.3.1       gtable_0.3.3     \n\n\nA more elegant approach to manage your packages is to use a dedicated package like renv, which will make it a lot easier to manage your package versions. But this is past the scope of this workshop, just keep in mind it might be something rewarding to look at, if you should start to programm more with R. Instead, let’s look at how to get data into R in the next chapter, so we can actually get to work with it."
-  },
-  {
-    "objectID": "packages.html#install-packages",
-    "href": "packages.html#install-packages",
-    "title": "Packages",
-    "section": "",
-    "text": "Before we can use packages we have to install them once. Most packages are hosted via the Comprehensive R Archive Network (CRAN), to install a package from there, we can use:\n\ninstall.packages(\"aRtsy\")\n\nBut often packages are only (or as well) provided via GitHub. To install a package from there, use:\n\ndevtools::install_github(\"cutterkom/generativeart\")"
-  },
-  {
-    "objectID": "packages.html#load-packages",
-    "href": "packages.html#load-packages",
-    "title": "Packages",
-    "section": "",
-    "text": "After installing a package, we have to load it into our R session:\n\n#library(aRtsy)\n\nNow we are free to use it, in this case to generate some artwork:\n\n#set.seed(1)\n#canvas_collatz(colors = colorPalette(\"lava\"))"
-  },
-  {
-    "objectID": "packages.html#conflicts",
-    "href": "packages.html#conflicts",
-    "title": "Packages",
-    "section": "",
-    "text": "Of course it can happen that different packages include functions with the same name. For example, look at the warnings we get when installing and then loading the packages ggplot2 and psych:\n\ninstall.packages(\"ggplot2\")\ninstall.packages(\"psych\")\n\n\nlibrary(ggplot2)\nlibrary(psych)\n\n\nAttaching package: 'psych'\n\n\nThe following objects are masked from 'package:ggplot2':\n\n    %+%, alpha\n\n\nThere seems to be a function named alpha which is included in both packages (but not the same function, just the same name). The warning message notifies us that the object alpha from ggplot2 is masked, so if we call it, the alpha function from the psych package is used. To solve that quandary, we can use the :: operator. In front we write the package name, and behind it the name of the function we want to use from that package:\n\nggplot2::alpha()\npsych::alpha()"
-  },
-  {
-    "objectID": "packages.html#deliberate-package-management",
-    "href": "packages.html#deliberate-package-management",
-    "title": "Packages",
-    "section": "",
-    "text": "Finally, a quick note on package management and reproducability of your code. R versions and package versions will change over time, in which case also the output of your code might change. Therefore, it is good practice to save the R version and package versions, so your code stays (kind of) reproducable for a longer period of time. The most straight forward thing to do is to just write down your R-version and the package versions at the top of your script. Call the versions you use with:\n\nsessionInfo()\n\nR version 4.3.1 (2023-06-16)\nPlatform: x86_64-pc-linux-gnu (64-bit)\nRunning under: Ubuntu 22.04.3 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 \nLAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.20.so;  LAPACK version 3.10.0\n\nlocale:\n [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       \n [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   \n [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          \n[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   \n\ntime zone: UTC\ntzcode source: system (glibc)\n\nattached base packages:\n[1] stats     graphics  grDevices datasets  utils     methods   base     \n\nother attached packages:\n[1] psych_2.3.6   ggplot2_3.4.2\n\nloaded via a namespace (and not attached):\n [1] vctrs_0.6.3       nlme_3.1-162      cli_3.6.1         knitr_1.43       \n [5] rlang_1.1.1       xfun_0.39         generics_0.1.3    renv_1.0.0       \n [9] jsonlite_1.8.7    glue_1.6.2        colorspace_2.1-0  htmltools_0.5.5  \n[13] scales_1.2.1      fansi_1.0.4       rmarkdown_2.23    grid_4.3.1       \n[17] evaluate_0.21     munsell_0.5.0     tibble_3.2.1      fastmap_1.1.1    \n[21] yaml_2.3.7        lifecycle_1.0.3   compiler_4.3.1    dplyr_1.1.2      \n[25] pkgconfig_2.0.3   rstudioapi_0.15.0 lattice_0.21-8    digest_0.6.32    \n[29] R6_2.5.1          tidyselect_1.2.0  utf8_1.2.3        parallel_4.3.1   \n[33] mnormt_2.1.1      pillar_1.9.0      magrittr_2.0.3    withr_2.5.0      \n[37] tools_4.3.1       gtable_0.3.3     \n\n\nA more elegant approach to manage your packages is to use a dedicated package like renv, which will make it a lot easier to manage your package versions. But this is past the scope of this workshop, just keep in mind it might be something rewarding to look at, if you should start to programm more with R. Instead, let’s look at how to get data into R in the next chapter, so we can actually get to work with it."
-  },
-  {
-    "objectID": "packages.html#footnotes",
-    "href": "packages.html#footnotes",
-    "title": "Packages",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nIcons from icons8.de.↩︎\nIcons from icons8.de.↩︎"
-  },
-  {
-    "objectID": "load_data.html",
-    "href": "load_data.html",
-    "title": "Load data",
-    "section": "",
-    "text": "There are many different data types out there, of which many can be loaded into R. Depending on the type, different commands are used within R. Sometimes, we will have to use additional packages to get access to that function, mainly readxl and haven.\n\n\n\n\n\n\n\n\n\nData.type\nImport\nExport\n\n\n\n\nR objects (.Rdata, .rda)\nload()\nsave()\n\n\nsingle R object (.Rds)\nreadRDS()\nsaveRDS()\n\n\ntext-files (.txt)\nread.table()\nwrite.table()\n\n\n.csv-files (.csv)\nread.csv()\nwrite.csv()\n\n\nExcel-files (.xlsx)\nreadxl::read_excel()\nwritexl::write_xlsx()\n\n\nSPSS-files (.sav)\nhaven::read_sav()\nhaven::write_sav()\n\n\nSAS-files (.sas)\nhaven::read_sas()\nhaven::write_sas()\n\n\nStata-files (.stata)\nhaven::read_dta()\nhaven::write_dta()\n\n\n\n\n\n\n\nYou can head to a specific file by using the full path (absolute path): \"C:\\Users\\hafiznij\\Documents\\GitHub\\r_tutorial\\raw_data\\winners.rda\". This approach has some disadvantages: it will only work on my notebook. If i want to continue my project on another device, i will have to change the path. The same goes for other people who want to work with my project. So, to keep these paths more reproducable, we should always use relative paths if possible: \".\\raw_data\\winners.rda\". This will always work independently of the device i am working on, as long as i am in the correct working directory.\nThe working directory is the path R is currently working in. I can obtain it by typing:\n\ngetwd()\n\n[1] \"/home/runner/work/r_tutorial/r_tutorial\"\n\n\nLuckily, as long as we work with RStudio projects, we don’t have to deal with that, as the working directory is set automatically by the project.\nNow take a look at the working directory and the relative path i used for loading the winners.rda. Notice something? Correct, both paths combined equal the absolute path to the file. So by splitting it up, we obtain a more reproducible path, that works independent of where the current working directory is."
-  },
-  {
-    "objectID": "load_data.html#data-types",
-    "href": "load_data.html#data-types",
-    "title": "Load data",
-    "section": "",
-    "text": "There are many different data types out there, of which many can be loaded into R. Depending on the type, different commands are used within R. Sometimes, we will have to use additional packages to get access to that function, mainly readxl and haven.\n\n\n\n\n\n\n\n\n\nData.type\nImport\nExport\n\n\n\n\nR objects (.Rdata, .rda)\nload()\nsave()\n\n\nsingle R object (.Rds)\nreadRDS()\nsaveRDS()\n\n\ntext-files (.txt)\nread.table()\nwrite.table()\n\n\n.csv-files (.csv)\nread.csv()\nwrite.csv()\n\n\nExcel-files (.xlsx)\nreadxl::read_excel()\nwritexl::write_xlsx()\n\n\nSPSS-files (.sav)\nhaven::read_sav()\nhaven::write_sav()\n\n\nSAS-files (.sas)\nhaven::read_sas()\nhaven::write_sas()\n\n\nStata-files (.stata)\nhaven::read_dta()\nhaven::write_dta()"
-  },
-  {
-    "objectID": "load_data.html#absolute-paths-vs.-relative-paths",
-    "href": "load_data.html#absolute-paths-vs.-relative-paths",
-    "title": "Load data",
-    "section": "",
-    "text": "You can head to a specific file by using the full path (absolute path): \"C:\\Users\\hafiznij\\Documents\\GitHub\\r_tutorial\\raw_data\\winners.rda\". This approach has some disadvantages: it will only work on my notebook. If i want to continue my project on another device, i will have to change the path. The same goes for other people who want to work with my project. So, to keep these paths more reproducable, we should always use relative paths if possible: \".\\raw_data\\winners.rda\". This will always work independently of the device i am working on, as long as i am in the correct working directory.\nThe working directory is the path R is currently working in. I can obtain it by typing:\n\ngetwd()\n\n[1] \"/home/runner/work/r_tutorial/r_tutorial\"\n\n\nLuckily, as long as we work with RStudio projects, we don’t have to deal with that, as the working directory is set automatically by the project.\nNow take a look at the working directory and the relative path i used for loading the winners.rda. Notice something? Correct, both paths combined equal the absolute path to the file. So by splitting it up, we obtain a more reproducible path, that works independent of where the current working directory is."
   }
 ]
