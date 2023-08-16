@@ -267,6 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames">Data frames</a>
   <ul class="collapse">
   <li><a href="#base-r" id="toc-base-r" class="nav-link" data-scroll-target="#base-r">Base R</a></li>
+  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse">Tidyverse</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -280,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="subsetting-data" class="level1">
 <h1>Subsetting data</h1>
 <p>Please take a look at the different <a href="data_types.qmd">data structures in R</a> if you are not familiar with them, before you start with this chapter.</p>
-<p>Now that we know how to store data in different formats, we also need to talk about how we can extract data from our data structures.</p>
+<p>Now that we know how to store data in different formats, we also need to talk about how we can extract data from our data structures, so we can work with it.</p>
 <section id="vectors" class="level2">
 <h2 class="anchored" data-anchor-id="vectors">Vectors</h2>
 <p>Extracting elements from vectors is pretty straight forward: we just put the position of the element we want to extract behind the vector in square brackets:</p>
@@ -310,15 +311,181 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "Jess" "Joe" </code></pre>
 </div>
 </div>
-<p>This will come in handy later on, when we want to extract rows from data frames by different conditions, so let’s take a closer look in <a href="logical.qmd">Logical comparisons</a></p>
+<p>This will come in handy later on, when we want to extract rows from data frames by different conditions. If you feel like you need to, you can refresh on <a href="https://nickhaf.github.io/r_tutorial/basics.html#comparisons-and-logical-operators">logical operators</a> before continuing.</p>
 </section>
 <section id="data-frames" class="level2">
 <h2 class="anchored" data-anchor-id="data-frames">Data frames</h2>
 <p>We will look at two ways to extract rows by conditions from data frames.</p>
 <section id="base-r" class="level3">
 <h3 class="anchored" data-anchor-id="base-r">Base R</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define an example data frame</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>persons <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Anna"</span>, <span class="st">"Alex"</span>, <span class="st">"John"</span>, <span class="st">"Jessi"</span>),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">18</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">birth_month =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Mar"</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">big5_extro =</span> <span class="fu">c</span>(<span class="fl">3.5</span>, <span class="dv">2</span>, <span class="fl">4.5</span>, <span class="fl">4.2</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                      )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In <code>Base R</code>, extracting rows or columns from a data frame is very similar to extracting values from a vector. We use square brackets <code>[,]</code>, but this time with a <code>,</code> in the middle. In front of the <code>,</code> we write the <strong>rows</strong> we want to extract:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the first and the fourth row</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>persons[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   name age birth_month big5_extro
+1  Anna  19         Jan        3.5
+4 Jessi  18         Mar        4.2</code></pre>
+</div>
+</div>
+<p>Behind it the <strong>columns</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the second and the fourth column:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>persons[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  age big5_extro
+1  19        3.5
+2  17        2.0
+3  18        4.5
+4  18        4.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the columns by name:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>persons[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"big5_extro"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  age big5_extro
+1  19        3.5
+2  17        2.0
+3  18        4.5
+4  18        4.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or only the column age (and turn it intow a vector right away):</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>persons<span class="sc">$</span>age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19 17 18 18</code></pre>
+</div>
+</div>
+<p>And of course we can combine both calls:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>persons[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  age big5_extro
+1  19        3.5
+4  18        4.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>persons[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"big5_extro"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  age big5_extro
+1  19        3.5
+4  18        4.2</code></pre>
+</div>
+</div>
+<p>We can also use boolean values:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>persons[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>), <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   name big5_extro
+1  Anna        3.5
+4 Jessi        4.2</code></pre>
+</div>
+</div>
+<p>Now the stuff we looked at in <a href="https://nickhaf.github.io/r_tutorial/basics.html#comparisons-and-logical-operators">logical operators</a> comes in handy! We can now filter rows which match some condition. For example, we might want to look at all persons which are <code>18</code> years old:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>persons[persons<span class="sc">$</span>age <span class="sc">==</span> <span class="dv">18</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   name age birth_month big5_extro
+3  John  18         Oct        4.5
+4 Jessi  18         Mar        4.2</code></pre>
+</div>
+</div>
+<p>Take a close look at the comparison before the <code>,</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>persons<span class="sc">$</span>age <span class="sc">==</span> <span class="dv">18</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE  TRUE  TRUE</code></pre>
+</div>
+</div>
+<p><code>persons$age</code> is a vector, so comparing its values to a specified value yields a logical vector with the respective <code>TRUE</code> and <code>FALSE</code> values. We can insert this logical vector in front of the <code>,</code> to extract all rows corresponding to that condition.</p>
+<p>We can also combine multiple logical vectors using <code>&amp;</code> (“and”) and <code>|</code> (“or”). For example, we might want to look at all persons older than 17 which have an extroversion rating below 4.5:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>persons[persons<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">17</span> <span class="sc">&amp;</span> persons<span class="sc">$</span>big5_extro <span class="sc">&lt;</span> <span class="fl">4.5</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   name age birth_month big5_extro
+1  Anna  19         Jan        3.5
+4 Jessi  18         Mar        4.2</code></pre>
+</div>
+</div>
+<p>Or at all persons, that are either <code>18</code> years old, or have an extroversion rating above <code>3</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>persons[persons<span class="sc">$</span>age <span class="sc">==</span> <span class="dv">18</span> <span class="sc">|</span> persons<span class="sc">$</span>big5_extro <span class="sc">&gt;</span> <span class="dv">3</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   name age birth_month big5_extro
+1  Anna  19         Jan        3.5
+3  John  18         Oct        4.5
+4 Jessi  18         Mar        4.2</code></pre>
+</div>
+</div>
+<p>In the long run, always having to define the data frame multiple time in each row can become a bit annoying and clutters the code. Enter, the <code>filter()</code> function:</p>
+</section>
+<section id="tidyverse" class="level3">
+<h3 class="anchored" data-anchor-id="tidyverse">Tidyverse</h3>
+<p>The <code>dplyr</code> package is part of the <code>tidyverse</code> and provides a grammar of data manipulation. We can use <code>filter()</code> to subset rows from a data frame:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(persons, age <span class="sc">==</span> <span class="dv">18</span>, big5_extro <span class="sc">&lt;</span> <span class="fl">4.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   name age birth_month big5_extro
+1 Jessi  18         Mar        4.2</code></pre>
+</div>
+</div>
+<p>Note how we can just write our conditions without connecting them with <code>&amp;</code> (<code>filter()</code> does that automatically for us). Also, we don’t have to put the column names into <code>""</code>, because <code>filter()</code> knows that this are column names of the <code>persons</code> data frame, which makes coding a bit more pleasant.</p>
+<section id="remarks-the-pipe-operator" class="level4">
+<h4 class="anchored" data-anchor-id="remarks-the-pipe-operator">Remarks: the pipe operator</h4>
+<p>Hold on! Normally, we wouldn’t write <code>tidyverse</code> code like that. Instead, we would use the pipe operator <code>%&gt;%</code> (<em>than do</em>), which makes it easy to connect multiple function calls:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>persons <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">==</span> <span class="dv">18</span>, big5_extro <span class="sc">&lt;</span> <span class="fl">4.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   name age birth_month big5_extro
+1 Jessi  18         Mar        4.2</code></pre>
+</div>
+</div>
+<p>Here, we first input the data frame we want to manipulate. Than we filter, as specified by the pipe operator. Like this, we can easily connect multiple function calls instead of nesting them within multiple brackets, which increases the readability massively:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>start_value <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">8</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">mean</span>(<span class="fu">abs</span>((<span class="fu">rep</span>(<span class="fu">seq</span>(<span class="at">from =</span> start_value, <span class="at">to =</span> <span class="dv">20</span>, <span class="at">by =</span> <span class="fl">0.5</span>), <span class="dv">4</span>)))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.895853</code></pre>
+</div>
+</div>
+<p>becomes:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>start_value <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">8</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>start_value <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">seq</span>(<span class="at">from =</span> ., <span class="at">to =</span> <span class="dv">20</span>, <span class="at">by =</span> <span class="fl">0.5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep</span>(<span class="at">times =</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  abs <span class="sc">%&gt;%</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  mean <span class="sc">%&gt;%</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>  sqrt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.895853</code></pre>
+</div>
+</div>
+<p>Much nicer to read, right? Some notes on this syntax: If we don’t have any additonal arguments we want to put into the function, we can just write the function name without any brackets. The pipe operator will give the result of the last function as input into the next function. If we want to clearly state which of the function arguments should receive the input, we can write a <code>.</code>, which can be read as <em>output of the previous function call</em>.</p>
 
 
+</section>
 </section>
 </section>
 </section>
