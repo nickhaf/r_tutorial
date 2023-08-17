@@ -269,19 +269,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load Data</a></li>
-  </ul></li>
-  <li><a href="#data-set" id="toc-data-set" class="nav-link" data-scroll-target="#data-set">Data set</a>
-  <ul class="collapse">
   <li><a href="#take-a-look" id="toc-take-a-look" class="nav-link" data-scroll-target="#take-a-look">Take a look</a></li>
-  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data wrangling</a>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data wrangling</a></li>
+  <li><a href="#missings" id="toc-missings" class="nav-link" data-scroll-target="#missings">Missings?</a></li>
+  <li><a href="#merging" id="toc-merging" class="nav-link" data-scroll-target="#merging">Merging?</a>
   <ul class="collapse">
-  <li><a href="#deal-with-missing-values" id="toc-deal-with-missing-values" class="nav-link" data-scroll-target="#deal-with-missing-values">Deal with missing values</a></li>
-  <li><a href="#merging" id="toc-merging" class="nav-link" data-scroll-target="#merging">Merging</a></li>
   <li><a href="#subsetting-data" id="toc-subsetting-data" class="nav-link" data-scroll-target="#subsetting-data">Subsetting data</a></li>
   <li><a href="#regression-time-vs.-year" id="toc-regression-time-vs.-year" class="nav-link" data-scroll-target="#regression-time-vs.-year">Regression Time vs.&nbsp;year</a></li>
   </ul></li>
   <li><a href="#plot-the-data" id="toc-plot-the-data" class="nav-link" data-scroll-target="#plot-the-data">Plot the data</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#final-exercise" id="toc-final-exercise" class="nav-link" data-scroll-target="#final-exercise">Final Exercise</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -318,138 +316,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The <code>tidyverse</code> is a collection of packages following a common philosophy, and facilitate many aspects of coding in R, for example data wrangling and plotting. We will use both functions from base R and from the <code>tidyverse</code>.</p>
 <p>Just by installing the packages, we can’t use them. We also have to load them into our R session:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tutoR)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The top of your <code>R Script</code> should look something like this:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"nickhaf/tutoR"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tutoR)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="load-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-data">Load Data</h2>
-<p><a href="\load_data.qmd">Data is loaded</a> into R so you can work with it. Let’s do just that. First, you need to download the file “winners.rds” from <a href="https://github.com/nickhaf/r_tutorial/tree/getting_started/raw_data">this link</a> and save it in your project folder (<em>Tip: Save it in a new subfolder named “raw_data” or somewhat similar.</em>). The data comes from the <a href="https://github.com/nrennie/LondonMarathon">LondonMarathon</a> package. Next, take a look at the ending. Different data formats need different functions for loading them into R. The <code>winners.rds</code> file has the ending <code>.rds</code>. So we use <code>readRDS</code> to load it into R. Here you can find a more thourough discussion about <a href="\load_data.qmd">loading different data formats</a>.</p>
-</section>
-</section>
-<section id="data-set" class="level1">
-<h1>Data set</h1>
-<p>For this chapter, we are going to use the data set <code>babynames</code>, which we can find on the <code>tidytuesday</code> site:</p>
+<p>Data is loaded into R so you can work with it. For this chapter, we are going to use the data set <code>babynames</code>, which we can find on the <code>tidytuesday</code> site. Because it is a <code>.csv</code> file, we have to install the additional package <code>readr</code> before we can read it:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("readr")</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># babynames &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-03-22/babynames.csv')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readr"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>(Yes, we can read in <code>.csv</code> data simply by using an URL if provided.)</p>
+<p>No we can load the data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>winners <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"./raw_data/winners.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>babynames <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-03-22/babynames.csv'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>babynames <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(babynames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This will load the data into R and assigning it the name <code>winners</code> by using the <code>&lt;-</code>. You can see the data popping up in your <code>Environment</code> pane on the upper right. It is important you use the correct path, because otherwise R will not find your data file. Here the RStudio project we have created earlier comes in handy. It automatically knows our file lies within our project folder, which is why we can use a <strong>relative path</strong>, that starts at the project path and looks into the folder <code>raw_data</code> to open the file. Otherwise, we would have to use an <strong>absolute path</strong> (like “C:/Users/hafiznij/Documents/GitHub/r_tutorial/raw_data/london_marathon.rda” which will only work on my notebook, and only if my project stays in on this path.</p>
+<p>Yes, we can read in <code>.csv</code> data simply by using an URL if provided. There are many different data formats and ways to load data, refer to <a href="\load_data.qmd">load data</a> for more information.</p>
+<p>The above code will load the data into R and assigning it the name <code>babynames</code> by using the <code>&lt;-</code>. You can see the data popping up in your <code>Environment</code> pane on the upper right. Don’t worry about <code>as.data.frame()</code> function. It’s not really relevant right now.</p>
+</section>
 <section id="take-a-look" class="level2">
 <h2 class="anchored" data-anchor-id="take-a-look">Take a look</h2>
 <p>Now that we have our data loaded safely into R, we can get an overview with a multitude of commands. One of the most important ones might be <code>View()</code>, which will open the data set excel-style in a new window:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(winners)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(babynames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Especially for bigger data sets, it might be more feasible to only look at the structure and not the whole data set:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(winners)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(babynames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>On the left we can see the columns of this data.frame, named <code>Category</code>, <code>Year</code>, <code>Athlete</code>, <code>Nationality</code> and <code>ID</code>. On the right we see the first values in each column, for example <code>1981</code>, <code>1981</code>, <code>1982</code> etc … in the <code>Year</code>-column.</p>
+<p>On the left we can see the columns of this data.frame, named <code>year</code>, <code>sex</code>, <code>names</code>, <code>n</code> and <code>prop</code>. On the right we see the first values in each column, for example <code>1880</code>, <code>1980</code>, <code>1980</code> etc … in the <code>year</code>-column.</p>
 </section>
 <section id="data-wrangling" class="level2">
 <h2 class="anchored" data-anchor-id="data-wrangling">Data wrangling</h2>
-<p>Now, lets do something with this data. We want to answer the question if people have gotten faster at running marathons over that last 40 years. Sadly, the finishing times are not saved in this data set, but in another one named <code>times.rda</code>. So we need a way to combine them both, so we can run our analysis on the data.</p>
-<p><strong>Exercise: Download the second data set called “times.rda” and load it into R on your own.</strong></p>
-<section id="deal-with-missing-values" class="level3">
-<h3 class="anchored" data-anchor-id="deal-with-missing-values">Deal with missing values</h3>
-<p>Let’s take a quick look at that one as well:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(winners)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The only column both data sets seem to have in commonn is the <code>ID</code> one. This means we have to merge our two data sets on that column, so rows which have the same value in that column will be merged together. However, we have a slight problem: the <code>ID</code> column contains missing values (called <code>NA</code>). We will not be able to match these rows over both data sets, so we have to remove them. But first, let’s take a look at how many those are:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(winners<span class="sc">$</span>ID))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Don’t worry to much about what that code is doing right now, we will take a closer look later on. We seem to have five <code>NA</code>s in both data sets. This isn’t a whole lot, so we will just remove them, but keep in mind dealing with <code>NA</code>s is a broad topic for itself with many different possible approaches.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>winners <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(<span class="at">data =</span> winners, ID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Here, we use a function from the <code>tidyr</code> package (which we installed among others when we installed the <code>tidyverse</code>) that removes all rows from the data that contain a <code>NA</code> in the <code>ID</code> column.</p>
+<p>Now, lets do something with this data. We want to look at the developement of names over the years.</p>
 </section>
-<section id="merging" class="level3">
-<h3 class="anchored" data-anchor-id="merging">Merging</h3>
-<p>Now we can merge:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>winners_merged <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> winners, </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y =</span> times,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">by =</span> <span class="st">"ID"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>What happens here? We take our two data sets, called <code>winers</code> and <code>times</code> and combine them on the column <code>ID</code>. Let’s take a look at the finished product:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(winners_merged)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We have merged the columns of the <code>times</code> data set onto the right the <code>winners</code> data.</p>
+<section id="missings" class="level2">
+<h2 class="anchored" data-anchor-id="missings">Missings?</h2>
 </section>
+<section id="merging" class="level2">
+<h2 class="anchored" data-anchor-id="merging">Merging?</h2>
 <section id="subsetting-data" class="level3">
 <h3 class="anchored" data-anchor-id="subsetting-data">Subsetting data</h3>
-<p>One very important part of working with data in R is the <a href="subsettings.qmd">subsetting</a> of data. This means we select specific values from a data set.</p>
-<p>Divide by Category (Wheelchar vs.&nbsp;no wheelchair)</p>
+<p>One very important part of working with data in R is the <a href="./subsetting.html">subsetting</a> of data. This means we select specific values from a data set.</p>
 </section>
 <section id="regression-time-vs.-year" class="level3">
 <h3 class="anchored" data-anchor-id="regression-time-vs.-year">Regression Time vs.&nbsp;year</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>women <span class="ot">&lt;-</span> winners[winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Women"</span>, ]</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>lm_rs <span class="ot">&lt;-</span> <span class="fu">lm</span>(Minutes_total <span class="sc">~</span> Year, women)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_rs)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 614 min bei Year = 0, für jedes Jahr -0.23 Min weniger:</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 614 + 2020 * -0.236</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm_rs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>winners<span class="sc">$</span>Minutes_total <span class="ot">&lt;-</span> winners<span class="sc">$</span>Hours <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span> winners<span class="sc">$</span>Minutes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 </section>
 <section id="plot-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="plot-the-data">Plot the data</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>winners <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Men"</span>, <span class="st">"Women"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ., <span class="fu">aes</span>(<span class="at">x =</span> Year,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">y =</span> Minutes_total,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">colour =</span> Nationality,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">shape =</span> Category)) <span class="sc">+</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>winners <span class="sc">%&gt;%</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Wheelchair Men"</span>, <span class="st">"Wheelchair Women"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ., <span class="fu">aes</span>(<span class="at">x =</span> Year,</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>                            <span class="at">y =</span> Minutes_total,</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>                     <span class="at">colour =</span> Nationality,</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">shape =</span> Category)) <span class="sc">+</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Für die Übung. </span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("tidytuesdayR")</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytuesdayR)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="st">'2022-08-16'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>In this tutorial we learned, that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. Either follow the course, or navigate to the chapters you are most interested in.</p>
+<p>Foto von <a href="https://unsplash.com/de/@rocinante_11?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Mick Haupt</a> auf <a href="https://unsplash.com/de/fotos/DgugiZUfH9k?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+</section>
+<section id="final-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="final-exercise">Final Exercise</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Für die Übung. </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("tidytuesdayR")</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytuesdayR)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="st">'2022-08-16'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
