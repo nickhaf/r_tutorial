@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/nickhaf/r_tutorial/setup.html</loc>
-    <lastmod>2023-08-17T07:51:37.721Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/the_big_picture.html</loc>
-    <lastmod>2023-08-17T07:50:52.512Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/Manipulation.html</loc>
-    <lastmod>2023-08-17T07:50:06.728Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/index.html</loc>
-    <lastmod>2023-08-17T07:49:21.012Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/data_structures.html</loc>
-    <lastmod>2023-08-17T07:49:20.404Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/subsetting.html</loc>
-    <lastmod>2023-08-17T07:48:57.144Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/plotting.html</loc>
-    <lastmod>2023-08-17T07:49:20.692Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/nickhaf/r_tutorial/basics.html</loc>
-    <lastmod>2023-08-17T07:49:43.760Z</lastmod>
+    <loc>https://github.com/nickhaf/r_tutorial/load_data.html</loc>
+    <lastmod>2023-08-17T08:01:02.065Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/packages.html</loc>
-    <lastmod>2023-08-17T07:50:29.728Z</lastmod>
+    <lastmod>2023-08-17T08:00:14.698Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/nickhaf/r_tutorial/load_data.html</loc>
-    <lastmod>2023-08-17T07:51:15.128Z</lastmod>
+    <loc>https://github.com/nickhaf/r_tutorial/Manipulation.html</loc>
+    <lastmod>2023-08-17T07:59:26.423Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/index.html</loc>
+    <lastmod>2023-08-17T07:58:38.864Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/basics.html</loc>
+    <lastmod>2023-08-17T07:58:14.842Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/plotting.html</loc>
+    <lastmod>2023-08-17T07:57:50.656Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/the_big_picture.html</loc>
+    <lastmod>2023-08-17T07:58:38.448Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/setup.html</loc>
+    <lastmod>2023-08-17T07:59:02.389Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/subsetting.html</loc>
+    <lastmod>2023-08-17T07:59:50.649Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/nickhaf/r_tutorial/data_structures.html</loc>
+    <lastmod>2023-08-17T08:00:38.548Z</lastmod>
   </url>
 </urlset>
