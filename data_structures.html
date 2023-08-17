@@ -274,6 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#honorable-mention-list" id="toc-honorable-mention-list" class="nav-link" data-scroll-target="#honorable-mention-list">Honorable mention: List</a></li>
   </ul></li>
+  <li><a href="#getting-an-overview" id="toc-getting-an-overview" class="nav-link" data-scroll-target="#getting-an-overview">Getting an overview</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
 </nav>
@@ -426,13 +427,32 @@ $rating_type
 <p>Instead, we are now well equipped to get started with some data manipulation and transformation.</p>
 </section>
 </section>
+<section id="getting-an-overview" class="level1">
+<h1>Getting an overview</h1>
+<p>To take a look at these data structures, we can use different commands. One of the most important ones might be <code>View()</code>, which will open the data set excel-style in a new window:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(persons)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Especially for bigger data sets, it might be more feasible to only look at the structure and not the whole data set:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(persons)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   4 obs. of  4 variables:
+ $ name       : chr  "Anna" "Alex" "John" "Jessi"
+ $ age        : num  19 17 18 18
+ $ birth_month: chr  "Jan" "Sep" "Oct" "Mar"
+ $ big5_extro : num  3.5 2 4.5 4.2</code></pre>
+</div>
+</div>
+<p>On the left side we have the column names of this data frame, followed by the <a href="">type</a> of the column.</p>
+</section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
 <ol type="1">
 <li>Load the <code>tutoR</code> package and start the exercises about <code>data structures</code> by typing the following code into you console:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>learnr<span class="sc">::</span><span class="fu">run_tutorial</span>(<span class="at">name =</span> <span class="st">"data_structures"</span>, <span class="at">package =</span> <span class="st">"tutoR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>learnr<span class="sc">::</span><span class="fu">run_tutorial</span>(<span class="at">name =</span> <span class="st">"data_structures"</span>, <span class="at">package =</span> <span class="st">"tutoR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

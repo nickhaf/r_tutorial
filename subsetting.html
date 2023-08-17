@@ -285,6 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Please take a look at the different <a href="./data_structures.html">data structures in R</a> if you are not familiar with them, before you start with this chapter.</p>
 <section id="data-set" class="level2">
 <h2 class="anchored" data-anchor-id="data-set">Data set</h2>
+<p><img src="./pictures/marathon.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>Load the data set, which lies within the folder <code>raw_data</code> in my working directory:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>winners <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"./raw_data/winners.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -293,13 +294,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(winners)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Category Year              Athlete    Nationality ID
-1      Men 1981 Dick Beardsley (Tie)  United States  1
-2      Men 1981  Inge Simonsen (Tie)         Norway NA
-3      Men 1982           Hugh Jones United Kingdom  3
-4      Men 1983         Mike Gratton United Kingdom  4
-5      Men 1984     Charlie Spedding United Kingdom  5
-6      Men 1985          Steve Jones United Kingdom  6</code></pre>
+<pre><code>  Category Year              Athlete    Nationality Hours Minutes Seconds
+1      Men 1981 Dick Beardsley (Tie)  United States     2      11      48
+2      Men 1981  Inge Simonsen (Tie)         Norway    NA      11      48
+3      Men 1982           Hugh Jones United Kingdom     2       9      24
+4      Men 1983         Mike Gratton United Kingdom     2       9      43
+5      Men 1984     Charlie Spedding United Kingdom     2       9      57
+6      Men 1985          Steve Jones United Kingdom     2       8      16</code></pre>
 </div>
 </div>
 <p>So, this data frame seems to hold the winners of the london marathon, but their finishing times are missing. They are stored in another data set, but we will deal with that later. For now we want to look at how we can extract data from our data structures, so we can work with it.</p>
@@ -314,9 +315,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the first and the fourth row</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Category Year              Athlete    Nationality ID
-1      Men 1981 Dick Beardsley (Tie)  United States  1
-4      Men 1983         Mike Gratton United Kingdom  4</code></pre>
+<pre><code>  Category Year              Athlete    Nationality Hours Minutes Seconds
+1      Men 1981 Dick Beardsley (Tie)  United States     2      11      48
+4      Men 1983         Mike Gratton United Kingdom     2       9      43</code></pre>
 </div>
 </div>
 <p>Behind it the <strong>columns</strong>:</p>
@@ -696,145 +697,145 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">100</span>), <span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="dv">65</span>)), <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          Category    Nationality  ID
-1              Men  United States   1
-2              Men         Norway  NA
-3              Men United Kingdom   3
-4              Men United Kingdom   4
-5              Men United Kingdom   5
-6              Men United Kingdom   6
-7              Men          Japan   7
-8              Men          Japan   8
-9              Men        Denmark   9
-10             Men          Kenya  10
-11             Men United Kingdom  11
-12             Men   Soviet Union  12
-13             Men       Portugal  13
-14             Men United Kingdom  14
-15             Men         Mexico  15
-16             Men         Mexico  16
-17             Men         Mexico  17
-18             Men       Portugal  18
-19             Men          Spain  19
-20             Men        Morocco  20
-21             Men       Portugal  21
-22             Men        Morocco  22
-23             Men  United States  23
-24             Men       Ethiopia  NA
-25             Men          Kenya  25
-26             Men          Kenya  26
-27             Men          Kenya  27
-28             Men          Kenya  28
-29             Men          Kenya  29
-30             Men          Kenya  30
-31             Men       Ethiopia  31
-32             Men          Kenya  32
-33             Men          Kenya  33
-34             Men       Ethiopia  34
-35             Men          Kenya  NA
-36             Men          Kenya  36
-37             Men          Kenya  37
-38             Men          Kenya  38
-39             Men          Kenya  39
-40             Men          Kenya  40
-41             Men       Ethiopia  41
-42             Men       Ethiopia  42
-43             Men          Kenya  43
-44             Men          Kenya  44
-45           Women United Kingdom  45
-46           Women United Kingdom  46
-47           Women         Norway  47
-48           Women         Norway  48
-49           Women         Norway  49
-50           Women         Norway  50
-51           Women         Norway  51
-52           Women         Norway  52
-53           Women United Kingdom  53
-54           Women         Poland  54
-55           Women       Portugal  55
-56           Women        Germany  56
-57           Women        Germany  57
-58           Women        Germany  58
-59           Women         Poland  59
-60           Women United Kingdom  60
-61           Women          Kenya  61
-62           Women        Ireland  62
-63           Women          Kenya  63
-64           Women          Kenya  64
-65           Women       Ethiopia  65
-66           Women United Kingdom  66
-67           Women United Kingdom  67
-68           Women          Kenya  68
-69           Women United Kingdom  69
-70           Women  United States  70
-71           Women          China  71
-72           Women        Germany  72
-73           Women        Germany  73
-74           Women       Ethiopia  74
-75           Women          Kenya  75
-76           Women          Kenya  76
-77           Women          Kenya  77
-78           Women          Kenya  78
-79           Women       Ethiopia  79
-80           Women          Kenya  80
-81           Women          Kenya  81
-82           Women          Kenya  82
-83           Women          Kenya  83
-84           Women          Kenya  84
-85           Women          Kenya  85
-86           Women       Ethiopia  86
-87           Women    Netherlands  87
-88  Wheelchair Men United Kingdom  88
-89  Wheelchair Men        Ireland  89
-90  Wheelchair Men United Kingdom  90
-91  Wheelchair Men        Ireland  91
-92  Wheelchair Men United Kingdom  92
-93  Wheelchair Men         Canada  93
-94  Wheelchair Men United Kingdom  94
-95  Wheelchair Men         Sweden  NA
-96  Wheelchair Men         France  96
-97  Wheelchair Men         Canada  97
-98  Wheelchair Men        Belgium  98
-99  Wheelchair Men United Kingdom  99
-100 Wheelchair Men    Switzerland 100</code></pre>
+<pre><code>          Category    Nationality Hours Minutes
+1              Men  United States     2      11
+2              Men         Norway    NA      11
+3              Men United Kingdom     2       9
+4              Men United Kingdom     2       9
+5              Men United Kingdom     2       9
+6              Men United Kingdom     2       8
+7              Men          Japan     2      10
+8              Men          Japan     2       9
+9              Men        Denmark     2      10
+10             Men          Kenya     2       9
+11             Men United Kingdom     2      10
+12             Men   Soviet Union     2       9
+13             Men       Portugal     2      10
+14             Men United Kingdom     2      10
+15             Men         Mexico     2       8
+16             Men         Mexico     2       8
+17             Men         Mexico     2      10
+18             Men       Portugal     2       7
+19             Men          Spain     2       7
+20             Men        Morocco     2       7
+21             Men       Portugal     2       6
+22             Men        Morocco     2       7
+23             Men  United States     2       5
+24             Men       Ethiopia    NA       7
+25             Men          Kenya     2       6
+26             Men          Kenya     2       7
+27             Men          Kenya     2       6
+28             Men          Kenya     2       7
+29             Men          Kenya     2       5
+30             Men          Kenya     2       5
+31             Men       Ethiopia     2       5
+32             Men          Kenya     2       4
+33             Men          Kenya     2       4
+34             Men       Ethiopia     2       6
+35             Men          Kenya    NA       4
+36             Men          Kenya     2       4
+37             Men          Kenya     2       3
+38             Men          Kenya     2       5
+39             Men          Kenya     2       4
+40             Men          Kenya     2       2
+41             Men       Ethiopia     2       5
+42             Men       Ethiopia     2       4
+43             Men          Kenya     2       4
+44             Men          Kenya     2       1
+45           Women United Kingdom     2      29
+46           Women United Kingdom     2      29
+47           Women         Norway     2      25
+48           Women         Norway     2      24
+49           Women         Norway     2      21
+50           Women         Norway     2      24
+51           Women         Norway     2      22
+52           Women         Norway     2      25
+53           Women United Kingdom     2      25
+54           Women         Poland     2      26
+55           Women       Portugal     2      26
+56           Women        Germany     2      29
+57           Women        Germany     2      27
+58           Women        Germany     2      32
+59           Women         Poland     2      27
+60           Women United Kingdom     2      27
+61           Women          Kenya     2      26
+62           Women        Ireland     2      26
+63           Women          Kenya     2      23
+64           Women          Kenya     2      24
+65           Women       Ethiopia     2      23
+66           Women United Kingdom     2      18
+67           Women United Kingdom     2      15
+68           Women          Kenya     2      22
+69           Women United Kingdom     2      17
+70           Women  United States     2      19
+71           Women          China     2      20
+72           Women        Germany     2      24
+73           Women        Germany     2      22
+74           Women       Ethiopia     2      22
+75           Women          Kenya     2      19
+76           Women          Kenya     2      18
+77           Women          Kenya     2      20
+78           Women          Kenya     2      20
+79           Women       Ethiopia     2      23
+80           Women          Kenya     2      22
+81           Women          Kenya     2      17
+82           Women          Kenya     2      18
+83           Women          Kenya     2      18
+84           Women          Kenya     2      18
+85           Women          Kenya     2      17
+86           Women       Ethiopia     2      17
+87           Women    Netherlands     2      18
+88  Wheelchair Men United Kingdom     3      20
+89  Wheelchair Men        Ireland     2      38
+90  Wheelchair Men United Kingdom     2      19
+91  Wheelchair Men        Ireland     2      26
+92  Wheelchair Men United Kingdom     2       8
+93  Wheelchair Men         Canada     2       1
+94  Wheelchair Men United Kingdom     1      59
+95  Wheelchair Men         Sweden    NA      57
+96  Wheelchair Men         France     1      52
+97  Wheelchair Men         Canada     1      51
+98  Wheelchair Men        Belgium     1      44
+99  Wheelchair Men United Kingdom     1      46
+100 Wheelchair Men    Switzerland     1      39</code></pre>
 </div>
 </div>
 <p>Now the stuff we looked at in <a href="https://nickhaf.github.io/r_tutorial/basics.html#comparisons-and-logical-operators">logical operators</a> comes in handy! We can filter rows which match some condition. For example, we might want to look at all winners from Kenya:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Category Year                    Athlete Nationality ID
-10      Men 1989          Douglas Wakiihuri       Kenya 10
-25      Men 2004                Evans Rutto       Kenya 25
-26      Men 2005                 Martin Lel       Kenya 26
-27      Men 2006                 Felix Limo       Kenya 27
-28      Men 2007                 Martin Lel       Kenya 28
-29      Men 2008                 Martin Lel       Kenya 29
-30      Men 2009             Samuel Wanjiru       Kenya 30
-32      Men 2011 Emmanuel Kipchirchir Mutai       Kenya 32
-33      Men 2012   Wilson Kipsang Kiprotich       Kenya 33
-35      Men 2014   Wilson Kipsang Kiprotich       Kenya NA
-36      Men 2015             Eliud Kipchoge       Kenya 36
-37      Men 2016             Eliud Kipchoge       Kenya 37
-38      Men 2017             Daniel Wanjiru       Kenya 38
-39      Men 2018             Eliud Kipchoge       Kenya 39
-40      Men 2019             Eliud Kipchoge       Kenya 40
-43      Men 2022               Amos Kipruto       Kenya 43
-44      Men 2023              Kelvin Kiptum       Kenya 44
-61    Women 1997           Joyce Chepchumba       Kenya 61
-63    Women 1999           Joyce Chepchumba       Kenya 63
-64    Women 2000              Tegla Loroupe       Kenya 64
-68    Women 2004             Margaret Okayo       Kenya 68
-75    Women 2011     Mary Jepkosgei Keitany       Kenya 75
-76    Women 2012     Mary Jepkosgei Keitany       Kenya 76
-77    Women 2013             Priscah Jeptoo       Kenya 77
-78    Women 2014              Edna Kiplagat       Kenya 78
-80    Women 2016             Jemima Sumgong       Kenya 80
-81    Women 2017     Mary Jepkosgei Keitany       Kenya 81
-82    Women 2018           Vivian Cheruiyot       Kenya 82
-83    Women 2019              Brigid Kosgei       Kenya 83
-84    Women 2020              Brigid Kosgei       Kenya 84
-85    Women 2021        Joyciline Jepkosgei       Kenya 85</code></pre>
+<pre><code>   Category Year                    Athlete Nationality Hours Minutes Seconds
+10      Men 1989          Douglas Wakiihuri       Kenya     2       9       3
+25      Men 2004                Evans Rutto       Kenya     2       6      18
+26      Men 2005                 Martin Lel       Kenya     2       7      35
+27      Men 2006                 Felix Limo       Kenya     2       6      39
+28      Men 2007                 Martin Lel       Kenya     2       7      41
+29      Men 2008                 Martin Lel       Kenya     2       5      15
+30      Men 2009             Samuel Wanjiru       Kenya     2       5      10
+32      Men 2011 Emmanuel Kipchirchir Mutai       Kenya     2       4      40
+33      Men 2012   Wilson Kipsang Kiprotich       Kenya     2       4      44
+35      Men 2014   Wilson Kipsang Kiprotich       Kenya    NA       4      29
+36      Men 2015             Eliud Kipchoge       Kenya     2       4      42
+37      Men 2016             Eliud Kipchoge       Kenya     2       3       5
+38      Men 2017             Daniel Wanjiru       Kenya     2       5      48
+39      Men 2018             Eliud Kipchoge       Kenya     2       4      17
+40      Men 2019             Eliud Kipchoge       Kenya     2       2      37
+43      Men 2022               Amos Kipruto       Kenya     2       4      39
+44      Men 2023              Kelvin Kiptum       Kenya     2       1      25
+61    Women 1997           Joyce Chepchumba       Kenya     2      26      51
+63    Women 1999           Joyce Chepchumba       Kenya     2      23      22
+64    Women 2000              Tegla Loroupe       Kenya     2      24      33
+68    Women 2004             Margaret Okayo       Kenya     2      22      35
+75    Women 2011     Mary Jepkosgei Keitany       Kenya     2      19      19
+76    Women 2012     Mary Jepkosgei Keitany       Kenya     2      18      37
+77    Women 2013             Priscah Jeptoo       Kenya     2      20      15
+78    Women 2014              Edna Kiplagat       Kenya     2      20      21
+80    Women 2016             Jemima Sumgong       Kenya     2      22      58
+81    Women 2017     Mary Jepkosgei Keitany       Kenya     2      17       1
+82    Women 2018           Vivian Cheruiyot       Kenya     2      18      31
+83    Women 2019              Brigid Kosgei       Kenya     2      18      20
+84    Women 2020              Brigid Kosgei       Kenya     2      18      58
+85    Women 2021        Joyciline Jepkosgei       Kenya     2      17      43</code></pre>
 </div>
 </div>
 <p>Take a close look at the comparison before the <code>,</code>:</p>
@@ -862,50 +863,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Kenya"</span>, <span class="st">"Germany"</span>, <span class="st">"Norway"</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Category Year                    Athlete Nationality ID
-2       Men 1981        Inge Simonsen (Tie)      Norway NA
-10      Men 1989          Douglas Wakiihuri       Kenya 10
-25      Men 2004                Evans Rutto       Kenya 25
-26      Men 2005                 Martin Lel       Kenya 26
-27      Men 2006                 Felix Limo       Kenya 27
-28      Men 2007                 Martin Lel       Kenya 28
-29      Men 2008                 Martin Lel       Kenya 29
-30      Men 2009             Samuel Wanjiru       Kenya 30
-32      Men 2011 Emmanuel Kipchirchir Mutai       Kenya 32
-33      Men 2012   Wilson Kipsang Kiprotich       Kenya 33
-35      Men 2014   Wilson Kipsang Kiprotich       Kenya NA
-36      Men 2015             Eliud Kipchoge       Kenya 36
-37      Men 2016             Eliud Kipchoge       Kenya 37
-38      Men 2017             Daniel Wanjiru       Kenya 38
-39      Men 2018             Eliud Kipchoge       Kenya 39
-40      Men 2019             Eliud Kipchoge       Kenya 40
-43      Men 2022               Amos Kipruto       Kenya 43
-44      Men 2023              Kelvin Kiptum       Kenya 44
-47    Women 1983                Grete Waitz      Norway 47
-48    Women 1984         Ingrid Kristiansen      Norway 48
-49    Women 1985         Ingrid Kristiansen      Norway 49
-50    Women 1986                Grete Waitz      Norway 50
-51    Women 1987         Ingrid Kristiansen      Norway 51
-52    Women 1988         Ingrid Kristiansen      Norway 52
-56    Women 1992        Katrin Dörre-Heinig     Germany 56
-57    Women 1993        Katrin Dörre-Heinig     Germany 57
-58    Women 1994        Katrin Dörre-Heinig     Germany 58
-61    Women 1997           Joyce Chepchumba       Kenya 61
-63    Women 1999           Joyce Chepchumba       Kenya 63
-64    Women 2000              Tegla Loroupe       Kenya 64
-68    Women 2004             Margaret Okayo       Kenya 68
-72    Women 2008            Irina Mikitenko     Germany 72
-73    Women 2009            Irina Mikitenko     Germany 73
-75    Women 2011     Mary Jepkosgei Keitany       Kenya 75
-76    Women 2012     Mary Jepkosgei Keitany       Kenya 76
-77    Women 2013             Priscah Jeptoo       Kenya 77
-78    Women 2014              Edna Kiplagat       Kenya 78
-80    Women 2016             Jemima Sumgong       Kenya 80
-81    Women 2017     Mary Jepkosgei Keitany       Kenya 81
-82    Women 2018           Vivian Cheruiyot       Kenya 82
-83    Women 2019              Brigid Kosgei       Kenya 83
-84    Women 2020              Brigid Kosgei       Kenya 84
-85    Women 2021        Joyciline Jepkosgei       Kenya 85</code></pre>
+<pre><code>   Category Year                    Athlete Nationality Hours Minutes Seconds
+2       Men 1981        Inge Simonsen (Tie)      Norway    NA      11      48
+10      Men 1989          Douglas Wakiihuri       Kenya     2       9       3
+25      Men 2004                Evans Rutto       Kenya     2       6      18
+26      Men 2005                 Martin Lel       Kenya     2       7      35
+27      Men 2006                 Felix Limo       Kenya     2       6      39
+28      Men 2007                 Martin Lel       Kenya     2       7      41
+29      Men 2008                 Martin Lel       Kenya     2       5      15
+30      Men 2009             Samuel Wanjiru       Kenya     2       5      10
+32      Men 2011 Emmanuel Kipchirchir Mutai       Kenya     2       4      40
+33      Men 2012   Wilson Kipsang Kiprotich       Kenya     2       4      44
+35      Men 2014   Wilson Kipsang Kiprotich       Kenya    NA       4      29
+36      Men 2015             Eliud Kipchoge       Kenya     2       4      42
+37      Men 2016             Eliud Kipchoge       Kenya     2       3       5
+38      Men 2017             Daniel Wanjiru       Kenya     2       5      48
+39      Men 2018             Eliud Kipchoge       Kenya     2       4      17
+40      Men 2019             Eliud Kipchoge       Kenya     2       2      37
+43      Men 2022               Amos Kipruto       Kenya     2       4      39
+44      Men 2023              Kelvin Kiptum       Kenya     2       1      25
+47    Women 1983                Grete Waitz      Norway     2      25      29
+48    Women 1984         Ingrid Kristiansen      Norway     2      24      26
+49    Women 1985         Ingrid Kristiansen      Norway     2      21       6
+50    Women 1986                Grete Waitz      Norway     2      24      54
+51    Women 1987         Ingrid Kristiansen      Norway     2      22      48
+52    Women 1988         Ingrid Kristiansen      Norway     2      25      41
+56    Women 1992        Katrin Dörre-Heinig     Germany     2      29      39
+57    Women 1993        Katrin Dörre-Heinig     Germany     2      27       9
+58    Women 1994        Katrin Dörre-Heinig     Germany     2      32      34
+61    Women 1997           Joyce Chepchumba       Kenya     2      26      51
+63    Women 1999           Joyce Chepchumba       Kenya     2      23      22
+64    Women 2000              Tegla Loroupe       Kenya     2      24      33
+68    Women 2004             Margaret Okayo       Kenya     2      22      35
+72    Women 2008            Irina Mikitenko     Germany     2      24      14
+73    Women 2009            Irina Mikitenko     Germany     2      22      11
+75    Women 2011     Mary Jepkosgei Keitany       Kenya     2      19      19
+76    Women 2012     Mary Jepkosgei Keitany       Kenya     2      18      37
+77    Women 2013             Priscah Jeptoo       Kenya     2      20      15
+78    Women 2014              Edna Kiplagat       Kenya     2      20      21
+80    Women 2016             Jemima Sumgong       Kenya     2      22      58
+81    Women 2017     Mary Jepkosgei Keitany       Kenya     2      17       1
+82    Women 2018           Vivian Cheruiyot       Kenya     2      18      31
+83    Women 2019              Brigid Kosgei       Kenya     2      18      20
+84    Women 2020              Brigid Kosgei       Kenya     2      18      58
+85    Women 2021        Joyciline Jepkosgei       Kenya     2      17      43</code></pre>
 </div>
 </div>
 <p>By the way, if we want to save our extracted data frame, we can assign it a new name (otherwise it will only get printed into the console, but you cant work further with it):</p>
@@ -913,70 +914,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>winners_nat <span class="ot">&lt;-</span> winners[winners<span class="sc">$</span>Nationality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Kenya"</span>, <span class="st">"Germany"</span>, <span class="st">"Norway"</span>), ]</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>winners_nat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Category Year                    Athlete Nationality ID
-2       Men 1981        Inge Simonsen (Tie)      Norway NA
-10      Men 1989          Douglas Wakiihuri       Kenya 10
-25      Men 2004                Evans Rutto       Kenya 25
-26      Men 2005                 Martin Lel       Kenya 26
-27      Men 2006                 Felix Limo       Kenya 27
-28      Men 2007                 Martin Lel       Kenya 28
-29      Men 2008                 Martin Lel       Kenya 29
-30      Men 2009             Samuel Wanjiru       Kenya 30
-32      Men 2011 Emmanuel Kipchirchir Mutai       Kenya 32
-33      Men 2012   Wilson Kipsang Kiprotich       Kenya 33
-35      Men 2014   Wilson Kipsang Kiprotich       Kenya NA
-36      Men 2015             Eliud Kipchoge       Kenya 36
-37      Men 2016             Eliud Kipchoge       Kenya 37
-38      Men 2017             Daniel Wanjiru       Kenya 38
-39      Men 2018             Eliud Kipchoge       Kenya 39
-40      Men 2019             Eliud Kipchoge       Kenya 40
-43      Men 2022               Amos Kipruto       Kenya 43
-44      Men 2023              Kelvin Kiptum       Kenya 44
-47    Women 1983                Grete Waitz      Norway 47
-48    Women 1984         Ingrid Kristiansen      Norway 48
-49    Women 1985         Ingrid Kristiansen      Norway 49
-50    Women 1986                Grete Waitz      Norway 50
-51    Women 1987         Ingrid Kristiansen      Norway 51
-52    Women 1988         Ingrid Kristiansen      Norway 52
-56    Women 1992        Katrin Dörre-Heinig     Germany 56
-57    Women 1993        Katrin Dörre-Heinig     Germany 57
-58    Women 1994        Katrin Dörre-Heinig     Germany 58
-61    Women 1997           Joyce Chepchumba       Kenya 61
-63    Women 1999           Joyce Chepchumba       Kenya 63
-64    Women 2000              Tegla Loroupe       Kenya 64
-68    Women 2004             Margaret Okayo       Kenya 68
-72    Women 2008            Irina Mikitenko     Germany 72
-73    Women 2009            Irina Mikitenko     Germany 73
-75    Women 2011     Mary Jepkosgei Keitany       Kenya 75
-76    Women 2012     Mary Jepkosgei Keitany       Kenya 76
-77    Women 2013             Priscah Jeptoo       Kenya 77
-78    Women 2014              Edna Kiplagat       Kenya 78
-80    Women 2016             Jemima Sumgong       Kenya 80
-81    Women 2017     Mary Jepkosgei Keitany       Kenya 81
-82    Women 2018           Vivian Cheruiyot       Kenya 82
-83    Women 2019              Brigid Kosgei       Kenya 83
-84    Women 2020              Brigid Kosgei       Kenya 84
-85    Women 2021        Joyciline Jepkosgei       Kenya 85</code></pre>
+<pre><code>   Category Year                    Athlete Nationality Hours Minutes Seconds
+2       Men 1981        Inge Simonsen (Tie)      Norway    NA      11      48
+10      Men 1989          Douglas Wakiihuri       Kenya     2       9       3
+25      Men 2004                Evans Rutto       Kenya     2       6      18
+26      Men 2005                 Martin Lel       Kenya     2       7      35
+27      Men 2006                 Felix Limo       Kenya     2       6      39
+28      Men 2007                 Martin Lel       Kenya     2       7      41
+29      Men 2008                 Martin Lel       Kenya     2       5      15
+30      Men 2009             Samuel Wanjiru       Kenya     2       5      10
+32      Men 2011 Emmanuel Kipchirchir Mutai       Kenya     2       4      40
+33      Men 2012   Wilson Kipsang Kiprotich       Kenya     2       4      44
+35      Men 2014   Wilson Kipsang Kiprotich       Kenya    NA       4      29
+36      Men 2015             Eliud Kipchoge       Kenya     2       4      42
+37      Men 2016             Eliud Kipchoge       Kenya     2       3       5
+38      Men 2017             Daniel Wanjiru       Kenya     2       5      48
+39      Men 2018             Eliud Kipchoge       Kenya     2       4      17
+40      Men 2019             Eliud Kipchoge       Kenya     2       2      37
+43      Men 2022               Amos Kipruto       Kenya     2       4      39
+44      Men 2023              Kelvin Kiptum       Kenya     2       1      25
+47    Women 1983                Grete Waitz      Norway     2      25      29
+48    Women 1984         Ingrid Kristiansen      Norway     2      24      26
+49    Women 1985         Ingrid Kristiansen      Norway     2      21       6
+50    Women 1986                Grete Waitz      Norway     2      24      54
+51    Women 1987         Ingrid Kristiansen      Norway     2      22      48
+52    Women 1988         Ingrid Kristiansen      Norway     2      25      41
+56    Women 1992        Katrin Dörre-Heinig     Germany     2      29      39
+57    Women 1993        Katrin Dörre-Heinig     Germany     2      27       9
+58    Women 1994        Katrin Dörre-Heinig     Germany     2      32      34
+61    Women 1997           Joyce Chepchumba       Kenya     2      26      51
+63    Women 1999           Joyce Chepchumba       Kenya     2      23      22
+64    Women 2000              Tegla Loroupe       Kenya     2      24      33
+68    Women 2004             Margaret Okayo       Kenya     2      22      35
+72    Women 2008            Irina Mikitenko     Germany     2      24      14
+73    Women 2009            Irina Mikitenko     Germany     2      22      11
+75    Women 2011     Mary Jepkosgei Keitany       Kenya     2      19      19
+76    Women 2012     Mary Jepkosgei Keitany       Kenya     2      18      37
+77    Women 2013             Priscah Jeptoo       Kenya     2      20      15
+78    Women 2014              Edna Kiplagat       Kenya     2      20      21
+80    Women 2016             Jemima Sumgong       Kenya     2      22      58
+81    Women 2017     Mary Jepkosgei Keitany       Kenya     2      17       1
+82    Women 2018           Vivian Cheruiyot       Kenya     2      18      31
+83    Women 2019              Brigid Kosgei       Kenya     2      18      20
+84    Women 2020              Brigid Kosgei       Kenya     2      18      58
+85    Women 2021        Joyciline Jepkosgei       Kenya     2      17      43</code></pre>
 </div>
 </div>
 <p>We can also combine multiple logical vectors using <code>&amp;</code> (“and”) and <code>|</code> (“or”). For example, we might want to look at all Kenyan winners before the year 2000:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Year <span class="sc">&lt;</span> <span class="dv">2000</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Category Year           Athlete Nationality ID
-10      Men 1989 Douglas Wakiihuri       Kenya 10
-61    Women 1997  Joyce Chepchumba       Kenya 61
-63    Women 1999  Joyce Chepchumba       Kenya 63</code></pre>
+<pre><code>   Category Year           Athlete Nationality Hours Minutes Seconds
+10      Men 1989 Douglas Wakiihuri       Kenya     2       9       3
+61    Women 1997  Joyce Chepchumba       Kenya     2      26      51
+63    Women 1999  Joyce Chepchumba       Kenya     2      23      22</code></pre>
 </div>
 </div>
 <p>Or at all women winners from Australia in the wheelchair category, and the male winners from the United States in the wheelchair category:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>winners[(winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Wheelchair Women"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Australia"</span>) <span class="sc">|</span> (winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Wheelchair Men"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"United States"</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>            Category Year            Athlete   Nationality  ID
-120   Wheelchair Men 2015        Josh George United States 120
-124   Wheelchair Men 2019   Daniel Romanchuk United States 124
-162 Wheelchair Women 2018 Madison de Rozario     Australia 162</code></pre>
+<pre><code>            Category Year            Athlete   Nationality Hours Minutes
+120   Wheelchair Men 2015        Josh George United States     1      31
+124   Wheelchair Men 2019   Daniel Romanchuk United States     1      33
+162 Wheelchair Women 2018 Madison de Rozario     Australia     1      42
+    Seconds
+120      31
+124      37
+162      58</code></pre>
 </div>
 </div>
 <p>In the long run, always having to define the data frame multiple time in each row can become a bit annoying and clutters the code. Enter, the <code>filter()</code> function:</p>
@@ -990,10 +995,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(winners, Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, Year <span class="sc">&lt;</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Category Year           Athlete Nationality ID
-1      Men 1989 Douglas Wakiihuri       Kenya 10
-2    Women 1997  Joyce Chepchumba       Kenya 61
-3    Women 1999  Joyce Chepchumba       Kenya 63</code></pre>
+<pre><code>  Category Year           Athlete Nationality Hours Minutes Seconds
+1      Men 1989 Douglas Wakiihuri       Kenya     2       9       3
+2    Women 1997  Joyce Chepchumba       Kenya     2      26      51
+3    Women 1999  Joyce Chepchumba       Kenya     2      23      22</code></pre>
 </div>
 </div>
 </div>
@@ -1180,10 +1185,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>winners <span class="sc">%&gt;%</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, Year <span class="sc">&lt;</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Category Year           Athlete Nationality ID
-1      Men 1989 Douglas Wakiihuri       Kenya 10
-2    Women 1997  Joyce Chepchumba       Kenya 61
-3    Women 1999  Joyce Chepchumba       Kenya 63</code></pre>
+<pre><code>  Category Year           Athlete Nationality Hours Minutes Seconds
+1      Men 1989 Douglas Wakiihuri       Kenya     2       9       3
+2    Women 1997  Joyce Chepchumba       Kenya     2      26      51
+3    Women 1999  Joyce Chepchumba       Kenya     2      23      22</code></pre>
 </div>
 </div>
 </div>
@@ -1338,7 +1343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
 <ol type="1">
-<li>Load the <code>tutoR</code> package and start the exercises about <code>subsetting</code> by typing the following code into your console:</li>
+<li>Load the <code>tutoR</code> package and start the exercise by typing the following code into your console:</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>learnr<span class="sc">::</span><span class="fu">run_tutorial</span>(<span class="at">name =</span> <span class="st">"subsetting"</span>, <span class="at">package =</span> <span class="st">"tutoR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1348,7 +1353,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@amutiomi?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Miguel A Amutio</a> on <a href="https://unsplash.com/de/fotos/QDv-uBc-poY?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
