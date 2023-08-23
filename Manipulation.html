@@ -274,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="merging" class="level1">
 <h1>Merging</h1>
-<p>Suppose we want to look at the winners by continent (see <a href="https://nickhaf.github.io/r_tutorial/subsetting.html">last chapter</a> for the data set). In this case, we will have to add a list assigning each Nationality a continent. We can easily find such a list online, for example at <a href="https://ourworldindata.org/grapher/continents-according-to-our-world-in-data">ourworldindata.org</a>. I have already <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">downloaded</a> the <code>.csv</code>, and we have already loaded it into R in the exercise of <a href="https://nickhaf.github.io/r_tutorial/load_data.html">load data</a>:</p>
+<p>Suppose we want to look at the winners by continent (see <a href="./subsetting.html">last chapter</a> for the data set). In this case, we will have to add a list assigning each Nationality a continent. We can easily find such a list online, for example at <a href="https://ourworldindata.org/grapher/continents-according-to-our-world-in-data">ourworldindata.org</a>. I have already <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">downloaded</a> the <code>.csv</code>, and we have already loaded it into R in the exercise of <a href="./load_data.html">load data</a>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>winners <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"./raw_data/winners.rds"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>continents <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
@@ -392,7 +392,7 @@ If the merging column(s) had the same name in both data sets, we wouldn’t have
 [157] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE</code></pre>
 </div>
 </div>
-<p>Some <code>TRUEs</code>, so there are missing values here. Let’s count them (Summing an <a href="https://nickhaf.github.io/r_tutorial/basics.html#comparisons-and-logical-operators">logical vector</a> counts the number of <code>TRUE</code> values.):</p>
+<p>Some <code>TRUEs</code>, so there are missing values here. Let’s count them (Summing an <a href="./basics.html#comparisons-and-logical-operators">logical vector</a> counts the number of <code>TRUE</code> values.):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(winners_continents<span class="sc">$</span>Hours))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
