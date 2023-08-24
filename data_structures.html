@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./the_big_picture.html" rel="" target="">
- <span class="menu-text">The big picture</span></a>
+ <span class="menu-text">Expand To Learn About Collapse</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./packages.html" rel="" target="">
@@ -203,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./the_big_picture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The big picture</span></a>
+ <span class="menu-text">Expand To Learn About Collapse</span></a>
   </div>
 </li>
       </ul>
@@ -261,6 +261,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
  <span class="menu-text">manipulation.qmd</span>
   </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Advanced: Analysis and visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./statistical_analyses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">statistical_analyses.html</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./plotting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">plotting.html</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -420,7 +443,7 @@ returning NA</code></pre>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>personality_rating <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">big5 =</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Jessi"</span>, <span class="st">"John"</span>),</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">extraversion =</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="dv">2</span>), </span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">openness =</span> <span class="fu">c</span>(<span class="fl">3.8</span>, <span class="dv">4</span>)),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">openness =</span> <span class="fu">c</span>(<span class="fl">3.8</span>, <span class="cn">NA</span>)),</span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">rating_type =</span> <span class="st">"self_rating"</span></span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>     )</span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>personality_rating</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -428,7 +451,7 @@ returning NA</code></pre>
 <pre><code>$big5
    name extraversion openness
 1 Jessi          4.3      3.8
-2  John          2.0      4.0
+2  John          2.0       NA
 
 $rating_type
 [1] "self_rating"</code></pre>
@@ -456,6 +479,20 @@ $rating_type
 </div>
 </div>
 <p>On the left side we have the column names of this data frame, followed by the <a href="">type</a> of the column.</p>
+<p>To get an overview of the statistical properties of all columns and their missing values, we can use <code>summary()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(persons)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     name                age        birth_month          big5_extro   
+ Length:4           Min.   :17.00   Length:4           Min.   :2.000  
+ Class :character   1st Qu.:17.75   Class :character   1st Qu.:3.125  
+ Mode  :character   Median :18.00   Mode  :character   Median :3.850  
+                    Mean   :18.00                      Mean   :3.550  
+                    3rd Qu.:18.25                      3rd Qu.:4.275  
+                    Max.   :19.00                      Max.   :4.500  </code></pre>
+</div>
+</div>
+<p>Here we can see the mean, minimum and maximum values and more for the numeric columns.</p>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
@@ -463,7 +500,7 @@ $rating_type
 <li>Load the <code>tutoR</code> package and start the exercises about <code>data structures</code> by typing the following code into you console:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>learnr<span class="sc">::</span><span class="fu">run_tutorial</span>(<span class="at">name =</span> <span class="st">"data_structures"</span>, <span class="at">package =</span> <span class="st">"tutoR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>learnr<span class="sc">::</span><span class="fu">run_tutorial</span>(<span class="at">name =</span> <span class="st">"data_structures"</span>, <span class="at">package =</span> <span class="st">"tutoR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

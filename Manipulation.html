@@ -125,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./the_big_picture.html" rel="" target="">
- <span class="menu-text">The big picture</span></a>
+ <span class="menu-text">Expand To Learn About Collapse</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./packages.html" rel="" target="">
@@ -201,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./the_big_picture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The big picture</span></a>
+ <span class="menu-text">Expand To Learn About Collapse</span></a>
   </div>
 </li>
       </ul>
@@ -261,6 +261,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Advanced: Analysis and visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./statistical_analyses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">statistical_analyses.html</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./plotting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">plotting.html</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -271,10 +294,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#merging" id="toc-merging" class="nav-link active" data-scroll-target="#merging">Merging</a></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link active" data-scroll-target="#data-wrangling">Data wrangling</a>
+  <ul class="collapse">
+  <li><a href="#overview-of-the-main-commands-in-this-section" id="toc-overview-of-the-main-commands-in-this-section" class="nav-link" data-scroll-target="#overview-of-the-main-commands-in-this-section">Overview of the main commands in this section</a></li>
+  <li><a href="#data-set" id="toc-data-set" class="nav-link" data-scroll-target="#data-set">Data set</a></li>
+  <li><a href="#wide-and-long-format" id="toc-wide-and-long-format" class="nav-link" data-scroll-target="#wide-and-long-format">Wide and long format</a></li>
+  <li><a href="#merging" id="toc-merging" class="nav-link" data-scroll-target="#merging">Merging</a></li>
   <li><a href="#new-columns" id="toc-new-columns" class="nav-link" data-scroll-target="#new-columns">New columns</a></li>
   <li><a href="#missing-values" id="toc-missing-values" class="nav-link" data-scroll-target="#missing-values">Missing values</a></li>
   <li><a href="#ifelse" id="toc-ifelse" class="nav-link" data-scroll-target="#ifelse">ifelse</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -283,25 +313,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="merging" class="level1">
-<h1>Merging</h1>
-<p>Suppose we want to look at the winners by continent (see <a href="./subsetting.html">last chapter</a> for the data set). In this case, we will have to add a list assigning each Nationality a continent. We can easily find such a list online, for example at <a href="https://ourworldindata.org/grapher/continents-according-to-our-world-in-data">ourworldindata.org</a>. I have already <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">downloaded</a> the <code>.csv</code>, and we have already loaded it into R in the exercise of <a href="./load_data.html">load data</a>:</p>
+<section id="data-wrangling" class="level1">
+<h1>Data wrangling</h1>
+<section id="overview-of-the-main-commands-in-this-section" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-the-main-commands-in-this-section">Overview of the main commands in this section</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>winners <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"./raw_data/winners.rds"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>continents <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"./raw_data/continents.csv"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">";"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## merge two data frames by different columns:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> winners,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> continents,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.x =</span> <span class="st">"Nationality"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.y =</span> <span class="st">"Entity"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Add a new column:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>winners_continents<span class="sc">$</span>Seconds_total <span class="ot">&lt;-</span> winners_continents<span class="sc">$</span>Hours <span class="sc">*</span> <span class="dv">60</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                                    winners_continents<span class="sc">$</span>Minutes <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                                    winners_continents<span class="sc">$</span>Seconds</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Show missing values:</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(winners_continents<span class="sc">$</span>Hours)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove rows that have a missing in the specified column:</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>winners_continents_na <span class="ot">&lt;-</span> winners_continents[<span class="sc">!</span><span class="fu">is.na</span>(winners_continents<span class="sc">$</span>Hours), ]</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Add a new column conditionally to contents of other columns: </span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>winners_continents<span class="sc">$</span>Wheelchair <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  winners_continents<span class="sc">$</span>Category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Wheelchair Men"</span>, <span class="st">"Wheelchair Women"</span>),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">yes =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">no =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>To merge two data frames that include information that belongs together, we need a common column, on which we can combine them. In our case, this is the column containing the country, but they are named differently. No problem, we can define which columns should be taken from which data frame for merging:</p>
+<div class="tidy">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>winners_continents <span class="ot">&lt;-</span> <span class="fu">merge</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> winners,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> continents,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.x =</span> <span class="st">"Nationality"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.y =</span> <span class="st">"Entity"</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(winners_continents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Add a new column using mutate():</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>winners_continents <span class="ot">&lt;-</span> winners_continents <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Minutes_total =</span> winners_continents<span class="sc">$</span>Hours <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                         winners_continents<span class="sc">$</span>Minutes <span class="sc">*</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                         winners_continents<span class="sc">$</span>Seconds <span class="sc">/</span> <span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="data-set" class="level2">
+<h2 class="anchored" data-anchor-id="data-set">Data set</h2>
+<p>Suppose we want to look at the winners by continent (see <a href="./subsetting.html">last chapter</a> for the data set). In this case, we will have to add a list assigning each Nationality a continent. We can easily find such a list online, for example at <a href="https://ourworldindata.org/grapher/continents-according-to-our-world-in-data">ourworldindata.org</a>. I have already <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">downloaded</a> the <code>.csv</code>, and we have already loaded it into R in the exercise 2 of <a href="http://localhost:3262/load_data.html#solution">load data</a>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>winners <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"./raw_data/winners.rds"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>continents <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"./raw_data/continents.csv"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">";"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="wide-and-long-format" class="level2">
+<h2 class="anchored" data-anchor-id="wide-and-long-format">Wide and long format</h2>
+</section>
+<section id="merging" class="level2">
+<h2 class="anchored" data-anchor-id="merging">Merging</h2>
+<p>To merge two data frames that include information that belongs together, we need a common column, on which we can combine them. In our case, this is the column containing the country, but they are named differently. This doesn’t pose a problem, as we can define which columns should be taken from which data frame for merging:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>winners_continents <span class="ot">&lt;-</span> <span class="fu">merge</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> winners,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> continents,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.x =</span> <span class="st">"Nationality"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.y =</span> <span class="st">"Entity"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(winners_continents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Nationality         Category Year.x            Athlete Hours Minutes Seconds
 1   Australia   Wheelchair Men   2009      Kurt Fearnley     1      28      57
@@ -319,15 +398,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6  CAN   2015 North America</code></pre>
 </div>
 </div>
-<p>Great! Now the information that belongs together is stored together.<br>
-If the merging column(s) had the same name in both data sets, we wouldn’t have to specify them at all, the function can compare the column names automatically.</p>
+<p>Great! Now the information that belongs together is stored together.</p>
 </section>
-<section id="new-columns" class="level1">
-<h1>New columns</h1>
+<section id="new-columns" class="level2">
+<h2 class="anchored" data-anchor-id="new-columns">New columns</h2>
 <p>Adding new columns to a data frame is pretty straight forward. We just define the column name, and then assign it some input. For example, we could be interested in calculating the seconds each person needed to finish, and add that as a new column:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>winners_continents<span class="sc">$</span>Seconds_total <span class="ot">&lt;-</span> winners_continents<span class="sc">$</span>Hours <span class="sc">*</span> <span class="dv">60</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> winners_continents<span class="sc">$</span>Minutes <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span> winners_continents<span class="sc">$</span>Seconds</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(winners_continents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>winners_continents<span class="sc">$</span>Seconds_total <span class="ot">&lt;-</span> winners_continents<span class="sc">$</span>Hours <span class="sc">*</span> <span class="dv">60</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                    winners_continents<span class="sc">$</span>Minutes <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                                    winners_continents<span class="sc">$</span>Seconds</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(winners_continents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Nationality         Category Year.x            Athlete Hours Minutes Seconds
 1   Australia   Wheelchair Men   2009      Kurt Fearnley     1      28      57
@@ -348,11 +428,11 @@ If the merging column(s) had the same name in both data sets, we wouldn’t have
 <p>Or, using the <code>tidyverse</code> with the help of <code>mutate()</code>:</p>
 <div class="tidy">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>winners_continents <span class="ot">&lt;-</span> winners_continents <span class="sc">%&gt;%</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Minutes_total =</span> winners_continents<span class="sc">$</span>Hours <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span> winners_continents<span class="sc">$</span>Minutes <span class="sc">*</span> winners_continents<span class="sc">$</span>Seconds <span class="sc">/</span> <span class="dv">60</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(winners_continents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>winners_continents <span class="ot">&lt;-</span> winners_continents <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Minutes_total =</span> winners_continents<span class="sc">$</span>Hours <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span> winners_continents<span class="sc">$</span>Minutes <span class="sc">*</span> winners_continents<span class="sc">$</span>Seconds <span class="sc">/</span> <span class="dv">60</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(winners_continents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Nationality         Category Year.x            Athlete Hours Minutes Seconds
 1   Australia   Wheelchair Men   2009      Kurt Fearnley     1      28      57
@@ -373,590 +453,94 @@ If the merging column(s) had the same name in both data sets, we wouldn’t have
 </div>
 <p>Hold on! Both new columns seem to have missing values, which is an important concept which we haven’t talked about yet. So let’s do that quickly, and then merge!</p>
 </section>
-<section id="missing-values" class="level1">
-<h1>Missing values</h1>
+<section id="missing-values" class="level2">
+<h2 class="anchored" data-anchor-id="missing-values">Missing values</h2>
 <p>Missing values are denoted in R by <code>NA</code> (or <code>NaN</code> in some cases). They pretty strongly nullify a calculation - if one missing value is found somewhere along the line, the result will also be <code>NA</code> (if not specified otherwise):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="cn">NA</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">+</span> <span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
 </div>
 <p>That’s why our newly build columns include <code>NAs</code>: The column <code>Hours</code> already had some, and by adding with <code>NAs</code> we just produced new ones.</p>
 <p>To check if values are <code>NA</code>, we can use <code>is.na()</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(winners_continents<span class="sc">$</span>Hours)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(winners_continents<span class="sc">$</span>Hours)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+ [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
  [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [61]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
- [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [97]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[109] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[121] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[145] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[157] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE</code></pre>
+ [37] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+...</code></pre>
 </div>
 </div>
 <p>Some <code>TRUEs</code>, so there are missing values here. Let’s count them (Summing an <a href="./basics.html#comparisons-and-logical-operators">logical vector</a> counts the number of <code>TRUE</code> values.):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(winners_continents<span class="sc">$</span>Hours))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(winners_continents<span class="sc">$</span>Hours))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
 </div>
 <p>We seem to have <code>5</code> missings in this column. There are multiple different ways to deal with missings. For this tutorial, we just remove cases with missing values on the <code>Hours</code> variable:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>winners_continents_na <span class="ot">&lt;-</span> winners_continents[<span class="sc">!</span><span class="fu">is.na</span>(winners_continents<span class="sc">$</span>Hours), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>winners_continents_na <span class="ot">&lt;-</span> winners_continents[<span class="sc">!</span><span class="fu">is.na</span>(winners_continents<span class="sc">$</span>Hours), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What happens here? Like always when filtering specific rows, we define a logical vector, which has a <code>TRUE</code> for all rows that have a missing on <code>ID</code> and a <code>FALSE</code> for all others (by using the <code>!</code> operator, which inverts the boolean values - otherwise we would extract all rows with missing values in the <code>Hours</code> column):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.na</span>(winners_continents<span class="sc">$</span>Hours)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.na</span>(winners_continents<span class="sc">$</span>Hours)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
- [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
+ [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
  [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
- [37]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
- [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
- [61] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
- [73]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE
- [85]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
- [97] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-[109]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-[121]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-[133]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-[145]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-[157]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE</code></pre>
+ [37]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+...</code></pre>
 </div>
 </div>
 <p>We also assign a new name to the resulting data frame.</p>
 </section>
-<section id="ifelse" class="level1">
-<h1>ifelse</h1>
+<section id="ifelse" class="level2">
+<h2 class="anchored" data-anchor-id="ifelse">ifelse</h2>
 <p>We can also add new values conditionally, for example by using the <code>ifelse()</code> function. For example, let’s build a composite variable which summarizes whether the category was <code>Whelchair</code> or not:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>winners_continents<span class="sc">$</span>Wheelchair <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  winners_continents<span class="sc">$</span>Category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Wheelchair Men"</span>, <span class="st">"Wheelchair Women"</span>),</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">yes =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">no =</span> <span class="cn">FALSE</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="tidy">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>winners_continents <span class="ot">&lt;-</span> winners_continents <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">over_3_h =</span> <span class="fu">ifelse</span>(</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    winners_continents<span class="sc">$</span>Hours <span class="sc">&lt;</span> <span class="dv">2</span>,</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">yes =</span> <span class="st">"below"</span>,</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">no  =</span> <span class="st">"over"</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>winners_continents</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>winners_continents<span class="sc">$</span>Wheelchair <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  winners_continents<span class="sc">$</span>Category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Wheelchair Men"</span>, <span class="st">"Wheelchair Women"</span>),</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">yes =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">no =</span> <span class="cn">FALSE</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>winners_continents</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       Nationality         Category Year.x                    Athlete Hours
 1        Australia   Wheelchair Men   2009              Kurt Fearnley     1
 2        Australia   Wheelchair Men   2013              Kurt Fearnley     1
 3        Australia Wheelchair Women   2018         Madison de Rozario     1
-4          Belgium   Wheelchair Men   1993            George Vandamme     1
-5           Canada   Wheelchair Men   1988                  Ted Vince     2
-6           Canada   Wheelchair Men   2010               Josh Cassidy     1
-7           Canada   Wheelchair Men   2020              Brent Lakatos     1
-8           Canada   Wheelchair Men   1992              Daniel Wesley     1
-9            China            Women   2007               Zhou Chunxiu     2
-10         Denmark Wheelchair Women   1990              Connie Hansen     2
-11         Denmark Wheelchair Women   1991              Connie Hansen     2
-12         Denmark              Men   1988           Henrik Jørgensen     2
-13        Ethiopia              Men   2020          Shura Kitata Tola     2
-14        Ethiopia              Men   2021                Sisay Lemma     2
-15        Ethiopia            Women   2022         Yalemzerf Yehualaw     2
-16        Ethiopia            Women   2015                Tigist Tufa     2
-17        Ethiopia              Men   2013             Tsegaye Kebede     2
-18        Ethiopia            Women   2010           Aselefech Mergia     2
-19        Ethiopia              Men   2010             Tsegaye Kebede     2
-20        Ethiopia            Women   2001               Derartu Tulu     2
-21        Ethiopia              Men   2003            Gezahegne Abera    NA
-22          France   Wheelchair Men   2003               Joël Jeannot     1
-23          France   Wheelchair Men   1991            Farid Amarouche     1
-24          France   Wheelchair Men   2001            Denis Lemeunier     1
-25         Germany            Women   2008            Irina Mikitenko     2
-26         Germany            Women   1993        Katrin Dörre-Heinig     2
-27         Germany            Women   1994        Katrin Dörre-Heinig     2
-28         Germany            Women   2009            Irina Mikitenko     2
-29         Germany            Women   1992        Katrin Dörre-Heinig     2
-30         Ireland Wheelchair Women   1985                Kay McShane     2
-31         Ireland            Women   1998        Catherina McKiernan     2
-32         Ireland   Wheelchair Men   1984                Kevin Breen     2
-33         Ireland Wheelchair Women   1984                Kay McShane     3
-34         Ireland Wheelchair Women   1986                Kay McShane     3
-35         Ireland   Wheelchair Men   1986             Gerry O'Rourke     2
-36           Italy Wheelchair Women   2005       Francesca Porcellato     1
-37           Italy Wheelchair Women   2006       Francesca Porcellato     1
-38           Italy Wheelchair Women   2003       Francesca Porcellato     2
-39           Italy Wheelchair Women   2004       Francesca Porcellato     2
-40           Japan              Men   1986             Toshihiko Seko     2
-41           Japan Wheelchair Women   2010            Wakako Tsuchida     1
-42           Japan              Men   1987           Hiromi Taniguchi     2
-43           Kenya              Men   2008                 Martin Lel     2
-44           Kenya            Women   2004             Margaret Okayo     2
-45           Kenya              Men   2009             Samuel Wanjiru     2
-46           Kenya              Men   2011 Emmanuel Kipchirchir Mutai     2
-47           Kenya            Women   2018           Vivian Cheruiyot     2
-48           Kenya              Men   2022               Amos Kipruto     2
-49           Kenya            Women   1999           Joyce Chepchumba     2
-50           Kenya            Women   2000              Tegla Loroupe     2
-51           Kenya            Women   1997           Joyce Chepchumba     2
-52           Kenya              Men   2023              Kelvin Kiptum     2
-53           Kenya              Men   2007                 Martin Lel     2
-54           Kenya              Men   2006                 Felix Limo     2
-55           Kenya            Women   2016             Jemima Sumgong     2
-56           Kenya              Men   2012   Wilson Kipsang Kiprotich     2
-57           Kenya            Women   2019              Brigid Kosgei     2
-58           Kenya            Women   2021        Joyciline Jepkosgei     2
-59           Kenya              Men   1989          Douglas Wakiihuri     2
-60           Kenya              Men   2017             Daniel Wanjiru     2
-61           Kenya              Men   2014   Wilson Kipsang Kiprotich    NA
-62           Kenya            Women   2011     Mary Jepkosgei Keitany     2
-63           Kenya              Men   2019             Eliud Kipchoge     2
-64           Kenya              Men   2015             Eliud Kipchoge     2
-65           Kenya              Men   2018             Eliud Kipchoge     2
-66           Kenya            Women   2017     Mary Jepkosgei Keitany     2
-67           Kenya            Women   2020              Brigid Kosgei     2
-68           Kenya            Women   2013             Priscah Jeptoo     2
-69           Kenya              Men   2016             Eliud Kipchoge     2
-70           Kenya              Men   2004                Evans Rutto     2
-71           Kenya              Men   2005                 Martin Lel     2
-72           Kenya            Women   2012     Mary Jepkosgei Keitany     2
-73           Kenya            Women   2014              Edna Kiplagat     2
-74          Mexico   Wheelchair Men   2004               Saúl Mendoza     1
-75          Mexico              Men   1994             Dionicio Cerón     2
-76          Mexico   Wheelchair Men   2005               Saúl Mendoza     1
-77          Mexico              Men   1996             Dionicio Cerón     2
-78          Mexico              Men   1995             Dionicio Cerón     2
-79         Morocco              Men   1999      Abdelkader El Mouaziz     2
-80         Morocco              Men   2001      Abdelkader El Mouaziz     2
-81     Netherlands Wheelchair Women   2020            Nikita den Boer     1
-82     Netherlands            Women   2023               Sifan Hassan     2
-83          Norway              Men   1981        Inge Simonsen (Tie)    NA
-84          Norway            Women   1984         Ingrid Kristiansen     2
-85          Norway            Women   1985         Ingrid Kristiansen     2
-86          Norway            Women   1986                Grete Waitz     2
-87          Norway            Women   1983                Grete Waitz     2
-88          Norway            Women   1988         Ingrid Kristiansen     2
-89          Norway            Women   1987         Ingrid Kristiansen     2
-90          Poland            Women   1990               Wanda Panfil     2
-91          Poland            Women   1995        Małgorzata Sobańska     2
-92        Portugal            Women   1991                  Rosa Mota     2
-93        Portugal              Men   1992              António Pinto     2
-94        Portugal              Men   1997              António Pinto     2
-95        Portugal              Men   2000              António Pinto     2
-96           Spain              Men   1998                 Abel Antón     2
-97          Sweden   Wheelchair Men   1990             Håkan Ericsson    NA
-98          Sweden Wheelchair Women   1997         Monica Wetterström     1
-99          Sweden Wheelchair Women   1999         Monica Wetterström     1
-100    Switzerland   Wheelchair Men   1995                 Heinz Frei     1
-101    Switzerland Wheelchair Women   2019              Manuela Schär     1
-102    Switzerland   Wheelchair Men   2021                 Marcel Hug     1
-103    Switzerland Wheelchair Women   2017              Manuela Schär     1
-104    Switzerland   Wheelchair Men   1999                 Heinz Frei     1
-105    Switzerland   Wheelchair Men   2016                 Marcel Hug     1
-106    Switzerland Wheelchair Women   2008                Sandra Graf     1
-107    Switzerland Wheelchair Women   2021              Manuela Schär     1
-108    Switzerland   Wheelchair Men   2014                 Marcel Hug     1
-109    Switzerland   Wheelchair Men   1998                 Heinz Frei     1
-110 United Kingdom              Men   1982                 Hugh Jones     2
-111 United Kingdom              Men   1984           Charlie Spedding     2
-112 United Kingdom              Men   1985                Steve Jones     2
-113 United Kingdom   Wheelchair Men   1994              David Holding     1
-114 United Kingdom Wheelchair Women   1992        Tanni Grey-Thompson     2
-115 United Kingdom   Wheelchair Men   1996              David Holding     1
-116 United Kingdom Wheelchair Women   1994        Tanni Grey-Thompson     2
-117 United Kingdom              Men   1993              Eamonn Martin     2
-118 United Kingdom   Wheelchair Men   1989              David Holding     1
-119 United Kingdom            Women   2005            Paula Radcliffe     2
-120 United Kingdom Wheelchair Women   1993                  Rose Hill     2
-121 United Kingdom   Wheelchair Men   2006                 David Weir     1
-122 United Kingdom   Wheelchair Men   2007                 David Weir     1
-123 United Kingdom            Women   1996               Liz McColgan     2
-124 United Kingdom Wheelchair Women   1983               Denise Smith     4
-125 United Kingdom   Wheelchair Men   1997              David Holding     1
-126 United Kingdom   Wheelchair Men   2011                 David Weir     1
-127 United Kingdom Wheelchair Women   2000               Sarah Piercy     2
-128 United Kingdom   Wheelchair Men   2000             Kevin Papworth     1
-129 United Kingdom            Women   1989            Véronique Marot     2
-130 United Kingdom            Women   2003            Paula Radcliffe     2
-131 United Kingdom   Wheelchair Men   2002                 David Weir     1
-132 United Kingdom   Wheelchair Men   2017                 David Weir     1
-133 United Kingdom   Wheelchair Men   2018                 David Weir     1
-134 United Kingdom              Men   1983               Mike Gratton     2
-135 United Kingdom            Women   1981                Joyce Smith     2
-136 United Kingdom            Women   1982                Joyce Smith     2
-137 United Kingdom Wheelchair Women   1996        Tanni Grey-Thompson     2
-138 United Kingdom   Wheelchair Men   1983               Gordon Perry     3
-139 United Kingdom Wheelchair Women   1998        Tanni Grey-Thompson     2
-140 United Kingdom   Wheelchair Men   1985               Chris Hallam     2
-141 United Kingdom              Men   1990            Allister Hutton     2
-142 United Kingdom            Women   2002            Paula Radcliffe     2
-143 United Kingdom Wheelchair Women   1989            Josie Cichockyj     3
-144 United Kingdom Wheelchair Women   1988             Karen Davidson     2
-145 United Kingdom Wheelchair Women   1995                  Rose Hill     2
-146 United Kingdom   Wheelchair Men   2008                 David Weir     1
-147 United Kingdom Wheelchair Women   2001        Tanni Grey-Thompson     2
-148 United Kingdom Wheelchair Women   2007               Shelly Woods     1
-149 United Kingdom Wheelchair Women   2012               Shelly Woods     1
-150 United Kingdom   Wheelchair Men   2012                 David Weir     1
-151 United Kingdom Wheelchair Women   2002        Tanni Grey-Thompson     2
-152 United Kingdom   Wheelchair Men   1987               Chris Hallam     2
-153 United Kingdom Wheelchair Women   1987             Karen Davidson     2
-154  United States              Men   1981       Dick Beardsley (Tie)     2
-155  United States Wheelchair Women   2016           Tatyana McFadden     1
-156  United States Wheelchair Women   2009             Amanda McGrory     1
-157  United States Wheelchair Women   2011             Amanda McGrory     1
-158  United States              Men   2002          Khalid Khannouchi     2
-159  United States Wheelchair Women   2013           Tatyana McFadden     1
-160  United States   Wheelchair Men   2019           Daniel Romanchuk     1
-161  United States Wheelchair Women   2015           Tatyana McFadden     1
-162  United States   Wheelchair Men   2015                Josh George     1
-163  United States            Women   2006               Deena Kastor     2
-164  United States Wheelchair Women   2014           Tatyana McFadden    NA
-    Minutes Seconds Code Year.y     Continent Seconds_total Minutes_total
-1        28      57  AUS   2015       Oceania          5337      86.60000
-2        31      29  AUS   2015       Oceania          5489      74.98333
-3        42      58  AUS   2015       Oceania          6178     100.60000
-4        44      10  BEL   2015        Europe          6250      67.33333
-5         1      37  CAN   2015 North America          7297     120.61667
-6        35      21  CAN   2015 North America          5721      72.25000
-7        36       4  CAN   2015 North America          5764      62.40000
-8        51      42  CAN   2015 North America          6702      95.70000
-9        20      38  CHN   2015          Asia          8438     132.66667
-10       10      25  DNK   2015        Europe          7825     124.16667
-11        4      40  DNK   2015        Europe          7480     122.66667
-12       10      20  DNK   2015        Europe          7820     123.33333
-13        5      58  ETH   2015        Africa          7558     124.83333
-14        4       1  ETH   2015        Africa          7441     120.06667
-15       17      26  ETH   2015        Africa          8246     127.36667
-16       23      21  ETH   2015        Africa          8601     128.05000
-17        6       4  ETH   2015        Africa          7564     120.40000
-18       22      38  ETH   2015        Africa          8558     133.93333
-19        5      19  ETH   2015        Africa          7519     121.58333
-20       23      57  ETH   2015        Africa          8637     141.85000
-21        7      56  ETH   2015        Africa            NA            NA
-22       32       2  FRA   2015        Europe          5522      61.06667
-23       52      52  FRA   2015        Europe          6772     105.06667
-24       42      37  FRA   2015        Europe          6157      85.90000
-25       24      14  DEU   2015        Europe          8654     125.60000
-26       27       9  DEU   2015        Europe          8829     124.05000
-27       32      34  DEU   2015        Europe          9154     138.13333
-28       22      11  DEU   2015        Europe          8531     124.03333
-29       29      39  DEU   2015        Europe          8979     138.85000
-30       47      12  IRL   2015        Europe         10032     129.40000
-31       26      26  IRL   2015        Europe          8786     131.26667
-32       38      40  IRL   2015        Europe          9520     145.33333
-33       10       4  IRL   2015        Europe         11404     180.66667
-34        2      40  IRL   2015        Europe         10960     181.33333
-35       26      38  IRL   2015        Europe          8798     136.46667
-36       57       0  ITA   2015        Europe          7020      60.00000
-37       59      57  ITA   2015        Europe          7197     116.05000
-38        4      21  ITA   2015        Europe          7461     121.40000
-39        4      58  ITA   2015        Europe          7498     123.86667
-40       10       2  JPN   2015          Asia          7802     120.33333
-41       52      33  JPN   2015          Asia          6753      88.60000
-42        9      50  JPN   2015          Asia          7790     127.50000
-43        5      15  KEN   2015        Africa          7515     121.25000
-44       22      35  KEN   2015        Africa          8555     132.83333
-45        5      10  KEN   2015        Africa          7510     120.83333
-46        4      40  KEN   2015        Africa          7480     122.66667
-47       18      31  KEN   2015        Africa          8311     129.30000
-48        4      39  KEN   2015        Africa          7479     122.60000
-49       23      22  KEN   2015        Africa          8602     128.43333
-50       24      33  KEN   2015        Africa          8673     133.20000
-51       26      51  KEN   2015        Africa          8811     142.10000
-52        1      25  KEN   2015        Africa          7285     120.41667
-53        7      41  KEN   2015        Africa          7661     124.78333
-54        6      39  KEN   2015        Africa          7599     123.90000
-55       22      58  KEN   2015        Africa          8578     141.26667
-56        4      44  KEN   2015        Africa          7484     122.93333
-57       18      20  KEN   2015        Africa          8300     126.00000
-58       17      43  KEN   2015        Africa          8263     132.18333
-59        9       3  KEN   2015        Africa          7743     120.45000
-60        5      48  KEN   2015        Africa          7548     124.00000
-61        4      29  KEN   2015        Africa            NA            NA
-62       19      19  KEN   2015        Africa          8359     126.01667
-63        2      37  KEN   2015        Africa          7357     121.23333
-64        4      42  KEN   2015        Africa          7482     122.80000
-65        4      17  KEN   2015        Africa          7457     121.13333
-66       17       1  KEN   2015        Africa          8221     120.28333
-67       18      58  KEN   2015        Africa          8338     137.40000
-68       20      15  KEN   2015        Africa          8415     125.00000
-69        3       5  KEN   2015        Africa          7385     120.25000
-70        6      18  KEN   2015        Africa          7578     121.80000
-71        7      35  KEN   2015        Africa          7655     124.08333
-72       18      37  KEN   2015        Africa          8317     131.10000
-73       20      21  KEN   2015        Africa          8421     127.00000
-74       36      56  MEX   2015 North America          5816      93.60000
-75        8      53  MEX   2015 North America          7733     127.06667
-76       35      51  MEX   2015 North America          5751      89.75000
-77       10       0  MEX   2015 North America          7800     120.00000
-78        8      30  MEX   2015 North America          7710     124.00000
-79        7      57  MAR   2015        Africa          7677     126.65000
-80        7       9  MAR   2015        Africa          7629     121.05000
-81       40       7  NLD   2015        Europe          6007      64.66667
-82       18      33  NLD   2015        Europe          8313     129.90000
-83       11      48  NOR   2015        Europe            NA            NA
-84       24      26  NOR   2015        Europe          8666     130.40000
-85       21       6  NOR   2015        Europe          8466     122.10000
-86       24      54  NOR   2015        Europe          8694     141.60000
-87       25      29  NOR   2015        Europe          8729     132.08333
-88       25      41  NOR   2015        Europe          8741     137.08333
-89       22      48  NOR   2015        Europe          8568     137.60000
-90       26      31  POL   2015        Europe          8791     133.43333
-91       27      43  POL   2015        Europe          8863     139.35000
-92       26      14  PRT   2015        Europe          8774     126.06667
-93       10       2  PRT   2015        Europe          7802     120.33333
-94        7      55  PRT   2015        Europe          7675     126.41667
-95        6      36  PRT   2015        Europe          7596     123.60000
-96        7      57  ESP   2015        Europe          7677     126.65000
-97       57      12  SWE   2015        Europe            NA            NA
-98       49       9  SWE   2015        Europe          6549      67.35000
-99       57      38  SWE   2015        Europe          7058      96.10000
-100      39      14  CHE   2015        Europe          5954      69.10000
-101      44       9  CHE   2015        Europe          6249      66.60000
-102      26      27  CHE   2015        Europe          5187      71.70000
-103      39      57  CHE   2015        Europe          5997      97.05000
-104      35      27  CHE   2015        Europe          5727      75.75000
-105      35      19  CHE   2015        Europe          5719      71.08333
-106      48       4  CHE   2015        Europe          6484      63.20000
-107      39      52  CHE   2015        Europe          5992      93.80000
-108      32      41  CHE   2015        Europe          5561      81.86667
-109      35      18  CHE   2015        Europe          5718      70.50000
-110       9      24  GBR   2015        Europe          7764     123.60000
-111       9      57  GBR   2015        Europe          7797     128.55000
-112       8      16  GBR   2015        Europe          7696     122.13333
-113      46       6  GBR   2015        Europe          6366      64.60000
-114      17      23  GBR   2015        Europe          8243     126.51667
-115      43      48  GBR   2015        Europe          6228      94.40000
-116       8      26  GBR   2015        Europe          7706     123.46667
-117      10      50  GBR   2015        Europe          7850     128.33333
-118      59      31  GBR   2015        Europe          7171      90.48333
-119      17      42  GBR   2015        Europe          8262     131.90000
-120       3       5  GBR   2015        Europe          7385     120.25000
-121      29      48  GBR   2015        Europe          5388      83.20000
-122      30      51  GBR   2015        Europe          5451      85.50000
-123      27      54  GBR   2015        Europe          8874     144.30000
-124      29       3  GBR   2015        Europe         16143     241.45000
-125      42      15  GBR   2015        Europe          6135      70.50000
-126      30       5  GBR   2015        Europe          5405      62.50000
-127      23      30  GBR   2015        Europe          8610     131.50000
-128      41      50  GBR   2015        Europe          6110      94.16667
-129      25      56  GBR   2015        Europe          8756     143.33333
-130      15      25  GBR   2015        Europe          8125     126.25000
-131      39      44  GBR   2015        Europe          5984      88.60000
-132      31       6  GBR   2015        Europe          5466      63.10000
-133      31      15  GBR   2015        Europe          5475      67.75000
-134       9      43  GBR   2015        Europe          7783     126.45000
-135      29      57  GBR   2015        Europe          8997     147.55000
-136      29      43  GBR   2015        Europe          8983     140.78333
-137       0      10  GBR   2015        Europe          7210     120.00000
-138      20       7  GBR   2015        Europe         12007     182.33333
-139       2       1  GBR   2015        Europe          7321     120.03333
-140      19      53  GBR   2015        Europe          8393     136.78333
-141      10      10  GBR   2015        Europe          7810     121.66667
-142      18      56  GBR   2015        Europe          8336     136.80000
-143       3      54  GBR   2015        Europe         11034     182.70000
-144      41      45  GBR   2015        Europe          9705     150.75000
-145      17       2  GBR   2015        Europe          8222     120.56667
-146      33      56  GBR   2015        Europe          5636      90.80000
-147      13      55  GBR   2015        Europe          8035     131.91667
-148      50      40  GBR   2015        Europe          6640      93.33333
-149      49      10  GBR   2015        Europe          6550      68.16667
-150      32      26  GBR   2015        Europe          5546      73.86667
-151      22      51  GBR   2015        Europe          8571     138.70000
-152       8      34  GBR   2015        Europe          7714     124.53333
-153      45      30  GBR   2015        Europe          9930     142.50000
-154      11      48  USA   2015 North America          7908     128.80000
-155      44      14  USA   2015 North America          6254      70.26667
-156      50      39  USA   2015 North America          6639      92.50000
-157      46      31  USA   2015 North America          6391      83.76667
-158       5      38  USA   2015 North America          7538     123.16667
-159      46       2  USA   2015 North America          6362      61.53333
-160      33      37  USA   2015 North America          5617      80.35000
-161      41      14  USA   2015 North America          6074      69.56667
-162      31      31  USA   2015 North America          5491      76.01667
-163      19      35  USA   2015 North America          8375     131.08333
-164      45      12  USA   2015 North America            NA            NA
-    Wheelchair over_3_h
-1         TRUE    below
-2         TRUE    below
-3         TRUE    below
-4         TRUE    below
-5         TRUE     over
-6         TRUE    below
-7         TRUE    below
-8         TRUE    below
-9        FALSE     over
-10        TRUE     over
-11        TRUE     over
-12       FALSE     over
-13       FALSE     over
-14       FALSE     over
-15       FALSE     over
-16       FALSE     over
-17       FALSE     over
-18       FALSE     over
-19       FALSE     over
-20       FALSE     over
-21       FALSE     &lt;NA&gt;
-22        TRUE    below
-23        TRUE    below
-24        TRUE    below
-25       FALSE     over
-26       FALSE     over
-27       FALSE     over
-28       FALSE     over
-29       FALSE     over
-30        TRUE     over
-31       FALSE     over
-32        TRUE     over
-33        TRUE     over
-34        TRUE     over
-35        TRUE     over
-36        TRUE    below
-37        TRUE    below
-38        TRUE     over
-39        TRUE     over
-40       FALSE     over
-41        TRUE    below
-42       FALSE     over
-43       FALSE     over
-44       FALSE     over
-45       FALSE     over
-46       FALSE     over
-47       FALSE     over
-48       FALSE     over
-49       FALSE     over
-50       FALSE     over
-51       FALSE     over
-52       FALSE     over
-53       FALSE     over
-54       FALSE     over
-55       FALSE     over
-56       FALSE     over
-57       FALSE     over
-58       FALSE     over
-59       FALSE     over
-60       FALSE     over
-61       FALSE     &lt;NA&gt;
-62       FALSE     over
-63       FALSE     over
-64       FALSE     over
-65       FALSE     over
-66       FALSE     over
-67       FALSE     over
-68       FALSE     over
-69       FALSE     over
-70       FALSE     over
-71       FALSE     over
-72       FALSE     over
-73       FALSE     over
-74        TRUE    below
-75       FALSE     over
-76        TRUE    below
-77       FALSE     over
-78       FALSE     over
-79       FALSE     over
-80       FALSE     over
-81        TRUE    below
-82       FALSE     over
-83       FALSE     &lt;NA&gt;
-84       FALSE     over
-85       FALSE     over
-86       FALSE     over
-87       FALSE     over
-88       FALSE     over
-89       FALSE     over
-90       FALSE     over
-91       FALSE     over
-92       FALSE     over
-93       FALSE     over
-94       FALSE     over
-95       FALSE     over
-96       FALSE     over
-97        TRUE     &lt;NA&gt;
-98        TRUE    below
-99        TRUE    below
-100       TRUE    below
-101       TRUE    below
-102       TRUE    below
-103       TRUE    below
-104       TRUE    below
-105       TRUE    below
-106       TRUE    below
-107       TRUE    below
-108       TRUE    below
-109       TRUE    below
-110      FALSE     over
-111      FALSE     over
-112      FALSE     over
-113       TRUE    below
-114       TRUE     over
-115       TRUE    below
-116       TRUE     over
-117      FALSE     over
-118       TRUE    below
-119      FALSE     over
-120       TRUE     over
-121       TRUE    below
-122       TRUE    below
-123      FALSE     over
-124       TRUE     over
-125       TRUE    below
-126       TRUE    below
-127       TRUE     over
-128       TRUE    below
-129      FALSE     over
-130      FALSE     over
-131       TRUE    below
-132       TRUE    below
-133       TRUE    below
-134      FALSE     over
-135      FALSE     over
-136      FALSE     over
-137       TRUE     over
-138       TRUE     over
-139       TRUE     over
-140       TRUE     over
-141      FALSE     over
-142      FALSE     over
-143       TRUE     over
-144       TRUE     over
-145       TRUE     over
-146       TRUE    below
-147       TRUE     over
-148       TRUE    below
-149       TRUE    below
-150       TRUE    below
-151       TRUE     over
-152       TRUE     over
-153       TRUE     over
-154      FALSE     over
-155       TRUE    below
-156       TRUE    below
-157       TRUE    below
-158      FALSE     over
-159       TRUE    below
-160       TRUE    below
-161       TRUE    below
-162       TRUE    below
-163      FALSE     over
-164       TRUE     &lt;NA&gt;</code></pre>
+...</code></pre>
+</div>
+</div>
+<div class="tidy">
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>winners_continents <span class="ot">&lt;-</span> winners_continents <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">over_3_h =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    winners_continents<span class="sc">$</span>Hours <span class="sc">&lt;</span> <span class="dv">2</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">yes =</span> <span class="st">"below"</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">no  =</span> <span class="st">"over"</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>winners_continents</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Nationality         Category Year.x                    Athlete Hours
+1        Australia   Wheelchair Men   2009              Kurt Fearnley     1
+2        Australia   Wheelchair Men   2013              Kurt Fearnley     1
+3        Australia Wheelchair Women   2018         Madison de Rozario     1
+...</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
