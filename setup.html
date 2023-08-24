@@ -304,9 +304,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#optional-posit-cloud" id="toc-optional-posit-cloud" class="nav-link" data-scroll-target="#optional-posit-cloud">Optional: posit Cloud</a></li>
   <li><a href="#structure-of-the-rstudio-interface" id="toc-structure-of-the-rstudio-interface" class="nav-link" data-scroll-target="#structure-of-the-rstudio-interface">Structure of the RStudio interface</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#first-steps" id="toc-first-steps" class="nav-link" data-scroll-target="#first-steps">First Steps</a>
-  <ul class="collapse">
   <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a>
   <ul class="collapse">
   <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts">Scripts</a></li>
@@ -344,43 +341,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="structure-of-the-rstudio-interface">Structure of the RStudio interface</h3>
 <section id="script-pane" class="level4">
 <h4 class="anchored" data-anchor-id="script-pane">Script Pane</h4>
-</section>
-<section id="console" class="level4">
-<h4 class="anchored" data-anchor-id="console">Console</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Hello World!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello World!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Hello World!"</code></pre>
 </div>
 </div>
 <p>Tadaa, we just wrote our first line of code.</p>
 </section>
-</section>
-</section>
-</section>
-<section id="first-steps" class="level1">
-<h1>First Steps</h1>
-<p>Some of the most basic things you can do in <code>R</code> are basic mathematical operations. In your <a href="#console">console</a>, type the following code lines and press <code>Enter</code>.</p>
+<section id="console" class="level4">
+<h4 class="anchored" data-anchor-id="console">Console</h4>
+<p>You can also work directly in the console, for example to try out things. Type, into your console:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># substract</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># multiply</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">*</span> <span class="dv">4</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># divide</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum two values</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 15</code></pre>
+</div>
 </div>
 <p>By the way: Code lines, that are preceded by a <code>#</code> are commented out, and will not be evaluated.</p>
-<p>If you want, you can take a deeper look at the <a href="./basics.html">basic functionality</a> in R.</p>
+</section>
+</section>
+</section>
 <section id="workflow" class="level2">
 <h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
 <section id="scripts" class="level3">
 <h3 class="anchored" data-anchor-id="scripts">Scripts</h3>
-<p>When only coding in our <a href="#console">console</a> we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our code that is worth saving into a <a href="#script_pane">script</a>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When only coding in our <a href="#console">console</a> we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our important code into a <a href="#script_pane">script</a>.</p>
+</div>
+</div>
 </section>
 <section id="rstudio-projects" class="level3">
 <h3 class="anchored" data-anchor-id="rstudio-projects">RStudio Projects</h3>
@@ -390,18 +389,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
 <ol type="1">
 <li>Create a new folder for this tutorial, where all your files will go.</li>
-<li>Create a new RStudio project and open it. Got to <code>File</code> - <code>New Project</code> - <code>Existing Directory</code> and select the path of the folder you created in step <code>1</code>.</li>
-<li>Create a new R Script by clicking on <code>File</code> - <code>New File</code> - <code>R Script</code>. Save it in you folder.<br>
-<em>Tipp: Within your project folder create a folder named <code>R</code>, where all your R Scripts will go. You can do the same for <code>data</code>, <code>plots</code> etc. later on. This will help you to structure your working directory.</em></li>
+<li>Create a new RStudio project and open it. Go to <code>File</code> - <code>New Project</code> - <code>Existing Directory</code> and select the path of the folder you created in step <code>1</code>.</li>
+<li>Create a new R Script by clicking on <code>File</code> - <code>New File</code> - <code>R Script</code>. Save it in you folder.</li>
 </ol>
+<p>::: {.callout-tip}</p>
+<p>Within your project folder create a folder named <code>R</code>, where all your R Scripts will go. You can do the same for <code>data</code>, <code>plots</code> etc. later on. This will help you to structure your working directory.</p>
+<p>:::</p>
 </section>
 </section>
 <section id="about-this-workshop" class="level2">
 <h2 class="anchored" data-anchor-id="about-this-workshop">About this workshop</h2>
 <p>This workshop will use a tutorial package (you will learn more about packages later) that can be run from within <code>R</code> and will provide interactive exercises. For now, please install that tutorial package by typing (and evaluating) the following code into your newly created R Script:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"nickhaf/tutoR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"nickhaf/tutoR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For each chapter, there will be a short theory part. Most of the exercises can be run interactively with the <code>tutoR</code> package, but some will encourage you to use the RStudio environment, to get more familiar with it.</p>
 <p>Feel free to use any resources at you disposal to solve the exercises. That’s how you would also do it in real live. Just make sure you understand why your solution works (or why it doesn’t).</p>
