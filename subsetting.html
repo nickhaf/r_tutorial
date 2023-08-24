@@ -274,10 +274,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#subsetting-data" id="toc-subsetting-data" class="nav-link active" data-scroll-target="#subsetting-data">Subsetting data</a>
   <ul class="collapse">
+  <li><a href="#overview-of-the-main-commands-in-this-section" id="toc-overview-of-the-main-commands-in-this-section" class="nav-link" data-scroll-target="#overview-of-the-main-commands-in-this-section">Overview of the main commands in this section</a></li>
   <li><a href="#data-set" id="toc-data-set" class="nav-link" data-scroll-target="#data-set">Data set</a></li>
   <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames">Data frames</a>
   <ul class="collapse">
   <li><a href="#base-r" id="toc-base-r" class="nav-link" data-scroll-target="#base-r">Base R</a></li>
+  <li><a href="#rows" id="toc-rows" class="nav-link" data-scroll-target="#rows">Rows</a></li>
   <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse">Tidyverse</a></li>
   </ul></li>
   <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a></li>
@@ -293,17 +295,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="subsetting-data" class="level1">
 <h1>Subsetting data</h1>
-<p>Please take a look at the different <a href="./data_structures.html">data structures in R</a> if you are not familiar with them, before you start with this chapter.</p>
+<section id="overview-of-the-main-commands-in-this-section" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-the-main-commands-in-this-section">Overview of the main commands in this section</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract elements from a vector</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract rows and columns by position and name:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Nationality"</span>)]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Conditional subsetting of rows:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Year <span class="sc">&lt;</span> <span class="dv">2000</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="tidy">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## conditional subsetting of rows</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(winners, Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, Year <span class="sc">&lt;</span> <span class="dv">2000</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="do">## selecting columns</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(winners, Year, Athlete)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="do">## pipe operator %&gt;% </span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>winners <span class="sc">%&gt;%</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, Year <span class="sc">&lt;</span> <span class="dv">2000</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Year, Athlete)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Let’s take a closer look at these commands and see them in action!</p>
+</section>
 <section id="data-set" class="level2">
 <h2 class="anchored" data-anchor-id="data-set">Data set</h2>
 <p><img src="./pictures/marathon.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>Load the data set, which lies within the folder <code>raw_data</code> in my working directory:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>winners <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"./raw_data/winners.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>winners <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"./raw_data/winners.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s take a quick look:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(winners)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(winners)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Category Year              Athlete    Nationality Hours Minutes Seconds
 1      Men 1981 Dick Beardsley (Tie)  United States     2      11      48
@@ -314,666 +345,141 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6      Men 1985          Steve Jones United Kingdom     2       8      16</code></pre>
 </div>
 </div>
-<p>So, this data frame seems to hold the winners of the london marathon, but their finishing times are missing. They are stored in another data set, but we will deal with that later. For now we want to look at how we can extract data from our data structures, so we can work with it.</p>
+<p>So, this data frame seems to hold the winners of the london marathon. Their finishing times seem to be missing, but we will deal with that later. For now we want to look at how we can extract data from our data structures, so we can work with it.</p>
 </section>
 <section id="data-frames" class="level2">
 <h2 class="anchored" data-anchor-id="data-frames">Data frames</h2>
 <p>We will look at two ways to extract rows and columns from data frames.</p>
 <section id="base-r" class="level3">
 <h3 class="anchored" data-anchor-id="base-r">Base R</h3>
-<p>In <code>Base R</code>, we use square brackets <code>[,]</code>. In front of the <code>,</code> we write the <strong>rows</strong> we want to extract:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the first and the fourth row</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In <code>Base R</code>, we use square brackets <code>[,]</code> to extract specific rows and columns.</p>
+</section>
+<section id="rows" class="level3">
+<h3 class="anchored" data-anchor-id="rows">Rows</h3>
+<p>In front of the <code>,</code> we write the <strong>rows</strong> we want to extract:</p>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the first and the fourth row</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Category Year              Athlete    Nationality Hours Minutes Seconds
 1      Men 1981 Dick Beardsley (Tie)  United States     2      11      48
 4      Men 1983         Mike Gratton United Kingdom     2       9      43</code></pre>
 </div>
 </div>
+<section id="columns" class="level4">
+<h4 class="anchored" data-anchor-id="columns">Columns</h4>
 <p>Behind it the <strong>columns</strong>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the second and the fourth column:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>winners[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the second and the fourth column:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>winners[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Year    Nationality
 1   1981  United States
 2   1981         Norway
 3   1982 United Kingdom
-4   1983 United Kingdom
-5   1984 United Kingdom
-6   1985 United Kingdom
-7   1986          Japan
-8   1987          Japan
-9   1988        Denmark
-10  1989          Kenya
-11  1990 United Kingdom
-12  1991   Soviet Union
-13  1992       Portugal
-14  1993 United Kingdom
-15  1994         Mexico
-16  1995         Mexico
-17  1996         Mexico
-18  1997       Portugal
-19  1998          Spain
-20  1999        Morocco
-21  2000       Portugal
-22  2001        Morocco
-23  2002  United States
-24  2003       Ethiopia
-25  2004          Kenya
-26  2005          Kenya
-27  2006          Kenya
-28  2007          Kenya
-29  2008          Kenya
-30  2009          Kenya
-31  2010       Ethiopia
-32  2011          Kenya
-33  2012          Kenya
-34  2013       Ethiopia
-35  2014          Kenya
-36  2015          Kenya
-37  2016          Kenya
-38  2017          Kenya
-39  2018          Kenya
-40  2019          Kenya
-41  2020       Ethiopia
-42  2021       Ethiopia
-43  2022          Kenya
-44  2023          Kenya
-45  1981 United Kingdom
-46  1982 United Kingdom
-47  1983         Norway
-48  1984         Norway
-49  1985         Norway
-50  1986         Norway
-51  1987         Norway
-52  1988         Norway
-53  1989 United Kingdom
-54  1990         Poland
-55  1991       Portugal
-56  1992        Germany
-57  1993        Germany
-58  1994        Germany
-59  1995         Poland
-60  1996 United Kingdom
-61  1997          Kenya
-62  1998        Ireland
-63  1999          Kenya
-64  2000          Kenya
-65  2001       Ethiopia
-66  2002 United Kingdom
-67  2003 United Kingdom
-68  2004          Kenya
-69  2005 United Kingdom
-70  2006  United States
-71  2007          China
-72  2008        Germany
-73  2009        Germany
-74  2010       Ethiopia
-75  2011          Kenya
-76  2012          Kenya
-77  2013          Kenya
-78  2014          Kenya
-79  2015       Ethiopia
-80  2016          Kenya
-81  2017          Kenya
-82  2018          Kenya
-83  2019          Kenya
-84  2020          Kenya
-85  2021          Kenya
-86  2022       Ethiopia
-87  2023    Netherlands
-88  1983 United Kingdom
-89  1984        Ireland
-90  1985 United Kingdom
-91  1986        Ireland
-92  1987 United Kingdom
-93  1988         Canada
-94  1989 United Kingdom
-95  1990         Sweden
-96  1991         France
-97  1992         Canada
-98  1993        Belgium
-99  1994 United Kingdom
-100 1995    Switzerland
-101 1996 United Kingdom
-102 1997 United Kingdom
-103 1998    Switzerland
-104 1999    Switzerland
-105 2000 United Kingdom
-106 2001         France
-107 2002 United Kingdom
-108 2003         France
-109 2004         Mexico
-110 2005         Mexico
-111 2006 United Kingdom
-112 2007 United Kingdom
-113 2008 United Kingdom
-114 2009      Australia
-115 2010         Canada
-116 2011 United Kingdom
-117 2012 United Kingdom
-118 2013      Australia
-119 2014    Switzerland
-120 2015  United States
-121 2016    Switzerland
-122 2017 United Kingdom
-123 2018 United Kingdom
-124 2019  United States
-125 2020         Canada
-126 2021    Switzerland
-127 1983 United Kingdom
-128 1984        Ireland
-129 1985        Ireland
-130 1986        Ireland
-131 1987 United Kingdom
-132 1988 United Kingdom
-133 1989 United Kingdom
-134 1990        Denmark
-135 1991        Denmark
-136 1992 United Kingdom
-137 1993 United Kingdom
-138 1994 United Kingdom
-139 1995 United Kingdom
-140 1996 United Kingdom
-141 1997         Sweden
-142 1998 United Kingdom
-143 1999         Sweden
-144 2000 United Kingdom
-145 2001 United Kingdom
-146 2002 United Kingdom
-147 2003          Italy
-148 2004          Italy
-149 2005          Italy
-150 2006          Italy
-151 2007 United Kingdom
-152 2008    Switzerland
-153 2009  United States
-154 2010          Japan
-155 2011  United States
-156 2012 United Kingdom
-157 2013  United States
-158 2014  United States
-159 2015  United States
-160 2016  United States
-161 2017    Switzerland
-162 2018      Australia
-163 2019    Switzerland
-164 2020    Netherlands
-165 2021    Switzerland</code></pre>
+...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the columns by name:</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>winners[, <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Nationality"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the columns by name:</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>winners[, <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Nationality"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Year    Nationality
 1   1981  United States
 2   1981         Norway
 3   1982 United Kingdom
-4   1983 United Kingdom
-5   1984 United Kingdom
-6   1985 United Kingdom
-7   1986          Japan
-8   1987          Japan
-9   1988        Denmark
-10  1989          Kenya
-11  1990 United Kingdom
-12  1991   Soviet Union
-13  1992       Portugal
-14  1993 United Kingdom
-15  1994         Mexico
-16  1995         Mexico
-17  1996         Mexico
-18  1997       Portugal
-19  1998          Spain
-20  1999        Morocco
-21  2000       Portugal
-22  2001        Morocco
-23  2002  United States
-24  2003       Ethiopia
-25  2004          Kenya
-26  2005          Kenya
-27  2006          Kenya
-28  2007          Kenya
-29  2008          Kenya
-30  2009          Kenya
-31  2010       Ethiopia
-32  2011          Kenya
-33  2012          Kenya
-34  2013       Ethiopia
-35  2014          Kenya
-36  2015          Kenya
-37  2016          Kenya
-38  2017          Kenya
-39  2018          Kenya
-40  2019          Kenya
-41  2020       Ethiopia
-42  2021       Ethiopia
-43  2022          Kenya
-44  2023          Kenya
-45  1981 United Kingdom
-46  1982 United Kingdom
-47  1983         Norway
-48  1984         Norway
-49  1985         Norway
-50  1986         Norway
-51  1987         Norway
-52  1988         Norway
-53  1989 United Kingdom
-54  1990         Poland
-55  1991       Portugal
-56  1992        Germany
-57  1993        Germany
-58  1994        Germany
-59  1995         Poland
-60  1996 United Kingdom
-61  1997          Kenya
-62  1998        Ireland
-63  1999          Kenya
-64  2000          Kenya
-65  2001       Ethiopia
-66  2002 United Kingdom
-67  2003 United Kingdom
-68  2004          Kenya
-69  2005 United Kingdom
-70  2006  United States
-71  2007          China
-72  2008        Germany
-73  2009        Germany
-74  2010       Ethiopia
-75  2011          Kenya
-76  2012          Kenya
-77  2013          Kenya
-78  2014          Kenya
-79  2015       Ethiopia
-80  2016          Kenya
-81  2017          Kenya
-82  2018          Kenya
-83  2019          Kenya
-84  2020          Kenya
-85  2021          Kenya
-86  2022       Ethiopia
-87  2023    Netherlands
-88  1983 United Kingdom
-89  1984        Ireland
-90  1985 United Kingdom
-91  1986        Ireland
-92  1987 United Kingdom
-93  1988         Canada
-94  1989 United Kingdom
-95  1990         Sweden
-96  1991         France
-97  1992         Canada
-98  1993        Belgium
-99  1994 United Kingdom
-100 1995    Switzerland
-101 1996 United Kingdom
-102 1997 United Kingdom
-103 1998    Switzerland
-104 1999    Switzerland
-105 2000 United Kingdom
-106 2001         France
-107 2002 United Kingdom
-108 2003         France
-109 2004         Mexico
-110 2005         Mexico
-111 2006 United Kingdom
-112 2007 United Kingdom
-113 2008 United Kingdom
-114 2009      Australia
-115 2010         Canada
-116 2011 United Kingdom
-117 2012 United Kingdom
-118 2013      Australia
-119 2014    Switzerland
-120 2015  United States
-121 2016    Switzerland
-122 2017 United Kingdom
-123 2018 United Kingdom
-124 2019  United States
-125 2020         Canada
-126 2021    Switzerland
-127 1983 United Kingdom
-128 1984        Ireland
-129 1985        Ireland
-130 1986        Ireland
-131 1987 United Kingdom
-132 1988 United Kingdom
-133 1989 United Kingdom
-134 1990        Denmark
-135 1991        Denmark
-136 1992 United Kingdom
-137 1993 United Kingdom
-138 1994 United Kingdom
-139 1995 United Kingdom
-140 1996 United Kingdom
-141 1997         Sweden
-142 1998 United Kingdom
-143 1999         Sweden
-144 2000 United Kingdom
-145 2001 United Kingdom
-146 2002 United Kingdom
-147 2003          Italy
-148 2004          Italy
-149 2005          Italy
-150 2006          Italy
-151 2007 United Kingdom
-152 2008    Switzerland
-153 2009  United States
-154 2010          Japan
-155 2011  United States
-156 2012 United Kingdom
-157 2013  United States
-158 2014  United States
-159 2015  United States
-160 2016  United States
-161 2017    Switzerland
-162 2018      Australia
-163 2019    Switzerland
-164 2020    Netherlands
-165 2021    Switzerland</code></pre>
+...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or only the column Year (and turn it into a vector right away):</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>winners<span class="sc">$</span>Year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or only the column Year (and turn it into a vector right away):</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>winners<span class="sc">$</span>Year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] 1981 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994
  [16] 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009
  [31] 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 1981
  [46] 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996
- [61] 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011
- [76] 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 1983 1984 1985
- [91] 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000
-[106] 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015
-[121] 2016 2017 2018 2019 2020 2021 1983 1984 1985 1986 1987 1988 1989 1990 1991
-[136] 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006
-[151] 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021</code></pre>
+...</code></pre>
 </div>
 </div>
+<p>Suggestion: Always use column names instead of position if possible. This way, your code will still work if the column position changes.</p>
+</section>
+<section id="rows-columns" class="level4">
+<h4 class="anchored" data-anchor-id="rows-columns">Rows &amp; Columns</h4>
 <p>And of course we can combine both calls:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Year    Nationality
 1 1981  United States
 4 1983 United Kingdom</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Nationality"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Nationality"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Year    Nationality
 1 1981  United States
 4 1983 United Kingdom</code></pre>
 </div>
 </div>
-<p>We can also use Boolean values (every row/column must get a value here, so we extract the first 100 rows by repeating <code>TRUE</code> 100 times, and than add <code>FALSE</code> for the remaining rows:</p>
+<p>We can also use Boolean values (every row/column must get a value here, so we extract the first 100 rows by repeating <code>TRUE</code> 100 times, and than add <code>FALSE</code> for the remaining rows):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">100</span>), <span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="dv">65</span>)), <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(winners[<span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">100</span>), <span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="dv">65</span>)), <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          Category    Nationality Hours Minutes
-1              Men  United States     2      11
-2              Men         Norway    NA      11
-3              Men United Kingdom     2       9
-4              Men United Kingdom     2       9
-5              Men United Kingdom     2       9
-6              Men United Kingdom     2       8
-7              Men          Japan     2      10
-8              Men          Japan     2       9
-9              Men        Denmark     2      10
-10             Men          Kenya     2       9
-11             Men United Kingdom     2      10
-12             Men   Soviet Union     2       9
-13             Men       Portugal     2      10
-14             Men United Kingdom     2      10
-15             Men         Mexico     2       8
-16             Men         Mexico     2       8
-17             Men         Mexico     2      10
-18             Men       Portugal     2       7
-19             Men          Spain     2       7
-20             Men        Morocco     2       7
-21             Men       Portugal     2       6
-22             Men        Morocco     2       7
-23             Men  United States     2       5
-24             Men       Ethiopia    NA       7
-25             Men          Kenya     2       6
-26             Men          Kenya     2       7
-27             Men          Kenya     2       6
-28             Men          Kenya     2       7
-29             Men          Kenya     2       5
-30             Men          Kenya     2       5
-31             Men       Ethiopia     2       5
-32             Men          Kenya     2       4
-33             Men          Kenya     2       4
-34             Men       Ethiopia     2       6
-35             Men          Kenya    NA       4
-36             Men          Kenya     2       4
-37             Men          Kenya     2       3
-38             Men          Kenya     2       5
-39             Men          Kenya     2       4
-40             Men          Kenya     2       2
-41             Men       Ethiopia     2       5
-42             Men       Ethiopia     2       4
-43             Men          Kenya     2       4
-44             Men          Kenya     2       1
-45           Women United Kingdom     2      29
-46           Women United Kingdom     2      29
-47           Women         Norway     2      25
-48           Women         Norway     2      24
-49           Women         Norway     2      21
-50           Women         Norway     2      24
-51           Women         Norway     2      22
-52           Women         Norway     2      25
-53           Women United Kingdom     2      25
-54           Women         Poland     2      26
-55           Women       Portugal     2      26
-56           Women        Germany     2      29
-57           Women        Germany     2      27
-58           Women        Germany     2      32
-59           Women         Poland     2      27
-60           Women United Kingdom     2      27
-61           Women          Kenya     2      26
-62           Women        Ireland     2      26
-63           Women          Kenya     2      23
-64           Women          Kenya     2      24
-65           Women       Ethiopia     2      23
-66           Women United Kingdom     2      18
-67           Women United Kingdom     2      15
-68           Women          Kenya     2      22
-69           Women United Kingdom     2      17
-70           Women  United States     2      19
-71           Women          China     2      20
-72           Women        Germany     2      24
-73           Women        Germany     2      22
-74           Women       Ethiopia     2      22
-75           Women          Kenya     2      19
-76           Women          Kenya     2      18
-77           Women          Kenya     2      20
-78           Women          Kenya     2      20
-79           Women       Ethiopia     2      23
-80           Women          Kenya     2      22
-81           Women          Kenya     2      17
-82           Women          Kenya     2      18
-83           Women          Kenya     2      18
-84           Women          Kenya     2      18
-85           Women          Kenya     2      17
-86           Women       Ethiopia     2      17
-87           Women    Netherlands     2      18
-88  Wheelchair Men United Kingdom     3      20
-89  Wheelchair Men        Ireland     2      38
-90  Wheelchair Men United Kingdom     2      19
-91  Wheelchair Men        Ireland     2      26
-92  Wheelchair Men United Kingdom     2       8
-93  Wheelchair Men         Canada     2       1
-94  Wheelchair Men United Kingdom     1      59
-95  Wheelchair Men         Sweden    NA      57
-96  Wheelchair Men         France     1      52
-97  Wheelchair Men         Canada     1      51
-98  Wheelchair Men        Belgium     1      44
-99  Wheelchair Men United Kingdom     1      46
-100 Wheelchair Men    Switzerland     1      39</code></pre>
+<pre><code>'data.frame':   100 obs. of  4 variables:
+ $ Category   : chr  "Men" "Men" "Men" "Men" ...
+ $ Nationality: chr  "United States" "Norway" "United Kingdom" "United Kingdom" ...
+ $ Hours      : num  2 NA 2 2 2 2 2 2 2 2 ...
+ $ Minutes    : num  11 11 9 9 9 8 10 9 10 9 ...</code></pre>
 </div>
 </div>
+</section>
+<section id="conditional-filtering" class="level4">
+<h4 class="anchored" data-anchor-id="conditional-filtering">Conditional filtering</h4>
 <p>Now the stuff we looked at in <a href="./basics.html#comparisons-and-logical-operators">logical operators</a> comes in handy! We can filter rows which match some condition. For example, we might want to look at all winners from Kenya:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Category Year                    Athlete Nationality Hours Minutes Seconds
 10      Men 1989          Douglas Wakiihuri       Kenya     2       9       3
 25      Men 2004                Evans Rutto       Kenya     2       6      18
 26      Men 2005                 Martin Lel       Kenya     2       7      35
-27      Men 2006                 Felix Limo       Kenya     2       6      39
-28      Men 2007                 Martin Lel       Kenya     2       7      41
-29      Men 2008                 Martin Lel       Kenya     2       5      15
-30      Men 2009             Samuel Wanjiru       Kenya     2       5      10
-32      Men 2011 Emmanuel Kipchirchir Mutai       Kenya     2       4      40
-33      Men 2012   Wilson Kipsang Kiprotich       Kenya     2       4      44
-35      Men 2014   Wilson Kipsang Kiprotich       Kenya    NA       4      29
-36      Men 2015             Eliud Kipchoge       Kenya     2       4      42
-37      Men 2016             Eliud Kipchoge       Kenya     2       3       5
-38      Men 2017             Daniel Wanjiru       Kenya     2       5      48
-39      Men 2018             Eliud Kipchoge       Kenya     2       4      17
-40      Men 2019             Eliud Kipchoge       Kenya     2       2      37
-43      Men 2022               Amos Kipruto       Kenya     2       4      39
-44      Men 2023              Kelvin Kiptum       Kenya     2       1      25
-61    Women 1997           Joyce Chepchumba       Kenya     2      26      51
-63    Women 1999           Joyce Chepchumba       Kenya     2      23      22
-64    Women 2000              Tegla Loroupe       Kenya     2      24      33
-68    Women 2004             Margaret Okayo       Kenya     2      22      35
-75    Women 2011     Mary Jepkosgei Keitany       Kenya     2      19      19
-76    Women 2012     Mary Jepkosgei Keitany       Kenya     2      18      37
-77    Women 2013             Priscah Jeptoo       Kenya     2      20      15
-78    Women 2014              Edna Kiplagat       Kenya     2      20      21
-80    Women 2016             Jemima Sumgong       Kenya     2      22      58
-81    Women 2017     Mary Jepkosgei Keitany       Kenya     2      17       1
-82    Women 2018           Vivian Cheruiyot       Kenya     2      18      31
-83    Women 2019              Brigid Kosgei       Kenya     2      18      20
-84    Women 2020              Brigid Kosgei       Kenya     2      18      58
-85    Women 2021        Joyciline Jepkosgei       Kenya     2      17      43</code></pre>
+...</code></pre>
 </div>
 </div>
 <p>Take a close look at the comparison before the <code>,</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
  [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
  [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE
  [37]  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
- [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [61]  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
- [73] FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
- [85]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [97] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[109] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[121] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[145] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[157] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+...</code></pre>
 </div>
 </div>
 <p><code>winners$Nationality</code> is a vector, so comparing its values to a specified value yields a logical vector with the respective <code>TRUE</code> and <code>FALSE</code> values. We can insert this logical vector in front of the <code>,</code> to extract all rows corresponding to that condition.</p>
 <p>If we want to extract multiple nationalities at once, we need the <code>%in%</code> operator:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Kenya"</span>, <span class="st">"Germany"</span>, <span class="st">"Norway"</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Kenya"</span>, <span class="st">"Germany"</span>, <span class="st">"Norway"</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Category Year                    Athlete Nationality Hours Minutes Seconds
 2       Men 1981        Inge Simonsen (Tie)      Norway    NA      11      48
 10      Men 1989          Douglas Wakiihuri       Kenya     2       9       3
 25      Men 2004                Evans Rutto       Kenya     2       6      18
-26      Men 2005                 Martin Lel       Kenya     2       7      35
-27      Men 2006                 Felix Limo       Kenya     2       6      39
-28      Men 2007                 Martin Lel       Kenya     2       7      41
-29      Men 2008                 Martin Lel       Kenya     2       5      15
-30      Men 2009             Samuel Wanjiru       Kenya     2       5      10
-32      Men 2011 Emmanuel Kipchirchir Mutai       Kenya     2       4      40
-33      Men 2012   Wilson Kipsang Kiprotich       Kenya     2       4      44
-35      Men 2014   Wilson Kipsang Kiprotich       Kenya    NA       4      29
-36      Men 2015             Eliud Kipchoge       Kenya     2       4      42
-37      Men 2016             Eliud Kipchoge       Kenya     2       3       5
-38      Men 2017             Daniel Wanjiru       Kenya     2       5      48
-39      Men 2018             Eliud Kipchoge       Kenya     2       4      17
-40      Men 2019             Eliud Kipchoge       Kenya     2       2      37
-43      Men 2022               Amos Kipruto       Kenya     2       4      39
-44      Men 2023              Kelvin Kiptum       Kenya     2       1      25
-47    Women 1983                Grete Waitz      Norway     2      25      29
-48    Women 1984         Ingrid Kristiansen      Norway     2      24      26
-49    Women 1985         Ingrid Kristiansen      Norway     2      21       6
-50    Women 1986                Grete Waitz      Norway     2      24      54
-51    Women 1987         Ingrid Kristiansen      Norway     2      22      48
-52    Women 1988         Ingrid Kristiansen      Norway     2      25      41
-56    Women 1992        Katrin Dörre-Heinig     Germany     2      29      39
-57    Women 1993        Katrin Dörre-Heinig     Germany     2      27       9
-58    Women 1994        Katrin Dörre-Heinig     Germany     2      32      34
-61    Women 1997           Joyce Chepchumba       Kenya     2      26      51
-63    Women 1999           Joyce Chepchumba       Kenya     2      23      22
-64    Women 2000              Tegla Loroupe       Kenya     2      24      33
-68    Women 2004             Margaret Okayo       Kenya     2      22      35
-72    Women 2008            Irina Mikitenko     Germany     2      24      14
-73    Women 2009            Irina Mikitenko     Germany     2      22      11
-75    Women 2011     Mary Jepkosgei Keitany       Kenya     2      19      19
-76    Women 2012     Mary Jepkosgei Keitany       Kenya     2      18      37
-77    Women 2013             Priscah Jeptoo       Kenya     2      20      15
-78    Women 2014              Edna Kiplagat       Kenya     2      20      21
-80    Women 2016             Jemima Sumgong       Kenya     2      22      58
-81    Women 2017     Mary Jepkosgei Keitany       Kenya     2      17       1
-82    Women 2018           Vivian Cheruiyot       Kenya     2      18      31
-83    Women 2019              Brigid Kosgei       Kenya     2      18      20
-84    Women 2020              Brigid Kosgei       Kenya     2      18      58
-85    Women 2021        Joyciline Jepkosgei       Kenya     2      17      43</code></pre>
+...</code></pre>
 </div>
 </div>
-<p>By the way, if we want to save our extracted data frame, we can assign it a new name (otherwise it will only get printed into the console, but you cant work further with it):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>winners_nat <span class="ot">&lt;-</span> winners[winners<span class="sc">$</span>Nationality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Kenya"</span>, <span class="st">"Germany"</span>, <span class="st">"Norway"</span>), ]</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>winners_nat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>By the way, if we want to save our extracted data frame, we can assign it a new name (otherwise it will only get printed into the console, but we can’t go on working with it):</p>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>winners_nat <span class="ot">&lt;-</span> winners[winners<span class="sc">$</span>Nationality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Kenya"</span>, <span class="st">"Germany"</span>, <span class="st">"Norway"</span>), ]</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>winners_nat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Category Year                    Athlete Nationality Hours Minutes Seconds
 2       Men 1981        Inge Simonsen (Tie)      Norway    NA      11      48
 10      Men 1989          Douglas Wakiihuri       Kenya     2       9       3
 25      Men 2004                Evans Rutto       Kenya     2       6      18
-26      Men 2005                 Martin Lel       Kenya     2       7      35
-27      Men 2006                 Felix Limo       Kenya     2       6      39
-28      Men 2007                 Martin Lel       Kenya     2       7      41
-29      Men 2008                 Martin Lel       Kenya     2       5      15
-30      Men 2009             Samuel Wanjiru       Kenya     2       5      10
-32      Men 2011 Emmanuel Kipchirchir Mutai       Kenya     2       4      40
-33      Men 2012   Wilson Kipsang Kiprotich       Kenya     2       4      44
-35      Men 2014   Wilson Kipsang Kiprotich       Kenya    NA       4      29
-36      Men 2015             Eliud Kipchoge       Kenya     2       4      42
-37      Men 2016             Eliud Kipchoge       Kenya     2       3       5
-38      Men 2017             Daniel Wanjiru       Kenya     2       5      48
-39      Men 2018             Eliud Kipchoge       Kenya     2       4      17
-40      Men 2019             Eliud Kipchoge       Kenya     2       2      37
-43      Men 2022               Amos Kipruto       Kenya     2       4      39
-44      Men 2023              Kelvin Kiptum       Kenya     2       1      25
-47    Women 1983                Grete Waitz      Norway     2      25      29
-48    Women 1984         Ingrid Kristiansen      Norway     2      24      26
-49    Women 1985         Ingrid Kristiansen      Norway     2      21       6
-50    Women 1986                Grete Waitz      Norway     2      24      54
-51    Women 1987         Ingrid Kristiansen      Norway     2      22      48
-52    Women 1988         Ingrid Kristiansen      Norway     2      25      41
-56    Women 1992        Katrin Dörre-Heinig     Germany     2      29      39
-57    Women 1993        Katrin Dörre-Heinig     Germany     2      27       9
-58    Women 1994        Katrin Dörre-Heinig     Germany     2      32      34
-61    Women 1997           Joyce Chepchumba       Kenya     2      26      51
-63    Women 1999           Joyce Chepchumba       Kenya     2      23      22
-64    Women 2000              Tegla Loroupe       Kenya     2      24      33
-68    Women 2004             Margaret Okayo       Kenya     2      22      35
-72    Women 2008            Irina Mikitenko     Germany     2      24      14
-73    Women 2009            Irina Mikitenko     Germany     2      22      11
-75    Women 2011     Mary Jepkosgei Keitany       Kenya     2      19      19
-76    Women 2012     Mary Jepkosgei Keitany       Kenya     2      18      37
-77    Women 2013             Priscah Jeptoo       Kenya     2      20      15
-78    Women 2014              Edna Kiplagat       Kenya     2      20      21
-80    Women 2016             Jemima Sumgong       Kenya     2      22      58
-81    Women 2017     Mary Jepkosgei Keitany       Kenya     2      17       1
-82    Women 2018           Vivian Cheruiyot       Kenya     2      18      31
-83    Women 2019              Brigid Kosgei       Kenya     2      18      20
-84    Women 2020              Brigid Kosgei       Kenya     2      18      58
-85    Women 2021        Joyciline Jepkosgei       Kenya     2      17      43</code></pre>
+...</code></pre>
 </div>
 </div>
 <p>We can also combine multiple logical vectors using <code>&amp;</code> (“and”) and <code>|</code> (“or”). For example, we might want to look at all Kenyan winners before the year 2000:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Year <span class="sc">&lt;</span> <span class="dv">2000</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Year <span class="sc">&lt;</span> <span class="dv">2000</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Category Year           Athlete Nationality Hours Minutes Seconds
 10      Men 1989 Douglas Wakiihuri       Kenya     2       9       3
@@ -982,29 +488,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Or at all women winners from Australia in the wheelchair category, and the male winners from the United States in the wheelchair category:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>winners[(winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Wheelchair Women"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Australia"</span>) <span class="sc">|</span> (winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Wheelchair Men"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"United States"</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>winners[(winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Wheelchair Women"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Australia"</span>) <span class="sc">|</span> (winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Wheelchair Men"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"United States"</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Category Year            Athlete   Nationality Hours Minutes
 120   Wheelchair Men 2015        Josh George United States     1      31
 124   Wheelchair Men 2019   Daniel Romanchuk United States     1      33
 162 Wheelchair Women 2018 Madison de Rozario     Australia     1      42
-    Seconds
-120      31
-124      37
-162      58</code></pre>
+...</code></pre>
 </div>
 </div>
 <p>In the long run, always having to define the data frame multiple time in each row can become a bit annoying and clutters the code. Enter, the <code>filter()</code> function:</p>
 </section>
+</section>
 <section id="tidyverse" class="level3">
 <h3 class="anchored" data-anchor-id="tidyverse">Tidyverse</h3>
 <p>The <code>dplyr</code> package is part of the <code>tidyverse</code> and provides a grammar of data manipulation. We can use <code>filter()</code> to subset rows from a data frame:</p>
+<section id="rows-1" class="level4">
+<h4 class="anchored" data-anchor-id="rows-1">Rows</h4>
 <div class="tidy">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(winners, Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, Year <span class="sc">&lt;</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(winners, Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, Year <span class="sc">&lt;</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Category Year           Athlete Nationality Hours Minutes Seconds
 1      Men 1989 Douglas Wakiihuri       Kenya     2       9       3
@@ -1014,187 +520,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Note how we can just write our conditions without connecting them with <code>&amp;</code> (<code>filter()</code> does that automatically for us). Also, we don’t have to put the column names into <code>""</code>, because <code>filter()</code> knows that this are column names of the <code>winners</code> data frame, which makes coding a bit more pleasant.</p>
+</section>
+<section id="columns-1" class="level4">
+<h4 class="anchored" data-anchor-id="columns-1">Columns</h4>
 <p>For extracting columns, we need <code>select()</code>:</p>
 <div class="tidy">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(winners, Year, Athlete)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(winners, Year, Athlete)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Year                    Athlete
 1   1981       Dick Beardsley (Tie)
 2   1981        Inge Simonsen (Tie)
 3   1982                 Hugh Jones
-4   1983               Mike Gratton
-5   1984           Charlie Spedding
-6   1985                Steve Jones
-7   1986             Toshihiko Seko
-8   1987           Hiromi Taniguchi
-9   1988           Henrik Jørgensen
-10  1989          Douglas Wakiihuri
-11  1990            Allister Hutton
-12  1991            Yakov Tolstikov
-13  1992              António Pinto
-14  1993              Eamonn Martin
-15  1994             Dionicio Cerón
-16  1995             Dionicio Cerón
-17  1996             Dionicio Cerón
-18  1997              António Pinto
-19  1998                 Abel Antón
-20  1999      Abdelkader El Mouaziz
-21  2000              António Pinto
-22  2001      Abdelkader El Mouaziz
-23  2002          Khalid Khannouchi
-24  2003            Gezahegne Abera
-25  2004                Evans Rutto
-26  2005                 Martin Lel
-27  2006                 Felix Limo
-28  2007                 Martin Lel
-29  2008                 Martin Lel
-30  2009             Samuel Wanjiru
-31  2010             Tsegaye Kebede
-32  2011 Emmanuel Kipchirchir Mutai
-33  2012   Wilson Kipsang Kiprotich
-34  2013             Tsegaye Kebede
-35  2014   Wilson Kipsang Kiprotich
-36  2015             Eliud Kipchoge
-37  2016             Eliud Kipchoge
-38  2017             Daniel Wanjiru
-39  2018             Eliud Kipchoge
-40  2019             Eliud Kipchoge
-41  2020          Shura Kitata Tola
-42  2021                Sisay Lemma
-43  2022               Amos Kipruto
-44  2023              Kelvin Kiptum
-45  1981                Joyce Smith
-46  1982                Joyce Smith
-47  1983                Grete Waitz
-48  1984         Ingrid Kristiansen
-49  1985         Ingrid Kristiansen
-50  1986                Grete Waitz
-51  1987         Ingrid Kristiansen
-52  1988         Ingrid Kristiansen
-53  1989            Véronique Marot
-54  1990               Wanda Panfil
-55  1991                  Rosa Mota
-56  1992        Katrin Dörre-Heinig
-57  1993        Katrin Dörre-Heinig
-58  1994        Katrin Dörre-Heinig
-59  1995        Małgorzata Sobańska
-60  1996               Liz McColgan
-61  1997           Joyce Chepchumba
-62  1998        Catherina McKiernan
-63  1999           Joyce Chepchumba
-64  2000              Tegla Loroupe
-65  2001               Derartu Tulu
-66  2002            Paula Radcliffe
-67  2003            Paula Radcliffe
-68  2004             Margaret Okayo
-69  2005            Paula Radcliffe
-70  2006               Deena Kastor
-71  2007               Zhou Chunxiu
-72  2008            Irina Mikitenko
-73  2009            Irina Mikitenko
-74  2010           Aselefech Mergia
-75  2011     Mary Jepkosgei Keitany
-76  2012     Mary Jepkosgei Keitany
-77  2013             Priscah Jeptoo
-78  2014              Edna Kiplagat
-79  2015                Tigist Tufa
-80  2016             Jemima Sumgong
-81  2017     Mary Jepkosgei Keitany
-82  2018           Vivian Cheruiyot
-83  2019              Brigid Kosgei
-84  2020              Brigid Kosgei
-85  2021        Joyciline Jepkosgei
-86  2022         Yalemzerf Yehualaw
-87  2023               Sifan Hassan
-88  1983               Gordon Perry
-89  1984                Kevin Breen
-90  1985               Chris Hallam
-91  1986             Gerry O'Rourke
-92  1987               Chris Hallam
-93  1988                  Ted Vince
-94  1989              David Holding
-95  1990             Håkan Ericsson
-96  1991            Farid Amarouche
-97  1992              Daniel Wesley
-98  1993            George Vandamme
-99  1994              David Holding
-100 1995                 Heinz Frei
-101 1996              David Holding
-102 1997              David Holding
-103 1998                 Heinz Frei
-104 1999                 Heinz Frei
-105 2000             Kevin Papworth
-106 2001            Denis Lemeunier
-107 2002                 David Weir
-108 2003               Joël Jeannot
-109 2004               Saúl Mendoza
-110 2005               Saúl Mendoza
-111 2006                 David Weir
-112 2007                 David Weir
-113 2008                 David Weir
-114 2009              Kurt Fearnley
-115 2010               Josh Cassidy
-116 2011                 David Weir
-117 2012                 David Weir
-118 2013              Kurt Fearnley
-119 2014                 Marcel Hug
-120 2015                Josh George
-121 2016                 Marcel Hug
-122 2017                 David Weir
-123 2018                 David Weir
-124 2019           Daniel Romanchuk
-125 2020              Brent Lakatos
-126 2021                 Marcel Hug
-127 1983               Denise Smith
-128 1984                Kay McShane
-129 1985                Kay McShane
-130 1986                Kay McShane
-131 1987             Karen Davidson
-132 1988             Karen Davidson
-133 1989            Josie Cichockyj
-134 1990              Connie Hansen
-135 1991              Connie Hansen
-136 1992        Tanni Grey-Thompson
-137 1993                  Rose Hill
-138 1994        Tanni Grey-Thompson
-139 1995                  Rose Hill
-140 1996        Tanni Grey-Thompson
-141 1997         Monica Wetterström
-142 1998        Tanni Grey-Thompson
-143 1999         Monica Wetterström
-144 2000               Sarah Piercy
-145 2001        Tanni Grey-Thompson
-146 2002        Tanni Grey-Thompson
-147 2003       Francesca Porcellato
-148 2004       Francesca Porcellato
-149 2005       Francesca Porcellato
-150 2006       Francesca Porcellato
-151 2007               Shelly Woods
-152 2008                Sandra Graf
-153 2009             Amanda McGrory
-154 2010            Wakako Tsuchida
-155 2011             Amanda McGrory
-156 2012               Shelly Woods
-157 2013           Tatyana McFadden
-158 2014           Tatyana McFadden
-159 2015           Tatyana McFadden
-160 2016           Tatyana McFadden
-161 2017              Manuela Schär
-162 2018         Madison de Rozario
-163 2019              Manuela Schär
-164 2020            Nikita den Boer
-165 2021              Manuela Schär</code></pre>
+...</code></pre>
 </div>
 </div>
 </div>
-<section id="remarks-the-pipe-operator" class="level4">
-<h4 class="anchored" data-anchor-id="remarks-the-pipe-operator">Remarks: the pipe operator</h4>
+</section>
+<section id="remark-the-pipe-operator" class="level4">
+<h4 class="anchored" data-anchor-id="remark-the-pipe-operator">Remark: The pipe operator</h4>
 <p>Hold on! Normally, we wouldn’t write <code>tidyverse</code> code like that. Instead, we would use the pipe operator <code>%&gt;%</code> (<em>than do</em>), which makes it easy to connect multiple function calls:</p>
 <div class="tidy">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>winners <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, Year <span class="sc">&lt;</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>winners <span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, Year <span class="sc">&lt;</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Category Year           Athlete Nationality Hours Minutes Seconds
 1      Men 1989 Douglas Wakiihuri       Kenya     2       9       3
@@ -1204,150 +553,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Here, we first input the data frame we want to manipulate. Than we filter, as specified by the pipe operator. Like this, we can easily connect multiple function calls instead of nesting them within multiple brackets, which increases the readability:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Year <span class="sc">&gt;</span> <span class="dv">2000</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Women"</span>, <span class="fu">c</span>(<span class="st">"Category"</span>, <span class="st">"Year"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Year <span class="sc">&gt;</span> <span class="dv">2000</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Women"</span>, <span class="fu">c</span>(<span class="st">"Category"</span>, <span class="st">"Year"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Category Year
 65    Women 2001
 66    Women 2002
 67    Women 2003
-68    Women 2004
-69    Women 2005
-70    Women 2006
-71    Women 2007
-72    Women 2008
-73    Women 2009
-74    Women 2010
-75    Women 2011
-76    Women 2012
-77    Women 2013
-78    Women 2014
-79    Women 2015
-80    Women 2016
-81    Women 2017
-82    Women 2018
-83    Women 2019
-84    Women 2020
-85    Women 2021
-86    Women 2022
-87    Women 2023</code></pre>
+...</code></pre>
 </div>
 </div>
 <p>becomes:</p>
 <div class="tidy">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>winners <span class="sc">%&gt;%</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;</span> <span class="dv">2000</span>, Category <span class="sc">==</span> <span class="st">"Women"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Category, Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>winners <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;</span> <span class="dv">2000</span>, Category <span class="sc">==</span> <span class="st">"Women"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Category, Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Category Year
 1     Women 2001
 2     Women 2002
 3     Women 2003
-4     Women 2004
-5     Women 2005
-6     Women 2006
-7     Women 2007
-8     Women 2008
-9     Women 2009
-10    Women 2010
-11    Women 2011
-12    Women 2012
-13    Women 2013
-14    Women 2014
-15    Women 2015
-16    Women 2016
-17    Women 2017
-18    Women 2018
-19    Women 2019
-20    Women 2020
-21    Women 2021
-22    Women 2022
-23    Women 2023</code></pre>
+...</code></pre>
 </div>
 </div>
 </div>
 <p>Much nicer to read, right?</p>
-<p>Some notes on this syntax: If we don’t have any additional arguments we want to put into the function, we can just write the function name without any brackets. The pipe operator will give the result of the last function as input into the next function. If we want to clearly state which of the function arguments should receive the input, we can write a <code>.</code>, which can be read as <em>output of the previous function call</em>.</p>
+<p>Some notes on this syntax: 1. If we don’t have any additional arguments we want to put into the function, we can just write the function name without any brackets. 1. The pipe operator will give the result of the last function as input into the next function. 1. If we want to clearly state which of the function arguments should receive the input, we can write a <code>.</code>, which can be read as <em>output of the previous function call</em>.</p>
 </section>
 </section>
 </section>
 <section id="vectors" class="level2">
 <h2 class="anchored" data-anchor-id="vectors">Vectors</h2>
-<p>Finally, let’s take a quick look at how to extract elements from a vector. It’s pretty straight forward: we just put the position of the element we want to extract behind the vector in square brackets:</p>
+<p>Finally, let’s take a quick look at how to extract elements from a vector, which shouldn’t be a problem after already dealing with data frames. It’s pretty straight forward: we just put the position of the element we want to extract behind the vector in square brackets. Let’s quickly define a vector for illustration:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>vec_athlete <span class="ot">&lt;-</span> winners<span class="sc">$</span>Athlete <span class="co"># remember: `$` returns a vector</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>vec_athlete <span class="ot">&lt;-</span> winners<span class="sc">$</span>Athlete <span class="co"># remember: `$` returns a vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And look at the second element:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Inge Simonsen (Tie)"</code></pre>
 </div>
 </div>
 <p>Of course we can also do that for multiple elements:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Inge Simonsen (Tie)" "Hugh Jones"          "Mike Gratton"       </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Or, less to write:</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Or, less to write:</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Inge Simonsen (Tie)" "Hugh Jones"          "Mike Gratton"       </code></pre>
 </div>
 </div>
-<p>Another way would be to provide a logical vector, which defines for each position, if we want to extract the element or not (like we already did for data frames):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">100</span>), <span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="dv">65</span>))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Another way would be to provide a logical vector, which defines for each position if we want to extract the element or not (like we already did for data frames):</p>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">100</span>), <span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="dv">65</span>))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] "Dick Beardsley (Tie)"       "Inge Simonsen (Tie)"       
   [3] "Hugh Jones"                 "Mike Gratton"              
   [5] "Charlie Spedding"           "Steve Jones"               
   [7] "Toshihiko Seko"             "Hiromi Taniguchi"          
-  [9] "Henrik Jørgensen"           "Douglas Wakiihuri"         
- [11] "Allister Hutton"            "Yakov Tolstikov"           
- [13] "António Pinto"              "Eamonn Martin"             
- [15] "Dionicio Cerón"             "Dionicio Cerón"            
- [17] "Dionicio Cerón"             "António Pinto"             
- [19] "Abel Antón"                 "Abdelkader El Mouaziz"     
- [21] "António Pinto"              "Abdelkader El Mouaziz"     
- [23] "Khalid Khannouchi"          "Gezahegne Abera"           
- [25] "Evans Rutto"                "Martin Lel"                
- [27] "Felix Limo"                 "Martin Lel"                
- [29] "Martin Lel"                 "Samuel Wanjiru"            
- [31] "Tsegaye Kebede"             "Emmanuel Kipchirchir Mutai"
- [33] "Wilson Kipsang Kiprotich"   "Tsegaye Kebede"            
- [35] "Wilson Kipsang Kiprotich"   "Eliud Kipchoge"            
- [37] "Eliud Kipchoge"             "Daniel Wanjiru"            
- [39] "Eliud Kipchoge"             "Eliud Kipchoge"            
- [41] "Shura Kitata Tola"          "Sisay Lemma"               
- [43] "Amos Kipruto"               "Kelvin Kiptum"             
- [45] "Joyce Smith"                "Joyce Smith"               
- [47] "Grete Waitz"                "Ingrid Kristiansen"        
- [49] "Ingrid Kristiansen"         "Grete Waitz"               
- [51] "Ingrid Kristiansen"         "Ingrid Kristiansen"        
- [53] "Véronique Marot"            "Wanda Panfil"              
- [55] "Rosa Mota"                  "Katrin Dörre-Heinig"       
- [57] "Katrin Dörre-Heinig"        "Katrin Dörre-Heinig"       
- [59] "Małgorzata Sobańska"        "Liz McColgan"              
- [61] "Joyce Chepchumba"           "Catherina McKiernan"       
- [63] "Joyce Chepchumba"           "Tegla Loroupe"             
- [65] "Derartu Tulu"               "Paula Radcliffe"           
- [67] "Paula Radcliffe"            "Margaret Okayo"            
- [69] "Paula Radcliffe"            "Deena Kastor"              
- [71] "Zhou Chunxiu"               "Irina Mikitenko"           
- [73] "Irina Mikitenko"            "Aselefech Mergia"          
- [75] "Mary Jepkosgei Keitany"     "Mary Jepkosgei Keitany"    
- [77] "Priscah Jeptoo"             "Edna Kiplagat"             
- [79] "Tigist Tufa"                "Jemima Sumgong"            
- [81] "Mary Jepkosgei Keitany"     "Vivian Cheruiyot"          
- [83] "Brigid Kosgei"              "Brigid Kosgei"             
- [85] "Joyciline Jepkosgei"        "Yalemzerf Yehualaw"        
- [87] "Sifan Hassan"               "Gordon Perry"              
- [89] "Kevin Breen"                "Chris Hallam"              
- [91] "Gerry O'Rourke"             "Chris Hallam"              
- [93] "Ted Vince"                  "David Holding"             
- [95] "Håkan Ericsson"             "Farid Amarouche"           
- [97] "Daniel Wesley"              "George Vandamme"           
- [99] "David Holding"              "Heinz Frei"                </code></pre>
+...</code></pre>
 </div>
 </div>
 </section>
@@ -1357,7 +626,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Load the <code>tutoR</code> package and start the exercise by typing the following code into your console:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>learnr<span class="sc">::</span><span class="fu">run_tutorial</span>(<span class="at">name =</span> <span class="st">"subsetting"</span>, <span class="at">package =</span> <span class="st">"tutoR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>learnr<span class="sc">::</span><span class="fu">run_tutorial</span>(<span class="at">name =</span> <span class="st">"subsetting"</span>, <span class="at">package =</span> <span class="st">"tutoR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
