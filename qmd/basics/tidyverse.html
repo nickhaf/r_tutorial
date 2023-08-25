@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R - Open Research Summer School – workflow</title>
+<title>R - Open Research Summer School - Tidyverse</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../qmd/workflow/workflow_exercise.html" rel="next">
-<link href="../../setup.html" rel="prev">
+<link href="../../qmd/basics/basics_exercise.html" rel="next">
+<link href="../../qmd/basics/basics.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,6 +64,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="R - Open Research Summer School - Tidyverse">
+<meta property="og:description" content="">
+<meta property="og:site-name" content="R - Open Research Summer School">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -110,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">1) Getting Started</li><li class="breadcrumb-item"><a href="../../qmd/workflow/workflow.html">Workflow</a></li><li class="breadcrumb-item"><a href="../../qmd/workflow/workflow.html">Workflow</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">2) Basics</li><li class="breadcrumb-item"><a href="../../qmd/basics/basics.html">Basics</a></li><li class="breadcrumb-item"><a href="../../qmd/basics/tidyverse.html">Tidyverse</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -164,16 +167,16 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">Workflow</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/workflow/workflow.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../qmd/workflow/workflow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workflow</span></a>
   </div>
 </li>
@@ -221,13 +224,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
  <span class="menu-text">Basics</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/basics/basics.html" class="sidebar-item-text sidebar-link">
@@ -236,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/basics/tidyverse.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/basics/tidyverse.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Tidyverse</span></a>
   </div>
 </li>
@@ -425,70 +428,34 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#workflow" id="toc-workflow" class="nav-link active" data-scroll-target="#workflow">Workflow</a>
-  <ul class="collapse">
-  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts">Scripts</a></li>
-  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio Projects</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-
-
-<section id="workflow" class="level2">
-<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
-<section id="scripts" class="level3">
-<h3 class="anchored" data-anchor-id="scripts">Scripts</h3>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>When only coding in our <a href="#console">console</a> we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our important code into a <a href="#script_pane">script</a>.</p>
-</div>
-</div>
-</section>
-<section id="rstudio-projects" class="level3">
-<h3 class="anchored" data-anchor-id="rstudio-projects">RStudio Projects</h3>
-<p>Over time, it will become increasingly hard to organize all your files, working directories and workspaces in a reasonable manner. For this, RStudio Projects can be used (highly recommended).</p>
-</section>
-<section id="exercises" class="level3">
-<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
-<ol type="1">
-<li>Create a new folder for this tutorial, where all your files will go.</li>
-<li>Create a new RStudio project and open it. Go to <code>File</code> - <code>New Project</code> - <code>Existing Directory</code> and select the path of the folder you created in step <code>1</code>.</li>
-<li>Create a new R Script by clicking on <code>File</code> - <code>New File</code> - <code>R Script</code>. Save it in you folder.</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Within your project folder create a folder named <code>R</code>, where all your R Scripts will go. You can do the same for <code>data</code>, <code>plots</code> etc. later on. This will help you to structure your working directory.</p>
-</div>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tidyverse</h1>
 </div>
 
 
-</section>
-</section>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>The <code>tidyverse</code> is a collection of packages following a common philosophy, and facilitate many aspects of coding in R, for example data wrangling and plotting. It is not necessary to learn the <code>tidyverse</code> syntax, it differs a bit from the standard R syntax. However, I find it easier to understand in many cases, so I will provide the syntax from the respective <code>tidyverse</code> package along with the <code>Base R</code> syntax in most cases.</p>
+<div class="tidy">
+<p>Tidyverse syntax will be marked like this.</p>
+</div>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -726,13 +693,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../setup.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Setup</span>
+      <a href="../../qmd/basics/basics.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Basic operations</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../qmd/workflow/workflow_exercise.html" class="pagination-link">
-        <span class="nav-page-text">Workflow: Exercises</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../qmd/basics/basics_exercise.html" class="pagination-link">
+        <span class="nav-page-text">Basic operations: Exercises</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
