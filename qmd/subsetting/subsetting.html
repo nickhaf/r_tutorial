@@ -711,80 +711,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="remark-the-pipe-operator" class="level4">
-<h4 class="anchored" data-anchor-id="remark-the-pipe-operator">Remark: The pipe operator</h4>
-<p>Hold on! Normally, we wouldn’t write <code>tidyverse</code> code like that. Instead, we would use the pipe operator <code>%&gt;%</code> (<em>than do</em>), which makes it easy to connect multiple function calls:</p>
-<div class="tidy">
-<div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>winners <span class="sc">%&gt;%</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, Year <span class="sc">&lt;</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Category Year           Athlete Nationality Hours Minutes Seconds
-1      Men 1989 Douglas Wakiihuri       Kenya     2       9       3
-2    Women 1997  Joyce Chepchumba       Kenya     2      26      51
-3    Women 1999  Joyce Chepchumba       Kenya     2      23      22</code></pre>
-</div>
-</div>
-</div>
-<p>Here, we first input the data frame we want to manipulate. Than we filter, as specified by the pipe operator. Like this, we can easily connect multiple function calls instead of nesting them within multiple brackets, which increases the readability:</p>
-<div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Year <span class="sc">&gt;</span> <span class="dv">2000</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Women"</span>, <span class="fu">c</span>(<span class="st">"Category"</span>, <span class="st">"Year"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Category Year
-65    Women 2001
-66    Women 2002
-67    Women 2003
-...</code></pre>
-</div>
-</div>
-<p>becomes:</p>
-<div class="tidy">
-<div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>winners <span class="sc">%&gt;%</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;</span> <span class="dv">2000</span>, Category <span class="sc">==</span> <span class="st">"Women"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Category, Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Category Year
-1     Women 2001
-2     Women 2002
-3     Women 2003
-...</code></pre>
-</div>
-</div>
-</div>
-<p>Much nicer to read, right?</p>
-<p>Some notes on this syntax: 1. If we don’t have any additional arguments we want to put into the function, we can just write the function name without any brackets. 1. The pipe operator will give the result of the last function as input into the next function. 1. If we want to clearly state which of the function arguments should receive the input, we can write a <code>.</code>, which can be read as <em>output of the previous function call</em>.</p>
-</section>
 </section>
 </section>
 <section id="vectors" class="level2">
 <h2 class="anchored" data-anchor-id="vectors">Vectors</h2>
 <p>Finally, let’s take a quick look at how to extract elements from a vector, which shouldn’t be a problem after already dealing with data frames. It’s pretty straight forward: we just put the position of the element we want to extract behind the vector in square brackets. Let’s quickly define a vector for illustration:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>vec_athlete <span class="ot">&lt;-</span> winners<span class="sc">$</span>Athlete <span class="co"># remember: `$` returns a vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>vec_athlete <span class="ot">&lt;-</span> winners<span class="sc">$</span>Athlete <span class="co"># remember: `$` returns a vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And look at the second element:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Inge Simonsen (Tie)"</code></pre>
 </div>
 </div>
 <p>Of course we can also do that for multiple elements:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Inge Simonsen (Tie)" "Hugh Jones"          "Mike Gratton"       </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Or, less to write:</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Or, less to write:</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Inge Simonsen (Tie)" "Hugh Jones"          "Mike Gratton"       </code></pre>
 </div>
 </div>
 <p>Another way would be to provide a logical vector, which defines for each position if we want to extract the element or not (like we already did for data frames):</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">100</span>), <span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="dv">65</span>))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">100</span>), <span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="dv">65</span>))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] "Dick Beardsley (Tie)"       "Inge Simonsen (Tie)"       
   [3] "Hugh Jones"                 "Mike Gratton"              
