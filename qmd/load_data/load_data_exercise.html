@@ -319,6 +319,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+ <span class="menu-text">Subsetting</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/subsetting/subsetting.html" class="sidebar-item-text sidebar-link">
@@ -327,21 +336,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../qmd/subsetting/subsetting_exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Subsetting data: Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+ <span class="menu-text">Merging</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../qmd/manipulation/manipulation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data wrangling</span></a>
   </div>
 </li>
       </ul>
   </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true">
  <span class="menu-text">Advanced: Analysis and visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/statistical_analyses/statistical_analyses.html" class="sidebar-item-text sidebar-link">
@@ -469,13 +497,13 @@ Solution
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(psych_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  char_id.char_name.uni_id.uni_name.question.personality.avg_rating.rank.rating_sd.number_ratings
-1                                   1;F2;Monica Geller;F;Friends;messy/neat;neat;95.7;9;11.7;1079
-2   2;F2;Monica Geller;F;Friends;disorganized/self-disciplined;self-disciplined;95.2;27;11.2;1185
-3                           3;F2;Monica Geller;F;Friends;diligent/lazy;diligent;93.9;87;10.4;1166
-4                             4;F2;Monica Geller;F;Friends;on-time/tardy;on-time;93.8;34;14.3;236
-5              5;F2;Monica Geller;F;Friends;competitive/cooperative;competitive;93.6;56;13.4;1168
-6                  6;F2;Monica Geller;F;Friends;scheduled/spontaneous;scheduled;93.4;23;14.5;1173</code></pre>
+<pre><code>  char_id.question.personality.avg_rating.rank.rating_sd.number_ratings
+1                                 1;F2;messy/neat;neat;95.7;9;11.7;1079
+2 2;F2;disorganized/self-disciplined;self-disciplined;95.2;27;11.2;1185
+3                         3;F2;diligent/lazy;diligent;93.9;87;10.4;1166
+4                           4;F2;on-time/tardy;on-time;93.8;34;14.3;236
+5            5;F2;competitive/cooperative;competitive;93.6;56;13.4;1168
+6                6;F2;scheduled/spontaneous;scheduled;93.4;23;14.5;1173</code></pre>
 </div>
 </div>
 <p>Huh, that looks weird. If we take a look at the file by opening it in a text editor, we can see that the values are seperated by <code>;</code>. So let’s call the help for <code>read.csv()</code>:</p>
@@ -492,20 +520,20 @@ So, we can do the following:</p>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(psych_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  char_id     char_name uni_id uni_name                      question
-1      F2 Monica Geller      F  Friends                    messy/neat
-2      F2 Monica Geller      F  Friends disorganized/self-disciplined
-3      F2 Monica Geller      F  Friends                 diligent/lazy
-4      F2 Monica Geller      F  Friends                 on-time/tardy
-5      F2 Monica Geller      F  Friends       competitive/cooperative
-6      F2 Monica Geller      F  Friends         scheduled/spontaneous
-       personality avg_rating rank rating_sd number_ratings
-1             neat       95.7    9      11.7           1079
-2 self-disciplined       95.2   27      11.2           1185
-3         diligent       93.9   87      10.4           1166
-4          on-time       93.8   34      14.3            236
-5      competitive       93.6   56      13.4           1168
-6        scheduled       93.4   23      14.5           1173</code></pre>
+<pre><code>  char_id                      question      personality avg_rating rank
+1      F2                    messy/neat             neat       95.7    9
+2      F2 disorganized/self-disciplined self-disciplined       95.2   27
+3      F2                 diligent/lazy         diligent       93.9   87
+4      F2                 on-time/tardy          on-time       93.8   34
+5      F2       competitive/cooperative      competitive       93.6   56
+6      F2         scheduled/spontaneous        scheduled       93.4   23
+  rating_sd number_ratings
+1      11.7           1079
+2      11.2           1185
+3      10.4           1166
+4      14.3            236
+5      13.4           1168
+6      14.5           1173</code></pre>
 </div>
 </div>
 <p>This looks better!</p>
