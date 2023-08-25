@@ -129,14 +129,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./the_big_picture.html" rel="" target="">
  <span class="menu-text">The big picture</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./packages.html" rel="" target="">
- <span class="menu-text">Packages</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./load_data.html" rel="" target="">
- <span class="menu-text">Load data</span></a>
-  </li>  
+  <li class="dropdown-header">
+ <span class="menu-text">packages.qmd</span></li>
+  <li class="dropdown-header">
+ <span class="menu-text">load_data.qmd</span></li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -274,13 +270,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./packages.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd/packages/packages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Packages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./load_data.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd/load_data/load_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Load data</span></a>
   </div>
 </li>
@@ -299,13 +295,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./subsetting.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd/subsetting/subsetting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subsetting data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./manipulation.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd/manipulation/manipulation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data wrangling</span></a>
   </div>
 </li>
@@ -322,13 +318,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./statistical_analyses.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd/statistical_analyses/statistical_analyses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">statistical_analyses.html</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./plotting.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd/plotting/plotting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">plotting.html</span></a>
   </div>
 </li>
@@ -370,7 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now that we have completed our set up, let’s dive right into programming with <code>R</code>. In this chapter, we will go through a “mini-project” with very basic data, which follows a possible workflow when working with data in <code>R</code>. We will install and load packages, load data, perform some operations on this data, calculate some summary statistics and plot them. In later chapters, we will go into a little more depth for each topic. If you want to have more in depth information instead of following the whole workflow first, you can also skip this chapter and jump to the chapters and exercises you are interested in. But make sure to do the final exercise, to test you R proficiency in the end.</p>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p><a href="./packages.html">Packages</a> are extensions to the <code>base R</code> you get by default. We already installed our first packages in <a href="./setup.html#about-this-workshop">About this workshop</a>. Let’s keep doing that and install the following package as well:</p>
+<p><a href="packages.qmd">Packages</a> are extensions to the <code>base R</code> you get by default. We already installed our first packages in <a href="./setup.html#about-this-workshop">About this workshop</a>. Let’s keep doing that and install the following package as well:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -426,7 +422,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>babynames_n <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./raw_data/babynames_n.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>And now <a href="./manipulation.html#Merging">merge</a> it:</p>
+<p>And now <a href="manipulation.qmd#Merging">merge</a> it:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>babynames_merged <span class="ot">&lt;-</span> <span class="fu">merge</span>(babynames, babynames_n)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -454,7 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="subsetting-data" class="level2">
 <h2 class="anchored" data-anchor-id="subsetting-data">Subsetting data</h2>
-<p>One very important part of working with data in R is the <a href="./subsetting.html">subsetting</a> of data. This means we select specific values from a data set. Let’s suppose we want to only look at the female names in this data set:</p>
+<p>One very important part of working with data in R is the <a href="subsetting.qmd">subsetting</a> of data. This means we select specific values from a data set. Let’s suppose we want to only look at the female names in this data set:</p>
 <div class="tidy">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>babynames_F <span class="ot">&lt;-</span> babynames_merged <span class="sc">%&gt;%</span></span>

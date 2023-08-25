@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R - Open Research Summer School – plotting</title>
+<title>R - Open Research Summer School – load_data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./statistical_analyses.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../qmd/subsetting/subsetting.html" rel="next">
+<link href="../../qmd/packages/packages.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -72,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">R - Open Research Summer School</span>
     </a>
   </div>
@@ -83,25 +118,21 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link active" href="../../index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./setup.html" rel="" target="">
+    <a class="nav-link" href="../../setup.html" rel="" target="">
  <span class="menu-text">Setup</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./the_big_picture.html" rel="" target="">
+    <a class="nav-link" href="../../the_big_picture.html" rel="" target="">
  <span class="menu-text">The big picture</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./packages.html" rel="" target="">
- <span class="menu-text">Packages</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./load_data.html" rel="" target="">
- <span class="menu-text">Load data</span></a>
-  </li>  
+  <li class="dropdown-header">
+ <span class="menu-text">packages.qmd</span></li>
+  <li class="dropdown-header">
+ <span class="menu-text">load_data.qmd</span></li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -113,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./statistical_analyses.html">Advanced: Analysis and visualization</a></li><li class="breadcrumb-item"><a href="./plotting.html">plotting.html</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Basics</li><li class="breadcrumb-item"><a href="../../qmd/packages/packages.html">rest</a></li><li class="breadcrumb-item"><a href="../../qmd/load_data/load_data.html">Load data</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -144,13 +175,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Setup</span></a>
   </div>
 </li>
@@ -167,13 +198,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./the_big_picture.html" class="sidebar-item-text sidebar-link">
+  <a href="../../the_big_picture.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The big picture</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercise_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../exercise_overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercises</span></a>
   </div>
 </li>
@@ -199,13 +230,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qmd/basics/basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/basics/basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Basic operations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qmd/basics/basics_exercise.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/basics/basics_exercise.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">basics_exercise.html</span></a>
   </div>
 </li>
@@ -222,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qmd/data_structures/data_structures.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/data_structures/data_structures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data structures</span></a>
   </div>
 </li>
@@ -230,22 +261,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
  <span class="menu-text">rest</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./packages.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/packages/packages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Packages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./load_data.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/load_data/load_data.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Load data</span></a>
   </div>
 </li>
@@ -264,13 +295,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./subsetting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/subsetting/subsetting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subsetting data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./manipulation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/manipulation/manipulation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data wrangling</span></a>
   </div>
 </li>
@@ -287,13 +318,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./statistical_analyses.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/statistical_analyses/statistical_analyses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">statistical_analyses.html</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./plotting.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../qmd/plotting/plotting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">plotting.html</span></a>
   </div>
 </li>
@@ -305,17 +336,108 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#load-data" id="toc-load-data" class="nav-link active" data-scroll-target="#load-data">Load data</a>
+  <ul class="collapse">
+  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types">Data types</a></li>
+  <li><a href="#absolute-paths-vs.-relative-paths" id="toc-absolute-paths-vs.-relative-paths" class="nav-link" data-scroll-target="#absolute-paths-vs.-relative-paths">Absolute paths vs.&nbsp;relative paths</a></li>
+  <li><a href="#the-here-package" id="toc-the-here-package" class="nav-link" data-scroll-target="#the-here-package">The <code>here</code> package</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<p>This section is for more experienced R users who want to start plotting with <code>ggplot2</code>. It is not necessary to follow the rest of the conference.</p>
-<p>This is Zusatz. Plot world map with the winning countries, the more the darker. Same colours for same continents.</p>
+<section id="load-data" class="level1">
+<h1>Load data</h1>
+<section id="data-types" class="level2">
+<h2 class="anchored" data-anchor-id="data-types">Data types</h2>
+<p>There are many different data types out there, of which many can be loaded into R. Depending on the type, different commands are used within R. Sometimes, we will have to use additional packages to get access to that function, mainly <code>readxl</code> and <code>haven</code>.</p>
+<div class="cell-output-display">
+<table class="table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 34%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Data.type</th>
+<th style="text-align: left;">Import</th>
+<th style="text-align: left;">Export</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">R objects (.Rdata, .rda)</td>
+<td style="text-align: left;"><code>load()</code></td>
+<td style="text-align: left;"><code>save()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">single R object (.Rds)</td>
+<td style="text-align: left;"><code>readRDS()</code></td>
+<td style="text-align: left;"><code>saveRDS()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">text-files (.txt)</td>
+<td style="text-align: left;"><code>read.table()</code></td>
+<td style="text-align: left;"><code>write.table()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">.csv-files (.csv)</td>
+<td style="text-align: left;"><code>read.csv()</code></td>
+<td style="text-align: left;"><code>write.csv()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Excel-files (.xlsx)</td>
+<td style="text-align: left;"><code>readxl::read_excel()</code></td>
+<td style="text-align: left;"><code>writexl::write_xlsx()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SPSS-files (.sav)</td>
+<td style="text-align: left;"><code>haven::read_sav()</code></td>
+<td style="text-align: left;"><code>haven::write_sav()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SAS-files (.sas)</td>
+<td style="text-align: left;"><code>haven::read_sas()</code></td>
+<td style="text-align: left;"><code>haven::write_sas()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Stata-files (.stata)</td>
+<td style="text-align: left;"><code>haven::read_dta()</code></td>
+<td style="text-align: left;"><code>haven::write_dta()</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="absolute-paths-vs.-relative-paths" class="level2">
+<h2 class="anchored" data-anchor-id="absolute-paths-vs.-relative-paths">Absolute paths vs.&nbsp;relative paths</h2>
+<p>You can head to a specific file by using the full path (<strong>absolute path</strong>): <code>"C:\Users\hafiznij\Documents\GitHub\r_tutorial\raw_data\winners.rda"</code>. This approach has some disadvantages: it will only work on <strong>my</strong> notebook. If i want to continue my project on another device, i will have to change the path. The same goes for other people who want to work with my project. So, to keep these paths more reproducable, we should always use <strong>relative paths</strong> if possible: <code>".\raw_data\winners.rda"</code>. This will always work independently of the device i am working on, as long as i am in the correct <strong>working directory</strong>.</p>
+<p>The working directory is the path R is currently working in. I can obtain it by typing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/home/runner/work/r_tutorial/r_tutorial/qmd/load_data"</code></pre>
+</div>
+</div>
+<p>Luckily, as long as we work with RStudio projects, we don’t have to deal with that, as the working directory is set automatically by the project.</p>
+<p>Now take a look at the working directory and the relative path i used for loading the <code>winners.rda</code>. Notice something? Correct, both paths combined equal the <strong>absolute path</strong> to the file. So by splitting it up, we obtain a more reproducible path, that works independent of where the current working directory is.</p>
+</section>
+<section id="the-here-package" class="level2">
+<h2 class="anchored" data-anchor-id="the-here-package">The <code>here</code> package</h2>
+<p>Another great way to deal with the path confusion is to use the <code>here</code> package. It can build the paths relative to the directory where your RStudio project is saved in. For example, <code>".\raw_data\winners.rda"</code> becomes <code>here::here("raw_data", "winners.rda")</code>. This is not increadibly important right now, but I need to mention it because I have to use these path structures sometimes during the tutorial, so don’t be confused! It is just another way to build file paths. Look <a href="https://here.r-lib.org/">here</a> (:D) if you want to learn more about the package.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -553,11 +675,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./statistical_analyses.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">statistical_analyses.html</span>
+      <a href="../../qmd/packages/packages.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Packages</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../qmd/subsetting/subsetting.html" class="pagination-link">
+        <span class="nav-page-text">Subsetting data</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

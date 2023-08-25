@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R - Open Research Summer School – basics</title>
+<title>R - Open Research Summer School – packages</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../qmd/basics/basics_exercise.html" rel="next">
-<link href="../../exercise_overview.html" rel="prev">
+<link href="../../qmd/load_data/load_data.html" rel="next">
+<link href="../../qmd/data_structures/data_structures.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -144,7 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Basics</li><li class="breadcrumb-item"><a href="../../qmd/basics/basics.html">Basics</a></li><li class="breadcrumb-item"><a href="../../qmd/basics/basics.html">Basic operations</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Basics</li><li class="breadcrumb-item"><a href="../../qmd/packages/packages.html">rest</a></li><li class="breadcrumb-item"><a href="../../qmd/packages/packages.html">Packages</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -221,16 +221,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
  <span class="menu-text">Basics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/basics/basics.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../qmd/basics/basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Basic operations</span></a>
   </div>
 </li>
@@ -261,16 +261,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
  <span class="menu-text">rest</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/packages/packages.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/packages/packages.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Packages</span></a>
   </div>
 </li>
@@ -340,15 +340,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#basic-operations" id="toc-basic-operations" class="nav-link active" data-scroll-target="#basic-operations">Basic operations</a>
+  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a>
   <ul class="collapse">
-  <li><a href="#basic-mathematical-operations" id="toc-basic-mathematical-operations" class="nav-link" data-scroll-target="#basic-mathematical-operations">Basic mathematical operations</a></li>
-  <li><a href="#assignment-operator" id="toc-assignment-operator" class="nav-link" data-scroll-target="#assignment-operator">Assignment operator</a></li>
-  <li><a href="#comparisons-and-logical-operators" id="toc-comparisons-and-logical-operators" class="nav-link" data-scroll-target="#comparisons-and-logical-operators">Comparisons and Logical operators</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">!</a></li>
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
-  <li><a href="#help" id="toc-help" class="nav-link" data-scroll-target="#help">HELP!</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
+  <li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages">Install packages</a></li>
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
+  <li><a href="#function-conflicts" id="toc-function-conflicts" class="nav-link" data-scroll-target="#function-conflicts">Function conflicts</a></li>
+  <li><a href="#deliberate-package-management" id="toc-deliberate-package-management" class="nav-link" data-scroll-target="#deliberate-package-management">Deliberate package management</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -358,173 +355,150 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="basic-operations" class="level1">
-<h1>Basic operations</h1>
-<p>Let’s take a quick look at the most important basic operations in R. You can also use a <a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf">cheat sheet</a> to keep an overview during the course.</p>
-<section id="basic-mathematical-operations" class="level2">
-<h2 class="anchored" data-anchor-id="basic-mathematical-operations">Basic mathematical operations</h2>
-<p>We can use R as a calculator:</p>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>Packages are extensions to the <code>base R</code> you get by default. Most times they provide many new functions, bundled around a specific use case. When working with R you will have to rely heavily on packages developed by others. There are many, many great packages out there facilitating your work with R and making possible many different analyses, visualizations and many more.</p>
+<p>We can compare them somewhat to apps in an appstore:</p>
+<p><img src="./pictures/playstore.png" class="img-fluid" width="19"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> First, we have to install the package: <code>install.packages("packagename")</code>. - Most of the openly available packages lie on <a href="https://cran.r-project.org/">CRAN</a> (Comprehensive R Archive Network). But you can also download packages form other sources, for example <a href="https://github.com/">GitHub</a>. This is what you did when downloading the <code>tutoR</code> package in <a href="setup.qmd#about-this-workshop">About this workshop</a>.</p>
+<p><img src="./pictures/app.png" class="img-fluid" width="19"><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Then, we have to load them in each session where we want to use them (like tipping on the app icon): <code>library(packagename)</code>.</p>
+<ul>
+<li>Note that in <code>install.packages("packagename")</code> we have to put the package into quotation marks, when calling <code>library(packagename)</code> not.</li>
+</ul>
+<section id="install-packages" class="level2">
+<h2 class="anchored" data-anchor-id="install-packages">Install packages</h2>
+<p>Before we can use packages we have to install them once. Most packages are hosted via the Comprehensive R Archive Network (CRAN), to install a package from there, we can use:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="dv">3</span><span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">-</span> <span class="dv">3</span><span class="sc">/</span><span class="fu">log</span>(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"aRtsy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>But often packages are only (or as well) provided via GitHub. To install a package from there, use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"cutterkom/generativeart"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="assignment-operator" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-operator">Assignment operator</h2>
-<p>We can create objects in R by using the assignment operator <code>&lt;-</code>, which assigns a value to an object:</p>
+<section id="load-packages" class="level2">
+<h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
+<p>After installing a package, we have to load it into our R session:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Assign the result of 1 + 1 to the object 'result':</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(aRtsy)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Assign the result of the comparison to the object 'log_result':</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>log_result <span class="ot">&lt;-</span> <span class="sc">!</span>(<span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>log_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
+<p>Now we are free to use it, in this case to generate some artwork:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set.seed(1)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#canvas_collatz(colors = colorPalette("lava"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="comparisons-and-logical-operators" class="level2">
-<h2 class="anchored" data-anchor-id="comparisons-and-logical-operators">Comparisons and Logical operators</h2>
-<p>The boolean variables in R are <code>TRUE</code> and <code>FALSE</code>. Comparison operators return either <code>TRUE</code> or <code>FALSE</code>:</p>
+<section id="function-conflicts" class="level2">
+<h2 class="anchored" data-anchor-id="function-conflicts">Function conflicts</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand to learn about dealing with identical function names from different packages
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Of course it can happen that different packages include functions with the same name. For example, look at the warnings we get when installing and then loading the packages <code>ggplot2</code> and <code>psych</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"psych"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># But:</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-</div>
-<p>These are the comparison operators you will typically use:</p>
 <div class="cell">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Operator</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">&lt;</td>
-<td style="text-align: left;">less than</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">&gt;</td>
-<td style="text-align: left;">greater than</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">==</td>
-<td style="text-align: left;">equal to</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">!=</td>
-<td style="text-align: left;">not equal to</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">&lt;=</td>
-<td style="text-align: left;">less or equal</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">&gt;=</td>
-<td style="text-align: left;">greater or equal</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'psych'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:ggplot2':
+
+    %+%, alpha</code></pre>
 </div>
 </div>
-<p>Mainly we will use these logical operation to check which elements in a <a href="data_structures.qmd#vector">vector</a> satisfy some requirements:</p>
+<p>There seems to be a function named <code>alpha</code> which is included in both packages (but not the same function, just the same name). The warning message notifies us that the object <code>alpha</code> from <code>ggplot2</code> is masked, so if we call it, the <code>alpha</code> function from the <code>psych</code> package is used. To solve that quandary, we can use the <code>::</code> operator. In front we write the package name, and behind it the name of the function we want to use from that package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a vector of numbers ranging from 1 to 10</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>vec_num <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check which of these numbers are smaller than 5</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>vec_num <span class="sc">&lt;</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">alpha</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>This will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined.</p>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">!</h2>
-<p>We can invert boolean values by using <code>!</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(<span class="dv">1</span> <span class="sc">&gt;</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">!=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
 </div>
 </div>
 </section>
-<section id="functions" class="level2">
-<h2 class="anchored" data-anchor-id="functions">Functions</h2>
-<p>Everything that <strong>does</strong> something in R is a function. A function call has the form: <code>functionname(argument1 = value, argument2 = value, ...)</code>. One basic example for a function is the function that can calculate the square root:</p>
+<section id="deliberate-package-management" class="level2">
+<h2 class="anchored" data-anchor-id="deliberate-package-management">Deliberate package management</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand to learn about managing package versions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Finally, a quick note on package management and reproducability of your code. R versions and package versions <strong>will</strong> change over time, in which case also the output of your code might change. Therefore, it is good practice to save the R version and package versions, so your code stays (kind of) reproducable for a longer period of time. The most straight forward thing to do is to just write down your R-version and the package versions at the top of your script. Call the versions you use with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>R version 4.3.1 (2023-06-16)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 22.04.3 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.20.so;  LAPACK version 3.10.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
+ [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
+ [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
+[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
+
+time zone: UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices datasets  utils     methods   base     
+
+other attached packages:
+[1] psych_2.3.6   ggplot2_3.4.2
+
+loaded via a namespace (and not attached):
+ [1] vctrs_0.6.3       nlme_3.1-162      cli_3.6.1         knitr_1.43       
+ [5] rlang_1.1.1       xfun_0.39         generics_0.1.3    renv_1.0.0       
+ [9] jsonlite_1.8.7    glue_1.6.2        colorspace_2.1-0  htmltools_0.5.5  
+[13] scales_1.2.1      fansi_1.0.4       rmarkdown_2.23    grid_4.3.1       
+[17] evaluate_0.21     munsell_0.5.0     tibble_3.2.1      fastmap_1.1.1    
+[21] yaml_2.3.7        lifecycle_1.0.3   compiler_4.3.1    dplyr_1.1.2      
+[25] pkgconfig_2.0.3   rstudioapi_0.15.0 lattice_0.21-8    digest_0.6.32    
+[29] R6_2.5.1          tidyselect_1.2.0  utf8_1.2.3        parallel_4.3.1   
+[33] mnormt_2.1.1      pillar_1.9.0      magrittr_2.0.3    withr_2.5.0      
+[37] tools_4.3.1       gtable_0.3.3     </code></pre>
 </div>
 </div>
-<p>We can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">4</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 4 4 4 4 4 4 4 4 4 4</code></pre>
+<p>A more elegant approach to manage your packages is to use a dedicated package like <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a>, which will make it a lot easier to manage your package versions. But this is past the scope of this workshop, just keep in mind it might be something rewarding to look at, if you should start to programm more with R. Instead, let’s look at how to get data into R in the next chapter, so we can actually get to work with it.</p>
 </div>
 </div>
-<p>will rep <code>4</code> <code>10</code> times. If we swap the arguments, the <code>10</code> will be repeat <code>4</code> times:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">10</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10 10 10 10</code></pre>
 </div>
-</div>
-<p>But if we specify which value belongs to which function argument, the order doesn’t matter:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="at">times =</span> <span class="dv">10</span>, <span class="at">x =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 4 4 4 4 4 4 4 4 4 4</code></pre>
-</div>
-</div>
-<p>How do we know which arguments a function has?:</p>
+
+
 </section>
-<section id="help" class="level2">
-<h2 class="anchored" data-anchor-id="help">HELP!</h2>
-<p>One of the most important functions in R is the help-function <code>?</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>?rep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>will open the documentation for the function with the description of its usage, details about the arguments … In the next chapter we will take a very quick look at R’s data types.</p>
 </section>
-<section id="exercise" class="level2">
-<h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
-<ol type="1">
-<li>Load the <code>tutoR</code> package and start the exercises about the <code>basic operations</code> by typing the following code into your console:</li>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Icons from <a href="https://icons8.de">icons8.de</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Icons from <a href="https://icons8.de">icons8.de</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>learnr<span class="sc">::</span><span class="fu">run_tutorial</span>(<span class="at">name =</span> <span class="st">"basics"</span>, <span class="at">package =</span> <span class="st">"tutoR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-
-
-</section>
-</section>
-
-</main> <!-- /main -->
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -760,13 +734,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../exercise_overview.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exercises</span>
+      <a href="../../qmd/data_structures/data_structures.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data structures</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../qmd/basics/basics_exercise.html" class="pagination-link">
-        <span class="nav-page-text">basics_exercise.html</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../qmd/load_data/load_data.html" class="pagination-link">
+        <span class="nav-page-text">Load data</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

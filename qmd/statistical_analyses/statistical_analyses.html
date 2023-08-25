@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R - Open Research Summer School – packages</title>
+<title>R - Open Research Summer School – statistical_analyses</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,61 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./load_data.html" rel="next">
-<link href="./qmd/data_structures/data_structures.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../qmd/plotting/plotting.html" rel="next">
+<link href="../../qmd/manipulation/manipulation.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -97,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -107,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">R - Open Research Summer School</span>
     </a>
   </div>
@@ -118,25 +84,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link active" href="../../index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./setup.html" rel="" target="">
+    <a class="nav-link" href="../../setup.html" rel="" target="">
  <span class="menu-text">Setup</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./the_big_picture.html" rel="" target="">
+    <a class="nav-link" href="../../the_big_picture.html" rel="" target="">
  <span class="menu-text">The big picture</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./packages.html" rel="" target="">
- <span class="menu-text">Packages</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./load_data.html" rel="" target="">
- <span class="menu-text">Load data</span></a>
-  </li>  
+  <li class="dropdown-header">
+ <span class="menu-text">packages.qmd</span></li>
+  <li class="dropdown-header">
+ <span class="menu-text">load_data.qmd</span></li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -148,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Basics</li><li class="breadcrumb-item"><a href="./packages.html">rest</a></li><li class="breadcrumb-item"><a href="./packages.html">Packages</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmd/statistical_analyses/statistical_analyses.html">Advanced: Analysis and visualization</a></li><li class="breadcrumb-item"><a href="../../qmd/statistical_analyses/statistical_analyses.html">statistical_analyses.html</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -179,13 +141,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Setup</span></a>
   </div>
 </li>
@@ -202,13 +164,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./the_big_picture.html" class="sidebar-item-text sidebar-link">
+  <a href="../../the_big_picture.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The big picture</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercise_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../exercise_overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercises</span></a>
   </div>
 </li>
@@ -234,13 +196,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qmd/basics/basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/basics/basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Basic operations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qmd/basics/basics_exercise.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/basics/basics_exercise.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">basics_exercise.html</span></a>
   </div>
 </li>
@@ -257,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qmd/data_structures/data_structures.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/data_structures/data_structures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data structures</span></a>
   </div>
 </li>
@@ -265,22 +227,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
  <span class="menu-text">rest</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./packages.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../qmd/packages/packages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Packages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./load_data.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/load_data/load_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Load data</span></a>
   </div>
 </li>
@@ -299,13 +261,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./subsetting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/subsetting/subsetting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subsetting data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./manipulation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/manipulation/manipulation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data wrangling</span></a>
   </div>
 </li>
@@ -322,13 +284,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./statistical_analyses.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/statistical_analyses/statistical_analyses.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">statistical_analyses.html</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./plotting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/plotting/plotting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">plotting.html</span></a>
   </div>
 </li>
@@ -340,169 +302,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a>
-  <ul class="collapse">
-  <li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages">Install packages</a></li>
-  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
-  <li><a href="#function-conflicts" id="toc-function-conflicts" class="nav-link" data-scroll-target="#function-conflicts">Function conflicts</a></li>
-  <li><a href="#deliberate-package-management" id="toc-deliberate-package-management" class="nav-link" data-scroll-target="#deliberate-package-management">Deliberate package management</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<section id="packages" class="level1">
-<h1>Packages</h1>
-<p>Packages are extensions to the <code>base R</code> you get by default. Most times they provide many new functions, bundled around a specific use case. When working with R you will have to rely heavily on packages developed by others. There are many, many great packages out there facilitating your work with R and making possible many different analyses, visualizations and many more.</p>
-<p>We can compare them somewhat to apps in an appstore:</p>
-<p><img src="./pictures/playstore.png" class="img-fluid" width="19"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> First, we have to install the package: <code>install.packages("packagename")</code>. - Most of the openly available packages lie on <a href="https://cran.r-project.org/">CRAN</a> (Comprehensive R Archive Network). But you can also download packages form other sources, for example <a href="https://github.com/">GitHub</a>. This is what you did when downloading the <code>tutoR</code> package in <a href="./setup.html#about-this-workshop">About this workshop</a>.</p>
-<p><img src="./pictures/app.png" class="img-fluid" width="19"><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Then, we have to load them in each session where we want to use them (like tipping on the app icon): <code>library(packagename)</code>.</p>
-<ul>
-<li>Note that in <code>install.packages("packagename")</code> we have to put the package into quotation marks, when calling <code>library(packagename)</code> not.</li>
-</ul>
-<section id="install-packages" class="level2">
-<h2 class="anchored" data-anchor-id="install-packages">Install packages</h2>
-<p>Before we can use packages we have to install them once. Most packages are hosted via the Comprehensive R Archive Network (CRAN), to install a package from there, we can use:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"aRtsy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>But often packages are only (or as well) provided via GitHub. To install a package from there, use:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"cutterkom/generativeart"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="load-packages" class="level2">
-<h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
-<p>After installing a package, we have to load it into our R session:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(aRtsy)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now we are free to use it, in this case to generate some artwork:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set.seed(1)</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#canvas_collatz(colors = colorPalette("lava"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="function-conflicts" class="level2">
-<h2 class="anchored" data-anchor-id="function-conflicts">Function conflicts</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expand to learn about dealing with identical function names from different packages
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Of course it can happen that different packages include functions with the same name. For example, look at the warnings we get when installing and then loading the packages <code>ggplot2</code> and <code>psych</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"psych"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'psych'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:ggplot2':
-
-    %+%, alpha</code></pre>
-</div>
-</div>
-<p>There seems to be a function named <code>alpha</code> which is included in both packages (but not the same function, just the same name). The warning message notifies us that the object <code>alpha</code> from <code>ggplot2</code> is masked, so if we call it, the <code>alpha</code> function from the <code>psych</code> package is used. To solve that quandary, we can use the <code>::</code> operator. In front we write the package name, and behind it the name of the function we want to use from that package:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">alpha</span>()</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="deliberate-package-management" class="level2">
-<h2 class="anchored" data-anchor-id="deliberate-package-management">Deliberate package management</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expand to learn about managing package versions
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Finally, a quick note on package management and reproducability of your code. R versions and package versions <strong>will</strong> change over time, in which case also the output of your code might change. Therefore, it is good practice to save the R version and package versions, so your code stays (kind of) reproducable for a longer period of time. The most straight forward thing to do is to just write down your R-version and the package versions at the top of your script. Call the versions you use with:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.1 (2023-06-16)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 22.04.3 LTS
-
-Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
-LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.20.so;  LAPACK version 3.10.0
-
-locale:
- [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
- [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
- [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
-[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
-
-time zone: UTC
-tzcode source: system (glibc)
-
-attached base packages:
-[1] stats     graphics  grDevices datasets  utils     methods   base     
-
-other attached packages:
-[1] psych_2.3.6   ggplot2_3.4.2
-
-loaded via a namespace (and not attached):
- [1] vctrs_0.6.3       nlme_3.1-162      cli_3.6.1         knitr_1.43       
- [5] rlang_1.1.1       xfun_0.39         generics_0.1.3    renv_1.0.0       
- [9] jsonlite_1.8.7    glue_1.6.2        colorspace_2.1-0  htmltools_0.5.5  
-[13] scales_1.2.1      fansi_1.0.4       rmarkdown_2.23    grid_4.3.1       
-[17] evaluate_0.21     munsell_0.5.0     tibble_3.2.1      fastmap_1.1.1    
-[21] yaml_2.3.7        lifecycle_1.0.3   compiler_4.3.1    dplyr_1.1.2      
-[25] pkgconfig_2.0.3   rstudioapi_0.15.0 lattice_0.21-8    digest_0.6.32    
-[29] R6_2.5.1          tidyselect_1.2.0  utf8_1.2.3        parallel_4.3.1   
-[33] mnormt_2.1.1      pillar_1.9.0      magrittr_2.0.3    withr_2.5.0      
-[37] tools_4.3.1       gtable_0.3.3     </code></pre>
-</div>
-</div>
-<p>A more elegant approach to manage your packages is to use a dedicated package like <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a>, which will make it a lot easier to manage your package versions. But this is past the scope of this workshop, just keep in mind it might be something rewarding to look at, if you should start to programm more with R. Instead, let’s look at how to get data into R in the next chapter, so we can actually get to work with it.</p>
-</div>
-</div>
-</div>
 
 
-</section>
-</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Icons from <a href="https://icons8.de">icons8.de</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Icons from <a href="https://icons8.de">icons8.de</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -738,13 +548,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./qmd/data_structures/data_structures.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data structures</span>
+      <a href="../../qmd/manipulation/manipulation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data wrangling</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./load_data.html" class="pagination-link">
-        <span class="nav-page-text">Load data</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../qmd/plotting/plotting.html" class="pagination-link">
+        <span class="nav-page-text">plotting.html</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
