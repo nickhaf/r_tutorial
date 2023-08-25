@@ -371,6 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types">Data types</a></li>
   <li><a href="#absolute-paths-vs.-relative-paths" id="toc-absolute-paths-vs.-relative-paths" class="nav-link" data-scroll-target="#absolute-paths-vs.-relative-paths">Absolute paths vs.&nbsp;relative paths</a></li>
   <li><a href="#the-here-package" id="toc-the-here-package" class="nav-link" data-scroll-target="#the-here-package">The <code>here</code> package</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -460,6 +461,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-here-package" class="level2">
 <h2 class="anchored" data-anchor-id="the-here-package">The <code>here</code> package</h2>
 <p>Another great way to deal with the path confusion is to use the <code>here</code> package. It can build the paths relative to the directory where your RStudio project is saved in. For example, <code>".\raw_data\winners.rda"</code> becomes <code>here::here("raw_data", "winners.rda")</code>. This is not increadibly important right now, but I need to mention it because I have to use these path structures sometimes during the tutorial, so don’t be confused! It is just another way to build file paths. Look <a href="https://here.r-lib.org/">here</a> (:D) if you want to learn more about the package.</p>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>Now, let’s load some data into R. We will use the <code>winners</code> data set for the remaining theory parts of this workshop (see <a href="">next chapter</a> for more information on that data set).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>winners <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"winners.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
