@@ -403,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/merging/merging_exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">merging_exercise.html</span></a>
+ <span class="menu-text">Merging: Exercise</span></a>
   </div>
 </li>
       </ul>
@@ -766,24 +766,54 @@ Solution
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(characters, uni_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"How I Met Your Mother"</span>, <span class="st">"Breaking Bad"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 15 × 7
-   id     name              uni_id uni_name          notability link  image_link
-   &lt;chr&gt;  &lt;chr&gt;             &lt;chr&gt;  &lt;chr&gt;                  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     
- 1 HIMYM4 Barney Stinson    HIMYM  How I Met Your M…       76   http… https://o…
- 2 HIMYM3 Robin Scherbatsky HIMYM  How I Met Your M…       74.2 http… https://o…
- 3 HIMYM5 Lily Aldrin       HIMYM  How I Met Your M…       74.1 http… https://o…
- 4 HIMYM2 Marshall Eriksen  HIMYM  How I Met Your M…       71   http… https://o…
- 5 HIMYM1 Ted Mosby         HIMYM  How I Met Your M…       63.7 http… https://o…
- 6 BB1    Walter White      BB     Breaking Bad            91.3 http… https://o…
- 7 BB3    Jesse Pinkman     BB     Breaking Bad            88.9 http… https://o…
- 8 BB9    Mike Ehrmantraut  BB     Breaking Bad            82.5 http… https://o…
- 9 BB8    Gus Fring         BB     Breaking Bad            79.6 http… https://o…
-10 BB4    Hank Schrader     BB     Breaking Bad            74.8 http… https://o…
-11 BB7    Saul Goodman      BB     Breaking Bad            73.8 http… https://o…
-12 BB10   Jane Margolis     BB     Breaking Bad            61.3 http… https://o…
-13 BB2    Skyler White      BB     Breaking Bad            55.4 http… https://o…
-14 BB6    Flynn White       BB     Breaking Bad            46.8 http… https://o…
-15 BB5    Marie Schrader    BB     Breaking Bad            27.9 http… https://o…</code></pre>
+<pre><code>       id              name uni_id              uni_name notability
+1  HIMYM4    Barney Stinson  HIMYM How I Met Your Mother       76.0
+2  HIMYM3 Robin Scherbatsky  HIMYM How I Met Your Mother       74.2
+3  HIMYM5       Lily Aldrin  HIMYM How I Met Your Mother       74.1
+4  HIMYM2  Marshall Eriksen  HIMYM How I Met Your Mother       71.0
+5  HIMYM1         Ted Mosby  HIMYM How I Met Your Mother       63.7
+6     BB1      Walter White     BB          Breaking Bad       91.3
+7     BB3     Jesse Pinkman     BB          Breaking Bad       88.9
+8     BB9  Mike Ehrmantraut     BB          Breaking Bad       82.5
+9     BB8         Gus Fring     BB          Breaking Bad       79.6
+10    BB4     Hank Schrader     BB          Breaking Bad       74.8
+11    BB7      Saul Goodman     BB          Breaking Bad       73.8
+12   BB10     Jane Margolis     BB          Breaking Bad       61.3
+13    BB2      Skyler White     BB          Breaking Bad       55.4
+14    BB6       Flynn White     BB          Breaking Bad       46.8
+15    BB5    Marie Schrader     BB          Breaking Bad       27.9
+                                                           link
+1  https://openpsychometrics.org/tests/characters/stats/HIMYM/4
+2  https://openpsychometrics.org/tests/characters/stats/HIMYM/3
+3  https://openpsychometrics.org/tests/characters/stats/HIMYM/5
+4  https://openpsychometrics.org/tests/characters/stats/HIMYM/2
+5  https://openpsychometrics.org/tests/characters/stats/HIMYM/1
+6     https://openpsychometrics.org/tests/characters/stats/BB/1
+7     https://openpsychometrics.org/tests/characters/stats/BB/3
+8     https://openpsychometrics.org/tests/characters/stats/BB/9
+9     https://openpsychometrics.org/tests/characters/stats/BB/8
+10    https://openpsychometrics.org/tests/characters/stats/BB/4
+11    https://openpsychometrics.org/tests/characters/stats/BB/7
+12   https://openpsychometrics.org/tests/characters/stats/BB/10
+13    https://openpsychometrics.org/tests/characters/stats/BB/2
+14    https://openpsychometrics.org/tests/characters/stats/BB/6
+15    https://openpsychometrics.org/tests/characters/stats/BB/5
+                                                                       image_link
+1  https://openpsychometrics.org/tests/characters/test-resources/pics/HIMYM/4.jpg
+2  https://openpsychometrics.org/tests/characters/test-resources/pics/HIMYM/3.jpg
+3  https://openpsychometrics.org/tests/characters/test-resources/pics/HIMYM/5.jpg
+4  https://openpsychometrics.org/tests/characters/test-resources/pics/HIMYM/2.jpg
+5  https://openpsychometrics.org/tests/characters/test-resources/pics/HIMYM/1.jpg
+6     https://openpsychometrics.org/tests/characters/test-resources/pics/BB/1.jpg
+7     https://openpsychometrics.org/tests/characters/test-resources/pics/BB/3.jpg
+8     https://openpsychometrics.org/tests/characters/test-resources/pics/BB/9.jpg
+9     https://openpsychometrics.org/tests/characters/test-resources/pics/BB/8.jpg
+10    https://openpsychometrics.org/tests/characters/test-resources/pics/BB/4.jpg
+11    https://openpsychometrics.org/tests/characters/test-resources/pics/BB/7.jpg
+12   https://openpsychometrics.org/tests/characters/test-resources/pics/BB/10.jpg
+13    https://openpsychometrics.org/tests/characters/test-resources/pics/BB/2.jpg
+14    https://openpsychometrics.org/tests/characters/test-resources/pics/BB/6.jpg
+15    https://openpsychometrics.org/tests/characters/test-resources/pics/BB/5.jpg</code></pre>
 </div>
 </div>
 </div>
