@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R - Open Research Summer School – subsetting</title>
+<title>R - Open Research Summer School - Subsetting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../qmd/subsetting/subsetting_exercise.html" rel="next">
-<link href="../../qmd/missing/missing_exercise.html" rel="prev">
+<link href="../../qmd/peeking/peeking.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -98,6 +98,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="R - Open Research Summer School - Subsetting">
+<meta property="og:description" content="">
+<meta property="og:site-name" content="R - Open Research Summer School">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -144,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">3) Data manipulation and transformation</li><li class="breadcrumb-item"><a href="../../qmd/subsetting/subsetting.html">Subsetting</a></li><li class="breadcrumb-item"><a href="../../qmd/subsetting/subsetting.html">Subsetting data</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">3) Data manipulation and transformation</li><li class="breadcrumb-item"><a href="../../qmd/subsetting/subsetting.html">Subsetting</a></li><li class="breadcrumb-item"><a href="../../qmd/subsetting/subsetting.html">Subsetting</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -387,13 +390,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="false">
- <span class="menu-text">Missings</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="false" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="true">
+ <span class="menu-text">Subsetting</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/subsetting/subsetting.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Subsetting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/subsetting/subsetting_exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Subsetting data: Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="false">
+ <span class="menu-text">Missings</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/missing/missing.html" class="sidebar-item-text sidebar-link">
@@ -404,29 +430,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../qmd/missing/missing_exercise.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Missing values: Exercises</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="true">
- <span class="menu-text">Subsetting</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../qmd/subsetting/subsetting.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Subsetting data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../qmd/subsetting/subsetting_exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Subsetting data: Exercises</span></a>
   </div>
 </li>
       </ul>
@@ -483,7 +486,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/functions/functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">functions.html</span></a>
+ <span class="menu-text">ifelse</span></a>
   </div>
 </li>
       </ul>
@@ -523,89 +526,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#subsetting-data" id="toc-subsetting-data" class="nav-link active" data-scroll-target="#subsetting-data">Subsetting data</a>
+  <li><a href="#data-frames" id="toc-data-frames" class="nav-link active" data-scroll-target="#data-frames">Data frames</a>
   <ul class="collapse">
-  <li><a href="#overview-of-the-main-commands-in-this-section" id="toc-overview-of-the-main-commands-in-this-section" class="nav-link" data-scroll-target="#overview-of-the-main-commands-in-this-section">Overview of the main commands in this section</a></li>
-  <li><a href="#data-set" id="toc-data-set" class="nav-link" data-scroll-target="#data-set">Data set</a></li>
-  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames">Data frames</a>
-  <ul class="collapse">
-  <li><a href="#base-r" id="toc-base-r" class="nav-link" data-scroll-target="#base-r">Base R</a></li>
   <li><a href="#rows" id="toc-rows" class="nav-link" data-scroll-target="#rows">Rows</a></li>
-  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse">Tidyverse</a></li>
+  <li><a href="#columns" id="toc-columns" class="nav-link" data-scroll-target="#columns">Columns</a></li>
+  <li><a href="#rows-columns" id="toc-rows-columns" class="nav-link" data-scroll-target="#rows-columns">Rows &amp; Columns</a></li>
+  <li><a href="#conditional-filtering" id="toc-conditional-filtering" class="nav-link" data-scroll-target="#conditional-filtering">Conditional filtering</a></li>
   </ul></li>
   <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Subsetting</h1>
+</div>
 
 
-<section id="subsetting-data" class="level1">
-<h1>Subsetting data</h1>
-<section id="overview-of-the-main-commands-in-this-section" class="level2">
-<h2 class="anchored" data-anchor-id="overview-of-the-main-commands-in-this-section">Overview of the main commands in this section</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract elements from a vector</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract rows and columns by position and name:</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Nationality"</span>)]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Conditional subsetting of rows:</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Year <span class="sc">&lt;</span> <span class="dv">2000</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="tidy">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## conditional subsetting of rows</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(winners, Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, Year <span class="sc">&lt;</span> <span class="dv">2000</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="do">## selecting columns</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(winners, Year, Athlete)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="do">## pipe operator %&gt;% </span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>winners <span class="sc">%&gt;%</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, Year <span class="sc">&lt;</span> <span class="dv">2000</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Year, Athlete)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<p>Let’s take a closer look at these commands and see them in action!</p>
-</section>
-<section id="data-set" class="level2">
-<h2 class="anchored" data-anchor-id="data-set">Data set</h2>
-<p><img src="../pictures/marathon.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>For the rest of the workshop, we will use the data set <code>winners</code> from the package <a href="https://github.com/nrennie/LondonMarathon">LondonMarathon</a>. We have already loaded the data set in the <a href="../../qmd/load_data/load_data_exercise.html">exercises of the last chapter</a>.</p>
-<p>Now we want to look at how we can extract data from our data structures, so we can work with it.</p>
-</section>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Subsetting is extracting smaller sets of data from a bigger set. For example, we can extract specific rows from a data frame, or specific values from a vector. Let’s take a look at how that is achieved in R:</p>
 <section id="data-frames" class="level2">
 <h2 class="anchored" data-anchor-id="data-frames">Data frames</h2>
-<p>We will look at two ways to extract rows and columns from data frames.</p>
-<section id="base-r" class="level3">
-<h3 class="anchored" data-anchor-id="base-r">Base R</h3>
-<p>In <code>Base R</code>, we use square brackets <code>[,]</code> to extract specific rows and columns.</p>
-</section>
+<p>In <code>R</code> we use square brackets <code>[,]</code> to extract specific rows and columns.</p>
 <section id="rows" class="level3">
 <h3 class="anchored" data-anchor-id="rows">Rows</h3>
 <p>In front of the <code>,</code> we write the <strong>rows</strong> we want to extract:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the first and the fourth row</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the first and the fourth row</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Category Year              Athlete    Nationality Hours Minutes Seconds
 1      Men 1981 Dick Beardsley (Tie)  United States     2      11      48
 4      Men 1983         Mike Gratton United Kingdom     2       9      43</code></pre>
 </div>
 </div>
-<section id="columns" class="level4">
-<h4 class="anchored" data-anchor-id="columns">Columns</h4>
+</section>
+<section id="columns" class="level3">
+<h3 class="anchored" data-anchor-id="columns">Columns</h3>
 <p>Behind it the <strong>columns</strong>:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the second and the fourth column:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>winners[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the second and the fourth column:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>winners[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Year    Nationality
 1   1981  United States
@@ -613,8 +587,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3   1982 United Kingdom
 ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the columns by name:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>winners[, <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Nationality"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the columns by name:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>winners[, <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Nationality"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Year    Nationality
 1   1981  United States
@@ -622,8 +596,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3   1982 United Kingdom
 ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or only the column Year (and turn it into a vector right away):</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>winners<span class="sc">$</span>Year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or only the column Year (and turn it into a vector right away):</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>winners<span class="sc">$</span>Year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] 1981 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994
  [16] 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009
@@ -632,19 +606,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ...</code></pre>
 </div>
 </div>
-<p>Suggestion: Always use column names instead of position if possible. This way, your code will still work if the column position changes.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Always use column names instead of position if possible. This way, your code will still work if the column position changes.</p>
+</div>
+</div>
 </section>
-<section id="rows-columns" class="level4">
-<h4 class="anchored" data-anchor-id="rows-columns">Rows &amp; Columns</h4>
+<section id="rows-columns" class="level3">
+<h3 class="anchored" data-anchor-id="rows-columns">Rows &amp; Columns</h3>
 <p>And of course we can combine both calls:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Year    Nationality
 1 1981  United States
 4 1983 United Kingdom</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Nationality"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>winners[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"Nationality"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Year    Nationality
 1 1981  United States
@@ -653,7 +639,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>We can also use Boolean values (every row/column must get a value here, so we extract the first 100 rows by repeating <code>TRUE</code> 100 times, and than add <code>FALSE</code> for the remaining rows):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(winners[<span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">100</span>), <span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="dv">65</span>)), <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(winners[<span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">100</span>), <span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="dv">65</span>)), <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   100 obs. of  4 variables:
  $ Category   : chr  "Men" "Men" "Men" "Men" ...
@@ -663,11 +649,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="conditional-filtering" class="level4">
-<h4 class="anchored" data-anchor-id="conditional-filtering">Conditional filtering</h4>
+<section id="conditional-filtering" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-filtering">Conditional filtering</h3>
 <p>Now the stuff we looked at in <a href="../../qmd/basics/basics.html#comparisons-and-logical-operators">logical operators</a> comes in handy! We can filter rows which match some condition. For example, we might want to look at all winners from Kenya:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Category Year                    Athlete Nationality Hours Minutes Seconds
 10      Men 1989          Douglas Wakiihuri       Kenya     2       9       3
@@ -676,9 +662,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ...</code></pre>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Unfold if you want to take a closer look at what is happening here
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Take a close look at the comparison before the <code>,</code>:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
  [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
@@ -688,9 +686,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>winners$Nationality</code> is a vector, so comparing its values to a specified value yields a logical vector with the respective <code>TRUE</code> and <code>FALSE</code> values. We can insert this logical vector in front of the <code>,</code> to extract all rows corresponding to that condition.</p>
+</div>
+</div>
+</div>
 <p>If we want to extract multiple nationalities at once, we need the <code>%in%</code> operator:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Kenya"</span>, <span class="st">"Germany"</span>, <span class="st">"Norway"</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Kenya"</span>, <span class="st">"Germany"</span>, <span class="st">"Norway"</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Category Year                    Athlete Nationality Hours Minutes Seconds
 2       Men 1981        Inge Simonsen (Tie)      Norway    NA      11      48
@@ -701,8 +702,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>By the way, if we want to save our extracted data frame, we can assign it a new name (otherwise it will only get printed into the console, but we can’t go on working with it):</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>winners_nat <span class="ot">&lt;-</span> winners[winners<span class="sc">$</span>Nationality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Kenya"</span>, <span class="st">"Germany"</span>, <span class="st">"Norway"</span>), ]</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>winners_nat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>winners_nat <span class="ot">&lt;-</span> winners[winners<span class="sc">$</span>Nationality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Kenya"</span>, <span class="st">"Germany"</span>, <span class="st">"Norway"</span>), ]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>winners_nat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Category Year                    Athlete Nationality Hours Minutes Seconds
 2       Men 1981        Inge Simonsen (Tie)      Norway    NA      11      48
@@ -713,7 +714,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>We can also combine multiple logical vectors using <code>&amp;</code> (“and”) and <code>|</code> (“or”). For example, we might want to look at all Kenyan winners before the year 2000:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Year <span class="sc">&lt;</span> <span class="dv">2000</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>winners[winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Kenya"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Year <span class="sc">&lt;</span> <span class="dv">2000</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Category Year           Athlete Nationality Hours Minutes Seconds
 10      Men 1989 Douglas Wakiihuri       Kenya     2       9       3
@@ -723,7 +724,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Or at all women winners from Australia in the wheelchair category, and the male winners from the United States in the wheelchair category:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>winners[(winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Wheelchair Women"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Australia"</span>) <span class="sc">|</span> (winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Wheelchair Men"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"United States"</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>winners[(winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Wheelchair Women"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"Australia"</span>) <span class="sc">|</span> (winners<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Wheelchair Men"</span> <span class="sc">&amp;</span> winners<span class="sc">$</span>Nationality <span class="sc">==</span> <span class="st">"United States"</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Category Year            Athlete   Nationality Hours Minutes
 120   Wheelchair Men 2015        Josh George United States     1      31
@@ -733,18 +734,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>In the long run, always having to define the data frame multiple time in each row can become a bit annoying and clutters the code. Enter, the <code>filter()</code> function:</p>
-</section>
-</section>
-<section id="tidyverse" class="level3">
-<h3 class="anchored" data-anchor-id="tidyverse">Tidyverse</h3>
-<p>The <code>dplyr</code> package is part of the <code>tidyverse</code> and provides a grammar of data manipulation. We can use <code>filter()</code> to subset rows from a data frame:</p>
-<section id="rows-1" class="level4">
-<h4 class="anchored" data-anchor-id="rows-1">Rows</h4>
+<section id="rows-tidyverse" class="level4">
+<h4 class="anchored" data-anchor-id="rows-tidyverse">Rows: Tidyverse</h4>
 <div class="tidy">
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(winners, Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, Year <span class="sc">&lt;</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(winners, Nationality <span class="sc">==</span> <span class="st">"Kenya"</span>, Year <span class="sc">&lt;</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Category Year           Athlete Nationality Hours Minutes Seconds
 1      Men 1989 Douglas Wakiihuri       Kenya     2       9       3
@@ -755,12 +751,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Note how we can just write our conditions without connecting them with <code>&amp;</code> (<code>filter()</code> does that automatically for us). Also, we don’t have to put the column names into <code>""</code>, because <code>filter()</code> knows that this are column names of the <code>winners</code> data frame, which makes coding a bit more pleasant.</p>
 </section>
-<section id="columns-1" class="level4">
-<h4 class="anchored" data-anchor-id="columns-1">Columns</h4>
+<section id="columns-tidyverse" class="level4">
+<h4 class="anchored" data-anchor-id="columns-tidyverse">Columns: Tidyverse</h4>
 <p>For extracting columns, we need <code>select()</code>:</p>
 <div class="tidy">
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(winners, Year, Athlete)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(winners, Year, Athlete)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Year                    Athlete
 1   1981       Dick Beardsley (Tie)
@@ -777,30 +773,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="vectors">Vectors</h2>
 <p>Finally, let’s take a quick look at how to extract elements from a vector, which shouldn’t be a problem after already dealing with data frames. It’s pretty straight forward: we just put the position of the element we want to extract behind the vector in square brackets. Let’s quickly define a vector for illustration:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>vec_athlete <span class="ot">&lt;-</span> winners<span class="sc">$</span>Athlete <span class="co"># remember: `$` returns a vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>vec_athlete <span class="ot">&lt;-</span> winners<span class="sc">$</span>Athlete <span class="co"># remember: `$` returns a vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And look at the second element:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Inge Simonsen (Tie)"</code></pre>
 </div>
 </div>
 <p>Of course we can also do that for multiple elements:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Inge Simonsen (Tie)" "Hugh Jones"          "Mike Gratton"       </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Or, less to write:</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Or, less to write:</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Inge Simonsen (Tie)" "Hugh Jones"          "Mike Gratton"       </code></pre>
 </div>
 </div>
 <p>Another way would be to provide a logical vector, which defines for each position if we want to extract the element or not (like we already did for data frames):</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">100</span>), <span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="dv">65</span>))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>vec_athlete[<span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">100</span>), <span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="dv">65</span>))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] "Dick Beardsley (Tie)"       "Inge Simonsen (Tie)"       
   [3] "Hugh Jones"                 "Mike Gratton"              
@@ -812,15 +808,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </section>
-</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@amutiomi?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Miguel A Amutio</a> on <a href="https://unsplash.com/de/fotos/QDv-uBc-poY?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1056,8 +1045,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../qmd/missing/missing_exercise.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Missing values: Exercises</span>
+      <a href="../../qmd/peeking/peeking.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Getting an overview</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
