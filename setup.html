@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R - Open Research Summer School – setup</title>
+<title>R - Open Research Summer School - Setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,6 +98,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="R - Open Research Summer School - Setup">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://github.com/nickhaf/r_tutorial/qmd/pictures/RStudio_window.PNG">
+<meta property="og:site-name" content="R - Open Research Summer School">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -129,10 +133,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./the_big_picture.html" rel="" target="">
  <span class="menu-text">The Big Picture</span></a>
   </li>  
-  <li class="dropdown-header">
- <span class="menu-text">packages.qmd</span></li>
-  <li class="dropdown-header">
- <span class="menu-text">load_data.qmd</span></li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -499,18 +499,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="false">
+ <span class="menu-text">Statistical Analyses</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./qmd/statistical_analyses/statistical_analyses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">statistical_analyses.html</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" aria-expanded="false">
+ <span class="menu-text">Plotting</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./qmd/plotting/plotting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Too complex?</span></a>
+ <span class="menu-text">Plotting</span></a>
   </div>
 </li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -523,14 +545,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a>
+  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#structure-of-the-rstudio-interface" id="toc-structure-of-the-rstudio-interface" class="nav-link" data-scroll-target="#structure-of-the-rstudio-interface">Structure of the RStudio interface</a>
   <ul class="collapse">
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
-  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a>
-  <ul class="collapse">
-  <li><a href="#optional-posit-cloud" id="toc-optional-posit-cloud" class="nav-link" data-scroll-target="#optional-posit-cloud">Optional: posit Cloud</a></li>
-  <li><a href="#structure-of-the-rstudio-interface" id="toc-structure-of-the-rstudio-interface" class="nav-link" data-scroll-target="#structure-of-the-rstudio-interface">Structure of the RStudio interface</a></li>
-  </ul></li>
+  <li><a href="#script-pane" id="toc-script-pane" class="nav-link" data-scroll-target="#script-pane">1) Script pane</a></li>
+  <li><a href="#console" id="toc-console" class="nav-link" data-scroll-target="#console">2) Console</a></li>
+  <li><a href="#workspace" id="toc-workspace" class="nav-link" data-scroll-target="#workspace">3) Workspace</a></li>
+  <li><a href="#plots-files-help" id="toc-plots-files-help" class="nav-link" data-scroll-target="#plots-files-help">4) Plots, Files, Help …</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -538,17 +559,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Setup</h1>
+</div>
 
 
-<section id="setup" class="level1">
-<h1>Setup</h1>
-<section id="r" class="level2">
-<h2 class="anchored" data-anchor-id="r">R</h2>
-</section>
-<section id="rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="rstudio">RStudio</h2>
-<section id="optional-posit-cloud" class="level3">
-<h3 class="anchored" data-anchor-id="optional-posit-cloud">Optional: posit Cloud</h3>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>Please go to <a href="https://posit.co/download/rstudio-desktop/">this website</a> and download and install R and RStudio. While R is is a language and environment for statistical computing and graphics, RStudio is a according integrated development environment for R, facilitating working with it.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Open if you don’t want to install anything
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>In case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and probably for the following week).</p>
 <ol type="1">
 <li>Go to <a href="https://posit.cloud/">posit Cloud</a>.</li>
@@ -556,22 +598,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Create an account (it’s free) and login.</li>
 <li>On the upper right, click on <code>New Project</code>. This will create a new RStudio project, which you can use the same way as described in this tutorial.</li>
 </ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Keep in mind that the free posit Cloud account only gives you 25 computing ours per month. This should be enough for this week. See <a href="https://posit.cloud/plans">here</a> for the subscription plans.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="structure-of-the-rstudio-interface" class="level3">
-<h3 class="anchored" data-anchor-id="structure-of-the-rstudio-interface">Structure of the RStudio interface</h3>
-<section id="script-pane" class="level4">
-<h4 class="anchored" data-anchor-id="script-pane">Script Pane</h4>
+<section id="structure-of-the-rstudio-interface" class="level2">
+<h2 class="anchored" data-anchor-id="structure-of-the-rstudio-interface">Structure of the RStudio interface</h2>
+<p>When opening RStudio it will look something like this:</p>
+<p><img src="./qmd/pictures/RStudio_window.PNG" class="img-fluid"></p>
+<p>The programm can be split into 4 parts:</p>
+<p><img src="./qmd/pictures/window_commented.PNG" class="img-fluid"></p>
+<section id="script-pane" class="level3">
+<h3 class="anchored" data-anchor-id="script-pane">1) Script pane</h3>
+<p>The script pane is used to edit scripts. Scripts are the files you store your code in. You can execute a line of code by pressing <code>ctrl + enter</code> (on windows) or <code>command + return</code> (on macOS). To execute multiple lines of code at once, mark them before you press the keys. Try it yourself: Write</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello World!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Our first line of code:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello World!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Hello World!"</code></pre>
 </div>
 </div>
-<p>Tadaa, we just wrote our first line of code.</p>
+<p>into your script and execute your first line of code. It should output “Hello World!” in your console.</p>
+<p>By the way: Code lines, that are preceded by a <code>#</code> are commented out, and will not be evaluated.</p>
 </section>
-<section id="console" class="level4">
-<h4 class="anchored" data-anchor-id="console">Console</h4>
-<p>You can also work directly in the console, for example to try out things. Type, into your console:</p>
+<section id="console" class="level3">
+<h3 class="anchored" data-anchor-id="console">2) Console</h3>
+<p>You can also work directly in the console, for example to try out things. Type, into your console and then just press <code>enter</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum two values</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -579,11 +647,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 15</code></pre>
 </div>
 </div>
-<p>By the way: Code lines, that are preceded by a <code>#</code> are commented out, and will not be evaluated.</p>
+</section>
+<section id="workspace" class="level3">
+<h3 class="anchored" data-anchor-id="workspace">3) Workspace</h3>
+<p>Here you have an overview over the objects currently loaded into your R session, your command history and some more options we won’t need for now.</p>
+</section>
+<section id="plots-files-help" class="level3">
+<h3 class="anchored" data-anchor-id="plots-files-help">4) Plots, Files, Help …</h3>
+<p>Plots you build in your R session get output here. If you call the <a href="https://nickhaf.github.io/r_tutorial/qmd/basics/basics.html#help">help function</a> the documentation opens here. The <code>Files</code> pane let’s you mange the files in your working directory.</p>
 
 
-</section>
-</section>
 </section>
 </section>
 
