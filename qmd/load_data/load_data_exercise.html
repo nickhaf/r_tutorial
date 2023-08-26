@@ -643,13 +643,13 @@ Solution
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(psych_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  char_id.question.personality.avg_rating.rank.rating_sd.number_ratings
-1                                 1;F2;messy/neat;neat;95.7;9;11.7;1079
-2 2;F2;disorganized/self-disciplined;self-disciplined;95.2;27;11.2;1185
-3                         3;F2;diligent/lazy;diligent;93.9;87;10.4;1166
-4                           4;F2;on-time/tardy;on-time;93.8;34;14.3;236
-5            5;F2;competitive/cooperative;competitive;93.6;56;13.4;1168
-6                6;F2;scheduled/spontaneous;scheduled;93.4;23;14.5;1173</code></pre>
+<pre><code>    char_id.question.mean_rating.rating_sd.number_ratings
+1                          1;F2;messy/neat;95.7;11.7;1079
+2       2;F2;disorganized/self-disciplined;95.2;11.2;1185
+3           3;F2;diligent/lazy;6.09999999999999;10.4;1166
+4                         4;F2;on-time/tardy;6.2;14.3;236
+5 5;F2;competitive/cooperative;6.40000000000001;13.4;1168
+6   6;F2;scheduled/spontaneous;6.59999999999999;14.5;1173</code></pre>
 </div>
 </div>
 <p>Huh, that looks weird. If we take a look at the file by opening it in a text editor, we can see that the values are seperated by <code>;</code>. So let’s call the help for <code>read.csv()</code>:</p>
@@ -666,20 +666,13 @@ So, we can do the following:</p>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(psych_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  char_id                      question      personality avg_rating rank
-1      F2                    messy/neat             neat       95.7    9
-2      F2 disorganized/self-disciplined self-disciplined       95.2   27
-3      F2                 diligent/lazy         diligent       93.9   87
-4      F2                 on-time/tardy          on-time       93.8   34
-5      F2       competitive/cooperative      competitive       93.6   56
-6      F2         scheduled/spontaneous        scheduled       93.4   23
-  rating_sd number_ratings
-1      11.7           1079
-2      11.2           1185
-3      10.4           1166
-4      14.3            236
-5      13.4           1168
-6      14.5           1173</code></pre>
+<pre><code>  char_id                      question mean_rating rating_sd number_ratings
+1      F2                    messy/neat        95.7      11.7           1079
+2      F2 disorganized/self-disciplined        95.2      11.2           1185
+3      F2                 diligent/lazy         6.1      10.4           1166
+4      F2                 on-time/tardy         6.2      14.3            236
+5      F2       competitive/cooperative         6.4      13.4           1168
+6      F2         scheduled/spontaneous         6.6      14.5           1173</code></pre>
 </div>
 </div>
 <p>This looks better!</p>
