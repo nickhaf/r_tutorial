@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R - Open Research Summer School – load_data</title>
+<title>R - Open Research Summer School - Loading data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../qmd/load_data/load_data_exercise.html" rel="next">
-<link href="../../qmd/packages/packages.html" rel="prev">
+<link href="../../qmd/packages/packages_exercise.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -98,6 +98,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="R - Open Research Summer School - Loading data">
+<meta property="og:description" content="">
+<meta property="og:site-name" content="R - Open Research Summer School">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -144,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">2) Basics</li><li class="breadcrumb-item"><a href="../../qmd/load_data/load_data.html">Loading data</a></li><li class="breadcrumb-item"><a href="../../qmd/load_data/load_data.html">Load data</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">2) Basics</li><li class="breadcrumb-item"><a href="../../qmd/load_data/load_data.html">Loading data</a></li><li class="breadcrumb-item"><a href="../../qmd/load_data/load_data.html">Loading data</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -321,8 +324,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">qmd/packages/packages_exercise.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/packages/packages_exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Packages: Exercises</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -337,13 +343,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/load_data/load_data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Load data</span></a>
+ <span class="menu-text">Loading data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/load_data/load_data_exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercise 1</span></a>
+ <span class="menu-text">Loading data: Exercises</span></a>
   </div>
 </li>
       </ul>
@@ -520,23 +526,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#load-data" id="toc-load-data" class="nav-link active" data-scroll-target="#load-data">Load data</a>
-  <ul class="collapse">
-  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types">Data types</a></li>
+  <li><a href="#data-types" id="toc-data-types" class="nav-link active" data-scroll-target="#data-types">Data types</a></li>
   <li><a href="#absolute-paths-vs.-relative-paths" id="toc-absolute-paths-vs.-relative-paths" class="nav-link" data-scroll-target="#absolute-paths-vs.-relative-paths">Absolute paths vs.&nbsp;relative paths</a></li>
   <li><a href="#the-here-package" id="toc-the-here-package" class="nav-link" data-scroll-target="#the-here-package">The <code>here</code> package</a></li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Loading data</h1>
+</div>
 
 
-<section id="load-data" class="level1">
-<h1>Load data</h1>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
 <section id="data-types" class="level2">
 <h2 class="anchored" data-anchor-id="data-types">Data types</h2>
 <p>There are many different data types out there, of which many can be loaded into R. Depending on the type, different commands are used within R. Sometimes, we will have to use additional packages to get access to that function, mainly <code>readxl</code> and <code>haven</code>.</p>
@@ -624,7 +640,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -863,13 +878,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../qmd/packages/packages.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Packages</span>
+      <a href="../../qmd/packages/packages_exercise.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Packages: Exercises</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../qmd/load_data/load_data_exercise.html" class="pagination-link">
-        <span class="nav-page-text">Exercise 1</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Loading data: Exercises</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

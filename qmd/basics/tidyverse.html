@@ -324,8 +324,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">qmd/packages/packages_exercise.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/packages/packages_exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Packages: Exercises</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -340,13 +343,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/load_data/load_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Load data</span></a>
+ <span class="menu-text">Loading data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/load_data/load_data_exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercise 1</span></a>
+ <span class="menu-text">Loading data: Exercises</span></a>
   </div>
 </li>
       </ul>
@@ -547,9 +550,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>The <code>tidyverse</code> is a collection of packages following a common philosophy, and facilitate many aspects of coding in R, for example data wrangling and plotting. It is not necessary to learn the <code>tidyverse</code> syntax, it differs a bit from the standard R syntax. However, I find it easier to understand in many cases, so I will provide the syntax from the respective <code>tidyverse</code> package along with the <code>Base R</code> syntax in most cases.</p>
+<p>Throughout this workshop you will come into contact with some functions from the very popular package collection <code>tidyverse</code>. The <code>tidyverse</code> is composed of multiple packages, all following a common philosophy, and facilitating many aspects of coding in R, for example data wrangling and plotting. It is not really necessary to learn the <code>tidyverse</code> syntax in order to understand R and become proficient in it. However, I find it easier to understand in many cases, which probably makes it easier to get started with. Therefore, I will provide the syntax from the respective <code>tidyverse</code> package along with the <code>Base R</code> syntax in many cases. In the end, it is a question of preference what you want to learn. Most code will probably be composed from <code>base R</code> functions <code>tidyverse</code> functions.</p>
 <div class="tidy">
-<p>Tidyverse syntax will be marked like this.</p>
+<p>Tidyverse syntax will be marked like this. We will mainly use the <code>tidyverse</code> packages <code>dpylr</code> and <code>ggplot2</code>.</p>
 </div>
 <section id="the-pipe-operator" class="level2">
 <h2 class="anchored" data-anchor-id="the-pipe-operator">The pipe operator</h2>
@@ -586,7 +589,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Much nicer to read, right?</p>
-<p>Some notes on this syntax: 1. If we don’t have any additional arguments we want to put into the function, we can just write the function name without any brackets, like we do at the end with <code>sum</code>. 1. The pipe operator will give the result of the last function as input into the next function. That’s why we don’t have to specify the vector within the <code>mean()</code> function. 1. If we want to clearly state which of the function arguments should receive the input, we can write a <code>.</code>, which can be read as <em>output of the previous function call</em>. That’s what we do in the <code>seq()</code> function. It calculates a sequence from <code>1</code> to the mean of <code>c(45:100)</code>.</p>
+<p>Some notes on this syntax:</p>
+<ol type="1">
+<li>If we don’t have any additional arguments we want to put into the function, we can just write the function name without any brackets, like we do at the end with <code>sum</code>.</li>
+<li>The pipe operator will give the result of the last function as input into the next function. That’s why we don’t have to specify the vector within the <code>mean()</code> function.</li>
+<li>If we want to clearly state which of the function arguments should receive the input, we can write a <code>.</code>, which can be read as <em>output of the previous function call</em>. That’s what we do in the <code>seq()</code> function. It calculates a sequence from <code>1</code> to the mean of <code>c(45:100)</code>.</li>
+</ol>
 
 
 </section>
