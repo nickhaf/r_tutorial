@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R - Open Research Summer School – plotting</title>
+<title>R - Open Research Summer School - Getting an overview</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../qmd/statistical_analyses/statistical_analyses.html" rel="prev">
+<link href="../../qmd/missing/missing.html" rel="next">
+<link href="../../qmd/load_data/load_data_exercise.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,6 +98,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="R - Open Research Summer School - Getting an overview">
+<meta property="og:description" content="">
+<meta property="og:site-name" content="R - Open Research Summer School">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -109,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmd/statistical_analyses/statistical_analyses.html">4) Advanced: Analysis and visualization</a></li><li class="breadcrumb-item"><a href="../../qmd/plotting/plotting.html">plotting.html</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">3) Data manipulation and transformation</li><li class="breadcrumb-item"><a href="../../qmd/peeking/peeking.html">Getting an overview</a></li><li class="breadcrumb-item"><a href="../../qmd/peeking/peeking.html">Getting an overview</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -326,16 +364,16 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true">
  <span class="menu-text">Getting an overview</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/peeking/peeking.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/peeking/peeking.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Getting an overview</span></a>
   </div>
 </li>
@@ -469,7 +507,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/plotting/plotting.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../qmd/plotting/plotting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">plotting.html</span></a>
   </div>
 </li>
@@ -481,17 +519,116 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#view" id="toc-view" class="nav-link active" data-scroll-target="#view"><code>View()</code></a></li>
+  <li><a href="#head" id="toc-head" class="nav-link" data-scroll-target="#head"><code>head()</code></a></li>
+  <li><a href="#str" id="toc-str" class="nav-link" data-scroll-target="#str"><code>str()</code></a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><code>summary()</code></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Getting an overview</h1>
+</div>
 
 
-<p>This section is for more experienced R users who want to start plotting with <code>ggplot2</code>. It is not necessary to follow the rest of the conference.</p>
-<p>This is Zusatz. Plot world map with the winning countries, the more the darker. Same colours for same continents.</p>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Before starting to do something with your data, it is always a good idea to get an overview. Our goal is to answer questions in the line of:</p>
+<ol type="1">
+<li>Which variables does our data have?</li>
+<li>How many rows/columns does our data frame have? If we have a list, how long is it, what is saved within?</li>
+<li>What types are our variables? Do we have to transform them, before we can work with them?</li>
+<li>Do we have any <a href="../missing/missings.qmd">missing values</a>?</li>
+</ol>
+<p>To answer these questions, we have different tools at our disposal:</p>
+<section id="view" class="level2">
+<h2 class="anchored" data-anchor-id="view"><code>View()</code></h2>
+<p>To take a look at these data structures, we can use different commands. One of the most important ones might be <code>View()</code>, which will open the data set excel-style in a new window:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(winners)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In this window we can sort and filter, which makes it a pretty useful tool.</p>
+</section>
+<section id="head" class="level2">
+<h2 class="anchored" data-anchor-id="head"><code>head()</code></h2>
+<p>Head helps you to get an overview of the data, as it prints the first six rows of it into your console:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(winners)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Category Year              Athlete    Nationality Hours Minutes Seconds
+1      Men 1981 Dick Beardsley (Tie)  United States     2      11      48
+2      Men 1981  Inge Simonsen (Tie)         Norway    NA      11      48
+3      Men 1982           Hugh Jones United Kingdom     2       9      24
+4      Men 1983         Mike Gratton United Kingdom     2       9      43
+5      Men 1984     Charlie Spedding United Kingdom    NA       9      57
+6      Men 1985          Steve Jones United Kingdom     2       8      16</code></pre>
+</div>
+</div>
+<p>We have already used that to get an overview of the data.</p>
+</section>
+<section id="str" class="level2">
+<h2 class="anchored" data-anchor-id="str"><code>str()</code></h2>
+<p>This one is actually my favorite, as for bigger data sets it is often more feasible to only look at the structure and not the whole data set. It looks a bit different to what we are used to though:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(winners)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   165 obs. of  7 variables:
+ $ Category   : chr  "Men" "Men" "Men" "Men" ...
+ $ Year       : num  1981 1981 1982 1983 1984 ...
+ $ Athlete    : chr  "Dick Beardsley (Tie)" "Inge Simonsen (Tie)" "Hugh Jones" "Mike Gratton" ...
+ $ Nationality: chr  "United States" "Norway" "United Kingdom" "United Kingdom" ...
+ $ Hours      : num  2 NA 2 2 NA 2 2 NA 2 2 ...
+ $ Minutes    : num  11 11 9 9 9 8 10 9 10 9 ...
+ $ Seconds    : num  48 48 24 43 57 16 2 50 20 3 ...</code></pre>
+</div>
+</div>
+<p>Here, the column names are printed on the left side, followed by the <a href="">type</a> of the column and then the first few values of each column. We can also see in the first row that this object is a data frame with <code>165</code> rows and <code>7</code> columns.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary"><code>summary()</code></h2>
+<p>Finally, to get an overview of the statistical properties of all columns and their missing values, we can use <code>summary()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(winners)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Category              Year        Athlete          Nationality       
+ Length:165         Min.   :1981   Length:165         Length:165        
+ Class :character   1st Qu.:1992   Class :character   Class :character  
+ Mode  :character   Median :2002   Mode  :character   Mode  :character  
+                    Mean   :2002                                        
+                    3rd Qu.:2012                                        
+                    Max.   :2023                                        
+                                                                        
+     Hours          Minutes         Seconds     
+ Min.   :1.000   Min.   : 0.00   Min.   : 0.00  
+ 1st Qu.:1.000   1st Qu.: 9.00   1st Qu.:14.00  
+ Median :2.000   Median :22.00   Median :31.00  
+ Mean   :1.719   Mean   :23.06   Mean   :30.39  
+ 3rd Qu.:2.000   3rd Qu.:35.00   3rd Qu.:44.00  
+ Max.   :4.000   Max.   :59.00   Max.   :58.00  
+ NA's   :5                                      </code></pre>
+</div>
+</div>
+<p>For numeric columns we can see some distributional properties, like minimum and maximum, median and mean, as well as the first and third quantile. In case of <a href="../missings/missings.qmd">missing values</a> (<code>NAs</code>) their number is printed at the bottom (look at the <code>Hours</code> column).</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -729,11 +866,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../qmd/statistical_analyses/statistical_analyses.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">statistical_analyses.html</span>
+      <a href="../../qmd/load_data/load_data_exercise.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exercise 1</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../qmd/missing/missing.html" class="pagination-link">
+        <span class="nav-page-text">Missing values</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
