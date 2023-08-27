@@ -121,10 +121,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link active" href="../../index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
-  <li class="dropdown-header">
- <span class="menu-text">setup.qmd</span></li>
-  <li class="dropdown-header">
- <span class="menu-text">the_big_picture.qmd</span></li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../qmd/setup/setup.html" rel="" target="">
+ <span class="menu-text">Setup</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../qmd/getting_started/the_big_picture.html" rel="" target="">
+ <span class="menu-text">The Big Picture</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -502,7 +506,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="true">
- <span class="menu-text">4) Advanced: Visualization</span></a>
+ <span class="menu-text">4) Optional: Visualization</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -567,14 +571,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="the-big-picture" class="level1">
 <h1>The Big Picture</h1>
-<p>Now that we have completed our set up, let’s dive right into programming with <code>R</code>. In this chapter, we will go through a “mini-project” with very basic data, which follows a possible workflow when working with data in <code>R</code>. We will install and load packages, load data, perform some operations on this data, calculate some summary statistics and plot them. In later chapters, we will go into a little more depth for each topic. If you want to have more in depth information instead of following the whole workflow first, you can also skip this chapter and jump to the chapters and exercises you are interested in.</p>
+<p>Now that we have completed our set up, let’s dive right into programming with <code>R</code>. In this chapter, we will go through a “mini-project” with very basic data, which follows a possible workflow when working with data in <code>R</code>. We will install and load packages, load data, perform some operations on this data, calculate some summary statistics and plot them. In later chapters, we will go into a little more depth for each topic, so don’t worry if you don’t understand something quite yet, it will be covered again in later chapters.</p>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
 <p><a href="packages.qmd">Packages</a> are extensions to the <code>base R</code> you get by default. Let’s install a package collection, that makes it easier to work with data in R:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The <a href="../../qmd/basics/tidyverse.html"><code>tidyverse</code></a> is a collection of packages following a common philosophy, and facilitating many aspects of coding in R. We will use functions from <code>base R</code> and from the <code>tidyverse</code>. However, as I personally find them a bit more intuitive in many cases, we will use <code>tdiyverse</code> functions a lot in the current chapter, so you can quickly get an insight into what is possible with R.</p>
+<p>The <a href="../../qmd/basics/tidyverse.html"><code>tidyverse</code></a> is a collection of packages following a common philosophy, and facilitating many aspects of coding in R. We will use functions from <code>base R</code> and from the <code>tidyverse</code>. However, as I personally find them a bit more intuitive in many cases, we will use <code>tidyverse</code> functions a lot in the current chapter, so you can quickly get an insight into what is possible with R.</p>
 <div class="tidy">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tidyverse code will be marked like this.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -783,7 +787,7 @@ Our goal is to look at the most common name in every year and make a nice plot o
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>In this tutorial we learned, that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. Either follow the course, or navigate to the chapters you are most interested in. But first, take a look at the new data set you will be working with throughout the exercises.</p>
+<p>In this tutorial we have learned that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. Either follow the course, or navigate to the chapters you are most interested in. But first, take a look at the new data set you will be working with throughout the exercises.</p>
 
 
 </section>

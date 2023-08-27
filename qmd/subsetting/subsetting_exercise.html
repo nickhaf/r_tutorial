@@ -124,10 +124,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link active" href="../../index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
-  <li class="dropdown-header">
- <span class="menu-text">setup.qmd</span></li>
-  <li class="dropdown-header">
- <span class="menu-text">the_big_picture.qmd</span></li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../qmd/setup/setup.html" rel="" target="">
+ <span class="menu-text">Setup</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../qmd/getting_started/the_big_picture.html" rel="" target="">
+ <span class="menu-text">The Big Picture</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -505,7 +509,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="true">
- <span class="menu-text">4) Advanced: Visualization</span></a>
+ <span class="menu-text">4) Optional: Visualization</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -574,8 +578,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>We want to work more with the <code>characters</code> data set we have loaded in the <a href="../../qmd/load_data/load_data_exercise.html">last chapter</a>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>characters <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"characters.rds"</span>))</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>psych_stats <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"characters.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>characters <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"characters.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Because subsetting data is such a basic skill, it will come up multiple times during this workshop. Here are some first exercises to get you started.</p>
 <section id="exercise-1" class="level2">
@@ -729,10 +732,12 @@ Solution
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<pre><code>- [ ] All Harry Potter characters with a notability over `90`.
-- [ ] All characters that are not from the Harry Potter universe and have a notability under 90.
-- [ ] All characters with a notability over `90`.
-- [x] All characters with a notability under `90`.</code></pre>
+<ul class="task-list">
+<li><input type="checkbox">All Harry Potter characters with a notability over <code>90</code>.</li>
+<li><input type="checkbox">All characters that are not from the Harry Potter universe and have a notability under 90.</li>
+<li><input type="checkbox">All characters with a notability over <code>90</code>.</li>
+<li><input type="checkbox" checked="">All characters with a notability under <code>90</code>.</li>
+</ul>
 <p>Kind of a trick question: because we select all characters that are from the Harry Potter universe OR are not from there, we select all characters independent of their TV show. But we select all characters that have notability under 90 (beware of the <code>!</code> in front of the respective comparison).</p>
 </div>
 </div>
@@ -772,7 +777,7 @@ Solution
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>characters[characters<span class="sc">$</span>uni_name <span class="sc">==</span> <span class="st">"Game of Thrones"</span> <span class="sc">&amp;</span> characters<span class="sc">$</span>notability <span class="sc">&gt;</span> <span class="dv">90</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>characters[characters<span class="sc">$</span>uni_name <span class="sc">==</span> <span class="st">"Game of Thrones"</span> <span class="sc">&amp;</span> characters<span class="sc">$</span>notability <span class="sc">&gt;</span> <span class="dv">90</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     id             name uni_id        uni_name notability
 18 GOT2 Tyrion Lannister    GOT Game of Thrones       90.8
@@ -818,8 +823,8 @@ Solution
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(characters, uni_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"How I Met Your Mother"</span>, <span class="st">"Breaking Bad"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(characters, uni_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"How I Met Your Mother"</span>, <span class="st">"Breaking Bad"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       id              name uni_id              uni_name notability
 1  HIMYM4    Barney Stinson  HIMYM How I Met Your Mother       76.0

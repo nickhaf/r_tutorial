@@ -124,10 +124,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link active" href="../../index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
-  <li class="dropdown-header">
- <span class="menu-text">setup.qmd</span></li>
-  <li class="dropdown-header">
- <span class="menu-text">the_big_picture.qmd</span></li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../qmd/setup/setup.html" rel="" target="">
+ <span class="menu-text">Setup</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../qmd/getting_started/the_big_picture.html" rel="" target="">
+ <span class="menu-text">The Big Picture</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -505,7 +509,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="true">
- <span class="menu-text">4) Advanced: Visualization</span></a>
+ <span class="menu-text">4) Optional: Visualization</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -577,7 +581,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Subsetting is extracting smaller sets of data from a bigger set. For example, we can extract specific rows from a data frame, or specific values from a vector. Let’s take a look at how that is achieved in R:</p>
+<p>Subsetting means extracting smaller sets of data from a bigger set. For example, we can extract specific rows from a data frame, or specific values from a vector. Let’s take a look at how that is achieved in R:</p>
 <section id="data-frames" class="level2">
 <h2 class="anchored" data-anchor-id="data-frames">Data frames</h2>
 <p>In <code>R</code> we use square brackets <code>[,]</code> to extract specific rows and columns.</p>
@@ -747,29 +751,57 @@ Unfold if you want to take a closer look at what is happening here
 </div>
 </div>
 <p>We can also combine multiple logical vectors using <code>&amp;</code> (“and”) and <code>|</code> (“or”). For example, we might want to look at all german athletes before the year 2000:</p>
-<div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>athletes[athletes<span class="sc">$</span>Team <span class="sc">==</span> <span class="st">"Germany"</span> <span class="sc">&amp;</span> athletes<span class="sc">$</span>Year <span class="sc">&lt;</span> <span class="dv">2000</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>athletes_2 <span class="ot">&lt;-</span> athletes[athletes<span class="sc">$</span>Team <span class="sc">==</span> <span class="st">"Germany"</span> <span class="sc">&amp;</span> athletes<span class="sc">$</span>Year <span class="sc">&lt;</span> <span class="dv">2000</span>, ]</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(athletes_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       NOC     ID
-107246 GER   7385
-107247 GER 114424
-107250 GER   9399
-...</code></pre>
+<pre><code>       NOC     ID                   Name Sex Age Height Weight    Team
+107246 GER   7385     Dirk Peter Balster   M  26    195     90 Germany
+107247 GER 114424 Kathleen Stark (-Kern)   F  16    166     51 Germany
+107250 GER   9399     Petra Behle-Schaaf   F  23    177     67 Germany
+107252 GER   9398 Jochen Friedrich Behle   M  37    183     73 Germany
+107253 GER  47318          Martin Heinze   M  21    172     73 Germany
+107254 GER  96348        Ramona Portwich   F  25    175     70 Germany
+             Games Year Season        City                Sport
+107246 1992 Summer 1992 Summer   Barcelona               Rowing
+107247 1992 Summer 1992 Summer   Barcelona           Gymnastics
+107250 1992 Winter 1992 Winter Albertville             Biathlon
+107252 1998 Winter 1998 Winter      Nagano Cross Country Skiing
+107253 1960 Summer 1960 Summer        Roma            Wrestling
+107254 1992 Summer 1992 Summer   Barcelona             Canoeing
+                                            Event Medal  Region
+107246                 Rowing Men's Coxless Fours  &lt;NA&gt; Germany
+107247             Gymnastics Women's Uneven Bars  &lt;NA&gt; Germany
+107250     Biathlon Women's 7.5 kilometres Sprint  &lt;NA&gt; Germany
+107252   Cross Country Skiing Men's 10 kilometres  &lt;NA&gt; Germany
+107253    Wrestling Men's Welterweight, Freestyle  &lt;NA&gt; Germany
+107254 Canoeing Women's Kayak Doubles, 500 metres  Gold Germany</code></pre>
 </div>
 </div>
 <p>Or at all judo athletes weighting over 100 or under 50 kg:</p>
-<div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>athletes[(athletes<span class="sc">$</span>Sport <span class="sc">==</span> <span class="st">"Judo"</span>) <span class="sc">&amp;</span> (athletes<span class="sc">$</span>Weight <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">|</span> athletes<span class="sc">$</span>Weight <span class="sc">&lt;</span> <span class="dv">50</span>) , ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>athletes_3 <span class="ot">&lt;-</span> athletes[(athletes<span class="sc">$</span>Sport <span class="sc">==</span> <span class="st">"Judo"</span>) <span class="sc">&amp;</span> (athletes<span class="sc">$</span>Weight <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">|</span> athletes<span class="sc">$</span>Weight <span class="sc">&lt;</span> <span class="dv">50</span>) , ]</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(athletes_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        NOC     ID                                 Name  Sex Age Height Weight
-NA     &lt;NA&gt;     NA                                 &lt;NA&gt; &lt;NA&gt;  NA     NA     NA
-NA.1   &lt;NA&gt;     NA                                 &lt;NA&gt; &lt;NA&gt;  NA     NA     NA
-NA.2   &lt;NA&gt;     NA                                 &lt;NA&gt; &lt;NA&gt;  NA     NA     NA
-...</code></pre>
+<pre><code>      NOC    ID                Name  Sex Age Height Weight    Team       Games
+NA   &lt;NA&gt;    NA                &lt;NA&gt; &lt;NA&gt;  NA     NA     NA    &lt;NA&gt;        &lt;NA&gt;
+NA.1 &lt;NA&gt;    NA                &lt;NA&gt; &lt;NA&gt;  NA     NA     NA    &lt;NA&gt;        &lt;NA&gt;
+NA.2 &lt;NA&gt;    NA                &lt;NA&gt; &lt;NA&gt;  NA     NA     NA    &lt;NA&gt;        &lt;NA&gt;
+NA.3 &lt;NA&gt;    NA                &lt;NA&gt; &lt;NA&gt;  NA     NA     NA    &lt;NA&gt;        &lt;NA&gt;
+471   ALG 13895 Mohamed Bouaichaoui    M  25    178    120 Algeria 2004 Summer
+NA.4 &lt;NA&gt;    NA                &lt;NA&gt; &lt;NA&gt;  NA     NA     NA    &lt;NA&gt;        &lt;NA&gt;
+     Year Season   City Sport                  Event Medal  Region
+NA     NA   &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;                   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;
+NA.1   NA   &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;                   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;
+NA.2   NA   &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;                   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;
+NA.3   NA   &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;                   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;
+471  2004 Summer Athina  Judo Judo Men's Heavyweight  &lt;NA&gt; Algeria
+NA.4   NA   &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;                   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</code></pre>
 </div>
 </div>
 <p>Hmm, that looks a bit weird. Some rows only contain <code>NA</code> values. That’s because there are <a href="../../qmd/missing/missing.html">missing values</a> in the <code>Weight</code> column. We will look at that closer in the <a href="../../qmd/missing/missing.html">missings chapter</a> and ignore that problem for now.</p>
-<p>In the long run, always having to define the data frame multiple time in each row can become a bit annoying and clutters the code. Also the missings problem … Enter, the <code>filter()</code> function:</p>
+<p>In the long run, always having to define the data frame multiple time in each row can become a bit annoying and clutters the code. Also the missings problem …<br>
+Enter, the <code>filter()</code> function:</p>
 <section id="rows-tidyverse" class="level4">
 <h4 class="anchored" data-anchor-id="rows-tidyverse">Rows: Tidyverse</h4>
 <div class="tidy">
@@ -787,7 +819,7 @@ NA.2   &lt;NA&gt;     NA                                 &lt;NA&gt; &lt;NA&gt;  
 </div>
 </div>
 </div>
-<p>Note how we can just write our conditions without connecting them with <code>&amp;</code> (<code>filter()</code> does that automatically for us). Also, we don’t have to put the column names into <code>""</code>, because <code>filter()</code> knows that this are column names of the <code>athletes</code> data frame, which makes coding a bit more pleasant. And finally, missing rows are automatically removed, which makes sense in most cases!</p>
+<p>Note how we can just write our conditions without connecting them with <code>&amp;</code> (<code>filter()</code> does that automatically for us). Also, we don’t have to put the column names into <code>""</code>, because <code>filter()</code> knows that this are column names of the <code>athletes</code> data frame, which makes coding a bit more pleasant. And finally, missing rows are automatically removed, which makes sense in many cases!</p>
 </section>
 <section id="columns-tidyverse" class="level4">
 <h4 class="anchored" data-anchor-id="columns-tidyverse">Columns: Tidyverse</h4>
