@@ -1,87 +1,136 @@
 [
   {
-    "objectID": "setup.html",
-    "href": "setup.html",
-    "title": "Setup",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
     "section": "",
-    "text": "Please go to this website and download and install R and RStudio. While R is is a language and environment for statistical computing and graphics, RStudio is a according integrated development environment for R, facilitating working with it.\n\n\n\n\n\n\nOpen if you don’t want to install anything\n\n\n\n\n\nIn case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and probably for the following week).\n\nGo to posit Cloud.\nClick on GET STARTED.\nCreate an account (it’s free) and login.\nOn the upper right, click on New Project. This will create a new RStudio project, which you can use the same way as described in this tutorial.\n\n\n\n\n\n\n\nWarning\n\n\n\n\n\nKeep in mind that the free posit Cloud account only gives you 25 computing ours per month. This should be enough for this week. See here for the subscription plans."
+    "text": "Welcome!\nThis workshop will teach you the basics of R. It’s modular structure is meant to support different levels of R expertise and interests: already know the basics and want to learn how to plot? Want to freshen up your R skills and look at specific topics? Or are you new to scientific programming with R and want to follow the course structure?\n\n\n\n\n\n\nUnfold if you want to learn more about advanced content\n\n\n\n\n\nDon’t worry if you don’t finish the whole workshop in time, or the material seems a bit overwhelming. It is designed to provide additional information for self studying and looking up topics of interest (that may come up during the following week, or in general). Advanced explanations and exercises can be found in folded in chunks like this one.\n\n\n\nThe main objective of this workshop is to get you familiar with the basics of programming in R, as it needed for other courses of the Open Research Summer School. To do that, we will repeat and try out the main concepts multiple times, so you get to work with them as much and as from many different perspectives as possible in 3 h.\nEach section is divided into a theory part and some exercises. Most of these exercises will use the `characters` data set, more on that in the next chapter.\n\n\n\n\n\n\nCaution\n\n\n\nPlease install the necessary software before the workshop. Of course, feel free to ask by opening a new issue if you run into problems on the way.\n\n\n\nWhat is R?\n\nR is a popular programming language for data manipulation, statistical data analyses and plotting of data.\nIt is open source, and has a big community, which facilitates the development of additional software packages for multiple different applications, but also makes it easy to get help if you are stuck at a particular problem.\nThis is one of the reasons why R is great for doing statistical analyses with it - there are packages for almost every use case.\nIt has great tools for making beautiful plots.\nThis is not R specific, but because you can write programs for your specific use cases, it facilitates many workflow related tasks like automation, tracking changes with git, result preparation with markdown/latex and many more.\n\nThere are many reasons to learn R and this workshop will hopefully help you with that."
   },
   {
-    "objectID": "setup.html#installation",
-    "href": "setup.html#installation",
-    "title": "Setup",
+    "objectID": "qmd/basics/basics.html",
+    "href": "qmd/basics/basics.html",
+    "title": "Basic operations",
     "section": "",
-    "text": "Please go to this website and download and install R and RStudio. While R is is a language and environment for statistical computing and graphics, RStudio is a according integrated development environment for R, facilitating working with it.\n\n\n\n\n\n\nOpen if you don’t want to install anything\n\n\n\n\n\nIn case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and probably for the following week).\n\nGo to posit Cloud.\nClick on GET STARTED.\nCreate an account (it’s free) and login.\nOn the upper right, click on New Project. This will create a new RStudio project, which you can use the same way as described in this tutorial.\n\n\n\n\n\n\n\nWarning\n\n\n\n\n\nKeep in mind that the free posit Cloud account only gives you 25 computing ours per month. This should be enough for this week. See here for the subscription plans."
+    "text": "Let’s take a quick look at the most important basic operations in R. You can also use a cheat sheet to keep an overview during the course.\n\n\nWe can use R as a calculator:\n\n(1 + 2) * 3^2\n2 - 3/log(8)\n\n\n\n\nWe can create objects in R by using the assignment operator &lt;-, which assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\nresult\n\n[1] 2\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- !(10 &gt; 1)\nlog_result\n\n[1] FALSE\n\n\n\n\n\nThe boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\nThese are the comparison operators you will typically use:\n\n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n\n\n\nMainly we will use these logical operation to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined.\n\n\n\nWe can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE\n\n!(1:10 != c(1, 2))\n\n [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\n\n\n\nEverything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeat 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:\n\n\n\nOne of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments … In the next chapter we will take a very quick look at R’s data types."
   },
   {
-    "objectID": "setup.html#structure-of-the-rstudio-interface",
-    "href": "setup.html#structure-of-the-rstudio-interface",
-    "title": "Setup",
-    "section": "Structure of the RStudio interface",
-    "text": "Structure of the RStudio interface\nWhen opening RStudio it will look something like this:\n\nThe programm can be split into 4 parts:\n\n\n1) Script pane\nThe script pane is used to edit scripts. Scripts are the files you store your code in. You can execute a line of code by pressing ctrl + enter (on windows) or command + return (on macOS). To execute multiple lines of code at once, mark them before you press the keys. Try it yourself: Write\n\n# Our first line of code:\nprint(\"Hello World!\")\n\n[1] \"Hello World!\"\n\n\ninto your script and execute your first line of code. It should output “Hello World!” in your console.\nBy the way: Code lines, that are preceded by a # are commented out, and will not be evaluated.\n\n\n2) Console\nYou can also work directly in the console, for example to try out things. Type, into your console and then just press enter:\n\n# Sum two values\n10 + 5\n\n[1] 15\n\n\n\n\n3) Workspace\nHere you have an overview over the objects currently loaded into your R session, your command history and some more options we won’t need for now.\n\n\n4) Plots, Files, Help …\nPlots you build in your R session get output here. If you call the help function the documentation opens here. The Files pane let’s you mange the files in your working directory."
-  },
-  {
-    "objectID": "exercise_overview.html",
-    "href": "exercise_overview.html",
-    "title": "Exercises Overview",
+    "objectID": "qmd/basics/basics.html#basic-mathematical-operations",
+    "href": "qmd/basics/basics.html#basic-mathematical-operations",
+    "title": "Basic operations",
     "section": "",
-    "text": "1\nOver the course of this workshop, you can work on exercises to train the theoretical knowledge acquired in the chapters. Most of these exercises will use the characters data set, which provides psychometric ratings for many different TV characters. A large number of people rated different TV characters on a personality scale developed by the author of the questionnaire.\nYou will load the data, prepare it for analyses and plot it in the end, if you follow the whole workshop."
+    "text": "We can use R as a calculator:\n\n(1 + 2) * 3^2\n2 - 3/log(8)"
   },
   {
-    "objectID": "exercise_overview.html#footnotes",
-    "href": "exercise_overview.html#footnotes",
-    "title": "Exercises Overview",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nImage by Ilse Orsen on Unsplash.↩︎"
-  },
-  {
-    "objectID": "qmd/basics/basics_exercise.html",
-    "href": "qmd/basics/basics_exercise.html",
-    "title": "Basic operations: Exercises",
+    "objectID": "qmd/basics/basics.html#assignment-operator",
+    "href": "qmd/basics/basics.html#assignment-operator",
+    "title": "Basic operations",
     "section": "",
-    "text": "What does the function seq do? “,\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse the help function ?.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R."
+    "text": "We can create objects in R by using the assignment operator &lt;-, which assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\nresult\n\n[1] 2\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- !(10 &gt; 1)\nlog_result\n\n[1] FALSE"
   },
   {
-    "objectID": "qmd/basics/basics_exercise.html#exercise-1",
-    "href": "qmd/basics/basics_exercise.html#exercise-1",
-    "title": "Basic operations: Exercises",
+    "objectID": "qmd/basics/basics.html#comparisons-and-logical-operators",
+    "href": "qmd/basics/basics.html#comparisons-and-logical-operators",
+    "title": "Basic operations",
     "section": "",
-    "text": "What does the function seq do? “,\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse the help function ?.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R."
+    "text": "The boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\nThese are the comparison operators you will typically use:\n\n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n\n\n\nMainly we will use these logical operation to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined."
   },
   {
-    "objectID": "qmd/basics/basics_exercise.html#exercise-2",
-    "href": "qmd/basics/basics_exercise.html#exercise-2",
-    "title": "Basic operations: Exercises",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nWhy does the following code not work? Correct it so it does.\n\nc(1, 2, 3, 4, 5)\nmean(num_vec)\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nDoes the object num_vec actually exist?\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe object num_vec hasn’t been assigned yet. So let’s do that:\n\nnum_vec &lt;- c(1, 2, 3, 4, 5)\nmean(num_vec)\n\n[1] 3"
-  },
-  {
-    "objectID": "qmd/basics/basics_exercise.html#exercise-3",
-    "href": "qmd/basics/basics_exercise.html#exercise-3",
-    "title": "Basic operations: Exercises",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nBuild the following vector with as little code as possible:\n\nvec_1 &lt;- c(1, 2, 3, 4, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 2, 2, 2, 2, 2, 2, 2, 2)\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse seq() and rep(). You can also build consecutive sequences using :.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nvec_1 &lt;- c(1:5, seq(from = 5, to = 5.5, by = 0.1), rep(2, 8))"
-  },
-  {
-    "objectID": "qmd/basics/basics_exercise.html#exercise-4",
-    "href": "qmd/basics/basics_exercise.html#exercise-4",
-    "title": "Basic operations: Exercises",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nFind all of the elements in the vector that are either equal to 1000, or smaller than sqrt(11) and larger than log(1.001).\n\nvec_num &lt;- c(sqrt(100)^3, exp(-6), 22.02/3 * sqrt(4^2) * 0.25, -120987/(47621 * 1.3 ^ 4 ))\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nYou need to combine three logical statements. Go at it step by step: first find all elements in vec_num that are equal to 1000, and then add a comparison for the rest of the statement behind an | (or).\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nvec_num == 1000 | (sqrt(11) & vec_num &gt; log(1.001))\n\n[1]  TRUE  TRUE  TRUE FALSE"
-  },
-  {
-    "objectID": "qmd/basics/tidyverse.html",
-    "href": "qmd/basics/tidyverse.html",
-    "title": "Tidyverse",
+    "objectID": "qmd/basics/basics.html#section",
+    "href": "qmd/basics/basics.html#section",
+    "title": "Basic operations",
     "section": "",
-    "text": "Throughout this workshop you will come into contact with some functions from the very popular package collection tidyverse. The tidyverse is composed of multiple packages, all following a common philosophy, and facilitating many aspects of coding in R, for example data wrangling and plotting. It is not really necessary to learn the tidyverse syntax in order to understand R and become proficient in it. However, I find it easier to understand in many cases, which probably makes it easier to get started with. Therefore, I will provide the syntax from the respective tidyverse package along with the Base R syntax in many cases. In the end, it is a question of preference what you want to learn. Most code will probably be composed from base R functions tidyverse functions."
+    "text": "We can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE\n\n!(1:10 != c(1, 2))\n\n [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE"
   },
   {
-    "objectID": "qmd/basics/tidyverse.html#the-pipe-operator",
-    "href": "qmd/basics/tidyverse.html#the-pipe-operator",
-    "title": "Tidyverse",
-    "section": "The pipe operator",
-    "text": "The pipe operator\ntidyverse code is often written using the pipe operator %&gt;% (than do), which makes it easy to connect multiple function calls:\n\nsum(seq(from = 1, to = mean(c(45:100), na.rm = TRUE), by = 0.1))\n\n[1] 26313\n\n\nIs the same as:\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nc(45:100) %&gt;%\n  mean(na.rm = TRUE) %&gt;%\n  seq(from = 1, to = ., by = 0.1) %&gt;%\n  sum\n\n[1] 26313\n\n\n\nMuch nicer to read, right?\nSome notes on this syntax:\n\nIf we don’t have any additional arguments we want to put into the function, we can just write the function name without any brackets, like we do at the end with sum.\nThe pipe operator will give the result of the last function as input into the next function. That’s why we don’t have to specify the vector within the mean() function.\nIf we want to clearly state which of the function arguments should receive the input, we can write a ., which can be read as output of the previous function call. That’s what we do in the seq() function. It calculates a sequence from 1 to the mean of c(45:100)."
+    "objectID": "qmd/basics/basics.html#functions",
+    "href": "qmd/basics/basics.html#functions",
+    "title": "Basic operations",
+    "section": "",
+    "text": "Everything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeat 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:"
+  },
+  {
+    "objectID": "qmd/basics/basics.html#help",
+    "href": "qmd/basics/basics.html#help",
+    "title": "Basic operations",
+    "section": "",
+    "text": "One of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments … In the next chapter we will take a very quick look at R’s data types."
+  },
+  {
+    "objectID": "qmd/getting_started/the_big_picture.html",
+    "href": "qmd/getting_started/the_big_picture.html",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Now that we have completed our set up, let’s dive right into programming with R. In this chapter, we will go through a “mini-project” with very basic data, which follows a possible workflow when working with data in R. We will install and load packages, load data, perform some operations on this data, calculate some summary statistics and plot them. In later chapters, we will go into a little more depth for each topic. If you want to have more in depth information instead of following the whole workflow first, you can also skip this chapter and jump to the chapters and exercises you are interested in. But make sure to do the final exercise, to test you R proficiency in the end.\n\n\nPackages are extensions to the base R you get by default. We already installed our first packages in About this workshop. Let’s keep doing that and install the following package as well:\n\ninstall.packages(\"tidyverse\")\n\nThe tidyverse is a collection of packages following a common philosophy, and facilitate many aspects of coding in R, for example data wrangling and plotting. We will use both functions from base R and from the tidyverse. However, as i personally find them to be easier to understand in many cases, we will use tdiyverse functions a lot in the current chapter, so you can quickly get an overview of what is possible with R.\nJust by installing the packages, we can’t use them. We also have to load them into our R session:\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\n\n\nData is loaded into R so you can work with it. For this chapter, we are going to use the data set babynames, which we can find on the tidytuesday site. You can find it on here.We want to look at the most common name in every year and make a nice plot out of it.\n\nbabynames &lt;- readRDS(\"./raw_data/babynames.rds\")\n\nThe above code will load the data into R and assigning it the name babynames by using the &lt;-. You can see the data popping up in your Environment pane on the upper right.\n\n\n\nNow that we have our data loaded safely into R, we can get an overview with a multitude of commands. One of the most important ones might be View(), which will open the data set excel-style in a new window:\n\nView(babynames)\n\nEspecially for bigger data sets, it might be more feasible to only look at the structure and not the whole data set:\n\nstr(babynames)\n\n'data.frame':   1924665 obs. of  5 variables:\n $ year: num  NA 1880 1880 NA 1880 1880 1880 1880 1880 1880 ...\n $ sex : chr  \"F\" \"F\" \"F\" \"F\" ...\n $ name: chr  \"Mary\" \"Anna\" \"Emma\" \"Elizabeth\" ...\n $ prop: num  0.0724 0.0267 0.0205 0.0199 0.0179 ...\n $ ID  : int  1 2 3 4 5 6 7 8 9 10 ...\n\n\nOn the left we can see the columns of this data.frame, named year, sex, names, n and prop. On the right we see the first values in each column, for example NA, 1980, 1980 etc … in the year-column.\n\n\n\nSadly the data is not complete. The n is missing (ok, i split it up for illustrational purposes). So let’s load it quickly:\n\nbabynames_n &lt;- readRDS(\"./raw_data/babynames_n.rds\")\n\nAnd now merge it:\n\nbabynames_merged &lt;- merge(babynames, babynames_n)\n\nhead(babynames_merged)\n\n  ID year sex      name       prop    n\n1  1   NA   F      Mary 0.07238359 7065\n2  2 1880   F      Anna 0.02667896 2604\n3  3 1880   F      Emma 0.02052149 2003\n4  4   NA   F Elizabeth 0.01986579 1939\n5  5 1880   F    Minnie 0.01788843 1746\n6  6 1880   F  Margaret 0.01616720 1578\n\n\nHold on! The column years seems to include missing values (NA's, see the cell on the top left). It is always a good idea to deal with them before doing any analyses, so let’s do just that:\n\n\n\nThere are multiple ways to deal with missing values. For reasons of simplicity, we will just remove any rows that contain NA's. We can achieve that very easily using a function from the tidyverse (the package collection we installed at the beginning of this chapter):\n\n\nbabynames_merged &lt;- drop_na(babynames_merged)\n\n\n\n\n\nOne very important part of working with data in R is the subsetting of data. This means we select specific values from a data set. Let’s suppose we want to only look at the female names in this data set:\n\n\nbabynames_F &lt;- babynames_merged %&gt;%\n  filter(sex == \"F\")\n\n\n\n\n\nNow, we want to plot the percentages of each name, instead of the propability, because it looks a bit more intuitive. So, let’s build a new column:\n\nbabynames_F$percentage &lt;- babynames_F$prop * 100\n\n\n\n\nNow, the specifics of the next part are not really relevant. However, they can show you how easy it can be to deal with data in R: First, let’s group our data according to year:\n\n\nbabynames_F_grouped &lt;- babynames_F %&gt;%\n  group_by(year)\n\n\nAny operations we now perform are performed for every group. In our case, we want to find the name with the maximum prop in each group:\n\n\nbabynames_F_max &lt;- babynames_F_grouped %&gt;%\n  slice(which.max(percentage))\n\nhead(babynames_F_max)\n\n# A tibble: 6 × 7\n# Groups:   year [6]\n     ID  year sex   name    prop     n percentage\n  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;\n1     2  1880 F     Anna  0.0267  2604       2.67\n2  2001  1881 F     Mary  0.0700  6919       7.00\n3  3936  1882 F     Mary  0.0704  8148       7.04\n4  6063  1883 F     Mary  0.0667  8012       6.67\n5  8147  1884 F     Mary  0.0670  9217       6.70\n6 10444  1885 F     Mary  0.0643  9128       6.43\n\n\n\nGreat! We now have a data frame containing one row for every year. In it, we find the name most common in that year. As already mentioned, the specifics of these functions are not really relevant for this workshop.\n\n\n\nThis section is more additional and not really necessary for the other workshops. However, i think it is a great way to show you the beauty of plotting in R, so here it goes (make sure you worked on the other concepts first).\nWe will use the package ggplot2 (which is also part of the tidyverse) for plotting our data. It should be mentioned that Base R also has some powerful plotting functions, however, ggplot2 makes it very easy to build complex and beautiful plots.\nA ggplot is constructed from multiple layers, that can be laid over each other using the + operator.\nWe start with the function ggplot(), where we define our data and the x and y aestetics.\n\n\np &lt;- ggplot(\n  data = babynames_F_max,\n  aes(\n    x = year,\n    y = percentage)\n  )\n\nWe can also define different colours for different groups. For example, if we want the bars to get filled with a colour corresponding to the name they are representing, we can do that:\n\np &lt;- ggplot(\n  data = babynames_F_max,\n  aes(\n    x = year,\n    y = percentage,\n    fill = name\n  )\n)\n\nNow that we have defined our aesthetics, we can add a geom-layer. This will make use of the data we have defined in ggplot() and plot some bars for us:\n\np &lt;- p +\n  geom_col()\np\n\n\n\n\nLet’s give the axes some more informative names and a title to the plot:\n\np &lt;- p +\n  ggtitle(\"Most common female name in the United States of America by year\") +\n  xlab(\"Birthyear\") +\n  ylab(\"Percentage of children given that name relative to total births\")\np\n\n\n\n\nFinally, to style the plot a bit, let’s add a predefined theme and a color palette:\n\np +\n  theme_bw() +\n  scale_fill_brewer(palette = \"Set3\")\n\n\n\n\n\n\n\n\nIn this tutorial we learned, that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. Either follow the course, or navigate to the chapters you are most interested in.\nTest link to basics"
+  },
+  {
+    "objectID": "qmd/getting_started/the_big_picture.html#packages",
+    "href": "qmd/getting_started/the_big_picture.html#packages",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Packages are extensions to the base R you get by default. We already installed our first packages in About this workshop. Let’s keep doing that and install the following package as well:\n\ninstall.packages(\"tidyverse\")\n\nThe tidyverse is a collection of packages following a common philosophy, and facilitate many aspects of coding in R, for example data wrangling and plotting. We will use both functions from base R and from the tidyverse. However, as i personally find them to be easier to understand in many cases, we will use tdiyverse functions a lot in the current chapter, so you can quickly get an overview of what is possible with R.\nJust by installing the packages, we can’t use them. We also have to load them into our R session:\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+  },
+  {
+    "objectID": "qmd/getting_started/the_big_picture.html#load-data",
+    "href": "qmd/getting_started/the_big_picture.html#load-data",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Data is loaded into R so you can work with it. For this chapter, we are going to use the data set babynames, which we can find on the tidytuesday site. You can find it on here.We want to look at the most common name in every year and make a nice plot out of it.\n\nbabynames &lt;- readRDS(\"./raw_data/babynames.rds\")\n\nThe above code will load the data into R and assigning it the name babynames by using the &lt;-. You can see the data popping up in your Environment pane on the upper right."
+  },
+  {
+    "objectID": "qmd/getting_started/the_big_picture.html#take-a-look",
+    "href": "qmd/getting_started/the_big_picture.html#take-a-look",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Now that we have our data loaded safely into R, we can get an overview with a multitude of commands. One of the most important ones might be View(), which will open the data set excel-style in a new window:\n\nView(babynames)\n\nEspecially for bigger data sets, it might be more feasible to only look at the structure and not the whole data set:\n\nstr(babynames)\n\n'data.frame':   1924665 obs. of  5 variables:\n $ year: num  NA 1880 1880 NA 1880 1880 1880 1880 1880 1880 ...\n $ sex : chr  \"F\" \"F\" \"F\" \"F\" ...\n $ name: chr  \"Mary\" \"Anna\" \"Emma\" \"Elizabeth\" ...\n $ prop: num  0.0724 0.0267 0.0205 0.0199 0.0179 ...\n $ ID  : int  1 2 3 4 5 6 7 8 9 10 ...\n\n\nOn the left we can see the columns of this data.frame, named year, sex, names, n and prop. On the right we see the first values in each column, for example NA, 1980, 1980 etc … in the year-column."
+  },
+  {
+    "objectID": "qmd/getting_started/the_big_picture.html#merging",
+    "href": "qmd/getting_started/the_big_picture.html#merging",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Sadly the data is not complete. The n is missing (ok, i split it up for illustrational purposes). So let’s load it quickly:\n\nbabynames_n &lt;- readRDS(\"./raw_data/babynames_n.rds\")\n\nAnd now merge it:\n\nbabynames_merged &lt;- merge(babynames, babynames_n)\n\nhead(babynames_merged)\n\n  ID year sex      name       prop    n\n1  1   NA   F      Mary 0.07238359 7065\n2  2 1880   F      Anna 0.02667896 2604\n3  3 1880   F      Emma 0.02052149 2003\n4  4   NA   F Elizabeth 0.01986579 1939\n5  5 1880   F    Minnie 0.01788843 1746\n6  6 1880   F  Margaret 0.01616720 1578\n\n\nHold on! The column years seems to include missing values (NA's, see the cell on the top left). It is always a good idea to deal with them before doing any analyses, so let’s do just that:"
+  },
+  {
+    "objectID": "qmd/getting_started/the_big_picture.html#missings",
+    "href": "qmd/getting_started/the_big_picture.html#missings",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "There are multiple ways to deal with missing values. For reasons of simplicity, we will just remove any rows that contain NA's. We can achieve that very easily using a function from the tidyverse (the package collection we installed at the beginning of this chapter):\n\n\nbabynames_merged &lt;- drop_na(babynames_merged)"
+  },
+  {
+    "objectID": "qmd/getting_started/the_big_picture.html#subsetting-data",
+    "href": "qmd/getting_started/the_big_picture.html#subsetting-data",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "One very important part of working with data in R is the subsetting of data. This means we select specific values from a data set. Let’s suppose we want to only look at the female names in this data set:\n\n\nbabynames_F &lt;- babynames_merged %&gt;%\n  filter(sex == \"F\")"
+  },
+  {
+    "objectID": "qmd/getting_started/the_big_picture.html#adding-a-new-column",
+    "href": "qmd/getting_started/the_big_picture.html#adding-a-new-column",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Now, we want to plot the percentages of each name, instead of the propability, because it looks a bit more intuitive. So, let’s build a new column:\n\nbabynames_F$percentage &lt;- babynames_F$prop * 100"
+  },
+  {
+    "objectID": "qmd/getting_started/the_big_picture.html#some-additional-summary-statistics",
+    "href": "qmd/getting_started/the_big_picture.html#some-additional-summary-statistics",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "Now, the specifics of the next part are not really relevant. However, they can show you how easy it can be to deal with data in R: First, let’s group our data according to year:\n\n\nbabynames_F_grouped &lt;- babynames_F %&gt;%\n  group_by(year)\n\n\nAny operations we now perform are performed for every group. In our case, we want to find the name with the maximum prop in each group:\n\n\nbabynames_F_max &lt;- babynames_F_grouped %&gt;%\n  slice(which.max(percentage))\n\nhead(babynames_F_max)\n\n# A tibble: 6 × 7\n# Groups:   year [6]\n     ID  year sex   name    prop     n percentage\n  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;\n1     2  1880 F     Anna  0.0267  2604       2.67\n2  2001  1881 F     Mary  0.0700  6919       7.00\n3  3936  1882 F     Mary  0.0704  8148       7.04\n4  6063  1883 F     Mary  0.0667  8012       6.67\n5  8147  1884 F     Mary  0.0670  9217       6.70\n6 10444  1885 F     Mary  0.0643  9128       6.43\n\n\n\nGreat! We now have a data frame containing one row for every year. In it, we find the name most common in that year. As already mentioned, the specifics of these functions are not really relevant for this workshop."
+  },
+  {
+    "objectID": "qmd/getting_started/the_big_picture.html#plot-the-data",
+    "href": "qmd/getting_started/the_big_picture.html#plot-the-data",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "This section is more additional and not really necessary for the other workshops. However, i think it is a great way to show you the beauty of plotting in R, so here it goes (make sure you worked on the other concepts first).\nWe will use the package ggplot2 (which is also part of the tidyverse) for plotting our data. It should be mentioned that Base R also has some powerful plotting functions, however, ggplot2 makes it very easy to build complex and beautiful plots.\nA ggplot is constructed from multiple layers, that can be laid over each other using the + operator.\nWe start with the function ggplot(), where we define our data and the x and y aestetics.\n\n\np &lt;- ggplot(\n  data = babynames_F_max,\n  aes(\n    x = year,\n    y = percentage)\n  )\n\nWe can also define different colours for different groups. For example, if we want the bars to get filled with a colour corresponding to the name they are representing, we can do that:\n\np &lt;- ggplot(\n  data = babynames_F_max,\n  aes(\n    x = year,\n    y = percentage,\n    fill = name\n  )\n)\n\nNow that we have defined our aesthetics, we can add a geom-layer. This will make use of the data we have defined in ggplot() and plot some bars for us:\n\np &lt;- p +\n  geom_col()\np\n\n\n\n\nLet’s give the axes some more informative names and a title to the plot:\n\np &lt;- p +\n  ggtitle(\"Most common female name in the United States of America by year\") +\n  xlab(\"Birthyear\") +\n  ylab(\"Percentage of children given that name relative to total births\")\np\n\n\n\n\nFinally, to style the plot a bit, let’s add a predefined theme and a color palette:\n\np +\n  theme_bw() +\n  scale_fill_brewer(palette = \"Set3\")"
+  },
+  {
+    "objectID": "qmd/getting_started/the_big_picture.html#conclusion",
+    "href": "qmd/getting_started/the_big_picture.html#conclusion",
+    "title": "The Big Picture",
+    "section": "",
+    "text": "In this tutorial we learned, that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. Either follow the course, or navigate to the chapters you are most interested in.\nTest link to basics"
   },
   {
     "objectID": "qmd/merging/merging.html",
@@ -205,14 +254,14 @@
   {
     "objectID": "qmd/functions/functions.html",
     "href": "qmd/functions/functions.html",
-    "title": "R - Open Research Summer School",
+    "title": "Open Research Summer School",
     "section": "",
     "text": "We can also add new values conditionally, for example by using the ifelse() function. For example, let’s build a composite variable which summarizes whether the category was Whelchair or not:\n\nwinners_continents$Wheelchair &lt;- ifelse(\n  winners_continents$Category %in% c(\"Wheelchair Men\", \"Wheelchair Women\"),\n  yes = TRUE,\n  no = FALSE\n)\nwinners_continents\n\n\n\nwinners_continents &lt;- winners_continents %&gt;%\n  mutate(over_3_h = ifelse(\n    winners_continents$Hours &lt; 2,\n    yes = \"below\",\n    no  = \"over\"\n  ))\n\nwinners_continents"
   },
   {
     "objectID": "qmd/functions/functions.html#ifelse",
     "href": "qmd/functions/functions.html#ifelse",
-    "title": "R - Open Research Summer School",
+    "title": "Open Research Summer School",
     "section": "",
     "text": "We can also add new values conditionally, for example by using the ifelse() function. For example, let’s build a composite variable which summarizes whether the category was Whelchair or not:\n\nwinners_continents$Wheelchair &lt;- ifelse(\n  winners_continents$Category %in% c(\"Wheelchair Men\", \"Wheelchair Women\"),\n  yes = TRUE,\n  no = FALSE\n)\nwinners_continents\n\n\n\nwinners_continents &lt;- winners_continents %&gt;%\n  mutate(over_3_h = ifelse(\n    winners_continents$Hours &lt; 2,\n    yes = \"below\",\n    no  = \"over\"\n  ))\n\nwinners_continents"
   },
@@ -247,14 +296,14 @@
   {
     "objectID": "qmd/workflow/workflow.html",
     "href": "qmd/workflow/workflow.html",
-    "title": "R - Open Research Summer School",
+    "title": "Open Research Summer School",
     "section": "",
     "text": "Warning\n\n\n\nWhen only coding in our console we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our important code into a script.\n\n\n\n\n\nOver time, it will become increasingly hard to organize all your files, working directories and workspaces in a reasonable manner. For this, RStudio Projects can be used (highly recommended).\n\n\n\n\nCreate a new folder for this tutorial, where all your files will go.\nCreate a new RStudio project and open it. Go to File - New Project - Existing Directory and select the path of the folder you created in step 1.\nCreate a new R Script by clicking on File - New File - R Script. Save it in you folder.\n\n\n\n\n\n\n\nTip\n\n\n\nWithin your project folder create a folder named R, where all your R Scripts will go. You can do the same for data, plots etc. later on. This will help you to structure your working directory."
   },
   {
     "objectID": "qmd/workflow/workflow.html#workflow",
     "href": "qmd/workflow/workflow.html#workflow",
-    "title": "R - Open Research Summer School",
+    "title": "Open Research Summer School",
     "section": "",
     "text": "Warning\n\n\n\nWhen only coding in our console we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our important code into a script.\n\n\n\n\n\nOver time, it will become increasingly hard to organize all your files, working directories and workspaces in a reasonable manner. For this, RStudio Projects can be used (highly recommended).\n\n\n\n\nCreate a new folder for this tutorial, where all your files will go.\nCreate a new RStudio project and open it. Go to File - New Project - Existing Directory and select the path of the folder you created in step 1.\nCreate a new R Script by clicking on File - New File - R Script. Save it in you folder.\n\n\n\n\n\n\n\nTip\n\n\n\nWithin your project folder create a folder named R, where all your R Scripts will go. You can do the same for data, plots etc. later on. This will help you to structure your working directory."
   },
@@ -469,136 +518,87 @@
     "text": "Exercise 1\nMerge the characters data frame and the psych_stats data frame on a common column.\n\n\n\n\n\n\nHint\n\n\n\n\n\nIdentify the common columns. Are they named the same in both data frames? Look at the documentation of ?merge to see, how you can merge data frames that don’t have identically named columns.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nFirst, let`s take a look at both data sets again:\n\nstr(characters)\n\n'data.frame':   889 obs. of  7 variables:\n $ id        : chr  \"F2\" \"F1\" \"F5\" \"F4\" ...\n $ name      : chr  \"Monica Geller\" \"Rachel Green\" \"Chandler Bing\" \"Joey Tribbiani\" ...\n $ uni_id    : chr  \"F\" \"F\" \"F\" \"F\" ...\n $ uni_name  : chr  \"Friends\" \"Friends\" \"Friends\" \"Friends\" ...\n $ notability: num  79.7 76.7 74.4 74.3 72.6 51.6 86.5 84.2 82.6 65.6 ...\n $ link      : chr  \"https://openpsychometrics.org/tests/characters/stats/F/2\" \"https://openpsychometrics.org/tests/characters/stats/F/1\" \"https://openpsychometrics.org/tests/characters/stats/F/5\" \"https://openpsychometrics.org/tests/characters/stats/F/4\" ...\n $ image_link: chr  \"https://openpsychometrics.org/tests/characters/test-resources/pics/F/2.jpg\" \"https://openpsychometrics.org/tests/characters/test-resources/pics/F/1.jpg\" \"https://openpsychometrics.org/tests/characters/test-resources/pics/F/5.jpg\" \"https://openpsychometrics.org/tests/characters/test-resources/pics/F/4.jpg\" ...\n\nstr(psych_stats)\n\n'data.frame':   356489 obs. of  5 variables:\n $ char_id       : chr  \"F2\" \"F2\" \"F2\" \"F2\" ...\n $ question      : chr  \"messy/neat\" \"disorganized/self-disciplined\" \"diligent/lazy\" \"on-time/tardy\" ...\n $ mean_rating   : num  95.7 95.2 6.1 6.2 6.4 ...\n $ rating_sd     : num  11.7 11.2 10.4 14.3 13.4 14.5 15 17.3 12.1 11.1 ...\n $ number_ratings: int  1079 1185 1166 236 1168 1173 174 1196 129 1183 ...\n\n\nIt seems like both data frames have a column containing an ID for the character. We can use that column for merging:\n\ncharacters_stats &lt;- merge(\n  x = characters,\n  y = psych_stats,\n  by.x = \"id\", \n  by.y = \"char_id\"\n)\n\nstr(characters_stats)\n\n'data.frame':   356489 obs. of  11 variables:\n $ id            : chr  \"AD1\" \"AD1\" \"AD1\" \"AD1\" ...\n $ name          : chr  \"Michael Bluth\" \"Michael Bluth\" \"Michael Bluth\" \"Michael Bluth\" ...\n $ uni_id        : chr  \"AD\" \"AD\" \"AD\" \"AD\" ...\n $ uni_name      : chr  \"Arrested Development\" \"Arrested Development\" \"Arrested Development\" \"Arrested Development\" ...\n $ notability    : num  76.9 76.9 76.9 76.9 76.9 76.9 76.9 76.9 76.9 76.9 ...\n $ link          : chr  \"https://openpsychometrics.org/tests/characters/stats/AD/1\" \"https://openpsychometrics.org/tests/characters/stats/AD/1\" \"https://openpsychometrics.org/tests/characters/stats/AD/1\" \"https://openpsychometrics.org/tests/characters/stats/AD/1\" ...\n $ image_link    : chr  \"https://openpsychometrics.org/tests/characters/test-resources/pics/AD/1.jpg\" \"https://openpsychometrics.org/tests/characters/test-resources/pics/AD/1.jpg\" \"https://openpsychometrics.org/tests/characters/test-resources/pics/AD/1.jpg\" \"https://openpsychometrics.org/tests/characters/test-resources/pics/AD/1.jpg\" ...\n $ question      : chr  \"main character/side character\" \"🏋️‍♂️/🚴\" \"slacker/workaholic\" \"boy/girl-next-door/celebrity\" ...\n $ mean_rating   : num  7.1 91.2 90.3 9.7 90.1 ...\n $ rating_sd     : num  14.2 10.3 13.1 11.5 13 13 14 17.7 13.3 10.5 ...\n $ number_ratings: int  11 56 89 28 63 60 67 63 78 75 ...\n\n\nWorked like a charm!"
   },
   {
-    "objectID": "qmd/basics/basics.html",
-    "href": "qmd/basics/basics.html",
-    "title": "Basic operations",
+    "objectID": "qmd/setup/setup.html",
+    "href": "qmd/setup/setup.html",
+    "title": "Setup",
     "section": "",
-    "text": "Let’s take a quick look at the most important basic operations in R. You can also use a cheat sheet to keep an overview during the course.\n\n\nWe can use R as a calculator:\n\n(1 + 2) * 3^2\n2 - 3/log(8)\n\n\n\n\nWe can create objects in R by using the assignment operator &lt;-, which assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\nresult\n\n[1] 2\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- !(10 &gt; 1)\nlog_result\n\n[1] FALSE\n\n\n\n\n\nThe boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\nThese are the comparison operators you will typically use:\n\n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n\n\n\nMainly we will use these logical operation to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined.\n\n\n\nWe can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE\n\n!(1:10 != c(1, 2))\n\n [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\n\n\n\nEverything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeat 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:\n\n\n\nOne of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments … In the next chapter we will take a very quick look at R’s data types."
+    "text": "Please go to this website and download and install R and RStudio. While R is is a language and environment for statistical computing and graphics, RStudio is a according integrated development environment for R, facilitating working with it.\n\n\n\n\n\n\nOpen if you don’t want to install anything\n\n\n\n\n\nIn case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and probably for the following week).\n\nGo to posit Cloud.\nClick on GET STARTED.\nCreate an account (it’s free) and login.\nOn the upper right, click on New Project. This will create a new RStudio project, which you can use the same way as described in this tutorial.\n\n\n\n\n\n\n\nWarning\n\n\n\n\n\nKeep in mind that the free posit Cloud account only gives you 25 computing ours per month. This should be enough for this week. See here for the subscription plans."
   },
   {
-    "objectID": "qmd/basics/basics.html#basic-mathematical-operations",
-    "href": "qmd/basics/basics.html#basic-mathematical-operations",
-    "title": "Basic operations",
+    "objectID": "qmd/setup/setup.html#installation",
+    "href": "qmd/setup/setup.html#installation",
+    "title": "Setup",
     "section": "",
-    "text": "We can use R as a calculator:\n\n(1 + 2) * 3^2\n2 - 3/log(8)"
+    "text": "Please go to this website and download and install R and RStudio. While R is is a language and environment for statistical computing and graphics, RStudio is a according integrated development environment for R, facilitating working with it.\n\n\n\n\n\n\nOpen if you don’t want to install anything\n\n\n\n\n\nIn case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and probably for the following week).\n\nGo to posit Cloud.\nClick on GET STARTED.\nCreate an account (it’s free) and login.\nOn the upper right, click on New Project. This will create a new RStudio project, which you can use the same way as described in this tutorial.\n\n\n\n\n\n\n\nWarning\n\n\n\n\n\nKeep in mind that the free posit Cloud account only gives you 25 computing ours per month. This should be enough for this week. See here for the subscription plans."
   },
   {
-    "objectID": "qmd/basics/basics.html#assignment-operator",
-    "href": "qmd/basics/basics.html#assignment-operator",
-    "title": "Basic operations",
-    "section": "",
-    "text": "We can create objects in R by using the assignment operator &lt;-, which assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\nresult\n\n[1] 2\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- !(10 &gt; 1)\nlog_result\n\n[1] FALSE"
+    "objectID": "qmd/setup/setup.html#structure-of-the-rstudio-interface",
+    "href": "qmd/setup/setup.html#structure-of-the-rstudio-interface",
+    "title": "Setup",
+    "section": "Structure of the RStudio interface",
+    "text": "Structure of the RStudio interface\nWhen opening RStudio it will look something like this:\n\nThe window can be split into 4 parts:\n\n\n1) Script pane\nThe script pane is used to edit scripts. Scripts are the files you store your code in. You can execute a line of code by pressing ctrl + enter (on windows) or command + return (on macOS). To execute multiple lines of code at once, mark them before you press the keys. Try it yourself: Write\n\n# Our first line of code:\nprint(\"Hello World!\")\n\n[1] \"Hello World!\"\n\n\ninto your script and execute your first line of code. It should output “Hello World!” in your console.\nBy the way: Code lines, that are preceded by a # are commented out, and will not be evaluated.\n\n\n2) Console\nYou can also work directly in the console, for example to try out things. Type, into your console and then just press enter:\n\n# Sum two values\n10 + 5\n\n[1] 15\n\n\n\n\n3) Workspace\nHere you have an overview over the objects currently loaded into your R session, your command history and some more options we won’t need for now.\n\n\n4) Plots, Files, Help …\nPlots you build in your R session get output here. If you call the help function the documentation opens here. The Files pane let’s you mange the files in your working directory."
   },
   {
-    "objectID": "qmd/basics/basics.html#comparisons-and-logical-operators",
-    "href": "qmd/basics/basics.html#comparisons-and-logical-operators",
-    "title": "Basic operations",
+    "objectID": "qmd/getting_started/exercise_overview.html",
+    "href": "qmd/getting_started/exercise_overview.html",
+    "title": "Exercises Overview",
     "section": "",
-    "text": "The boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\nThese are the comparison operators you will typically use:\n\n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n\n\n\nMainly we will use these logical operation to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined."
+    "text": "1\nOver the course of this workshop, you can work on exercises to train the theoretical knowledge acquired in the chapters. Most of these exercises will use the characters data set, which provides psychometric ratings for many different TV characters. A large number of people rated different TV characters on a personality scale developed by the author of the questionnaire.\nYou will load the data, prepare it for analyses and plot it in the end, if you follow the whole workshop."
   },
   {
-    "objectID": "qmd/basics/basics.html#section",
-    "href": "qmd/basics/basics.html#section",
-    "title": "Basic operations",
-    "section": "",
-    "text": "We can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE\n\n!(1:10 != c(1, 2))\n\n [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE"
+    "objectID": "qmd/getting_started/exercise_overview.html#footnotes",
+    "href": "qmd/getting_started/exercise_overview.html#footnotes",
+    "title": "Exercises Overview",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nImage by Ilse Orsen on Unsplash.↩︎"
   },
   {
-    "objectID": "qmd/basics/basics.html#functions",
-    "href": "qmd/basics/basics.html#functions",
-    "title": "Basic operations",
+    "objectID": "qmd/basics/tidyverse.html",
+    "href": "qmd/basics/tidyverse.html",
+    "title": "Tidyverse",
     "section": "",
-    "text": "Everything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeat 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:"
+    "text": "Throughout this workshop you will come into contact with some functions from the very popular package collection tidyverse. The tidyverse is composed of multiple packages, all following a common philosophy, and facilitating many aspects of coding in R, for example data wrangling and plotting. It is not really necessary to learn the tidyverse syntax in order to understand R and become proficient in it. However, I find it easier to understand in many cases, which probably makes it easier to get started with. Therefore, I will provide the syntax from the respective tidyverse package along with the Base R syntax in many cases. In the end, it is a question of preference what you want to learn. Most code will probably be composed from base R functions tidyverse functions."
   },
   {
-    "objectID": "qmd/basics/basics.html#help",
-    "href": "qmd/basics/basics.html#help",
-    "title": "Basic operations",
-    "section": "",
-    "text": "One of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments … In the next chapter we will take a very quick look at R’s data types."
+    "objectID": "qmd/basics/tidyverse.html#the-pipe-operator",
+    "href": "qmd/basics/tidyverse.html#the-pipe-operator",
+    "title": "Tidyverse",
+    "section": "The pipe operator",
+    "text": "The pipe operator\ntidyverse code is often written using the pipe operator %&gt;% (than do), which makes it easy to connect multiple function calls:\n\nsum(seq(from = 1, to = mean(c(45:100), na.rm = TRUE), by = 0.1))\n\n[1] 26313\n\n\nIs the same as:\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nc(45:100) %&gt;%\n  mean(na.rm = TRUE) %&gt;%\n  seq(from = 1, to = ., by = 0.1) %&gt;%\n  sum\n\n[1] 26313\n\n\n\nMuch nicer to read, right?\nSome notes on this syntax:\n\nIf we don’t have any additional arguments we want to put into the function, we can just write the function name without any brackets, like we do at the end with sum.\nThe pipe operator will give the result of the last function as input into the next function. That’s why we don’t have to specify the vector within the mean() function.\nIf we want to clearly state which of the function arguments should receive the input, we can write a ., which can be read as output of the previous function call. That’s what we do in the seq() function. It calculates a sequence from 1 to the mean of c(45:100)."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome",
+    "objectID": "qmd/basics/basics_exercise.html",
+    "href": "qmd/basics/basics_exercise.html",
+    "title": "Basic operations: Exercises",
     "section": "",
-    "text": "Welcome to this R workshop!\n\nWhat is R?\n\nR is a popular programming language for data manipulation, statistical data analyses and plotting of data.\nIt is open source, and has a big community, which facilitates the development of additional software packages for multiple different applications, but also makes it easy to get help if you are stuck at a paticular problem.\nThis is one of the reasons why R is great for doing statistical analyses with it - there are packages for almost every use case.\nIt has great tools for making beautiful plots.\nThis is not R specific, but because you can write programs for your specific use cases, it facilitates many workflow related tasks like automation, tracking changes with git, result preperation with markdown/latex and many more.\n\nThere are many reasons to learn R and this workshop will hopefully help you with that.\n\n\nAbout this workshop\nThis workshop will teach you the basics of R. It’s modular structure is meant to support different levels of R expertise and interests: already know the basics and want to learn how to plot? Want to freshen up your R skills and look at specific topics? Or are you new to scientific programming with R and want to follow the course structure?\n\n\n\n\n\n\nUnfold if you want to learn more about advanced content\n\n\n\n\n\nDon’t worry if you don’t finish the whole workshop in time, or the material seems a bit overwhelming. It is designed to provide additional information for self studying and looking up topics of interest (that may come up during the following week, or in general). Advanced explanations and exercises can be found in folded in chunks like this one.\n\n\n\nThe main objective of this workshop is to get you familiar with the basics of programming in R, as it needed for other courses of the Open Research Summer School. To do that, we will repeat and try out the main concepts multiple times, so you get to work with them as much and as from many different perspectives as possible in 3 h.\nEach section is divided into a theory part and some exercises. Most of these exercises will use the `characters` data set, more on that in the next chapter.\n\n\n\n\n\n\nCaution\n\n\n\nPlease install the necessary software before the workshop. Of course, feel free to ask by opening a new issue if you run into problems on the way."
+    "text": "What does the function seq do? “,\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse the help function ?.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R."
   },
   {
-    "objectID": "the_big_picture.html",
-    "href": "the_big_picture.html",
-    "title": "The Big Picture",
+    "objectID": "qmd/basics/basics_exercise.html#exercise-1",
+    "href": "qmd/basics/basics_exercise.html#exercise-1",
+    "title": "Basic operations: Exercises",
     "section": "",
-    "text": "Now that we have completed our set up, let’s dive right into programming with R. In this chapter, we will go through a “mini-project” with very basic data, which follows a possible workflow when working with data in R. We will install and load packages, load data, perform some operations on this data, calculate some summary statistics and plot them. In later chapters, we will go into a little more depth for each topic. If you want to have more in depth information instead of following the whole workflow first, you can also skip this chapter and jump to the chapters and exercises you are interested in. But make sure to do the final exercise, to test you R proficiency in the end.\n\n\nPackages are extensions to the base R you get by default. We already installed our first packages in About this workshop. Let’s keep doing that and install the following package as well:\n\ninstall.packages(\"tidyverse\")\n\nThe tidyverse is a collection of packages following a common philosophy, and facilitate many aspects of coding in R, for example data wrangling and plotting. We will use both functions from base R and from the tidyverse. However, as i personally find them to be easier to understand in many cases, we will use tdiyverse functions a lot in the current chapter, so you can quickly get an overview of what is possible with R.\nJust by installing the packages, we can’t use them. We also have to load them into our R session:\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\n\n\nData is loaded into R so you can work with it. For this chapter, we are going to use the data set babynames, which we can find on the tidytuesday site. You can find it on here.We want to look at the most common name in every year and make a nice plot out of it.\n\nbabynames &lt;- readRDS(\"./raw_data/babynames.rds\")\n\nThe above code will load the data into R and assigning it the name babynames by using the &lt;-. You can see the data popping up in your Environment pane on the upper right.\n\n\n\nNow that we have our data loaded safely into R, we can get an overview with a multitude of commands. One of the most important ones might be View(), which will open the data set excel-style in a new window:\n\nView(babynames)\n\nEspecially for bigger data sets, it might be more feasible to only look at the structure and not the whole data set:\n\nstr(babynames)\n\n'data.frame':   1924665 obs. of  5 variables:\n $ year: num  NA 1880 1880 NA 1880 1880 1880 1880 1880 1880 ...\n $ sex : chr  \"F\" \"F\" \"F\" \"F\" ...\n $ name: chr  \"Mary\" \"Anna\" \"Emma\" \"Elizabeth\" ...\n $ prop: num  0.0724 0.0267 0.0205 0.0199 0.0179 ...\n $ ID  : int  1 2 3 4 5 6 7 8 9 10 ...\n\n\nOn the left we can see the columns of this data.frame, named year, sex, names, n and prop. On the right we see the first values in each column, for example NA, 1980, 1980 etc … in the year-column.\n\n\n\nSadly the data is not complete. The n is missing (ok, i split it up for illustrational purposes). So let’s load it quickly:\n\nbabynames_n &lt;- readRDS(\"./raw_data/babynames_n.rds\")\n\nAnd now merge it:\n\nbabynames_merged &lt;- merge(babynames, babynames_n)\n\nhead(babynames_merged)\n\n  ID year sex      name       prop    n\n1  1   NA   F      Mary 0.07238359 7065\n2  2 1880   F      Anna 0.02667896 2604\n3  3 1880   F      Emma 0.02052149 2003\n4  4   NA   F Elizabeth 0.01986579 1939\n5  5 1880   F    Minnie 0.01788843 1746\n6  6 1880   F  Margaret 0.01616720 1578\n\n\nHold on! The column years seems to include missing values (NA's, see the cell on the top left). It is always a good idea to deal with them before doing any analyses, so let’s do just that:\n\n\n\nThere are multiple ways to deal with missing values. For reasons of simplicity, we will just remove any rows that contain NA's. We can achieve that very easily using a function from the tidyverse (the package collection we installed at the beginning of this chapter):\n\n\nbabynames_merged &lt;- drop_na(babynames_merged)\n\n\n\n\n\nOne very important part of working with data in R is the subsetting of data. This means we select specific values from a data set. Let’s suppose we want to only look at the female names in this data set:\n\n\nbabynames_F &lt;- babynames_merged %&gt;%\n  filter(sex == \"F\")\n\n\n\n\n\nNow, we want to plot the percentages of each name, instead of the propability, because it looks a bit more intuitive. So, let’s build a new column:\n\nbabynames_F$percentage &lt;- babynames_F$prop * 100\n\n\n\n\nNow, the specifics of the next part are not really relevant. However, they can show you how easy it can be to deal with data in R: First, let’s group our data according to year:\n\n\nbabynames_F_grouped &lt;- babynames_F %&gt;%\n  group_by(year)\n\n\nAny operations we now perform are performed for every group. In our case, we want to find the name with the maximum prop in each group:\n\n\nbabynames_F_max &lt;- babynames_F_grouped %&gt;%\n  slice(which.max(percentage))\n\nhead(babynames_F_max)\n\n# A tibble: 6 × 7\n# Groups:   year [6]\n     ID  year sex   name    prop     n percentage\n  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;\n1     2  1880 F     Anna  0.0267  2604       2.67\n2  2001  1881 F     Mary  0.0700  6919       7.00\n3  3936  1882 F     Mary  0.0704  8148       7.04\n4  6063  1883 F     Mary  0.0667  8012       6.67\n5  8147  1884 F     Mary  0.0670  9217       6.70\n6 10444  1885 F     Mary  0.0643  9128       6.43\n\n\n\nGreat! We now have a data frame containing one row for every year. In it, we find the name most common in that year. As already mentioned, the specifics of these functions are not really relevant for this workshop.\n\n\n\nThis section is more additional and not really necessary for the other workshops. However, i think it is a great way to show you the beauty of plotting in R, so here it goes (make sure you worked on the other concepts first).\nWe will use the package ggplot2 (which is also part of the tidyverse) for plotting our data. It should be mentioned that Base R also has some powerful plotting functions, however, ggplot2 makes it very easy to build complex and beautiful plots.\nA ggplot is constructed from multiple layers, that can be laid over each other using the + operator.\nWe start with the function ggplot(), where we define our data and the x and y aestetics.\n\n\np &lt;- ggplot(\n  data = babynames_F_max,\n  aes(\n    x = year,\n    y = percentage)\n  )\n\nWe can also define different colours for different groups. For example, if we want the bars to get filled with a colour corresponding to the name they are representing, we can do that:\n\np &lt;- ggplot(\n  data = babynames_F_max,\n  aes(\n    x = year,\n    y = percentage,\n    fill = name\n  )\n)\n\nNow that we have defined our aesthetics, we can add a geom-layer. This will make use of the data we have defined in ggplot() and plot some bars for us:\n\np &lt;- p +\n  geom_col()\np\n\n\n\n\nLet’s give the axes some more informative names and a title to the plot:\n\np &lt;- p +\n  ggtitle(\"Most common female name in the United States of America by year\") +\n  xlab(\"Birthyear\") +\n  ylab(\"Percentage of children given that name relative to total births\")\np\n\n\n\n\nFinally, to style the plot a bit, let’s add a predefined theme and a color palette:\n\np +\n  theme_bw() +\n  scale_fill_brewer(palette = \"Set3\")\n\n\n\n\n\n\n\n\nIn this tutorial we learned, that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. Either follow the course, or navigate to the chapters you are most interested in.\nTest link to basics"
+    "text": "What does the function seq do? “,\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse the help function ?.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R."
   },
   {
-    "objectID": "the_big_picture.html#packages",
-    "href": "the_big_picture.html#packages",
-    "title": "The Big Picture",
-    "section": "",
-    "text": "Packages are extensions to the base R you get by default. We already installed our first packages in About this workshop. Let’s keep doing that and install the following package as well:\n\ninstall.packages(\"tidyverse\")\n\nThe tidyverse is a collection of packages following a common philosophy, and facilitate many aspects of coding in R, for example data wrangling and plotting. We will use both functions from base R and from the tidyverse. However, as i personally find them to be easier to understand in many cases, we will use tdiyverse functions a lot in the current chapter, so you can quickly get an overview of what is possible with R.\nJust by installing the packages, we can’t use them. We also have to load them into our R session:\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+    "objectID": "qmd/basics/basics_exercise.html#exercise-2",
+    "href": "qmd/basics/basics_exercise.html#exercise-2",
+    "title": "Basic operations: Exercises",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nWhy does the following code not work? Correct it so it does.\n\nc(1, 2, 3, 4, 5)\nmean(num_vec)\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nDoes the object num_vec actually exist?\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe object num_vec hasn’t been assigned yet. So let’s do that:\n\nnum_vec &lt;- c(1, 2, 3, 4, 5)\nmean(num_vec)\n\n[1] 3"
   },
   {
-    "objectID": "the_big_picture.html#load-data",
-    "href": "the_big_picture.html#load-data",
-    "title": "The Big Picture",
-    "section": "",
-    "text": "Data is loaded into R so you can work with it. For this chapter, we are going to use the data set babynames, which we can find on the tidytuesday site. You can find it on here.We want to look at the most common name in every year and make a nice plot out of it.\n\nbabynames &lt;- readRDS(\"./raw_data/babynames.rds\")\n\nThe above code will load the data into R and assigning it the name babynames by using the &lt;-. You can see the data popping up in your Environment pane on the upper right."
+    "objectID": "qmd/basics/basics_exercise.html#exercise-3",
+    "href": "qmd/basics/basics_exercise.html#exercise-3",
+    "title": "Basic operations: Exercises",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nBuild the following vector with as little code as possible:\n\nvec_1 &lt;- c(1, 2, 3, 4, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 2, 2, 2, 2, 2, 2, 2, 2)\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse seq() and rep(). You can also build consecutive sequences using :.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nvec_1 &lt;- c(1:5, seq(from = 5, to = 5.5, by = 0.1), rep(2, 8))"
   },
   {
-    "objectID": "the_big_picture.html#take-a-look",
-    "href": "the_big_picture.html#take-a-look",
-    "title": "The Big Picture",
-    "section": "",
-    "text": "Now that we have our data loaded safely into R, we can get an overview with a multitude of commands. One of the most important ones might be View(), which will open the data set excel-style in a new window:\n\nView(babynames)\n\nEspecially for bigger data sets, it might be more feasible to only look at the structure and not the whole data set:\n\nstr(babynames)\n\n'data.frame':   1924665 obs. of  5 variables:\n $ year: num  NA 1880 1880 NA 1880 1880 1880 1880 1880 1880 ...\n $ sex : chr  \"F\" \"F\" \"F\" \"F\" ...\n $ name: chr  \"Mary\" \"Anna\" \"Emma\" \"Elizabeth\" ...\n $ prop: num  0.0724 0.0267 0.0205 0.0199 0.0179 ...\n $ ID  : int  1 2 3 4 5 6 7 8 9 10 ...\n\n\nOn the left we can see the columns of this data.frame, named year, sex, names, n and prop. On the right we see the first values in each column, for example NA, 1980, 1980 etc … in the year-column."
-  },
-  {
-    "objectID": "the_big_picture.html#merging",
-    "href": "the_big_picture.html#merging",
-    "title": "The Big Picture",
-    "section": "",
-    "text": "Sadly the data is not complete. The n is missing (ok, i split it up for illustrational purposes). So let’s load it quickly:\n\nbabynames_n &lt;- readRDS(\"./raw_data/babynames_n.rds\")\n\nAnd now merge it:\n\nbabynames_merged &lt;- merge(babynames, babynames_n)\n\nhead(babynames_merged)\n\n  ID year sex      name       prop    n\n1  1   NA   F      Mary 0.07238359 7065\n2  2 1880   F      Anna 0.02667896 2604\n3  3 1880   F      Emma 0.02052149 2003\n4  4   NA   F Elizabeth 0.01986579 1939\n5  5 1880   F    Minnie 0.01788843 1746\n6  6 1880   F  Margaret 0.01616720 1578\n\n\nHold on! The column years seems to include missing values (NA's, see the cell on the top left). It is always a good idea to deal with them before doing any analyses, so let’s do just that:"
-  },
-  {
-    "objectID": "the_big_picture.html#missings",
-    "href": "the_big_picture.html#missings",
-    "title": "The Big Picture",
-    "section": "",
-    "text": "There are multiple ways to deal with missing values. For reasons of simplicity, we will just remove any rows that contain NA's. We can achieve that very easily using a function from the tidyverse (the package collection we installed at the beginning of this chapter):\n\n\nbabynames_merged &lt;- drop_na(babynames_merged)"
-  },
-  {
-    "objectID": "the_big_picture.html#subsetting-data",
-    "href": "the_big_picture.html#subsetting-data",
-    "title": "The Big Picture",
-    "section": "",
-    "text": "One very important part of working with data in R is the subsetting of data. This means we select specific values from a data set. Let’s suppose we want to only look at the female names in this data set:\n\n\nbabynames_F &lt;- babynames_merged %&gt;%\n  filter(sex == \"F\")"
-  },
-  {
-    "objectID": "the_big_picture.html#adding-a-new-column",
-    "href": "the_big_picture.html#adding-a-new-column",
-    "title": "The Big Picture",
-    "section": "",
-    "text": "Now, we want to plot the percentages of each name, instead of the propability, because it looks a bit more intuitive. So, let’s build a new column:\n\nbabynames_F$percentage &lt;- babynames_F$prop * 100"
-  },
-  {
-    "objectID": "the_big_picture.html#some-additional-summary-statistics",
-    "href": "the_big_picture.html#some-additional-summary-statistics",
-    "title": "The Big Picture",
-    "section": "",
-    "text": "Now, the specifics of the next part are not really relevant. However, they can show you how easy it can be to deal with data in R: First, let’s group our data according to year:\n\n\nbabynames_F_grouped &lt;- babynames_F %&gt;%\n  group_by(year)\n\n\nAny operations we now perform are performed for every group. In our case, we want to find the name with the maximum prop in each group:\n\n\nbabynames_F_max &lt;- babynames_F_grouped %&gt;%\n  slice(which.max(percentage))\n\nhead(babynames_F_max)\n\n# A tibble: 6 × 7\n# Groups:   year [6]\n     ID  year sex   name    prop     n percentage\n  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;\n1     2  1880 F     Anna  0.0267  2604       2.67\n2  2001  1881 F     Mary  0.0700  6919       7.00\n3  3936  1882 F     Mary  0.0704  8148       7.04\n4  6063  1883 F     Mary  0.0667  8012       6.67\n5  8147  1884 F     Mary  0.0670  9217       6.70\n6 10444  1885 F     Mary  0.0643  9128       6.43\n\n\n\nGreat! We now have a data frame containing one row for every year. In it, we find the name most common in that year. As already mentioned, the specifics of these functions are not really relevant for this workshop."
-  },
-  {
-    "objectID": "the_big_picture.html#plot-the-data",
-    "href": "the_big_picture.html#plot-the-data",
-    "title": "The Big Picture",
-    "section": "",
-    "text": "This section is more additional and not really necessary for the other workshops. However, i think it is a great way to show you the beauty of plotting in R, so here it goes (make sure you worked on the other concepts first).\nWe will use the package ggplot2 (which is also part of the tidyverse) for plotting our data. It should be mentioned that Base R also has some powerful plotting functions, however, ggplot2 makes it very easy to build complex and beautiful plots.\nA ggplot is constructed from multiple layers, that can be laid over each other using the + operator.\nWe start with the function ggplot(), where we define our data and the x and y aestetics.\n\n\np &lt;- ggplot(\n  data = babynames_F_max,\n  aes(\n    x = year,\n    y = percentage)\n  )\n\nWe can also define different colours for different groups. For example, if we want the bars to get filled with a colour corresponding to the name they are representing, we can do that:\n\np &lt;- ggplot(\n  data = babynames_F_max,\n  aes(\n    x = year,\n    y = percentage,\n    fill = name\n  )\n)\n\nNow that we have defined our aesthetics, we can add a geom-layer. This will make use of the data we have defined in ggplot() and plot some bars for us:\n\np &lt;- p +\n  geom_col()\np\n\n\n\n\nLet’s give the axes some more informative names and a title to the plot:\n\np &lt;- p +\n  ggtitle(\"Most common female name in the United States of America by year\") +\n  xlab(\"Birthyear\") +\n  ylab(\"Percentage of children given that name relative to total births\")\np\n\n\n\n\nFinally, to style the plot a bit, let’s add a predefined theme and a color palette:\n\np +\n  theme_bw() +\n  scale_fill_brewer(palette = \"Set3\")"
-  },
-  {
-    "objectID": "the_big_picture.html#conclusion",
-    "href": "the_big_picture.html#conclusion",
-    "title": "The Big Picture",
-    "section": "",
-    "text": "In this tutorial we learned, that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. Either follow the course, or navigate to the chapters you are most interested in.\nTest link to basics"
+    "objectID": "qmd/basics/basics_exercise.html#exercise-4",
+    "href": "qmd/basics/basics_exercise.html#exercise-4",
+    "title": "Basic operations: Exercises",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nFind all of the elements in the vector that are either equal to 1000, or smaller than sqrt(11) and larger than log(1.001).\n\nvec_num &lt;- c(sqrt(100)^3, exp(-6), 22.02/3 * sqrt(4^2) * 0.25, -120987/(47621 * 1.3 ^ 4 ))\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nYou need to combine three logical statements. Go at it step by step: first find all elements in vec_num that are equal to 1000, and then add a comparison for the rest of the statement behind an | (or).\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nvec_num == 1000 | (sqrt(11) & vec_num &gt; log(1.001))\n\n[1]  TRUE  TRUE  TRUE FALSE"
   }
 ]
