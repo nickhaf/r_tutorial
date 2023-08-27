@@ -231,8 +231,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/getting_started/exercise_overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises Overview</span></a>
+  <a href="../../qmd/getting_started/data_sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data sets</span></a>
   </div>
 </li>
       </ul>
@@ -585,7 +585,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>We want to work more with the <code>characters</code> data set we have loaded in the <a href="../../qmd/load_data/load_data_exercise.html">last chapter</a>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>characters <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"characters.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>characters <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"characters.rds"</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>psych_stats <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"characters.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Because subsetting data is such a basic skill, it will come up multiple times during this workshop. Here are some first exercises to get you started.</p>
 <section id="exercise-1" class="level2">
@@ -751,7 +752,7 @@ Solution
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <ol type="1">
-<li>Extract all characters from “Game of Thrones” that have a notability over <code>75</code>, using <code>Base R</code>.</li>
+<li>Which character(s) from “Game of Thrones” has a notability rating over <code>90</code>? Use <code>Base R</code>.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -765,7 +766,7 @@ Hint
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You need to define a logical vector which contains <code>TRUE</code> values for all “Game of Thrones” characters that have a notability over <code>75</code>.</p>
+<p>You need to define a logical vector which contains <code>TRUE</code> values for all “Game of Thrones” characters that have a notability over <code>90</code>.</p>
 </div>
 </div>
 </div>
@@ -782,48 +783,22 @@ Solution
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>characters[characters<span class="sc">$</span>uni_name <span class="sc">==</span> <span class="st">"Game of Thrones"</span> <span class="sc">&amp;</span> characters<span class="sc">$</span>notability <span class="sc">&gt;</span> <span class="dv">75</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>characters[characters<span class="sc">$</span>uni_name <span class="sc">==</span> <span class="st">"Game of Thrones"</span> <span class="sc">&amp;</span> characters<span class="sc">$</span>notability <span class="sc">&gt;</span> <span class="dv">90</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      id               name uni_id        uni_name notability
-18  GOT2   Tyrion Lannister    GOT Game of Thrones       90.8
-19  GOT5         Arya Stark    GOT Game of Thrones       90.0
-20  GOT3 Daenerys Targaryen    GOT Game of Thrones       86.8
-21  GOT1           Jon Snow    GOT Game of Thrones       86.7
-22 GOT27   Cersei Lannister    GOT Game of Thrones       82.4
-23 GOT12       Eddard Stark    GOT Game of Thrones       81.4
-24 GOT14   Brienne of Tarth    GOT Game of Thrones       79.1
-25 GOT15     Sandor Clegane    GOT Game of Thrones       76.8
-26  GOT4        Sansa Stark    GOT Game of Thrones       76.3
-27 GOT25      Olenna Tyrell    GOT Game of Thrones       75.9
-                                                          link
-18  https://openpsychometrics.org/tests/characters/stats/GOT/2
-19  https://openpsychometrics.org/tests/characters/stats/GOT/5
-20  https://openpsychometrics.org/tests/characters/stats/GOT/3
-21  https://openpsychometrics.org/tests/characters/stats/GOT/1
-22 https://openpsychometrics.org/tests/characters/stats/GOT/27
-23 https://openpsychometrics.org/tests/characters/stats/GOT/12
-24 https://openpsychometrics.org/tests/characters/stats/GOT/14
-25 https://openpsychometrics.org/tests/characters/stats/GOT/15
-26  https://openpsychometrics.org/tests/characters/stats/GOT/4
-27 https://openpsychometrics.org/tests/characters/stats/GOT/25
-                                                                      image_link
-18  https://openpsychometrics.org/tests/characters/test-resources/pics/GOT/2.jpg
-19  https://openpsychometrics.org/tests/characters/test-resources/pics/GOT/5.jpg
-20  https://openpsychometrics.org/tests/characters/test-resources/pics/GOT/3.jpg
-21  https://openpsychometrics.org/tests/characters/test-resources/pics/GOT/1.jpg
-22 https://openpsychometrics.org/tests/characters/test-resources/pics/GOT/27.jpg
-23 https://openpsychometrics.org/tests/characters/test-resources/pics/GOT/12.jpg
-24 https://openpsychometrics.org/tests/characters/test-resources/pics/GOT/14.jpg
-25 https://openpsychometrics.org/tests/characters/test-resources/pics/GOT/15.jpg
-26  https://openpsychometrics.org/tests/characters/test-resources/pics/GOT/4.jpg
-27 https://openpsychometrics.org/tests/characters/test-resources/pics/GOT/25.jpg</code></pre>
+<pre><code>     id             name uni_id        uni_name notability
+18 GOT2 Tyrion Lannister    GOT Game of Thrones       90.8
+                                                         link
+18 https://openpsychometrics.org/tests/characters/stats/GOT/2
+                                                                     image_link
+18 https://openpsychometrics.org/tests/characters/test-resources/pics/GOT/2.jpg</code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
+<p>That’s only Tyrion Lannister.</p>
 <ol start="2" type="1">
-<li>Extract all characters that are either from “How I Met Your Mother” or “Breaking Bad”, using the <code>tidyverse</code>.</li>
+<li>Which characters from “How I Met Your Mother” or “Breaking Bad” are included in the data? Use the <code>tidyverse</code>.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">

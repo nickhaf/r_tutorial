@@ -100,7 +100,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Open Research Summer School - Loading data">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://github.com/nickhaf/r_tutorial/qmd/pictures/olympics.jpg">
 <meta property="og:site-name" content="Open Research Summer School">
 </head>
 
@@ -232,8 +231,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/getting_started/exercise_overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises Overview</span></a>
+  <a href="../../qmd/getting_started/data_sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data sets</span></a>
   </div>
 </li>
       </ul>
@@ -562,7 +561,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#absolute-paths-vs.-relative-paths" id="toc-absolute-paths-vs.-relative-paths" class="nav-link" data-scroll-target="#absolute-paths-vs.-relative-paths">Absolute paths vs.&nbsp;relative paths</a></li>
   <li><a href="#the-here-package" id="toc-the-here-package" class="nav-link" data-scroll-target="#the-here-package">The <code>here</code> package</a></li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
-  <li><a href="#data-set" id="toc-data-set" class="nav-link" data-scroll-target="#data-set">Data set</a></li>
   </ul>
 </nav>
     </div>
@@ -588,7 +586,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="data-types" class="level2">
 <h2 class="anchored" data-anchor-id="data-types">Data types</h2>
-<p>There are many different data types out there, of which many can be loaded into R. Depending on the type, different commands are used within R. Sometimes, we will have to use additional packages to get access to that function, mainly <code>readxl</code> and <code>haven</code>.</p>
+<p>There are many different data types out there, most of which can also be loaded into R. Depending on the type, different commands are used. Sometimes, we will have to use additional packages to get access to that function, mainly <code>readxl</code> and <code>haven</code>.</p>
 <div class="cell-output-display">
 <table class="table">
 <colgroup>
@@ -650,7 +648,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="absolute-paths-vs.-relative-paths" class="level2">
 <h2 class="anchored" data-anchor-id="absolute-paths-vs.-relative-paths">Absolute paths vs.&nbsp;relative paths</h2>
-<p>You can head to a specific file by using the full path (<strong>absolute path</strong>): <code>"C:\Users\hafiznij\Documents\GitHub\r_tutorial\raw_data\winners.rda"</code>. This approach has some disadvantages: it will only work on <strong>my</strong> notebook. If i want to continue my project on another device, i will have to change the path. The same goes for other people who want to work with my project. So, to keep these paths more reproducable, we should always use <strong>relative paths</strong> if possible: <code>".\raw_data\winners.rda"</code>. This will always work independently of the device i am working on, as long as i am in the correct <strong>working directory</strong>.</p>
+<p>I can head to a specific file by using the full path (<strong>absolute path</strong>): <code>"C:\Users\hafiznij\Documents\GitHub\r_tutorial\raw_data\winners.rda"</code>. This approach has some disadvantages: it will only work on <strong>my</strong> notebook. If I want to continue my project on another device, I will have to change the path. The same goes for other people who want to work with my project. So, to keep these paths more reproducable, we should always use <strong>relative paths</strong>: <code>".\raw_data\winners.rda"</code>. This will always work independently of the device I am working on, as long as I am in the correct <strong>working directory</strong>.</p>
 <p>The working directory is the path R is currently working in. I can obtain it by typing:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -658,8 +656,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "/home/runner/work/r_tutorial/r_tutorial/qmd/load_data"</code></pre>
 </div>
 </div>
-<p>Luckily, as long as we work with RStudio projects, we don’t have to deal with that, as the working directory is set automatically by the project.</p>
-<p>Now take a look at the working directory and the relative path i used for loading the <code>winners.rda</code>. Notice something? Correct, both paths combined equal the <strong>absolute path</strong> to the file. So by splitting it up, we obtain a more reproducible path, that works independent of where the current working directory is.</p>
+<p>Luckily, we have already created a RStudio projects, which sets the working directory set automatically, so we don’t really have to deal with that.</p>
+<p>Now take a look at the working directory and the relative path I used for loading the <code>winners.rda</code>. Notice something? Correct, both paths combined equal the <strong>absolute path</strong> to the file. So by splitting it up, we obtain a more reproducible path, that works independent of where the current working directory is.</p>
 </section>
 <section id="the-here-package" class="level2">
 <h2 class="anchored" data-anchor-id="the-here-package">The <code>here</code> package</h2>
@@ -667,23 +665,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
-</section>
-<section id="data-set" class="level2">
-<h2 class="anchored" data-anchor-id="data-set">Data set</h2>
-<p><img src="../pictures/olympics.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>For the rest of the workshop, we will use a data set containing the olympic athletes from 1896 to 2016.</p>
-<p>Let’s load it into R:</p>
+<p>Let’s load our Olympic athletes data set into R. When we look into our <a href="#Data-types">table</a> we can see we have to use the <code>readRDS()</code> function for loading <code>.rds</code> files:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>athletes <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"athletes.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@floschmaezz?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Florian Schmetz</a> on <a href="https://unsplash.com/de/fotos/fbCtFV3FkfE?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

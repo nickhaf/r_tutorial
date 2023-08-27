@@ -231,8 +231,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/getting_started/exercise_overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises Overview</span></a>
+  <a href="../../qmd/getting_started/data_sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data sets</span></a>
   </div>
 </li>
       </ul>
@@ -588,13 +588,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>Which variables does our data have?</li>
 <li>How many rows/columns does our data frame have? If we have a list, how long is it, what is saved within?</li>
-<li>What types are our variables? Do we have to transform them, before we can work with them?</li>
-<li>Do we have any <a href="../missing/missings.qmd">missing values</a>?</li>
+<li>What types do our variables have (are they numeric, character …)? Do we have to transform them, before we can work with them?</li>
+<li>Do we have any <a href="../../qmd/missing/missing.html">missing values</a>?</li>
 </ol>
 <p>To answer these questions, we have different tools at our disposal:</p>
 <section id="view" class="level2">
 <h2 class="anchored" data-anchor-id="view"><code>View()</code></h2>
-<p>To take a look at these data structures, we can use different commands. One of the most important ones might be <code>View()</code>, which will open the data set excel-style in a new window:</p>
+<p><code>View()</code> will open the data set excel-style in a new window:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(athletes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -602,7 +602,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="head" class="level2">
 <h2 class="anchored" data-anchor-id="head"><code>head()</code></h2>
-<p>Head helps you to get an overview of the data, as it prints the first six rows of it into your console:</p>
+<p>Head helps you to get an overview of the data frame, as it prints the first six rows into your console:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(athletes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -629,7 +629,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6 Wrestling Men's Welterweight, Freestyle  &lt;NA&gt; Afghanistan</code></pre>
 </div>
 </div>
-<p>We have already used that to get an overview of the data.</p>
 </section>
 <section id="str" class="level2">
 <h2 class="anchored" data-anchor-id="str"><code>str()</code></h2>
@@ -656,11 +655,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
 </div>
 </div>
-<p>Here, the column names are printed on the left side, followed by the <a href="">type</a> of the column and then the first few values of each column. We can also see in the first row that this object is a data frame with <code>271116</code> rows and <code>15</code> columns.</p>
+<p>Here, the column names are printed on the left side, followed by the <a href="">type</a> of the column and then the first few values of each column. We can also see at the top that this object is a data frame with 270767 rows and 16 columns.</p>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary"><code>summary()</code></h2>
-<p>Finally, to get an overview of the statistical properties of all columns and their missing values, we can use <code>summary()</code>:</p>
+<p>Finally, to get a more thourough overview of our variables, we can use <code>summary()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(athletes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -698,7 +697,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                                                                             </code></pre>
 </div>
 </div>
-<p>For numeric columns we can see some distributional properties, like minimum and maximum, median and mean, as well as the first and third quantile. In case of <a href="../missings/missings.qmd">missing values</a> (<code>NAs</code>) their number is printed at the bottom (e.g., look at the <code>Age</code> column). We will look at how to deal with missings soon, but first we have to talk about <a href="../../qmd/subsetting/subsetting.html">subsetting data</a>.</p>
+<p>For numeric columns we get their minimum and maximum, median and mean, as well as the first and third quantile. In case of <a href="../../qmd/missing/missing.html">missing values</a> (<code>NAs</code>) their number is printed at the bottom (e.g., look at the <code>Age</code> column). We will look at how to deal with missings soon, but first we have to talk about <a href="../../qmd/subsetting/subsetting.html">subsetting data</a>.</p>
 
 
 </section>
