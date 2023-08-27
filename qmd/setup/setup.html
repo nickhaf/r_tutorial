@@ -100,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Open Research Summer School - Setup">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://github.com/nickhaf/r_tutorial/qmd/setup/qmd/pictures/RStudio_window.PNG">
+<meta property="og:image" content="https://github.com/nickhaf/r_tutorial/qmd/pictures/RStudio_window.PNG">
 <meta property="og:site-name" content="Open Research Summer School">
 </head>
 
@@ -574,25 +574,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="installation" class="level2">
 <h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<p>Please go to <a href="https://posit.co/download/rstudio-desktop/">this website</a> and download and install R and RStudio. While R is is a language and environment for statistical computing and graphics, RStudio is a according integrated development environment for R, facilitating working with it.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<p>Please go to <a href="https://posit.co/download/rstudio-desktop/">this website</a> and download and install R and RStudio. While R is is a language and environment for statistical computing and graphics, RStudio is the most used integrated development environment for R, facilitating working with it.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Open if you don’t want to install anything
+Open if you want to use R in your browser instead of installing it
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>In case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well (at least 25 hours per month, but that should be more than enough for this workshop and probably for the following week).</p>
+<p>In case you don’t use a notebook where you can install R and RStudio, or you don’t want to, you can use the posit Cloud service. It can be run in you browser, and provides the same functions and interface as if you were working with your own RStudio installation. And it’s free as well!</p>
 <ol type="1">
-<li>Go to <a href="https://posit.cloud/">posit Cloud</a>.</li>
-<li>Click on <code>GET STARTED</code>.</li>
-<li>Create an account (it’s free) and login.</li>
-<li>On the upper right, click on <code>New Project</code>. This will create a new RStudio project, which you can use the same way as described in this tutorial.</li>
+<li>Go to <a href="https://posit.cloud/plans/free">posit Cloud</a>.</li>
+<li>Click on <code>Sign Up</code> to create an account (it’s free) and login.</li>
+<li>On the upper right, click on <code>New Project</code>. This will create a new RStudio project, which you can follow this workshop with the same way as if you had installed R on your notebook.</li>
 </ol>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -606,7 +605,7 @@ Warning
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Keep in mind that the free posit Cloud account only gives you 25 computing ours per month. This should be enough for this week. See <a href="https://posit.cloud/plans">here</a> for the subscription plans.</p>
+<p>Keep in mind that the free posit Cloud account only gives you 25 computing hours per month, but this should be more than enough for this week. See <a href="https://posit.cloud/plans">here</a> for the subscription plans.</p>
 </div>
 </div>
 </div>
@@ -616,13 +615,14 @@ Warning
 </section>
 <section id="structure-of-the-rstudio-interface" class="level2">
 <h2 class="anchored" data-anchor-id="structure-of-the-rstudio-interface">Structure of the RStudio interface</h2>
-<p>When opening RStudio it will look something like this:</p>
-<p><img src="./qmd/pictures/RStudio_window.PNG" class="img-fluid"></p>
+<p>When you open RStudio it will look something like this:</p>
+<p><img src="../pictures/RStudio_window.PNG" class="img-fluid"></p>
 <p>The window can be split into 4 parts:</p>
-<p><img src="./qmd/pictures/window_commented.PNG" class="img-fluid"></p>
+<p><img src="../pictures/window_commented.PNG" class="img-fluid"></p>
 <section id="script-pane" class="level3">
 <h3 class="anchored" data-anchor-id="script-pane">1) Script pane</h3>
-<p>The script pane is used to edit scripts. Scripts are the files you store your code in. You can execute a line of code by pressing <code>ctrl + enter</code> (on windows) or <code>command + return</code> (on macOS). To execute multiple lines of code at once, mark them before you press the keys. Try it yourself: Write</p>
+<p>The script pane is used to edit scripts. Scripts are the files you store your code in.<br>
+You can execute a line of code by pressing <code>ctrl + enter</code> (on windows) or <code>command + return</code> (on macOS). To execute multiple lines of code at once, mark them before you press the keys. Try it yourself! Write:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Our first line of code:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello World!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -630,12 +630,12 @@ Warning
 <pre><code>[1] "Hello World!"</code></pre>
 </div>
 </div>
-<p>into your script and execute your first line of code. It should output “Hello World!” in your console.</p>
+<p>into your script and execute it. It should output “Hello World!” in your console.</p>
 <p>By the way: Code lines, that are preceded by a <code>#</code> are commented out, and will not be evaluated.</p>
 </section>
 <section id="console" class="level3">
 <h3 class="anchored" data-anchor-id="console">2) Console</h3>
-<p>You can also work directly in the console, for example to try out things. Type, into your console and then just press <code>enter</code>:</p>
+<p>You can also work directly in the console. Type, into your console and then just press <code>enter</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum two values</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -643,14 +643,15 @@ Warning
 <pre><code>[1] 15</code></pre>
 </div>
 </div>
+<p>Just beware that the code you write here will not be saved, so it is more usefull for trying out things or for code, you don’t need to save in a script.</p>
 </section>
 <section id="workspace" class="level3">
 <h3 class="anchored" data-anchor-id="workspace">3) Workspace</h3>
-<p>Here you have an overview over the objects currently loaded into your R session, your command history and some more options we won’t need for now.</p>
+<p>In the <code>Environment tab</code> you get an overview over the objects currently loaded into your R session. You can also look at your command history and some more things we don’t need for now.</p>
 </section>
 <section id="plots-files-help" class="level3">
 <h3 class="anchored" data-anchor-id="plots-files-help">4) Plots, Files, Help …</h3>
-<p>Plots you build in your R session get output here. If you call the <a href="https://nickhaf.github.io/r_tutorial/qmd/basics/basics.html#help">help function</a> the documentation opens here. The <code>Files</code> pane let’s you mange the files in your working directory.</p>
+<p><a href="../../qmd/plotting/plotting.html">Plots</a> you build in your R session get output in the <code>Plot tab</code>. If you call the <a href="https://nickhaf.github.io/r_tutorial/qmd/basics/basics.html#help">help function</a> the documentation opens in the <code>Help tab</code>. The <code>Files tab</code> let’s you mange the files in your working directory.</p>
 
 
 </section>

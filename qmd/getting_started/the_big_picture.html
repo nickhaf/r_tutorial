@@ -546,6 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#missings" id="toc-missings" class="nav-link" data-scroll-target="#missings">Missings</a></li>
   <li><a href="#subsetting-data" id="toc-subsetting-data" class="nav-link" data-scroll-target="#subsetting-data">Subsetting data</a></li>
   <li><a href="#adding-a-new-column" id="toc-adding-a-new-column" class="nav-link" data-scroll-target="#adding-a-new-column">Adding a new column</a></li>
+  <li><a href="#selecting-columns" id="toc-selecting-columns" class="nav-link" data-scroll-target="#selecting-columns">Selecting columns</a></li>
   <li><a href="#some-additional-summary-statistics" id="toc-some-additional-summary-statistics" class="nav-link" data-scroll-target="#some-additional-summary-statistics">Some additional summary statistics</a></li>
   <li><a href="#plot-the-data" id="toc-plot-the-data" class="nav-link" data-scroll-target="#plot-the-data">Plot the data</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
@@ -560,17 +561,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="the-big-picture" class="level1">
 <h1>The Big Picture</h1>
-<p>Now that we have completed our set up, let’s dive right into programming with <code>R</code>. In this chapter, we will go through a “mini-project” with very basic data, which follows a possible workflow when working with data in <code>R</code>. We will install and load packages, load data, perform some operations on this data, calculate some summary statistics and plot them. In later chapters, we will go into a little more depth for each topic. If you want to have more in depth information instead of following the whole workflow first, you can also skip this chapter and jump to the chapters and exercises you are interested in. But make sure to do the final exercise, to test you R proficiency in the end.</p>
+<p>Now that we have completed our set up, let’s dive right into programming with <code>R</code>. In this chapter, we will go through a “mini-project” with very basic data, which follows a possible workflow when working with data in <code>R</code>. We will install and load packages, load data, perform some operations on this data, calculate some summary statistics and plot them. In later chapters, we will go into a little more depth for each topic. If you want to have more in depth information instead of following the whole workflow first, you can also skip this chapter and jump to the chapters and exercises you are interested in.</p>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p><a href="packages.qmd">Packages</a> are extensions to the <code>base R</code> you get by default. We already installed our first packages in <a href="setup.qmd#about-this-workshop">About this workshop</a>. Let’s keep doing that and install the following package as well:</p>
+<p><a href="packages.qmd">Packages</a> are extensions to the <code>base R</code> you get by default. Let’s install a package collection, that makes it easier to work with data in R:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The <code>tidyverse</code> is a collection of packages following a common philosophy, and facilitate many aspects of coding in R, for example data wrangling and plotting. We will use both functions from base R and from the <code>tidyverse</code>. However, as i personally find them to be easier to understand in many cases, we will use <code>tdiyverse</code> functions a lot in the current chapter, so you can quickly get an overview of what is possible with R.</p>
+<p>The <a href="../../qmd/basics/tidyverse.html"><code>tidyverse</code></a> is a collection of packages following a common philosophy, and facilitating many aspects of coding in R. We will use functions from <code>base R</code> and from the <code>tidyverse</code>. However, as I personally find them a bit more intuitive in many cases, we will use <code>tdiyverse</code> functions a lot in the current chapter, so you can quickly get an insight into what is possible with R.</p>
+<div class="tidy">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tidyverse code will be marked like this.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 <p>Just by installing the packages, we can’t use them. We also have to load them into our R session:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.2     ✔ readr     2.1.4
@@ -587,61 +593,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="load-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-data">Load Data</h2>
-<p>Data is loaded into R so you can work with it. For this chapter, we are going to use the data set <code>babynames</code>, which we can find on the <code>tidytuesday</code> site. You can find it on <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">here</a>.We want to look at the most common name in every year and make a nice plot out of it.</p>
+<p>Data is loaded into R so you can work with it. For this chapter, we are going to use the data set <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-22/readme.md"><code>babynames</code></a>, which we can find on the <code>tidytuesday</code> site. I have already tweaked the data set a bit, so download it from <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">here</a> in case you want to follow along.<br>
+Our goal is to look at the most common name in every year and make a nice plot out of it.</p>
+<p>So, after downloading it and saving it in the folder <code>raw_data</code> within my project directory, I can load the data set into R with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>babynames <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./raw_data/babynames.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>babynames <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./raw_data/babynames.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The above code will load the data into R and assigning it the name <code>babynames</code> by using the <code>&lt;-</code>. You can see the data popping up in your <code>Environment</code> pane on the upper right.</p>
+<p>This will load the data into R and assigning it the name <code>babynames</code> by using the <code>&lt;-</code>. You can see the data popping up in your <code>Environment</code> pane on the upper right. Note that the file path might differ on your device, depending on where you saved your data.</p>
 </section>
 <section id="take-a-look" class="level2">
 <h2 class="anchored" data-anchor-id="take-a-look">Take a look</h2>
-<p>Now that we have our data loaded safely into R, we can get an overview with a multitude of commands. One of the most important ones might be <code>View()</code>, which will open the data set excel-style in a new window:</p>
+<p>Now that we have our data loaded safely into R, we can get an overview with a multitude of commands. One of the most important ones might be <code>head()</code>, which will give us the first few rows of the data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(babynames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babynames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  year sex      name ID
+1 1880   F      Mary  1
+2 1880   F      Anna  2
+3 1880   F      Emma  3
+4   NA   F Elizabeth  4
+5 1880   F    Minnie  5
+6 1880   F  Margaret  6</code></pre>
+</div>
 </div>
 <p>Especially for bigger data sets, it might be more feasible to only look at the structure and not the whole data set:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(babynames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(babynames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   1924665 obs. of  5 variables:
- $ year: num  NA 1880 1880 NA 1880 1880 1880 1880 1880 1880 ...
+<pre><code>'data.frame':   1924665 obs. of  4 variables:
+ $ year: num  1880 1880 1880 NA 1880 1880 1880 1880 1880 1880 ...
  $ sex : chr  "F" "F" "F" "F" ...
  $ name: chr  "Mary" "Anna" "Emma" "Elizabeth" ...
- $ prop: num  0.0724 0.0267 0.0205 0.0199 0.0179 ...
  $ ID  : int  1 2 3 4 5 6 7 8 9 10 ...</code></pre>
 </div>
 </div>
-<p>On the left we can see the columns of this data.frame, named <code>year</code>, <code>sex</code>, <code>names</code>, <code>n</code> and <code>prop</code>. On the right we see the first values in each column, for example <code>NA</code>, <code>1980</code>, <code>1980</code> etc … in the <code>year</code>-column.</p>
+<p>On the left we can see the columns of this data.frame, named <code>year</code>, <code>sex</code>, <code>names</code>, and <code>ID</code>. On the right we see the first values in each column, for example <code>1880</code>, <code>1880</code>, <code>1880</code>, <code>NA</code> etc … in the <code>year</code>-column.</p>
+<p>So, what we can infer from the data and its online description is that it contains the most common names for boys and girls in the USA for each year since <code>1880</code>.</p>
 </section>
 <section id="merging" class="level2">
 <h2 class="anchored" data-anchor-id="merging">Merging</h2>
-<p>Sadly the data is not complete. The n is missing (ok, i split it up for illustrational purposes). So let’s load it quickly:</p>
+<p>Sadly the data is not complete. If we had the number of people named with each name every year, we could find out which name was the most common each year, and make a nice plot out of it. However, the number of people with the respective name each year is missing (ok, i split it up for illustrative purposes). So let’s <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">download</a> it and load it into R quickly:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>babynames_n <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./raw_data/babynames_n.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>babynames_n <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./raw_data/babynames_n.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>And now <a href="manipulation.qmd#Merging">merge</a> it:</p>
+<p>And now <a href="manipulation.qmd#Merging">merge</a> it with our other data set by the <code>ID</code> column:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>babynames_merged <span class="ot">&lt;-</span> <span class="fu">merge</span>(babynames, babynames_n)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babynames_merged)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>babynames_merged <span class="ot">&lt;-</span> <span class="fu">merge</span>(babynames, babynames_n)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babynames_merged)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  ID year sex      name       prop    n
-1  1   NA   F      Mary 0.07238359 7065
-2  2 1880   F      Anna 0.02667896 2604
-3  3 1880   F      Emma 0.02052149 2003
-4  4   NA   F Elizabeth 0.01986579 1939
-5  5 1880   F    Minnie 0.01788843 1746
-6  6 1880   F  Margaret 0.01616720 1578</code></pre>
+<pre><code>  ID year sex      name    n       prop
+1  1 1880   F      Mary 7065 0.07238359
+2  2 1880   F      Anna 2604 0.02667896
+3  3 1880   F      Emma 2003 0.02052149
+4  4   NA   F Elizabeth 1939 0.01986579
+5  5 1880   F    Minnie 1746 0.01788843
+6  6 1880   F  Margaret 1578 0.01616720</code></pre>
 </div>
 </div>
-<p>Hold on! The column <code>years</code> seems to include missing values (<code>NA's</code>, see the cell on the top left). It is always a good idea to deal with them before doing any analyses, so let’s do just that:</p>
+<p>Hold on! The column <code>years</code> seems to include missing values (<code>NA's</code>, see the cell on the top left). It is always a good idea to at least think about the <a href="../missings/missings.qmd">missing values</a>. before doing any analyses, so let’s do just that:</p>
 </section>
 <section id="missings" class="level2">
 <h2 class="anchored" data-anchor-id="missings">Missings</h2>
-<p>There are multiple ways to deal with <a href="http://localhost:5462/manipulation.html#missing-values">missing values</a>. For reasons of simplicity, we will just remove any rows that contain <code>NA's</code>. We can achieve that very easily using a function from the <code>tidyverse</code> (the package collection we installed at the beginning of this chapter):</p>
+<p>There are multiple ways to deal with <a href="../missings/missings.qmd">missing values</a>. For reasons of simplicity, we will just remove any rows that contain <code>NA's</code>. We can achieve that very easily using a function from the <code>tidyverse</code> (the package collection we installed at the beginning of this chapter):</p>
 <div class="tidy">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>babynames_merged <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(babynames_merged)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>babynames_merged <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(babynames_merged)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -650,111 +667,113 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>One very important part of working with data in R is the <a href="subsetting.qmd">subsetting</a> of data. This means we select specific values from a data set. Let’s suppose we want to only look at the female names in this data set:</p>
 <div class="tidy">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>babynames_F <span class="ot">&lt;-</span> babynames_merged <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"F"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>babynames_F <span class="ot">&lt;-</span> babynames_merged <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"F"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="adding-a-new-column" class="level2">
 <h2 class="anchored" data-anchor-id="adding-a-new-column">Adding a new column</h2>
-<p>Now, we want to plot the percentages of each name, instead of the propability, because it looks a bit more intuitive. So, let’s build a new column:</p>
+<p>Now, we want to plot the percentages of each name, instead of the probability, because it looks a bit more intuitive. So, let’s build a new column named <code>percentage</code>, which is just the <code>prop</code> column multiplied by <code>100</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>babynames_F<span class="sc">$</span>percentage <span class="ot">&lt;-</span> babynames_F<span class="sc">$</span>prop <span class="sc">*</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>babynames_F<span class="sc">$</span>percentage <span class="ot">&lt;-</span> babynames_F<span class="sc">$</span>prop <span class="sc">*</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="some-additional-summary-statistics" class="level2 advanced">
+<section id="selecting-columns" class="level2">
+<h2 class="anchored" data-anchor-id="selecting-columns">Selecting columns</h2>
+<p>Now we can trim down our data set a bit more:</p>
+</section>
+<section id="some-additional-summary-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="some-additional-summary-statistics">Some additional summary statistics</h2>
-<p>Now, the specifics of the next part are not really relevant. However, they can show you how easy it can be to deal with data in R: First, let’s group our data according to year:</p>
+<p>Now, the specifics of the next part are not really relevant. However, they can show you how easy it can be to deal with data in R, so follow along if you want to. First, let’s group our data according to year:</p>
 <div class="tidy">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>babynames_F_grouped <span class="ot">&lt;-</span> babynames_F <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>babynames_F_grouped <span class="ot">&lt;-</span> <span class="fu">group_by</span>(babynames_F, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>Any operations we now perform are performed for every group. In our case, we want to find the name with the maximum <code>prop</code> in each group:</p>
+<p>Any operations we now perform are performed by year, and not on the whole data set at once. In our case, we want to find the most common name each year, which is the name with the maximum <code>percentage</code>:</p>
 <div class="tidy">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>babynames_F_max <span class="ot">&lt;-</span> babynames_F_grouped <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">which.max</span>(percentage))</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babynames_F_max)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>babynames_F_max <span class="ot">&lt;-</span> <span class="fu">slice</span>(babynames_F_grouped, <span class="fu">which.max</span>(percentage))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babynames_F_max)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 7
 # Groups:   year [6]
-     ID  year sex   name    prop     n percentage
-  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;
-1     2  1880 F     Anna  0.0267  2604       2.67
-2  2001  1881 F     Mary  0.0700  6919       7.00
-3  3936  1882 F     Mary  0.0704  8148       7.04
-4  6063  1883 F     Mary  0.0667  8012       6.67
-5  8147  1884 F     Mary  0.0670  9217       6.70
-6 10444  1885 F     Mary  0.0643  9128       6.43</code></pre>
+     ID  year sex   name      n   prop percentage
+  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1     1  1880 F     Mary   7065 0.0724       7.24
+2  2001  1881 F     Mary   6919 0.0700       7.00
+3  3936  1882 F     Mary   8148 0.0704       7.04
+4  6063  1883 F     Mary   8012 0.0667       6.67
+5  8147  1884 F     Mary   9217 0.0670       6.70
+6 10444  1885 F     Mary   9128 0.0643       6.43</code></pre>
 </div>
 </div>
 </div>
-<p>Great! We now have a data frame containing one row for every year. In it, we find the name most common in that year. As already mentioned, the specifics of these functions are not really relevant for this workshop.</p>
+<p>The <code>which.max(percentage)</code> command finds the maximum percentage per year. <code>slice()</code> will extract the respective rows, so we have only the row contatining the most common name per year in the end.</p>
+<p>As already mentioned, the specifics of these functions are not really relevant for now, but we need them for our final plot:</p>
 </section>
 <section id="plot-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="plot-the-data">Plot the data</h2>
-<p>This section is more additional and not really necessary for the other workshops. However, i think it is a great way to show you the beauty of plotting in R, so here it goes (make sure you worked on the other concepts first).</p>
-<p>We will use the package <code>ggplot2</code> (which is also part of the <code>tidyverse</code>) for plotting our data. It should be mentioned that <code>Base R</code> also has some powerful plotting functions, however, <code>ggplot2</code> makes it very easy to build complex and beautiful plots.</p>
-<p>A ggplot is constructed from multiple layers, that can be laid over each other using the <code>+</code> operator.</p>
-<p>We start with the function <code>ggplot()</code>, where we define our data and the x and y aestetics.</p>
+<p>We will use the package <code>ggplot2</code> (which is also part of the <code>tidyverse</code>) for <a href="../../qmd/plotting/plotting.html">plotting our data</a>. It should be mentioned that <code>Base R</code> also has some powerful plotting functions, however, <code>ggplot2</code> makes it very easy to build complex and beautiful plots.</p>
+<p>A <code>ggplot</code> is constructed from multiple layers, that can be laid over each other using the <code>+</code> operator.</p>
+<p>We start with the function <code>ggplot()</code>, where we define our data and the x and y axes.</p>
 <div class="tidy">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> babynames_F_max,</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> year,</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> percentage)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> babynames_F_max,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> year,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> percentage)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can also define different colours for different groups. For example, if we want the bars to get filled with a colour corresponding to the name they are representing, we can do that:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> babynames_F_max,</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> year,</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> percentage,</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> name</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> babynames_F_max,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> year,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> percentage,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> name</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now that we have defined our aesthetics, we can add a <code>geom</code>-layer. This will make use of the data we have defined in <code>ggplot()</code> and plot some bars for us:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="the_big_picture_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Let’s give the axes some more informative names and a title to the plot:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Most common female name in the United States of America by year"</span>) <span class="sc">+</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Birthyear"</span>) <span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Percentage of children given that name relative to total births"</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="the_big_picture_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Finally, to style the plot a bit, let’s add a predefined theme and a color palette:</p>
+<p>Let’s give the axes some more informative names and a title to the plot:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Most common female name in the United States of America by year"</span>) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Birthyear"</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Percentage of children given that name relative to total births"</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="the_big_picture_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Finally, to style the plot a bit, let’s add a predefined theme and a color palette:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="co"># Theme</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set3"</span>) <span class="co"># Color palette</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="the_big_picture_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
+</div>
+</div>
+<p>We would have many more options to style this plot further (for example we could sort the names in the Legend by order of appearance), but let’s keep it at that for now.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>In this tutorial we learned, that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. Either follow the course, or navigate to the chapters you are most interested in.</p>
-<p>Test link to <a href="./basics/basics.qmd">basics</a></p>
+<p>In this tutorial we learned, that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. Either follow the course, or navigate to the chapters you are most interested in. But first, take a look at the new data set you will be working with throughout the exercises.</p>
 
 
 </section>

@@ -505,9 +505,8 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#workflow" id="toc-workflow" class="nav-link active" data-scroll-target="#workflow">Workflow</a>
   <ul class="collapse">
-  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts">Scripts</a></li>
   <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio Projects</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts">Scripts</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -519,8 +518,14 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="workflow" class="level2">
 <h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
+<section id="rstudio-projects" class="level3">
+<h3 class="anchored" data-anchor-id="rstudio-projects">RStudio Projects</h3>
+<p>Over time, it will become increasingly hard to organize all your files, working directories and workspaces in a reasonable manner. A reasonable big project will consists of multiple script files, data, output and plots. To keep everything toghether, RStudio Projects can be used (highly recommended). Therefore, when starting a new project in R, the first thing you should do is creating an RStudio project.</p>
+<p>You can create a new RStudio project by clicking on <code>File - New Project</code> in the RStudio window.</p>
+</section>
 <section id="scripts" class="level3">
 <h3 class="anchored" data-anchor-id="scripts">Scripts</h3>
+<p>Scripts are the documents code is saved in.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -531,34 +536,12 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When only coding in our <a href="#console">console</a> we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our important code into a <a href="#script_pane">script</a>.</p>
+<p>When only coding in our <a href="#console">console</a> we quickly run into the question where to save our code for further evaluation. Therefore, we want to write all our important code into a <a href="https://nickhaf.github.io/r_tutorial/qmd/setup/setup.html#script-pane">script</a>.</p>
 </div>
 </div>
-</section>
-<section id="rstudio-projects" class="level3">
-<h3 class="anchored" data-anchor-id="rstudio-projects">RStudio Projects</h3>
-<p>Over time, it will become increasingly hard to organize all your files, working directories and workspaces in a reasonable manner. For this, RStudio Projects can be used (highly recommended).</p>
-</section>
-<section id="exercises" class="level3">
-<h3 class="anchored" data-anchor-id="exercises">Exercises</h3>
-<ol type="1">
-<li>Create a new folder for this tutorial, where all your files will go.</li>
-<li>Create a new RStudio project and open it. Go to <code>File</code> - <code>New Project</code> - <code>Existing Directory</code> and select the path of the folder you created in step <code>1</code>.</li>
-<li>Create a new R Script by clicking on <code>File</code> - <code>New File</code> - <code>R Script</code>. Save it in you folder.</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Within your project folder create a folder named <code>R</code>, where all your R Scripts will go. You can do the same for <code>data</code>, <code>plots</code> etc. later on. This will help you to structure your working directory.</p>
-</div>
-</div>
+<p>Therefore, every time you start a new project, you should also create at least one script to put your code in. You can also split up long code among several scripts to make it more readable.</p>
+<p>You can create a new script by clicking on <code>File - New File - R Script</code> in the RStudio window.</p>
+<p>Now it’s your turn! In the Workflow exercise you will set yourself up for the following workshop.</p>
 
 
 </section>
