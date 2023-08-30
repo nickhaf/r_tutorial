@@ -619,25 +619,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We also assign the new name <code>athletes_na</code> to the resulting data frame, so we don’t overwrite the original one.</p>
-<p>Removing <code>NA's</code> from a data set works pretty similar:</p>
+<p>Removing <code>NA's</code> from a data frame works pretty similar:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>athletes_na <span class="ot">&lt;-</span> athletes[<span class="sc">!</span>(athletes<span class="sc">$</span>Weight), ]</span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>athletes_na <span class="ot">&lt;-</span> athletes[<span class="sc">!</span><span class="fu">is.na</span>(athletes<span class="sc">$</span>Weight), ]</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(athletes_na)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      NOC ID Name  Sex Age Height Weight Team Games Year Season City Sport
-NA   &lt;NA&gt; NA &lt;NA&gt; &lt;NA&gt;  NA     NA     NA &lt;NA&gt;  &lt;NA&gt;   NA   &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;
-NA.1 &lt;NA&gt; NA &lt;NA&gt; &lt;NA&gt;  NA     NA     NA &lt;NA&gt;  &lt;NA&gt;   NA   &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;
-NA.2 &lt;NA&gt; NA &lt;NA&gt; &lt;NA&gt;  NA     NA     NA &lt;NA&gt;  &lt;NA&gt;   NA   &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;
-NA.3 &lt;NA&gt; NA &lt;NA&gt; &lt;NA&gt;  NA     NA     NA &lt;NA&gt;  &lt;NA&gt;   NA   &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;
-NA.4 &lt;NA&gt; NA &lt;NA&gt; &lt;NA&gt;  NA     NA     NA &lt;NA&gt;  &lt;NA&gt;   NA   &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;
-NA.5 &lt;NA&gt; NA &lt;NA&gt; &lt;NA&gt;  NA     NA     NA &lt;NA&gt;  &lt;NA&gt;   NA   &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;
-     Event Medal Region
-NA    &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;
-NA.1  &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;
-NA.2  &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;
-NA.3  &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;
-NA.4  &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;
-NA.5  &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;</code></pre>
+<pre><code>   NOC     ID                 Name Sex Age Height Weight        Team
+3  AFG  44977    Mohammad Halilula   M  28    163     57 Afghanistan
+5  AFG 109153   Shakar Khan Shakar   M  24     NA     74 Afghanistan
+6  AFG  29626 Sultan Mohammad Dost   M  28    168     73 Afghanistan
+9  AFG  80210             Alam Mir   M  NA     NA     57 Afghanistan
+11 AFG 116125 Nizam-ud-din Subhani   M  34    168    111 Afghanistan
+13 AFG 133692    Khojawahid Zahedi   M  20    178     74 Afghanistan
+         Games Year Season   City     Sport
+3  1980 Summer 1980 Summer Moskva Wrestling
+5  1964 Summer 1964 Summer  Tokyo Wrestling
+6  1960 Summer 1960 Summer   Roma Wrestling
+9  1972 Summer 1972 Summer Munich Wrestling
+11 1960 Summer 1960 Summer   Roma Wrestling
+13 1980 Summer 1980 Summer Moskva Wrestling
+                                       Event Medal      Region
+3    Wrestling Men's Bantamweight, Freestyle  &lt;NA&gt; Afghanistan
+5    Wrestling Men's Welterweight, Freestyle  &lt;NA&gt; Afghanistan
+6    Wrestling Men's Welterweight, Freestyle  &lt;NA&gt; Afghanistan
+9  Wrestling Men's Bantamweight, Greco-Roman  &lt;NA&gt; Afghanistan
+11    Wrestling Men's Heavyweight, Freestyle  &lt;NA&gt; Afghanistan
+13   Wrestling Men's Welterweight, Freestyle  &lt;NA&gt; Afghanistan</code></pre>
 </div>
 </div>
 <div class="tidy">
@@ -683,6 +690,7 @@ NA.5  &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;</code></pre>
 </div>
 </div>
 </div>
+<p>Both code versions will remove all rows containing <code>NAs</code> in the <code>weight column</code>.</p>
 <p>As already stated, it is not always necessary to remove <code>NAs</code> manually from the data set. In other cases it might be feasible to ignore them, and many functions can deal with missing values by themselves.</p>
 
 

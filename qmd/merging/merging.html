@@ -621,14 +621,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="merging" class="level2">
 <h2 class="anchored" data-anchor-id="merging">Merging</h2>
-<p>To merge two data frames that include information that belongs together, we need a common column, on which we can combine them. In our case, this is the column containing the country. They are both named <code>region</code>, but one with an upper case <code>R</code>. This doesn’t pose a problem, as we can define which columns should be taken from which data frame for merging. Let’s take a quick look before to see, if there are any countries named differently in both data sets:</p>
+<p>To merge two data frames that include information that belongs together, we need a common column, on which we can combine them. In our case, this is the column containing the country. They are both named <code>region</code>, but one with an upper case <code>R</code>. This doesn’t pose a problem, as we can define which columns should be taken from which data frame for merging. Let’s take a quick look before to see if there are any countries named differently in both data sets (this simply combines commands we have already looked at in the <a href="https://nickhaf.github.io/r_tutorial/qmd/basics/basics.html#comparisons-and-logical-operators">Basic operations chapter</a>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>medal_counts<span class="sc">$</span>Region[<span class="sc">!</span>(medal_counts<span class="sc">$</span>Region <span class="sc">%in%</span> world_coordinates<span class="sc">$</span>region)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Individual Olympic Athletes"</code></pre>
 </div>
 </div>
-<p>Looks like all of the countries in our <code>medal_countries</code> data frame can be also found in our <code>world_coordinates</code> frame. Only athletes without a country will be lost when merging, but thats ok for now. So let’s merge:</p>
+<p>Looks like all of the countries in our <code>medal_countries</code> data frame can be also found in our <code>world_coordinates</code> frame. Only athletes without a country will be lost when merging, but that’s ok for now, as we are interested in the country specific gold medal counts. So let’s merge:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>medal_countries <span class="ot">&lt;-</span> <span class="fu">merge</span>(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> medal_counts,</span>
@@ -672,7 +672,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Great! Now the information that belongs together is stored together. Note that we didn’t check, if all the country names are actually identical and therefore possible to merge. We should have done that.</p>
+<p>Great! Now the information that belongs together is stored together.</p>
 
 
 </section>
