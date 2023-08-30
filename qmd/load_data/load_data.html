@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Open Research Summer School - Loading data</title>
+<title>Introduction to R - Loading data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,9 +98,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Open Research Summer School - Loading data">
+<meta property="og:title" content="Introduction to R - Loading data">
 <meta property="og:description" content="">
-<meta property="og:site-name" content="Open Research Summer School">
+<meta property="og:site-name" content="Introduction to R">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Open Research Summer School</span>
+    <span class="navbar-title">Introduction to R</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -649,7 +649,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "/home/runner/work/r_tutorial/r_tutorial/qmd/load_data"</code></pre>
 </div>
 </div>
-<p>Luckily, we have already created a RStudio projects, which sets the working directory set automatically, so we don’t really have to deal with that.</p>
+<p>Luckily, we have already created a RStudio projects, which sets the working directory automatically, so we don’t really have to deal with that.</p>
 <p>Now take a look at the working directory and the relative path I used for loading the <code>winners.rda</code>. Notice something? Correct, both paths combined equal the <strong>absolute path</strong> to the file. So by splitting it up, we obtain a more reproducible path, that works independent of where the current working directory is.</p>
 </section>
 <section id="the-here-package" class="level2">
@@ -658,7 +658,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
-<p>Let’s load our Olympic athletes data set into R. When we look into our <a href="#Data-types">table</a> we can see we have to use the <code>readRDS()</code> function for loading <code>.rds</code> files. In case you wonder what the <code>here::here()</code> part means look at the section about <a href="https://nickhaf.github.io/r_tutorial/qmd/load_data/load_data.html#the-here-package">the <code>here</code> package</a>. It facilitates working with file pahts in R.</p>
+<p>Let’s load our Olympic athletes data set into R. When we look into our <a href="#Data-types">table</a> we can see we have to use the <code>readRDS()</code> function for loading <code>.rds</code> files.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>athletes <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"athletes.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

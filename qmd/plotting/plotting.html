@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Open Research Summer School - Plotting</title>
+<title>Introduction to R - Plotting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,10 +98,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Open Research Summer School - Plotting">
+<meta property="og:title" content="Introduction to R - Plotting">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://github.com/nickhaf/r_tutorial/qmd/plotting/plotting_files/figure-html/unnamed-chunk-3-1.png">
-<meta property="og:site-name" content="Open Research Summer School">
+<meta property="og:site-name" content="Introduction to R">
 <meta property="og:image:height" content="1536">
 <meta property="og:image:width" content="2112">
 </head>
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Open Research Summer School</span>
+    <span class="navbar-title">Introduction to R</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -588,12 +588,12 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This chapter is optional. It is not necessary to follow the rest of the conference, but you will get startet with plotting in R.</p>
+<p>This chapter is optional. It is not necessary to follow the rest of the conference, but you will get started with plotting in R.</p>
 </div>
 </div>
-<p>Now, let’s take a closer look at how <code>ggplot2</code> works. We already had a quick glimpse at it: Plots are build from different layers to create complex outputs. There are endless possibilities for different plot types, [look] here(https://r-graph-gallery.com/) for some inspiration and code.</p>
-<p>First, let’s plot a relatively simple plot to get you familiar with how <code>ggplot2</code> works. After that, we will the preparation we have done in the last chapters to use and plot the number of gold medals each country has won over the years on a world map, which gets slightly more complex.</p>
-<p>Let’s load our data:</p>
+<p>Now, let’s take a closer look at how <code>ggplot2</code> works. We already had a quick glimpse at it: Plots are build from different layers to create complex outputs. There are endless possibilities for different plot types, look at the <a href="https://r-graph-gallery.com/">R graph gallery</a> for some inspiration and code.</p>
+<p>First, let’s plot a relatively simple plot to get you familiar with how <code>ggplot2</code> works. After that, we will use the preparation we have done in the last chapters to plot the number of gold medals each country has won over the years on a world map, which gets slightly more complex.</p>
+<p>Let’s load our data (if you haven’t already):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -719,7 +719,7 @@ Note
 </section>
 <section id="second-plot" class="level2">
 <h2 class="anchored" data-anchor-id="second-plot">Second plot</h2>
-<p>Let’s take a look at another, slightly different plot, just to see what can be easily achieved with <code>ggplot2</code> (and we have prepared the data to do that, so we don’t want to wast the work).</p>
+<p>Let’s take a look at another, slightly different plot, just to see what can be easily achieved with <code>ggplot2</code> (and we have prepared the data to do that, so we don’t want to waste the work).</p>
 <p>Here is our data preparation from the previous chapters:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>world_coordinates <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"world_coordinates.rds"</span>))</span>

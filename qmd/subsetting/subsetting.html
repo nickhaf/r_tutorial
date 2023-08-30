@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Open Research Summer School - Subsetting</title>
+<title>Introduction to R - Subsetting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,9 +98,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Open Research Summer School - Subsetting">
+<meta property="og:title" content="Introduction to R - Subsetting">
 <meta property="og:description" content="">
-<meta property="og:site-name" content="Open Research Summer School">
+<meta property="og:site-name" content="Introduction to R">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Open Research Summer School</span>
+    <span class="navbar-title">Introduction to R</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -800,8 +800,8 @@ NA.4   NA   &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;                   &lt;NA&gt;  &l
 </div>
 </div>
 <p>Hmm, that looks a bit weird. Some rows only contain <code>NA</code> values. That’s because there are <a href="../../qmd/missing/missing.html">missing values</a> in the <code>Weight</code> column. We will look at that closer in the <a href="../../qmd/missing/missing.html">missings chapter</a> and ignore that problem for now.</p>
-<p>In the long run, always having to define the data frame multiple time in each row can become a bit annoying and clutters the code. Also the missings problem …<br>
-Enter, the <code>filter()</code> function:</p>
+<p>In the long run, always having to specify the name of the data frame for each column or row with condition can become a bit annoying and clutters the code. Also this code leaves all rows with missing values…<br>
+Instead, we can use the <code>filter()</code> function from the tidyverse:</p>
 <section id="rows-tidyverse" class="level4">
 <h4 class="anchored" data-anchor-id="rows-tidyverse">Rows: Tidyverse</h4>
 <div class="tidy">

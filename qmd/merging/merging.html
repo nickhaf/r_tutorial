@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Open Research Summer School - Merging data</title>
+<title>Introduction to R - Merging data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,9 +98,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Open Research Summer School - Merging data">
+<meta property="og:title" content="Introduction to R - Merging data">
 <meta property="og:description" content="">
-<meta property="og:site-name" content="Open Research Summer School">
+<meta property="og:site-name" content="Introduction to R">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Open Research Summer School</span>
+    <span class="navbar-title">Introduction to R</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -578,7 +578,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="data-set" class="level2">
 <h2 class="anchored" data-anchor-id="data-set">Data set</h2>
-<p>In the end, we want to plot the medals the countries have won on a world map. To do that, we need a data set containing coordinates of the different countries. Luckily, <code>ggplot2</code> (part of the <code>tidyverse</code>) provides a fitting data set. Let’s <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">download</a> it and load it into R:</p>
+<p>In the end, we want to plot the number of gold medals the countries have won on a world map. To do that, we need a data set containing coordinates of the different countries. Luckily, <code>ggplot2</code> (part of the <code>tidyverse</code>) provides a fitting data set. Let’s <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">download</a> it and load it into R:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>world_coordinates <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"world_coordinates.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -651,7 +651,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Note that we also used the <code>all.x</code> and <code>all.y</code> arguments. In this example, we want to take all rows from the second data set, but only those from the first data set, that have a match in the second data set. This is necessary, because we want to plot all countries later on, but only those we have coordinates for, because they won’t show up on the map otherwise.</p>
-<p>Using the tidyverse, we first have to rename our region column, as the column names need to be the same over both data sets that are merged. <code>left_join()</code> means that we will merge onto the first data set (world_coordinates), like we have done using the <code>all.x</code> and <code>all.y</code> arguments in the <code>merge()</code> function.</p>
+<p>Using the tidyverse, we first have to rename our region column, as the column names need to be the same over both data sets that are merged. <code>left_join()</code> means that we will merge onto the first data set (world_coordinates in the code below), like we have done using the <code>all.x</code> and <code>all.y</code> arguments in the <code>merge()</code> function.</p>
 <div class="tidy">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>medal_countries <span class="ot">&lt;-</span> world_coordinates <span class="sc">%&gt;%</span></span>
@@ -672,7 +672,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Great! Now the information that belongs together is stored together. Note that we didn’t check, if all the country names are actually identical and therefore possible to merge. We should have done that</p>
+<p>Great! Now the information that belongs together is stored together. Note that we didn’t check, if all the country names are actually identical and therefore possible to merge. We should have done that.</p>
 
 
 </section>
