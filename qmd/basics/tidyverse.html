@@ -581,13 +581,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-pipe-operator" class="level2">
 <h2 class="anchored" data-anchor-id="the-pipe-operator">The pipe operator</h2>
 <p><code>tidyverse</code> code is often written using the pipe operator <code>%&gt;%</code> (<em>than do</em>), which makes it easy to connect multiple function calls:</p>
+<p>In base R, one could write:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">45</span><span class="sc">:</span><span class="dv">100</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">by =</span> <span class="fl">0.1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 26313</code></pre>
 </div>
 </div>
-<p>Is the same as:</p>
+<p>Which, in the tidyverse, would be written:</p>
 <div class="tidy">
 <div class="cell" data-output.lines="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
