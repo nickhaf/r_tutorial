@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R - Merging data</title>
+<title>Introduction to R – functions_exercise</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../qmd/merging/merging_exercise.html" rel="next">
-<link href="../../qmd/format/format.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -98,9 +62,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction to R - Merging data">
-<meta property="og:description" content="">
-<meta property="og:site-name" content="Introduction to R">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -143,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">3) Data manipulation and transformation</li><li class="breadcrumb-item"><a href="../../qmd/merging/merging.html">Merging</a></li><li class="breadcrumb-item"><a href="../../qmd/merging/merging.html">Merging data</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -449,16 +410,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="false">
  <span class="menu-text">Merging</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/merging/merging.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../qmd/merging/merging.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Merging data</span></a>
   </div>
 </li>
@@ -550,129 +511,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-set" id="toc-data-set" class="nav-link active" data-scroll-target="#data-set">Data set</a></li>
-  <li><a href="#before-merging" id="toc-before-merging" class="nav-link" data-scroll-target="#before-merging">Before merging</a></li>
-  <li><a href="#merging" id="toc-merging" class="nav-link" data-scroll-target="#merging">Merging</a></li>
+  <li><a href="#kg-to-pound-function-or-something-simila-look-in-material." id="toc-kg-to-pound-function-or-something-simila-look-in-material." class="nav-link active" data-scroll-target="#kg-to-pound-function-or-something-simila-look-in-material.">kg to pound function or something simila, look in material.</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/merging/merging.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nickhaf/r_tutorial/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/functions/functions_exercise.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nickhaf/r_tutorial/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Merging data</h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<section id="data-set" class="level2">
-<h2 class="anchored" data-anchor-id="data-set">Data set</h2>
-<p>In the end, we want to plot the number of gold medals the countries have won on a world map. To do that, we need a data set containing coordinates of the different countries. Luckily, <code>ggplot2</code> (part of the <code>tidyverse</code>) provides a fitting data set. Let’s <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">download</a> it and load it into R:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>world_coordinates <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"world_coordinates.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Also, let’s load our <code>athletes</code> data set, in case you didn’t already:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>athletes <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"athletes.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="before-merging" class="level2">
-<h2 class="anchored" data-anchor-id="before-merging">Before merging</h2>
-<p>Right now, we have multiple rows for each country in both data sets. This will not be possible to merge easily, so we have to reduce our athletes data first. As you know, our goal is to plot the number of gold medals each country has won. So, we need to calculate how many gold medals each country has won over time. Let’s do that quickly, using some <code>tidyverse</code> functions. It is not especially important you understand and know everything that happens here, but we need it for the next chapters, so here it goes:</p>
-<div class="tidy">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>medal_counts <span class="ot">&lt;-</span> athletes <span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Medal <span class="sc">==</span> <span class="st">"Gold"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Region) <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Medal) </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>medal_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 99 × 3
-# Groups:   Region [99]
-   Region     Medal     n
-   &lt;chr&gt;      &lt;chr&gt; &lt;int&gt;
- 1 Algeria    Gold      5
- 2 Argentina  Gold     91
- 3 Armenia    Gold      2
- 4 Australia  Gold    368
- 5 Austria    Gold    108
- 6 Azerbaijan Gold      7
- 7 Bahamas    Gold     14
- 8 Bahrain    Gold      1
- 9 Belarus    Gold     24
-10 Belgium    Gold     98
-# ℹ 89 more rows</code></pre>
-</div>
-</div>
-</div>
-<p>What happens here? We extract all rows containing gold medals, group them by region, so our next operation is performed region wise, and not for the whole data set. Then we count how many gold medals each region got.</p>
-</section>
-<section id="merging" class="level2">
-<h2 class="anchored" data-anchor-id="merging">Merging</h2>
-<p>To merge two data frames that include information that belongs together, we need a common column, on which we can combine them. In our case, this is the column containing the country. They are both named <code>region</code>, but one with an upper case <code>R</code>. This doesn’t pose a problem, as we can define which columns should be taken from which data frame for merging. Let’s take a quick look before to see if there are any countries named differently in both data sets (this simply combines commands we have already looked at in the <a href="https://nickhaf.github.io/r_tutorial/qmd/basics/basics.html#comparisons-and-logical-operators">Basic operations chapter</a>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>medal_counts<span class="sc">$</span>Region[<span class="sc">!</span>(medal_counts<span class="sc">$</span>Region <span class="sc">%in%</span> world_coordinates<span class="sc">$</span>region)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Individual Olympic Athletes"</code></pre>
-</div>
-</div>
-<p>Looks like all of the countries in our <code>medal_countries</code> data frame can be also found in our <code>world_coordinates</code> frame. Only athletes without a country will be lost when merging, but that’s ok for now, as we are interested in the country specific gold medal counts. So let’s merge:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>medal_countries <span class="ot">&lt;-</span> <span class="fu">merge</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> medal_counts,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> world_coordinates,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.x =</span> <span class="st">"Region"</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.y =</span> <span class="st">"region"</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">all.x =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">all.y =</span> <span class="cn">TRUE</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(medal_countries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       Region Medal  n     long      lat group order subregion
-1 Afghanistan  &lt;NA&gt; NA 74.89131 37.23164     2    12      &lt;NA&gt;
-2 Afghanistan  &lt;NA&gt; NA 74.84023 37.22505     2    13      &lt;NA&gt;
-3 Afghanistan  &lt;NA&gt; NA 74.76738 37.24917     2    14      &lt;NA&gt;
-4 Afghanistan  &lt;NA&gt; NA 74.73896 37.28564     2    15      &lt;NA&gt;
-5 Afghanistan  &lt;NA&gt; NA 74.72666 37.29072     2    16      &lt;NA&gt;
-6 Afghanistan  &lt;NA&gt; NA 74.66895 37.26670     2    17      &lt;NA&gt;</code></pre>
-</div>
-</div>
-<p>Note that we also used the <code>all.x</code> and <code>all.y</code> arguments. In this example, we want to take all rows from the second data set, but only those from the first data set, that have a match in the second data set. This is necessary, because we want to plot all countries later on, but only those we have coordinates for, because they won’t show up on the map otherwise.</p>
-<p>Using the tidyverse, we first have to rename our region column, as the column names need to be the same over both data sets that are merged. <code>left_join()</code> means that we will merge onto the first data set (world_coordinates in the code below), like we have done using the <code>all.x</code> and <code>all.y</code> arguments in the <code>merge()</code> function.</p>
-<div class="tidy">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>medal_countries <span class="ot">&lt;-</span> world_coordinates <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Region"</span> <span class="ot">=</span> region) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(medal_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Joining with `by = join_by(Region)`</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(medal_countries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       long      lat group order Region subregion Medal  n
-1 -69.89912 12.45200     1     1  Aruba      &lt;NA&gt;  &lt;NA&gt; NA
-2 -69.89571 12.42300     1     2  Aruba      &lt;NA&gt;  &lt;NA&gt; NA
-3 -69.94219 12.43853     1     3  Aruba      &lt;NA&gt;  &lt;NA&gt; NA
-4 -70.00415 12.50049     1     4  Aruba      &lt;NA&gt;  &lt;NA&gt; NA
-5 -70.06612 12.54697     1     5  Aruba      &lt;NA&gt;  &lt;NA&gt; NA
-6 -70.05088 12.59707     1     6  Aruba      &lt;NA&gt;  &lt;NA&gt; NA</code></pre>
-</div>
-</div>
-</div>
-<p>Great! Now the information that belongs together is stored together.</p>
+<section id="kg-to-pound-function-or-something-simila-look-in-material." class="level2">
+<h2 class="anchored" data-anchor-id="kg-to-pound-function-or-something-simila-look-in-material.">kg to pound function or something simila, look in material.</h2>
 
 
 </section>
@@ -911,18 +760,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../qmd/format/format.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">format.html</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../qmd/merging/merging_exercise.html" class="pagination-link">
-        <span class="nav-page-text">Merging: Exercise</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
