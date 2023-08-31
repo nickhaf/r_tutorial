@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R - Loops and conditions</title>
+<title>Introduction to R – loops</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -98,10 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction to R - Loops and conditions">
-<meta property="og:description" content="">
-<meta property="og:image" content="https://github.com/nickhaf/r_tutorial/qmd/pictures/loops.jpg">
-<meta property="og:site-name" content="Introduction to R">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -133,6 +95,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../qmd/getting_started/the_big_picture.html" rel="" target="">
  <span class="menu-text">The Big Picture</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://docs.google.com/document/d/19uUsS9xiAsxmAtblkaPqbdl3m1IxurWKOoPdTc0oymM/edit?usp=sharing" rel="" target="">
+ <span class="menu-text">Ask a question</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -144,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">3) Data manipulation and transformation</li><li class="breadcrumb-item"><a href="../../qmd/loops/loops.html">Loops</a></li><li class="breadcrumb-item"><a href="../../qmd/loops/loops.html">Loops and conditions</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">3) Data manipulation and transformation</li><li class="breadcrumb-item"><a href="../../qmd/loops/loops.html">Loops</a></li><li class="breadcrumb-item"><a href="../../qmd/loops/loops.html">loops.html</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -483,7 +449,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/functions/functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">functions.html</span></a>
+ <span class="menu-text">ifelse</span></a>
   </div>
 </li>
       </ul>
@@ -500,7 +466,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/loops/loops.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Loops and conditions</span></a>
+ <span class="menu-text">loops.html</span></a>
   </div>
 </li>
       </ul>
@@ -547,644 +513,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#for-loops" id="toc-for-loops" class="nav-link active" data-scroll-target="#for-loops">For-loops</a>
-  <ul class="collapse">
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#how-to-write-a-for-loop" id="toc-how-to-write-a-for-loop" class="nav-link" data-scroll-target="#how-to-write-a-for-loop">How to write a for-loop?</a></li>
-  </ul></li>
-  <li><a href="#conditions" id="toc-conditions" class="nav-link" data-scroll-target="#conditions">Conditions</a>
-  <ul class="collapse">
-  <li><a href="#if-else-statement" id="toc-if-else-statement" class="nav-link" data-scroll-target="#if-else-statement">If-else statement</a></li>
-  <li><a href="#ifelse" id="toc-ifelse" class="nav-link" data-scroll-target="#ifelse"><code>ifelse()</code></a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/loops/loops.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nickhaf/r_tutorial/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Loops and conditions</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<p><img src="../pictures/loops.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This chapter is optional.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Previous code
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.2     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.1     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>world_coordinates <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"world_coordinates.rds"</span>))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>athletes <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"athletes.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="tidy">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>medal_counts <span class="ot">&lt;-</span> athletes <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Medal <span class="sc">==</span> <span class="st">"Gold"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Region) <span class="sc">%&gt;%</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Medal) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<section id="for-loops" class="level2">
-<h2 class="anchored" data-anchor-id="for-loops">For-loops</h2>
-<section id="motivation" class="level3">
-<h3 class="anchored" data-anchor-id="motivation">Motivation</h3>
-<p>When programming, you often want to repeat an operation multiple times. For example, assume you want to print the number of gold medals for each country into your console. The most intuitive way would be to just copy paste the code with changed country names:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    medal_counts[medal_counts<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">"Algeria"</span>, <span class="st">"n"</span>], </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">" Olympic gold medalists are from "</span>, </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    medal_counts[medal_counts<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">"Algeria"</span>, <span class="st">"Region"</span>], </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"."</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "5 Olympic gold medalists are from Algeria."</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    medal_counts[medal_counts<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">"Argentina"</span>, <span class="st">"n"</span>], </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">" Olympic gold medalists are from "</span>, </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    medal_counts[medal_counts<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">"Argentina"</span>, <span class="st">"Region"</span>], </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"."</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "91 Olympic gold medalists are from Argentina."</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    medal_counts[medal_counts<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">"Armenia"</span>, <span class="st">"n"</span>], </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">" Olympic gold medalists are from "</span>, </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    medal_counts[medal_counts<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">"Armenia"</span>, <span class="st">"Region"</span>], </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"."</span>)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "2 Olympic gold medalists are from Armenia."</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(medal_counts[medal_counts<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">"Australia"</span>, <span class="st">"n"</span>], </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">" Olympic gold medalists are from "</span>, </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>         medal_counts[medal_counts<span class="sc">$</span>Region <span class="sc">==</span> <span class="st">"Australia"</span>, <span class="st">"Region"</span>],</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"."</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "368 Olympic gold medalists are from Australia."</code></pre>
-</div>
-</div>
-<p>This could go on …<br>
-Here we paste together a sentence consisting of data and some pre specified character strings, which we then print into the console. However, this can become pretty tedious if we want to add more countries, and what if we want to change something in the print statement? In this case, we would have to go over all rows and change it multiple times. So, let’s write a loop that does that automatically for us:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">unique</span>(medal_counts<span class="sc">$</span>Region)){</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>      medal_counts[medal_counts<span class="sc">$</span>Region <span class="sc">==</span> i, <span class="st">"n"</span>], </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">" Olympic gold medalists are from "</span>, </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      i, </span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"."</span> )</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "5 Olympic gold medalists are from Algeria."
-[1] "91 Olympic gold medalists are from Argentina."
-[1] "2 Olympic gold medalists are from Armenia."
-[1] "368 Olympic gold medalists are from Australia."
-[1] "108 Olympic gold medalists are from Austria."
-[1] "7 Olympic gold medalists are from Azerbaijan."
-[1] "14 Olympic gold medalists are from Bahamas."
-[1] "1 Olympic gold medalists are from Bahrain."
-[1] "24 Olympic gold medalists are from Belarus."
-[1] "98 Olympic gold medalists are from Belgium."
-[1] "109 Olympic gold medalists are from Brazil."
-[1] "54 Olympic gold medalists are from Bulgaria."
-[1] "1 Olympic gold medalists are from Burundi."
-[1] "20 Olympic gold medalists are from Cameroon."
-[1] "463 Olympic gold medalists are from Canada."
-[1] "3 Olympic gold medalists are from Chile."
-[1] "351 Olympic gold medalists are from China."
-[1] "5 Olympic gold medalists are from Colombia."
-[1] "1 Olympic gold medalists are from Costa Rica."
-[1] "58 Olympic gold medalists are from Croatia."
-[1] "164 Olympic gold medalists are from Cuba."
-[1] "123 Olympic gold medalists are from Czech Republic."
-[1] "179 Olympic gold medalists are from Denmark."
-[1] "3 Olympic gold medalists are from Dominican Republic."
-[1] "1 Olympic gold medalists are from Ecuador."
-[1] "7 Olympic gold medalists are from Egypt."
-[1] "13 Olympic gold medalists are from Estonia."
-[1] "22 Olympic gold medalists are from Ethiopia."
-[1] "13 Olympic gold medalists are from Fiji."
-[1] "198 Olympic gold medalists are from Finland."
-[1] "501 Olympic gold medalists are from France."
-[1] "8 Olympic gold medalists are from Georgia."
-[1] "1301 Olympic gold medalists are from Germany."
-[1] "62 Olympic gold medalists are from Greece."
-[1] "1 Olympic gold medalists are from Grenada."
-[1] "1 Olympic gold medalists are from Haiti."
-[1] "432 Olympic gold medalists are from Hungary."
-[1] "138 Olympic gold medalists are from India."
-[1] "1 Olympic gold medalists are from Individual Olympic Athletes."
-[1] "11 Olympic gold medalists are from Indonesia."
-[1] "18 Olympic gold medalists are from Iran."
-[1] "9 Olympic gold medalists are from Ireland."
-[1] "1 Olympic gold medalists are from Israel."
-[1] "575 Olympic gold medalists are from Italy."
-[1] "1 Olympic gold medalists are from Ivory Coast."
-[1] "38 Olympic gold medalists are from Jamaica."
-[1] "247 Olympic gold medalists are from Japan."
-[1] "1 Olympic gold medalists are from Jordan."
-[1] "20 Olympic gold medalists are from Kazakhstan."
-[1] "34 Olympic gold medalists are from Kenya."
-[1] "1 Olympic gold medalists are from Kosovo."
-[1] "3 Olympic gold medalists are from Latvia."
-[1] "2 Olympic gold medalists are from Liechtenstein."
-[1] "6 Olympic gold medalists are from Lithuania."
-[1] "4 Olympic gold medalists are from Luxembourg."
-[1] "30 Olympic gold medalists are from Mexico."
-[1] "2 Olympic gold medalists are from Mongolia."
-[1] "6 Olympic gold medalists are from Morocco."
-[1] "1 Olympic gold medalists are from Mozambique."
-[1] "1 Olympic gold medalists are from Nepal."
-[1] "287 Olympic gold medalists are from Netherlands."
-[1] "90 Olympic gold medalists are from New Zealand."
-[1] "23 Olympic gold medalists are from Nigeria."
-[1] "16 Olympic gold medalists are from North Korea."
-[1] "378 Olympic gold medalists are from Norway."
-[1] "42 Olympic gold medalists are from Pakistan."
-[1] "1 Olympic gold medalists are from Panama."
-[1] "1 Olympic gold medalists are from Peru."
-[1] "117 Olympic gold medalists are from Poland."
-[1] "4 Olympic gold medalists are from Portugal."
-[1] "1 Olympic gold medalists are from Puerto Rico."
-[1] "161 Olympic gold medalists are from Romania."
-[1] "1599 Olympic gold medalists are from Russia."
-[1] "157 Olympic gold medalists are from Serbia."
-[1] "15 Olympic gold medalists are from Slovakia."
-[1] "8 Olympic gold medalists are from Slovenia."
-[1] "32 Olympic gold medalists are from South Africa."
-[1] "221 Olympic gold medalists are from South Korea."
-[1] "110 Olympic gold medalists are from Spain."
-[1] "1 Olympic gold medalists are from Suriname."
-[1] "479 Olympic gold medalists are from Sweden."
-[1] "175 Olympic gold medalists are from Switzerland."
-[1] "1 Olympic gold medalists are from Syria."
-[1] "3 Olympic gold medalists are from Taiwan."
-[1] "1 Olympic gold medalists are from Tajikistan."
-[1] "9 Olympic gold medalists are from Thailand."
-[1] "7 Olympic gold medalists are from Trinidad."
-[1] "3 Olympic gold medalists are from Tunisia."
-[1] "40 Olympic gold medalists are from Turkey."
-[1] "678 Olympic gold medalists are from UK."
-[1] "2638 Olympic gold medalists are from USA."
-[1] "2 Olympic gold medalists are from Uganda."
-[1] "47 Olympic gold medalists are from Ukraine."
-[1] "1 Olympic gold medalists are from United Arab Emirates."
-[1] "31 Olympic gold medalists are from Uruguay."
-[1] "10 Olympic gold medalists are from Uzbekistan."
-[1] "2 Olympic gold medalists are from Venezuela."
-[1] "1 Olympic gold medalists are from Vietnam."
-[1] "17 Olympic gold medalists are from Zimbabwe."</code></pre>
-</div>
-</div>
-<p>So this little piece of code can do what we started to do in the above code section, but already for all countries. Also, if we want to change something, we only have to change it once.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In general, try not to repeat yourself when writing code. As a general rule of thumb, use loops and/or <a href="../../qmd/functions/functions.html">functions</a> if you need to copy/paste something more than two times.</p>
-</div>
-</div>
-</section>
-<section id="how-to-write-a-for-loop" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-write-a-for-loop">How to write a for-loop?</h3>
-<p>Let’s take a step back and look at what we are actually doing here. A <code>for loop</code> is generally constructed like this:</p>
-<pre><code>for(counter in values){
-  repeat something with changing counter
-}</code></pre>
-<p>What does that mean? Let’s look at a simple example first. We want to multiply the values from <code>10</code> to <code>20</code> with <code>100</code> and then print them into our console:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">20</span>){</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  new_i <span class="ot">&lt;-</span> i <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(new_i)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1000
-[1] 1100
-[1] 1200
-[1] 1300
-[1] 1400
-[1] 1500
-[1] 1600
-[1] 1700
-[1] 1800
-[1] 1900
-[1] 2000</code></pre>
-</div>
-</div>
-<ol type="1">
-<li>In the first iteration, <code>i</code> takes the value of the first vector element behind <code>in</code>, which is <code>10</code>.</li>
-<li>The operation in the loop body gets executed, in this case the current value gets multiplied by <code>100</code> and then printed into the console.</li>
-<li>After the operation is finished, <code>i</code> takes the next value, in this case <code>11</code>, and the whole process starts again.</li>
-<li>The loop is finished after the operation on the last value has been executed, in this case <code>20</code>.</li>
-</ol>
-<p>Let’s get back to our initial example. Try to figure out what happens here by yourself. What is the first and the last value <code>i</code> gets assigned?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">unique</span>(medal_counts<span class="sc">$</span>Region)){</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>      medal_counts[medal_counts<span class="sc">$</span>Region <span class="sc">==</span> i, <span class="st">"n"</span>], </span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">" Olympic gold medalists are from "</span>, </span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>      i, </span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"."</span> )</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "5 Olympic gold medalists are from Algeria."
-[1] "91 Olympic gold medalists are from Argentina."
-[1] "2 Olympic gold medalists are from Armenia."
-[1] "368 Olympic gold medalists are from Australia."
-[1] "108 Olympic gold medalists are from Austria."
-[1] "7 Olympic gold medalists are from Azerbaijan."
-[1] "14 Olympic gold medalists are from Bahamas."
-[1] "1 Olympic gold medalists are from Bahrain."
-[1] "24 Olympic gold medalists are from Belarus."
-[1] "98 Olympic gold medalists are from Belgium."
-[1] "109 Olympic gold medalists are from Brazil."
-[1] "54 Olympic gold medalists are from Bulgaria."
-[1] "1 Olympic gold medalists are from Burundi."
-[1] "20 Olympic gold medalists are from Cameroon."
-[1] "463 Olympic gold medalists are from Canada."
-[1] "3 Olympic gold medalists are from Chile."
-[1] "351 Olympic gold medalists are from China."
-[1] "5 Olympic gold medalists are from Colombia."
-[1] "1 Olympic gold medalists are from Costa Rica."
-[1] "58 Olympic gold medalists are from Croatia."
-[1] "164 Olympic gold medalists are from Cuba."
-[1] "123 Olympic gold medalists are from Czech Republic."
-[1] "179 Olympic gold medalists are from Denmark."
-[1] "3 Olympic gold medalists are from Dominican Republic."
-[1] "1 Olympic gold medalists are from Ecuador."
-[1] "7 Olympic gold medalists are from Egypt."
-[1] "13 Olympic gold medalists are from Estonia."
-[1] "22 Olympic gold medalists are from Ethiopia."
-[1] "13 Olympic gold medalists are from Fiji."
-[1] "198 Olympic gold medalists are from Finland."
-[1] "501 Olympic gold medalists are from France."
-[1] "8 Olympic gold medalists are from Georgia."
-[1] "1301 Olympic gold medalists are from Germany."
-[1] "62 Olympic gold medalists are from Greece."
-[1] "1 Olympic gold medalists are from Grenada."
-[1] "1 Olympic gold medalists are from Haiti."
-[1] "432 Olympic gold medalists are from Hungary."
-[1] "138 Olympic gold medalists are from India."
-[1] "1 Olympic gold medalists are from Individual Olympic Athletes."
-[1] "11 Olympic gold medalists are from Indonesia."
-[1] "18 Olympic gold medalists are from Iran."
-[1] "9 Olympic gold medalists are from Ireland."
-[1] "1 Olympic gold medalists are from Israel."
-[1] "575 Olympic gold medalists are from Italy."
-[1] "1 Olympic gold medalists are from Ivory Coast."
-[1] "38 Olympic gold medalists are from Jamaica."
-[1] "247 Olympic gold medalists are from Japan."
-[1] "1 Olympic gold medalists are from Jordan."
-[1] "20 Olympic gold medalists are from Kazakhstan."
-[1] "34 Olympic gold medalists are from Kenya."
-[1] "1 Olympic gold medalists are from Kosovo."
-[1] "3 Olympic gold medalists are from Latvia."
-[1] "2 Olympic gold medalists are from Liechtenstein."
-[1] "6 Olympic gold medalists are from Lithuania."
-[1] "4 Olympic gold medalists are from Luxembourg."
-[1] "30 Olympic gold medalists are from Mexico."
-[1] "2 Olympic gold medalists are from Mongolia."
-[1] "6 Olympic gold medalists are from Morocco."
-[1] "1 Olympic gold medalists are from Mozambique."
-[1] "1 Olympic gold medalists are from Nepal."
-[1] "287 Olympic gold medalists are from Netherlands."
-[1] "90 Olympic gold medalists are from New Zealand."
-[1] "23 Olympic gold medalists are from Nigeria."
-[1] "16 Olympic gold medalists are from North Korea."
-[1] "378 Olympic gold medalists are from Norway."
-[1] "42 Olympic gold medalists are from Pakistan."
-[1] "1 Olympic gold medalists are from Panama."
-[1] "1 Olympic gold medalists are from Peru."
-[1] "117 Olympic gold medalists are from Poland."
-[1] "4 Olympic gold medalists are from Portugal."
-[1] "1 Olympic gold medalists are from Puerto Rico."
-[1] "161 Olympic gold medalists are from Romania."
-[1] "1599 Olympic gold medalists are from Russia."
-[1] "157 Olympic gold medalists are from Serbia."
-[1] "15 Olympic gold medalists are from Slovakia."
-[1] "8 Olympic gold medalists are from Slovenia."
-[1] "32 Olympic gold medalists are from South Africa."
-[1] "221 Olympic gold medalists are from South Korea."
-[1] "110 Olympic gold medalists are from Spain."
-[1] "1 Olympic gold medalists are from Suriname."
-[1] "479 Olympic gold medalists are from Sweden."
-[1] "175 Olympic gold medalists are from Switzerland."
-[1] "1 Olympic gold medalists are from Syria."
-[1] "3 Olympic gold medalists are from Taiwan."
-[1] "1 Olympic gold medalists are from Tajikistan."
-[1] "9 Olympic gold medalists are from Thailand."
-[1] "7 Olympic gold medalists are from Trinidad."
-[1] "3 Olympic gold medalists are from Tunisia."
-[1] "40 Olympic gold medalists are from Turkey."
-[1] "678 Olympic gold medalists are from UK."
-[1] "2638 Olympic gold medalists are from USA."
-[1] "2 Olympic gold medalists are from Uganda."
-[1] "47 Olympic gold medalists are from Ukraine."
-[1] "1 Olympic gold medalists are from United Arab Emirates."
-[1] "31 Olympic gold medalists are from Uruguay."
-[1] "10 Olympic gold medalists are from Uzbekistan."
-[1] "2 Olympic gold medalists are from Venezuela."
-[1] "1 Olympic gold medalists are from Vietnam."
-[1] "17 Olympic gold medalists are from Zimbabwe."</code></pre>
-</div>
-</div>
-<p>In this example we don’t loop over some numbers, but over the unique regions in our <code>medal_counts</code> data frame:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(medal_counts<span class="sc">$</span>Region)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "Algeria"                     "Argentina"                  
- [3] "Armenia"                     "Australia"                  
- [5] "Austria"                     "Azerbaijan"                 
- [7] "Bahamas"                     "Bahrain"                    
- [9] "Belarus"                     "Belgium"                    
-[11] "Brazil"                      "Bulgaria"                   
-[13] "Burundi"                     "Cameroon"                   
-[15] "Canada"                      "Chile"                      
-[17] "China"                       "Colombia"                   
-[19] "Costa Rica"                  "Croatia"                    
-[21] "Cuba"                        "Czech Republic"             
-[23] "Denmark"                     "Dominican Republic"         
-[25] "Ecuador"                     "Egypt"                      
-[27] "Estonia"                     "Ethiopia"                   
-[29] "Fiji"                        "Finland"                    
-[31] "France"                      "Georgia"                    
-[33] "Germany"                     "Greece"                     
-[35] "Grenada"                     "Haiti"                      
-[37] "Hungary"                     "India"                      
-[39] "Individual Olympic Athletes" "Indonesia"                  
-[41] "Iran"                        "Ireland"                    
-[43] "Israel"                      "Italy"                      
-[45] "Ivory Coast"                 "Jamaica"                    
-[47] "Japan"                       "Jordan"                     
-[49] "Kazakhstan"                  "Kenya"                      
-[51] "Kosovo"                      "Latvia"                     
-[53] "Liechtenstein"               "Lithuania"                  
-[55] "Luxembourg"                  "Mexico"                     
-[57] "Mongolia"                    "Morocco"                    
-[59] "Mozambique"                  "Nepal"                      
-[61] "Netherlands"                 "New Zealand"                
-[63] "Nigeria"                     "North Korea"                
-[65] "Norway"                      "Pakistan"                   
-[67] "Panama"                      "Peru"                       
-[69] "Poland"                      "Portugal"                   
-[71] "Puerto Rico"                 "Romania"                    
-[73] "Russia"                      "Serbia"                     
-[75] "Slovakia"                    "Slovenia"                   
-[77] "South Africa"                "South Korea"                
-[79] "Spain"                       "Suriname"                   
-[81] "Sweden"                      "Switzerland"                
-[83] "Syria"                       "Taiwan"                     
-[85] "Tajikistan"                  "Thailand"                   
-[87] "Trinidad"                    "Tunisia"                    
-[89] "Turkey"                      "UK"                         
-[91] "USA"                         "Uganda"                     
-[93] "Ukraine"                     "United Arab Emirates"       
-[95] "Uruguay"                     "Uzbekistan"                 
-[97] "Venezuela"                   "Vietnam"                    
-[99] "Zimbabwe"                   </code></pre>
-</div>
-</div>
-<p><code>i</code> takes each of these elements in turn, then the corresponding <code>n</code> value of each country gets extracted and pasted into some sentence.</p>
-</section>
-</section>
-<section id="conditions" class="level2">
-<h2 class="anchored" data-anchor-id="conditions">Conditions</h2>
-<section id="if-else-statement" class="level3">
-<h3 class="anchored" data-anchor-id="if-else-statement">If-else statement</h3>
-<p>Have you noticed that our output doesn’t sound that correct if we only have one gold medal winner in a country?</p>
-<p><code>"1 Olympic gold medalists are from Mozambique."</code></p>
-<p>To solve this, we can add a conditional statement which only gets executed, if some condition is met. This can be done by an <code>if else</code> statement:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">unique</span>(medal_counts<span class="sc">$</span>Region)){</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  n_medals <span class="ot">&lt;-</span> medal_counts[medal_counts<span class="sc">$</span>Region <span class="sc">==</span> i, <span class="st">"n"</span>]</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(n_medals <span class="sc">==</span> <span class="dv">1</span>){</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"One Olympic gold medalist is from "</span>, </span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>      i, </span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"."</span> )</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  }<span class="cf">else</span>{</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>      n_medals, </span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">" Olympic gold medalists are from "</span>, </span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>      i, </span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">"."</span> )</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "5 Olympic gold medalists are from Algeria."
-[1] "91 Olympic gold medalists are from Argentina."
-[1] "2 Olympic gold medalists are from Armenia."
-[1] "368 Olympic gold medalists are from Australia."
-[1] "108 Olympic gold medalists are from Austria."
-[1] "7 Olympic gold medalists are from Azerbaijan."
-[1] "14 Olympic gold medalists are from Bahamas."
-[1] "One Olympic gold medalist is from Bahrain."
-[1] "24 Olympic gold medalists are from Belarus."
-[1] "98 Olympic gold medalists are from Belgium."
-[1] "109 Olympic gold medalists are from Brazil."
-[1] "54 Olympic gold medalists are from Bulgaria."
-[1] "One Olympic gold medalist is from Burundi."
-[1] "20 Olympic gold medalists are from Cameroon."
-[1] "463 Olympic gold medalists are from Canada."
-[1] "3 Olympic gold medalists are from Chile."
-[1] "351 Olympic gold medalists are from China."
-[1] "5 Olympic gold medalists are from Colombia."
-[1] "One Olympic gold medalist is from Costa Rica."
-[1] "58 Olympic gold medalists are from Croatia."
-[1] "164 Olympic gold medalists are from Cuba."
-[1] "123 Olympic gold medalists are from Czech Republic."
-[1] "179 Olympic gold medalists are from Denmark."
-[1] "3 Olympic gold medalists are from Dominican Republic."
-[1] "One Olympic gold medalist is from Ecuador."
-[1] "7 Olympic gold medalists are from Egypt."
-[1] "13 Olympic gold medalists are from Estonia."
-[1] "22 Olympic gold medalists are from Ethiopia."
-[1] "13 Olympic gold medalists are from Fiji."
-[1] "198 Olympic gold medalists are from Finland."
-[1] "501 Olympic gold medalists are from France."
-[1] "8 Olympic gold medalists are from Georgia."
-[1] "1301 Olympic gold medalists are from Germany."
-[1] "62 Olympic gold medalists are from Greece."
-[1] "One Olympic gold medalist is from Grenada."
-[1] "One Olympic gold medalist is from Haiti."
-[1] "432 Olympic gold medalists are from Hungary."
-[1] "138 Olympic gold medalists are from India."
-[1] "One Olympic gold medalist is from Individual Olympic Athletes."
-[1] "11 Olympic gold medalists are from Indonesia."
-[1] "18 Olympic gold medalists are from Iran."
-[1] "9 Olympic gold medalists are from Ireland."
-[1] "One Olympic gold medalist is from Israel."
-[1] "575 Olympic gold medalists are from Italy."
-[1] "One Olympic gold medalist is from Ivory Coast."
-[1] "38 Olympic gold medalists are from Jamaica."
-[1] "247 Olympic gold medalists are from Japan."
-[1] "One Olympic gold medalist is from Jordan."
-[1] "20 Olympic gold medalists are from Kazakhstan."
-[1] "34 Olympic gold medalists are from Kenya."
-[1] "One Olympic gold medalist is from Kosovo."
-[1] "3 Olympic gold medalists are from Latvia."
-[1] "2 Olympic gold medalists are from Liechtenstein."
-[1] "6 Olympic gold medalists are from Lithuania."
-[1] "4 Olympic gold medalists are from Luxembourg."
-[1] "30 Olympic gold medalists are from Mexico."
-[1] "2 Olympic gold medalists are from Mongolia."
-[1] "6 Olympic gold medalists are from Morocco."
-[1] "One Olympic gold medalist is from Mozambique."
-[1] "One Olympic gold medalist is from Nepal."
-[1] "287 Olympic gold medalists are from Netherlands."
-[1] "90 Olympic gold medalists are from New Zealand."
-[1] "23 Olympic gold medalists are from Nigeria."
-[1] "16 Olympic gold medalists are from North Korea."
-[1] "378 Olympic gold medalists are from Norway."
-[1] "42 Olympic gold medalists are from Pakistan."
-[1] "One Olympic gold medalist is from Panama."
-[1] "One Olympic gold medalist is from Peru."
-[1] "117 Olympic gold medalists are from Poland."
-[1] "4 Olympic gold medalists are from Portugal."
-[1] "One Olympic gold medalist is from Puerto Rico."
-[1] "161 Olympic gold medalists are from Romania."
-[1] "1599 Olympic gold medalists are from Russia."
-[1] "157 Olympic gold medalists are from Serbia."
-[1] "15 Olympic gold medalists are from Slovakia."
-[1] "8 Olympic gold medalists are from Slovenia."
-[1] "32 Olympic gold medalists are from South Africa."
-[1] "221 Olympic gold medalists are from South Korea."
-[1] "110 Olympic gold medalists are from Spain."
-[1] "One Olympic gold medalist is from Suriname."
-[1] "479 Olympic gold medalists are from Sweden."
-[1] "175 Olympic gold medalists are from Switzerland."
-[1] "One Olympic gold medalist is from Syria."
-[1] "3 Olympic gold medalists are from Taiwan."
-[1] "One Olympic gold medalist is from Tajikistan."
-[1] "9 Olympic gold medalists are from Thailand."
-[1] "7 Olympic gold medalists are from Trinidad."
-[1] "3 Olympic gold medalists are from Tunisia."
-[1] "40 Olympic gold medalists are from Turkey."
-[1] "678 Olympic gold medalists are from UK."
-[1] "2638 Olympic gold medalists are from USA."
-[1] "2 Olympic gold medalists are from Uganda."
-[1] "47 Olympic gold medalists are from Ukraine."
-[1] "One Olympic gold medalist is from United Arab Emirates."
-[1] "31 Olympic gold medalists are from Uruguay."
-[1] "10 Olympic gold medalists are from Uzbekistan."
-[1] "2 Olympic gold medalists are from Venezuela."
-[1] "One Olympic gold medalist is from Vietnam."
-[1] "17 Olympic gold medalists are from Zimbabwe."</code></pre>
-</div>
-</div>
-<p>Let’s look at a more simple example to explain the concept:</p>
-<pre><code>if(condition){
-  do something
-}else{
-  do something else
-}</code></pre>
-<p>For example:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">100</span>){</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  x</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 20</code></pre>
-</div>
-</div>
-<p>Inside the <code>if()</code> we define our <a href="https://nickhaf.github.io/r_tutorial/qmd/basics/basics.html#comparisons-and-logical-operators">condition</a>. Then, inside the <code>{ }</code> we define an operation that gets executed, if this condition is met. Inside the <code>else{ }</code> part we define an operation that gets executed if the condition in <code>if()</code> is not met.</p>
-<p>In our inital example we check if the number of gold medalists is equal to one. If that is the case, we print the specific statement. If not, we print the other.</p>
-</section>
-<section id="ifelse" class="level3">
-<h3 class="anchored" data-anchor-id="ifelse"><code>ifelse()</code></h3>
-<p>We can use this concept for adding new values conditionally to a data frame. For example, let’s build a dichotomous variable to check which countries have equal to or more than <code>100</code> gold medal winners:</p>
-<p>Note that the look of this <code>ifelse()</code> function is a bit different from our <code>if else statement</code>, but the logic behind it is exactly the same: Here we <a href="https://nickhaf.github.io/r_tutorial/qmd/data_structures/data_structures.html#adding-new-columns">add the new column</a> <code>n_100</code> which gets filled with <code>TRUE</code> and <code>FALSE</code>. If the statement <code>medal_counts$n &gt;= 100</code>, which is the first argument of the <code>ifelse()</code> function, is met, the function returns a <code>TRUE</code>, if not a <code>FALSE</code>.</p>
 
 
-</section>
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@tine999?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Tine Ivanic</a> on <a href="https://unsplash.com/de/fotos/u2d0BPZFXOY?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1421,7 +760,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../../qmd/functions/functions.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">functions.html</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ifelse</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1434,4 +773,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/loops/loops.qmd" class="toc-action">Edit this page</a></p></div></div></div></div></footer></body></html>
