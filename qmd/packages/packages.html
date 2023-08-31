@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R – packages</title>
+<title>Introduction to R - Packages</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,6 +98,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Introduction to R - Packages">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://github.com/nickhaf/r_tutorial/qmd/pictures/drawers.jpg">
+<meta property="og:site-name" content="Introduction to R">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -129,12 +133,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../qmd/getting_started/the_big_picture.html" rel="" target="">
  <span class="menu-text">The Big Picture</span></a>
   </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="https://docs.google.com/document/d/19uUsS9xiAsxmAtblkaPqbdl3m1IxurWKOoPdTc0oymM/edit?usp=sharing" rel="" target="">
  <span class="menu-text">Ask a question</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+            <div class="quarto-navbar-tools">
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -483,7 +489,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/functions/functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">functions.html</span></a>
+ <span class="menu-text">Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/functions/functions_exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions: Exercises</span></a>
   </div>
 </li>
       </ul>
@@ -557,27 +569,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a>
-  <ul class="collapse">
-  <li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages">Install packages</a></li>
+  <li><a href="#install-packages" id="toc-install-packages" class="nav-link active" data-scroll-target="#install-packages">Install packages</a></li>
   <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
   <li><a href="#function-conflicts" id="toc-function-conflicts" class="nav-link" data-scroll-target="#function-conflicts">Function conflicts</a></li>
   <li><a href="#deliberate-package-management" id="toc-deliberate-package-management" class="nav-link" data-scroll-target="#deliberate-package-management">Deliberate package management</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/packages/packages.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Packages</h1>
+</div>
 
 
-<section id="packages" class="level1">
-<h1>Packages</h1>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><img src="../pictures/drawers.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>Packages are extensions to the <code>base R</code> you get by default. Most times they provide many new functions, bundled around a specific use case. When working with R you will have to rely heavily on packages developed by others. There are many, many great packages out there facilitating your work with R and making possible many different analyses, visualizations and many more.</p>
 <p>We can compare them somewhat to apps in an appstore:</p>
-<p><img src="./pictures/playstore.png" class="img-fluid" width="19"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> First, we have to install the package: <code>install.packages("packagename")</code>. Most of the openly available packages lie on <a href="https://cran.r-project.org/">CRAN</a> (Comprehensive R Archive Network). But you can also download packages form other sources, for example <a href="https://github.com/">GitHub</a>. This is what you did when downloading the <code>tutoR</code> package in <a href="setup.qmd#about-this-workshop">About this workshop</a>.</p>
-<p><img src="./pictures/app.png" class="img-fluid" width="19"><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Then, we have to load them in each session where we want to use them (like tapping on the app icon): <code>library(packagename)</code>.</p>
+<p><img src="./pictures/playstore.png" class="img-fluid" width="19"><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> First, we have to install the package: <code>install.packages("packagename")</code>. Most of the openly available packages lie on <a href="https://cran.r-project.org/">CRAN</a> (Comprehensive R Archive Network). But you can also download packages form other sources, for example <a href="https://github.com/">GitHub</a>. This is what you did when downloading the <code>tutoR</code> package in <a href="setup.qmd#about-this-workshop">About this workshop</a>.</p>
+<p><img src="./pictures/app.png" class="img-fluid" width="19"><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Then, we have to load them in each session where we want to use them (like tapping on the app icon): <code>library(packagename)</code>.</p>
 <ul>
 <li>Note that in <code>install.packages("packagename")</code> we have to put the package into quotation marks, but not when calling <code>library(packagename)</code>.</li>
 </ul>
@@ -706,14 +729,14 @@ loaded via a namespace (and not attached):
 
 
 </section>
-</section>
 
 
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Icons from <a href="https://icons8.de">icons8.de</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@jankolar?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jan Antonin Kolar</a> on [Unsplash]https://unsplash.com/de/fotos/lRoX0shwjUQ?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Icons from <a href="https://icons8.de">icons8.de</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Icons from <a href="https://icons8.de">icons8.de</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
