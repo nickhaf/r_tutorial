@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R - Merging: Exercise</title>
+<title>Introduction to R – loops_exercise</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../qmd/functions/functions.html" rel="next">
-<link href="../../qmd/merging/merging.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -98,9 +96,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction to R - Merging: Exercise">
-<meta property="og:description" content="">
-<meta property="og:site-name" content="Introduction to R">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -147,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">3) Data manipulation and transformation</li><li class="breadcrumb-item"><a href="../../qmd/merging/merging.html">Merging</a></li><li class="breadcrumb-item"><a href="../../qmd/merging/merging_exercise.html">Merging: Exercise</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -453,13 +448,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="false">
  <span class="menu-text">Merging</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/merging/merging.html" class="sidebar-item-text sidebar-link">
@@ -468,7 +463,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/merging/merging_exercise.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../qmd/merging/merging_exercise.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Merging: Exercise</span></a>
   </div>
 </li>
@@ -558,63 +553,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link active" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/merging/merging_exercise.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/loops/loops_exercise.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Merging: Exercise</h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<p>Now we have gotten to know our <code>characters</code> data set a bit more. However, the personality ratings are not included yet. For that, we need to load the <code>psych_stats</code> data set as well, which contains the ratings for all characters. We have already done that in <a href="https://nickhaf.github.io/r_tutorial/qmd/load_data/load_data_exercise.html#exercies-2">Exercise 2 of the Load data chapter</a>, so here is the code again:</p>
-<div class="calout-caution" data-icon="false">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>characters <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"characters.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>psych_stats <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"psych_stats.csv"</span>),</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">";"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<p>Now we want to combine both data frames into one, so all information belonging together can be found in the same data frame.</p>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Merge the <code>characters</code> data frame and the <code>psych_stats</code> data frame on a common column.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These exercises are optional.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Previous code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Identify the common columns. Are they named the same in both data frames? Look at the documentation of <code>?merge</code> to see, how you can merge data frames that don’t have identically named columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Load the data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>characters <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"characters.rds"</span>))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>psych_stats <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"psych_stats.csv"</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">";"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Merge it</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>characters_stats <span class="ot">&lt;-</span> <span class="fu">merge</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> characters,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> psych_stats,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.x =</span> <span class="st">"id"</span>, </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.y =</span> <span class="st">"char_id"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
+</div>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Print each fictional universe (column: <code>uni_name</code>) in the <code>characters_stats</code> data frame into your console once, like this: <code>"The fictional universe 'fictional universe' is part of the characters data set."</code></p>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -623,57 +621,228 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>First, let`s take a look at both data sets again:</p>
+<div class="cell" data-output.lines="20">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(universe <span class="cf">in</span> <span class="fu">unique</span>(characters_stats<span class="sc">$</span>uni_name)){</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"The fictional universe '"</span>, universe, <span class="st">"' is part of the characters data set."</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The fictional universe 'Arrested Development' is part of the characters data set."
+[1] "The fictional universe 'Avatar: The Last Airbender' is part of the characters data set."
+[1] "The fictional universe 'Arcane' is part of the characters data set."
+[1] "The fictional universe 'Archer' is part of the characters data set."
+[1] "The fictional universe 'It's Always Sunny in Philadelphia' is part of the characters data set."
+[1] "The fictional universe 'Bones' is part of the characters data set."
+[1] "The fictional universe 'Brooklyn Nine-Nine' is part of the characters data set."
+[1] "The fictional universe 'Beauty and the Beast' is part of the characters data set."
+[1] "The fictional universe 'Breaking Bad' is part of the characters data set."
+[1] "The fictional universe 'The Big Bang Theory' is part of the characters data set."
+[1] "The fictional universe 'The Breakfast Club' is part of the characters data set."
+[1] "The fictional universe 'Broad City' is part of the characters data set."
+[1] "The fictional universe 'Bob's Burgers' is part of the characters data set."
+[1] "The fictional universe 'Battlestar Galactica' is part of the characters data set."
+[1] "The fictional universe 'Buffy the Vampire Slayer' is part of the characters data set."
+[1] "The fictional universe 'Community' is part of the characters data set."
+[1] "The fictional universe 'Calvin and Hobbes' is part of the characters data set."
+[1] "The fictional universe 'Criminal Minds' is part of the characters data set."
+[1] "The fictional universe 'Craze Ex-Girlfriend' is part of the characters data set."
+[1] "The fictional universe 'Dexter' is part of the characters data set."
+...</code></pre>
+</div>
+</div>
+<p>We don’t have to use <code>i</code> as counter (even though it is convention).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Remember how we used the <code>group_by()</code> command to <a href="https://nickhaf.github.io/r_tutorial/qmd/merging/merging.html#before-merging">calculate the number of gold medals for each country</a>? Well, now you know enough to do something similar without using the tidyverse, but just a <code>for-loop</code>.</p>
+<ol type="1">
+<li>Subset a data frame that only contains the characters of one (your favorite) fictional universe.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="tidy">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(characters)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>characters_friends <span class="ot">&lt;-</span> characters_stats <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uni_name <span class="sc">==</span> <span class="st">"Friends"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Now calculate the mean rating over <strong>all characters</strong> in this fictional universe for each question and print the result in a statement containing the sentence: <code>"The mean rating for the fictional universe 'your_universe' on the question 'question' is: 'mean_rating'."</code></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Build a <code>for loop</code> that goes over all unique questions in your subsetted data frames. Inside this <code>for-loop</code> you can subset again, this time only the rows containing the question that the loop is at at the moment, and calculate its mean rating from here. Then use <code>paste()</code> to build and print the statement.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-output.lines="20">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">unique</span>(characters_friends<span class="sc">$</span>question)){ <span class="co"># goes over all unique questions</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Build a subset that only consists of ratings about the current question:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  question_dat <span class="ot">&lt;-</span> characters_friends <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(question <span class="sc">==</span> i)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Calculate the mean for that subset:</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  question_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(question_dat<span class="sc">$</span>mean_rating)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Build and print the final statement:</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  statement <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"The mean rating for the fictional universe 'Friends' on the question '"</span>, i, <span class="st">"' is:"</span>, question_mean)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(statement)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   889 obs. of  7 variables:
- $ id        : chr  "F2" "F1" "F5" "F4" ...
- $ name      : chr  "Monica Geller" "Rachel Green" "Chandler Bing" "Joey Tribbiani" ...
- $ uni_id    : chr  "F" "F" "F" "F" ...
- $ uni_name  : chr  "Friends" "Friends" "Friends" "Friends" ...
- $ notability: num  79.7 76.7 74.4 74.3 72.6 51.6 86.5 84.2 82.6 65.6 ...
- $ link      : chr  "https://openpsychometrics.org/tests/characters/stats/F/2" "https://openpsychometrics.org/tests/characters/stats/F/1" "https://openpsychometrics.org/tests/characters/stats/F/5" "https://openpsychometrics.org/tests/characters/stats/F/4" ...
- $ image_link: chr  "https://openpsychometrics.org/tests/characters/test-resources/pics/F/2.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/F/1.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/F/5.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/F/4.jpg" ...</code></pre>
+<pre><code>[1] "The mean rating for the fictional universe 'Friends' on the question ' beautiful/ugly ' is: 19.5"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' feminine/masculine ' is: 40.6166666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' manicured/scruffy ' is: 32.4166666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' slovenly/stylish ' is: 60.0166666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' city-slicker/country-bumpkin ' is: 22.3166666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' attractive/repulsive ' is: 23.6"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' reclusive/social ' is: 72.0333333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' androgynous/gendered ' is: 76.1166666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' 💃/🧕 ' is: 26.3666666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' bad-cook/good-cook ' is: 37.6333333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' overspender/penny-pincher ' is: 50.8"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' historical/modern ' is: 61.7333333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' asexual/sexual ' is: 75.3166666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' 🐒/🐩 ' is: 46.1833333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' chatty/reserved ' is: 19.0166666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' trendy/vintage ' is: 54.95"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' emotional/unemotional ' is: 23.9833333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' main character/side character ' is: 38.65"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' extrovert/introvert ' is: 29.2333333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' rural/urban ' is: 73.8833333333333"
+...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(psych_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   356489 obs. of  5 variables:
- $ char_id       : chr  "F2" "F2" "F2" "F2" ...
- $ question      : chr  "messy/neat" "disorganized/self-disciplined" "diligent/lazy" "on-time/tardy" ...
- $ mean_rating   : num  95.7 95.2 6.1 6.2 6.4 ...
- $ rating_sd     : num  11.7 11.2 10.4 14.3 13.4 14.5 15 17.3 12.1 11.1 ...
- $ number_ratings: int  1079 1185 1166 236 1168 1173 174 1196 129 1183 ...</code></pre>
+</div>
+<p>There seem to be pretty beautiful people on the fictional universe …</p>
 </div>
 </div>
-<p>It seems like both data frames have a column containing an ID for the character. We can use that column for merging:</p>
+</div>
+<ol start="3" type="1">
+<li>Tweak your for loop so the mean values get saved in a new data frame, containing the question and the mean rating for each question.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hints
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Build an empty data frame where you will save your results.</li>
+<li>Now you can’t easily loop over the question column itself, because you need the position of each element to save it in a new data frame: <code>for(i in 1:length(unique(characters_friends$question))){</code>.</li>
+<li>Because of that you can save the result of your calculateion in row <code>i</code> of your new data frame.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>characters_stats <span class="ot">&lt;-</span> <span class="fu">merge</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> characters,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> psych_stats,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.x =</span> <span class="st">"id"</span>, </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.y =</span> <span class="st">"char_id"</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(characters_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Build an empty data frame for storing the results:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mean_ratings <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">unique</span>(characters_friends<span class="sc">$</span>question))){</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Extract the question on position i:</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  question_i <span class="ot">&lt;-</span> <span class="fu">unique</span>(characters_friends<span class="sc">$</span>question)[i]</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Extract all rows that contain values for this question:</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  question_dat <span class="ot">&lt;-</span> characters_friends <span class="sc">%&gt;%</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(question <span class="sc">==</span> question_i)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Calculate the mean for that question</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  question_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(question_dat<span class="sc">$</span>mean_rating)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Save the question in the row corresponding to the position of i:</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  mean_ratings[i, <span class="st">"question"</span>] <span class="ot">&lt;-</span> question_i</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Save the mean in the row corresponding to the position of i:</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  mean_ratings[i, <span class="st">"mean"</span>] <span class="ot">&lt;-</span> question_mean</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mean_ratings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   356489 obs. of  11 variables:
- $ id            : chr  "AD1" "AD1" "AD1" "AD1" ...
- $ name          : chr  "Michael Bluth" "Michael Bluth" "Michael Bluth" "Michael Bluth" ...
- $ uni_id        : chr  "AD" "AD" "AD" "AD" ...
- $ uni_name      : chr  "Arrested Development" "Arrested Development" "Arrested Development" "Arrested Development" ...
- $ notability    : num  76.9 76.9 76.9 76.9 76.9 76.9 76.9 76.9 76.9 76.9 ...
- $ link          : chr  "https://openpsychometrics.org/tests/characters/stats/AD/1" "https://openpsychometrics.org/tests/characters/stats/AD/1" "https://openpsychometrics.org/tests/characters/stats/AD/1" "https://openpsychometrics.org/tests/characters/stats/AD/1" ...
- $ image_link    : chr  "https://openpsychometrics.org/tests/characters/test-resources/pics/AD/1.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/AD/1.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/AD/1.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/AD/1.jpg" ...
- $ question      : chr  "main character/side character" "🏋️‍♂️/🚴" "slacker/workaholic" "boy/girl-next-door/celebrity" ...
- $ mean_rating   : num  7.1 91.2 90.3 9.7 90.1 ...
- $ rating_sd     : num  14.2 10.3 13.1 11.5 13 13 14 17.7 13.3 10.5 ...
- $ number_ratings: int  11 56 89 28 63 60 67 63 78 75 ...</code></pre>
+<pre><code>                      question     mean
+1               beautiful/ugly 19.50000
+2           feminine/masculine 40.61667
+3            manicured/scruffy 32.41667
+4             slovenly/stylish 60.01667
+5 city-slicker/country-bumpkin 22.31667
+6         attractive/repulsive 23.60000</code></pre>
 </div>
 </div>
-<p>Worked like a charm!</p>
+<section id="lets-compare-that-with-a-group_by" class="level3">
+<h3 class="anchored" data-anchor-id="lets-compare-that-with-a-group_by">Let’s compare that with a <code>group_by()</code></h3>
+<div class="tidy">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>characters_friends <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(question) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_rating =</span> <span class="fu">mean</span>(mean_rating)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Let's look at the rating of this question for comparison:</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question <span class="sc">==</span> <span class="st">'beautiful/ugly'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  question       mean_rating
+  &lt;chr&gt;                &lt;dbl&gt;
+1 beautiful/ugly        19.5</code></pre>
+</div>
+</div>
+</div>
+<p>Great, its the same! So it ist propably a lot easier to just use <code>group_by()</code> with <code>summarise()</code>, but maybe not quite as instructive.</p>
+</section>
 </div>
 </div>
 </div>
@@ -915,18 +1084,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../qmd/merging/merging.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Merging data</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../qmd/functions/functions.html" class="pagination-link">
-        <span class="nav-page-text">functions.html</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
