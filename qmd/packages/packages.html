@@ -656,8 +656,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="../pictures/drawers.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>Packages are extensions to the <code>base R</code> you get by default. Most times they provide many new functions, bundled around a specific use case. When working with R you will have to rely heavily on packages developed by others. There are many, many great packages out there facilitating your work with R and making possible many different analyses, visualizations and many more.</p>
 <p>We can compare them somewhat to apps in an appstore:</p>
-<p><img src="./pictures/playstore.png" class="img-fluid" width="19"><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> First, we have to install the package: <code>install.packages("packagename")</code>. Most of the openly available packages lie on <a href="https://cran.r-project.org/">CRAN</a> (Comprehensive R Archive Network). But you can also download packages form other sources, for example <a href="https://github.com/">GitHub</a>. This is what you did when downloading the <code>tutoR</code> package in <a href="setup.qmd#about-this-workshop">About this workshop</a>.</p>
-<p><img src="./pictures/app.png" class="img-fluid" width="19"><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Then, we have to load them in each session where we want to use them (like tapping on the app icon): <code>library(packagename)</code>.</p>
+<p><img src="../pictures/playstore.png" class="img-fluid" width="19"><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> First, we have to install the package: <code>install.packages("packagename")</code>. Most of the openly available packages lie on <a href="https://cran.r-project.org/">CRAN</a> (Comprehensive R Archive Network). But you can also download packages form other sources, for example <a href="https://github.com/">GitHub</a>.</p>
+<p><img src="../pictures/app.png" class="img-fluid" width="19"><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Then, we have to load them in each session where we want to use them (like tapping on the app icon): <code>library(packagename)</code>.</p>
 <ul>
 <li>Note that in <code>install.packages("packagename")</code> we have to put the package into quotation marks, but not when calling <code>library(packagename)</code>.</li>
 </ul>
@@ -676,12 +676,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
 <p>After installing a package, we have to load it into our R session. Optimally we do this for all packages we are going to use at the top of our script, so dependencies are easy to spot.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(aRtsy)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(aRtsy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we are free to use it, in this case to generate some artwork:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set.seed(1)</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#canvas_collatz(colors = colorPalette("lava"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">canvas_collatz</span>(<span class="at">colors =</span> <span class="fu">colorPalette</span>(<span class="st">"lava"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="packages_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 </section>
 <section id="function-conflicts" class="level2">
@@ -764,19 +767,20 @@ attached base packages:
 [1] stats     graphics  grDevices datasets  utils     methods   base     
 
 other attached packages:
-[1] psych_2.3.6   ggplot2_3.4.2
+[1] psych_2.3.6   ggplot2_3.4.2 aRtsy_0.2.4  
 
 loaded via a namespace (and not attached):
- [1] vctrs_0.6.3       nlme_3.1-162      cli_3.6.1         knitr_1.43       
- [5] rlang_1.1.1       xfun_0.39         generics_0.1.3    renv_1.0.0       
- [9] jsonlite_1.8.7    glue_1.6.2        colorspace_2.1-0  htmltools_0.5.5  
-[13] scales_1.2.1      fansi_1.0.4       rmarkdown_2.23    grid_4.3.1       
-[17] evaluate_0.21     munsell_0.5.0     tibble_3.2.1      fastmap_1.1.1    
-[21] yaml_2.3.7        lifecycle_1.0.3   compiler_4.3.1    dplyr_1.1.2      
-[25] pkgconfig_2.0.3   rstudioapi_0.15.0 lattice_0.21-8    digest_0.6.32    
-[29] R6_2.5.1          tidyselect_1.2.0  utf8_1.2.3        parallel_4.3.1   
-[33] mnormt_2.1.1      pillar_1.9.0      magrittr_2.0.3    withr_2.5.0      
-[37] tools_4.3.1       gtable_0.3.3     </code></pre>
+ [1] gtable_0.3.3      jsonlite_1.8.7    dplyr_1.1.2       compiler_4.3.1   
+ [5] renv_1.0.0        tidyselect_1.2.0  Rcpp_1.0.11       parallel_4.3.1   
+ [9] scales_1.2.1      yaml_2.3.7        fastmap_1.1.1     lattice_0.21-8   
+[13] R6_2.5.1          labeling_0.4.2    generics_0.1.3    knitr_1.43       
+[17] tibble_3.2.1      munsell_0.5.0     pillar_1.9.0      rlang_1.1.1      
+[21] utf8_1.2.3        xfun_0.39         cli_3.6.1         withr_2.5.0      
+[25] magrittr_2.0.3    digest_0.6.32     grid_4.3.1        rstudioapi_0.15.0
+[29] lifecycle_1.0.3   nlme_3.1-162      vctrs_0.6.3       mnormt_2.1.1     
+[33] evaluate_0.21     glue_1.6.2        farver_2.1.1      fansi_1.0.4      
+[37] colorspace_2.1-0  rmarkdown_2.23    tools_4.3.1       pkgconfig_2.0.3  
+[41] htmltools_0.5.5  </code></pre>
 </div>
 </div>
 <p>A more elegant approach to manage your packages is to use a dedicated package like <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a>, which will make it a lot easier to manage your package versions. But this is past the scope of this workshop, just keep in mind it might be something rewarding to look at, if you should start to programm more with R. Instead, let’s look at how to get data into R in the next chapter, so we can actually get to work with it.</p>
