@@ -564,7 +564,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#data-types" id="toc-data-types" class="nav-link active" data-scroll-target="#data-types">Data types</a></li>
   <li><a href="#absolute-paths-vs.-relative-paths" id="toc-absolute-paths-vs.-relative-paths" class="nav-link" data-scroll-target="#absolute-paths-vs.-relative-paths">Absolute paths vs.&nbsp;relative paths</a></li>
-  <li><a href="#the-here-package" id="toc-the-here-package" class="nav-link" data-scroll-target="#the-here-package">The <code>here</code> package</a></li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/load_data/load_data.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
@@ -663,10 +662,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Luckily, we have already created a RStudio projects, which sets the working directory automatically, so we don’t really have to deal with that.</p>
 <p>Now take a look at the working directory and the relative path I used for loading the <code>winners.rda</code>. Notice something? Correct, both paths combined equal the <strong>absolute path</strong> to the file. So by splitting it up, we obtain a more reproducible path, that works independent of where the current working directory is.</p>
-</section>
-<section id="the-here-package" class="level2">
-<h2 class="anchored" data-anchor-id="the-here-package">The <code>here</code> package</h2>
-<p>Another great way to deal with the path confusion is to use the <code>here</code> package. It can build the paths relative to the directory where your RStudio project is saved in. For example, <code>".\raw_data\winners.rda"</code> becomes <code>here::here("raw_data", "winners.rda")</code>. This is not incredibly important right now, but I need to mention it because I have to use these path structures sometimes during the tutorial, so don’t be confused! It is just another way to build file paths. Look <a href="https://here.r-lib.org/">here</a> (:D) if you want to learn more about the package.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The <code>here</code> package
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Another great way to deal with the path confusion is to use the <code>here</code> package. It can build the paths relative to the directory where your RStudio project is saved in. For example, <code>".\raw_data\winners.rda"</code> becomes <code>here::here("raw_data", "winners.rda")</code>. This is not incredibly important right now, especially if you have all your files in the same folder. But it can become very valuable with increasing project complexity and file structure, so look into it if you want to get a head start! I also I have to use it sometimes during the tutorial because of I have organized my project, so don’t be confused! It is just another way to build file paths. Look <a href="https://here.r-lib.org/">here</a> (:D) if you want to learn more about the package.</p>
+</div>
+</div>
 </section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
