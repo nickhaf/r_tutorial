@@ -100,6 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Introduction to R - Missing values">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://github.com/nickhaf/r_tutorial/qmd/missing/missing.jpg">
 <meta property="og:site-name" content="Introduction to R">
 </head>
 
@@ -643,6 +644,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<p><img src="missing.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>Remember the weird <code>NA</code> rows we encountered when <a href="">subsetting by condition</a>? We were able to steer around that by using <code>filter()</code>, but let’s take a closer look at that now.</p>
 <p>Missing values are denoted in R by <code>NA</code> (or <code>NaN</code> in some cases). They nullify a calculation or comparison pretty strongly - if one missing value is found somewhere along the line, the result will also be <code>NA</code> (if not specified otherwise):</p>
 <div class="cell">
@@ -770,7 +772,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@bamin?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Pierre Bamin</a> on <a href="https://unsplash.com/de/fotos/5B0IXL2wAQ0?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
