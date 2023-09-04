@@ -619,8 +619,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#rows" id="toc-rows" class="nav-link" data-scroll-target="#rows">Rows</a></li>
   <li><a href="#columns" id="toc-columns" class="nav-link" data-scroll-target="#columns">Columns</a></li>
   <li><a href="#rows-columns" id="toc-rows-columns" class="nav-link" data-scroll-target="#rows-columns">Rows &amp; Columns</a></li>
+  <li><a href="#conditional-filtering" id="toc-conditional-filtering" class="nav-link" data-scroll-target="#conditional-filtering">Conditional filtering</a></li>
   </ul></li>
   <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a></li>
+  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/subsetting/subsetting.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -782,23 +784,20 @@ Tip
  $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
 </div>
 </div>
-<pre><code>:::
-
-### Conditional filtering
-
-Now the stuff we looked at in [logical operators](../basics/basics.qmd#comparisons-and-logical-operators) comes in handy! We can filter rows which match some condition. For example, we might want to look at all athletes from Germany:
-
-::: {.cell output.lines='4'}
-
-```{.r .cell-code}
-athletes[athletes$Team == "Germany", ]</code></pre>
+</div>
+</div>
+</section>
+<section id="conditional-filtering" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-filtering">Conditional filtering</h3>
+<p>Now the stuff we looked at in <a href="../../qmd/basics/basics.html#comparisons-and-logical-operators">logical operators</a> comes in handy! We can filter rows which match some condition. For example, we might want to look at all athletes from Germany:</p>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>athletes[athletes<span class="sc">$</span>Team <span class="sc">==</span> <span class="st">"Germany"</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       NOC     ID
 107246 GER   7385
 107247 GER 114424
 107248 GER 112937
 ...</code></pre>
-</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -977,6 +976,43 @@ Instead, we can use the <code>filter()</code> function from the tidyverse:</p>
 ...</code></pre>
 </div>
 </div>
+</section>
+<section id="lists" class="level2">
+<h2 class="anchored" data-anchor-id="lists">Lists</h2>
+<p>When subsetting lists we have to options:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define an example list:</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>show_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"TV-Show"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Friends"</span>, <span class="st">"How I Met Your Mother"</span>), </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"dat"</span> <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">"name"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Monica"</span>, <span class="st">"Ted"</span>), </span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">"age"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">24</span>, <span class="dv">27</span>)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>                                     )</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>                  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>We can extract a list element. This is done by single square brackets:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(show_list[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 1
+ $ dat:'data.frame':    2 obs. of  2 variables:
+  ..$ name: chr [1:2] "Monica" "Ted"
+  ..$ age : num [1:2] 24 27</code></pre>
+</div>
+</div>
+<p>Note how the result is still a <code>list</code>? It’s like taking out a drawer from a closet, but keeping the content inside this drawer.</p>
+<ol start="2" type="1">
+<li>We can extract the element that is stored inside the list element. This is done by double square brackets:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(show_list[[<span class="dv">2</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   2 obs. of  2 variables:
+ $ name: chr  "Monica" "Ted"
+ $ age : num  24 27</code></pre>
+</div>
+</div>
+<p>Here the result is the <code>data frame</code> that was saved inside the list. It’s like taking the content out of the drawer.</p>
 
 
 </section>

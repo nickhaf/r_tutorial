@@ -94,10 +94,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Introduction to R - Final Exercise">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://github.com/nickhaf/r_tutorial/qmd/pictures/beach.jpg">
 <meta property="og:site-name" content="Introduction to R">
 </head>
 
@@ -613,11 +616,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link active" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
-  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution</a></li>
-  <li><a href="#hint-1" id="toc-hint-1" class="nav-link" data-scroll-target="#hint-1">Hint</a></li>
-  <li><a href="#solution-2" id="toc-solution-2" class="nav-link" data-scroll-target="#solution-2">Solution</a></li>
-  <li><a href="#solution-3" id="toc-solution-3" class="nav-link" data-scroll-target="#solution-3">Solution</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/final_exercise/final_exercise.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -641,8 +641,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>This exercise comes back to most topics presented in this workshop (but will also go beyond it slightly in some cases to provide some additional input). If you are a R beginner and followed the workshop, you can do this last exercise in the end to again test your knowledge. If you already have some R experience, you can do this exercise before the rest of the workshop and use it to identify weak points to follow up on. It will be a bit harder than the other workshop exercises to challenge you one last time and think about concepts you might want to revisit, so don’t worry if some exercises feel a bit harder, we haven’t talked about everything yet. Use all resources at your disposal, that’s how you would work on a real project as well.</p>
-<p>So, in order to provide you with a totally fresh data set, let’s look at beach volleyball, even though the others might be worth further exploring as well.</p>
+<p><img src="../pictures/beach.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>This exercise revisits most topics presented in the workshop (but will also go beyond it slightly in some cases to provide some additional input).</p>
+<p>If you are a R beginner and followed the workshop, you can do this last exercise in the end to test your knowledge. If you already have some R experience, you can do this exercise before the rest of the workshop and use it to identify weak points to follow up on. It will be a bit harder than the other workshop exercises to challenge you one last time and think about concepts you might want to revisit, so don’t worry if some exercises feel a bit harder, we haven’t talked about everything yet. Use all resources at your disposal (cheat sheets, stack overflow …), that’s how you would work on a real project as well.</p>
+<p>So, in order to provide you with a totally fresh data set, let’s look at beach volleyball. The data was collected from international beach volleyball championships, and displays a lot of stats on each single match. For this exercise we want to focus on a simple questions: Does height differences in volleyball matter so much, that taller teams have a winning advantage? If that would be the case, the mean height of the winning team should be significantly larger than the mean height of the losing team. Let’s take a look!</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -659,7 +661,7 @@ Tip
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <ol type="1">
-<li><a href="../qmd/load_data/load_data_exercise.qmd">Download</a> the data sets <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data"><code>vb_w</code> and <code>vb_l</code></a> and <a href="../../qmd/load_data/load_data.html">load the data</a> them into R.</li>
+<li><a href="../qmd/load_data/load_data_exercise.qmd">Download</a> the data sets <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data"><code>vb_w</code> and <code>vb_l</code></a> and <a href="../../qmd/load_data/load_data.html">load the data</a> into R.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -676,28 +678,50 @@ Hints
 <ol type="1">
 <li>Admittedly not the easiest data loading exercise. One file is a <code>.csv</code> file, the other an SPSS file (<code>.sav</code>). Take a look <a href="../../qmd/load_data/load_data.html">here</a> to see how to load them into R.</li>
 <li>You need to install <code>haven</code> to load the <code>.sav</code> file.</li>
-<li>You need to look at the <code>sep</code> argument in <code>read.csv()</code>: It needs to specify how the values in the <code>.csv</code> file are seperated. Take a look into the file itself to find out. We have seen a simmilar example in <a href="https://nickhaf.github.io/r_tutorial/qmd/load_data/load_data_exercise.html#exercies-2">this exercise</a>.</li>
+<li>You need to look at the <code>sep</code> argument in <code>read.csv()</code>: It needs to specify how the values in the <code>.csv</code> file are seperated. Use a text editor to take a look into the file itself to find out what the separator should be. We have seen a simmilar example in <a href="https://nickhaf.github.io/r_tutorial/qmd/load_data/load_data_exercise.html#exercies-2">this exercise</a>.</li>
 </ol>
 </div>
 </div>
 </div>
-<p>::: {.callout=caution collapse=“true”}</p>
-</section>
-<section id="solution" class="level2">
-<h2 class="anchored" data-anchor-id="solution">Solution</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("have") # Commented out, only execute if the package needs to be installed. </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>vb_w <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"vb_w.csv"</span>), <span class="at">sep =</span> <span class="st">" "</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>vb_l <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"vb_l.sav"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>:::</p>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("haven") # Commented out, only execute if the package needs to be installed.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="do">## Will use later on</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vb_w <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"vb_w.csv"</span>), <span class="at">sep =</span> <span class="st">" "</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>vb_l <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"vb_l.sav"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 <ol start="2" type="1">
 <li><a href="../../qmd/merging/merging.html">Merge</a> <code>vb_l</code> and <code>vb_w</code>.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -706,117 +730,405 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><code>merge()</code> can detect the columns that have the same name and merge using them automatically.</p>
+<p>Use the argument <code>by</code> in <code>merge()</code> to select the columns <code>id</code> and <code>gender</code> on which the data sets wil get merged.</p>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>vb <span class="ot">&lt;-</span> <span class="fu">merge</span>(vb_l, </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>            vb_w)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>vb <span class="ot">&lt;-</span> <span class="fu">merge</span>(vb_l,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  vb_w,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"gender"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="3" type="1">
-<li>Our goal will be to compare the mean height of the winning team against the mean height of the losing team. <a href="https://nickhaf.github.io/r_tutorial/qmd/subsetting/subsetting.html#columns">Select</a> only the columns from the data frames that are relevant to this question, and an identifier column, so we can merge them in the next step.</li>
+<ol start="4" type="1">
+<li><a href="https://nickhaf.github.io/r_tutorial/qmd/subsetting/subsetting.html#columns">Select</a> only the columns from the data frames that are relevant to this question, and an identifier column, so we can merge them in the next step.</li>
 </ol>
-<p>::: {.callout=tip collapse=“true”} The relevant columns are: <code>c("gender", "l_p1_hgt", "l_p2_hgt", "w_p1_hgt", "w_p2_hgt")</code>. :::</p>
-<p>::: {.callout=caution collapse=“true”}</p>
-</section>
-<section id="solution-1" class="level2">
-<h2 class="anchored" data-anchor-id="solution-1">Solution</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vb <span class="ot">&lt;-</span> vb[ , <span class="fu">c</span>(<span class="st">"gender"</span>, <span class="st">"l_p1_hgt"</span>, <span class="st">"l_p2_hgt"</span>, <span class="st">"w_p1_hgt"</span>, <span class="st">"w_p2_hgt"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>:::</p>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The relevant columns are: <code>c("gender", "l_p1_hgt", "l_p2_hgt", "w_p1_hgt", "w_p2_hgt")</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>vb <span class="ot">&lt;-</span> vb[, <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"gender"</span>, <span class="st">"l_p1_hgt"</span>, <span class="st">"l_p2_hgt"</span>, <span class="st">"w_p1_hgt"</span>, <span class="st">"w_p2_hgt"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 <ol start="4" type="1">
 <li>Remove any remaining <a href="../missings/missings.qmd">NAs</a> from this data set.</li>
 </ol>
-<p>::: {.callout=tip collapse=“true”}</p>
-</section>
-<section id="hint-1" class="level2">
-<h2 class="anchored" data-anchor-id="hint-1">Hint</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Use <code>na_omit()</code> to remove all <code>NAs</code> at once.</p>
-<p>:::</p>
-<p>::: {.callout=caution collapse=“true”}</p>
-</section>
-<section id="solution-2" class="level2">
-<h2 class="anchored" data-anchor-id="solution-2">Solution</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>vb <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(vb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>:::</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>vb <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(vb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 <ol start="5" type="1">
-<li><p>Calculate the mean height by team. Add the results in two new columns to the <code>vb</code> data frame.</p></li>
-<li><p><a href="../../qmd/plotting/plotting.html">Plot</a> two scatterplots to get a feeling for the distribution, one for the winning team mean height and one for the losing team mean height. Use a <a href="../../qmd/loops/loops.html">for-loop</a>.</p></li>
+<li>Calculate the mean height by team. Add the results in two new columns to the <code>vb</code> data frame.</li>
 </ol>
-<p>:::{.callout=warning collapse=“true”} This is a specifity You can pass a changing value into a ggplot function with like this: :::</p>
-<p>::: {.callout=caution collapse=“true”}</p>
-</section>
-<section id="solution-3" class="level2">
-<h2 class="anchored" data-anchor-id="solution-3">Solution</h2>
-<p>Huh that is weird? Height should be normally distributed, not bimodal. Ah, we still have men and women in the same data set. So let’s group by gender:</p>
-<p>Ah, that looks better.</p>
-<p>:::</p>
-<ol start="7" type="1">
-<li>Build two separate data sets, one for men, one for women.</li>
-</ol>
-<p>::: {.callout=note collapse=“true”}</p>
-<p>We haven’t really looked at most of this stuff in depth. Use your favorite search engine and try to solve it anyways, as you will often encounter problems you haven’t seen yet.</p>
-<ol start="8" type="1">
-<li>Do a paired t-test comparing the mean winners height against the mean losers height. Use a loop to iterate over both data sets, so you can calculate the t test for men and women separately. Save the results in a list.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t.test(paired = "true")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<ol start="9" type="1">
-<li>Look at the mean difference. Not very big in most cases, right? Let’s calculate a standardized effect size, Cohen’s <em>d</em>:</li>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You will need to calculate the mean of the two columns <strong>by row</strong>. There is a function called <code>rowMeans()</code> which can do exactly that. Provide a data frame consisting only of the relevant columns as input.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vb<span class="sc">$</span>winning_height <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(vb[, <span class="fu">c</span>(<span class="st">"w_p1_hgt"</span>, <span class="st">"w_p2_hgt"</span>)])</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>vb<span class="sc">$</span>losing_height <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(vb[, <span class="fu">c</span>(<span class="st">"l_p1_hgt"</span>, <span class="st">"l_p2_hgt"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Now, let’s do a paired paired t-test comparing the mean winners height against the mean losers height.</p>
+<ol type="1">
+<li>One assumption of the paired t-test is a normal distribution of the differences of the pairs. Check this assumption <a href="../../qmd/plotting/plotting.html">visually</a> by creating a histogram of the <code>winning_height - losing_height</code> difference. Use a <a href="../for_loop/for_loop.qmd"><code>for-loop</code></a> to create one histogram from the men and one for the women data set. You need to explicitly <code>print()</code> the plot if you want to display it from within a <code>for-loop</code>.</li>
 </ol>
-<p>Write a function to do that, and add the function to your for loop, so it automatically returns the effect size along with the p value.</p>
-<p>:::</p>
-<ol start="10" type="1">
-<li><p>For plotting, add the rows of the men’s data frame to the bottom of the women’s data frame.</p></li>
-<li><p>Add a new column containing the height in meters, not in Inch (one Inch are 0.0254 m).</p></li>
-<li><p>Reform this resulting data frame into long format.</p></li>
-<li><p>Use ggplot to build a violin plot showing the winners and losers distribution by gender. Violin plots are similar to boxplots but have the advantage of conveying more distributional information.</p></li>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The start of your for loop should look like this: <code>for(i in c("M", "W")){</code>. Inside, filter for men/women.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"W"</span>)) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  vb_gender <span class="ot">&lt;-</span> vb <span class="sc">%&gt;%</span> <span class="fu">filter</span>(gender <span class="sc">==</span> i)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> vb_gender,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> winning_height <span class="sc">-</span> losing_height)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="final_exercise_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="final_exercise_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Do a paired t-test comparing the winning teams height vs the losing team height. Again use a <a href="../loops/loopq.qmd"><code>for-loop</code></a> to test for men and women separately. Save the result in a <a href="https://nickhaf.github.io/r_tutorial/qmd/data_structures/data_structures.html#honorable-mention-list">list</a>), and name the list.</li>
 </ol>
-<p>Group by game and draw lines.</p>
-<pre><code>tuesdata$winning_height &lt;- rowMeans(tuesdata[, c("w_p1_hgt", "w_p2_hgt")]) 
-tuesdata$losing_height &lt;- rowMeans(tuesdata[, c("l_p1_hgt", "l_p2_hgt")]) 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use the function <code>t.test()</code> and set the argument <code>paired = "true"</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>result_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"W"</span>)) {</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  vb_gender <span class="ot">&lt;-</span> vb <span class="sc">%&gt;%</span> <span class="fu">filter</span>(gender <span class="sc">==</span> i)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  result_list[[i]] <span class="ot">&lt;-</span> <span class="fu">t.test</span>(vb_gender<span class="sc">$</span>winning_height, vb_gender<span class="sc">$</span>losing_height, <span class="at">paired =</span> <span class="st">"true"</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>result_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$M
 
-volleyball_data_men &lt;- tuesdata %&gt;% 
-  filter(gender == "M")
+    Paired t-test
+
+data:  vb_gender$winning_height and vb_gender$losing_height
+t = 23.111, df = 32168, p-value &lt; 2.2e-16
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ 0.2439251 0.2891347
+sample estimates:
+mean difference 
+      0.2665299 
 
 
-hist(volleyball_data_men$winning_height)
-hist(volleyball_data_men$losing_height)
+$W
 
-t.test(volleyball_data_men$winning_height, volleyball_data_men$losing_height)
+    Paired t-test
 
-## Transform into long for plotting
-
-
-## Plot boxplot for winner and loser distribution
-
-ggplot(volleyball_data_men) +
-  geom_boxplot(aes(y = ))
-
-## Zusatz:
-## Write a function to calculate cohens d
-
-
-## Write a function for inch into meter:
-inch_m &lt;- function(inch){
-  m &lt;- inch * 0.0254
-  return(m)
-}
-
-volleyball_data_men$winning_height &lt;- inch_m(volleyball_data_men$winning_height)
-volleyball_data_men$losing_height &lt;- inch_m(volleyball_data_men$losing_height)</code></pre>
+data:  vb_gender$winning_height and vb_gender$losing_height
+t = 16.38, df = 30646, p-value &lt; 2.2e-16
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ 0.1839846 0.2340009
+sample estimates:
+mean difference 
+      0.2089927 </code></pre>
+</div>
+</div>
+<p>Th p-value is <code>&lt; 0.001</code>. However, we have a <strong>very</strong> large sample, so almost all group differences will become significant.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Actually, this would be a perfect application for <code>lapply()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>result_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"W"</span>), <span class="cf">function</span>(x) {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  vb_gender <span class="ot">&lt;-</span> vb <span class="sc">%&gt;%</span> <span class="fu">filter</span>(gender <span class="sc">==</span> x)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  t_test_result <span class="ot">&lt;-</span> <span class="fu">t.test</span>(vb_gender<span class="sc">$</span>winning_height, vb_gender<span class="sc">$</span>losing_height, <span class="at">paired =</span> <span class="st">"true"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(t_test_result)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(result_list) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"W"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The output of <code>lapply()</code> is a list, so we don’t have to define an empty list in the beginning of the loop.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Look at the mean differences. Not very big, right? Let’s calculate a standardized effect size, Cohen’s <em>d</em>:</li>
+</ol>
+<p><span class="math inline">\(d = \frac{\overline{x}_1 - \overline{x}_2}{\sqrt{(s^2_1 + s^2_2)/2}}\)</span></p>
+<p>Write a <a href="../../qmd/functions/functions.html">function</a> to do that, then add it to your loop.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cohens_d <span class="ot">&lt;-</span> <span class="cf">function</span>(x_1, x_2, var_1, var_2) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> (x_1 <span class="sc">-</span> x_2) <span class="sc">/</span> (<span class="fu">sqrt</span>(var_1 <span class="sc">+</span> var_2) <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(d)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"W"</span>)) {</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  vb_gender <span class="ot">&lt;-</span> vb <span class="sc">%&gt;%</span> <span class="fu">filter</span>(gender <span class="sc">==</span> i)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  result_list[[i]] <span class="ot">&lt;-</span> <span class="fu">t.test</span>(vb_gender<span class="sc">$</span>winning_height, vb_gender<span class="sc">$</span>losing_height, <span class="at">paired =</span> <span class="st">"true"</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">cohens_d</span>(</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_1 =</span> <span class="fu">mean</span>(vb_gender<span class="sc">$</span>winning_height),</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_2 =</span> <span class="fu">mean</span>(vb_gender<span class="sc">$</span>losing_height),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">var_1 =</span> <span class="fu">var</span>(vb_gender<span class="sc">$</span>winning_height),</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">var_2 =</span> <span class="fu">var</span>(vb_gender<span class="sc">$</span>losing_height)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(d)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2444149
+[1] 0.1793589</code></pre>
+</div>
+</div>
+<p>So, following Cohen’s conventions, this could be interpreted as a (very) small effect sizes. The height differences in professional volleyball are therefore probably negligible, as the size differences will be very small anyways, but still, teams with taller players seem to have a very small edge.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<ol type="1">
+<li>Reform the <code>vb</code> data frame (with both men and women in it) into <a href="../../qmd/format/format.html">long format</a>, so all heights can be found in one column, with the winning/losing information in another column.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="tidy">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vb_long <span class="ot">&lt;-</span> vb <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"winning_height"</span>, <span class="st">"losing_height"</span>),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"result"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"mean_height"</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>[Use <code>ggplot</code>}(../plotting/plotting.qmd) to build a violin plot showing the winners and losers height distribution by gender. Violin plots are similar to box plots but have the advantage of conveying more distributional information. If you want, you can also add a small box plot on top of the violin plot to have the advantage of both. Give meaningful axis labels and a plot title.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="tidy">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>vb_long <span class="ot">&lt;-</span> vb_long <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">paste0</span>(.<span class="sc">$</span>result, .<span class="sc">$</span>gender))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(vb_long,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> mean_height, <span class="at">fill =</span> gender)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>) <span class="sc">+</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="final_exercise_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@mitchel3uo?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Mitchell Luo</a> on <a href="https://unsplash.com/de/fotos/2Oazk1nJzhM?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
