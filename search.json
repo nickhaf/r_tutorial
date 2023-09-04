@@ -25,7 +25,7 @@
     "href": "index.html#footnotes",
     "title": "Welcome",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nThis workshop was designed by Nicklas Hafiz, PhD student and research fellow at the Institut für Qualitätsentwicklung im Bildungswesen (IQB). and can↩︎\nIt is licensed under the MIT License.↩︎"
+    "text": "Footnotes\n\n\nThis workshop was designed by Nicklas Hafiz, PhD student and research fellow at the Institut für Qualitätsentwicklung im Bildungswesen (IQB).↩︎\nIt is licensed under the MIT License.↩︎"
   },
   {
     "objectID": "qmd/basics/basics.html",
@@ -343,6 +343,55 @@
     "text": "Second plot\nLet’s take a look at a different plot, just to see what can be easily achieved with ggplot2 (and we have prepared the data to do that, so we don’t want to waste the work).\nSo, let’s build our coordinate system:\n\np &lt;- ggplot(\n  data = medal_countries,\n  mapping = aes(x = long, y = lat, group = group)\n)\np\n\n\n\n\nNow we add the map by using the polygon geom:\n\np &lt;- p +\n  geom_polygon(aes(fill = n))\np\n\n\n\n\nRemember what aes() does? Here we can specify which aspects of the plot should change in dependence of the data, so in this case the polygon filling (which are our countries) will change depending on n (the number of gold medalists).\nIn the end we can clean up the plot by rescaling the x and y axis, provide a new colour scale, titles and theme:\n\n  p +\n  coord_fixed(1.3) +\n  scale_fill_distiller(palette =\"YlOrBr\", direction = 1) + \n  ggtitle(\"Olympic Gold Medal winners\") +\n  guides(fill=guide_legend(title=\"Gold medal \\n winners\")) +\n  theme_void()\n\n\n\n\nNote that the medals for team sports are counted multiple times, as our data contained the gold medal wins by person, and not by discipline."
   },
   {
+    "objectID": "qmd/final_exercise/final_exercise.html",
+    "href": "qmd/final_exercise/final_exercise.html",
+    "title": "Final Exercise",
+    "section": "",
+    "text": "This exercise comes back to most topics presented in this workshop (but will also go beyond it slightly in some cases to provide some additional input). If you are a R beginner and followed the workshop, you can do this last exercise in the end to again test your knowledge. If you already have some R experience, you can do this exercise before the rest of the workshop and use it to identify weak points to follow up on. It will be a bit harder than the other workshop exercises to challenge you one last time and think about concepts you might want to revisit, so don’t worry if some exercises feel a bit harder, we haven’t talked about everything yet. Use all resources at your disposal, that’s how you would work on a real project as well.\nSo, in order to provide you with a totally fresh data set, let’s look at beach volleyball, even though the others might be worth further exploring as well."
+  },
+  {
+    "objectID": "qmd/final_exercise/final_exercise.html#exercise-1",
+    "href": "qmd/final_exercise/final_exercise.html#exercise-1",
+    "title": "Final Exercise",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\nDownload the data sets vb_w and vb_l and load the data them into R.\n\n\n\n\n\n\n\nHints\n\n\n\n\n\n\nAdmittedly not the easiest data loading exercise. One file is a .csv file, the other an SPSS file (.sav). Take a look here to see how to load them into R.\nYou need to install haven to load the .sav file.\nYou need to look at the sep argument in read.csv(): It needs to specify how the values in the .csv file are seperated. Take a look into the file itself to find out. We have seen a simmilar example in this exercise.\n\n\n\n\n::: {.callout=caution collapse=“true”}"
+  },
+  {
+    "objectID": "qmd/final_exercise/final_exercise.html#solution",
+    "href": "qmd/final_exercise/final_exercise.html#solution",
+    "title": "Final Exercise",
+    "section": "Solution",
+    "text": "Solution\n\n# install.packages(\"have\") # Commented out, only execute if the package needs to be installed. \nlibrary(haven)\n\nvb_w &lt;- read.csv(file = here::here(\"raw_data\", \"vb_w.csv\"), sep = \" \")\nvb_l &lt;- read_sav(file = here::here(\"raw_data\", \"vb_l.sav\"))\n\n:::\n\nMerge vb_l and vb_w.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nmerge() can detect the columns that have the same name and merge using them automatically.\n\n\n\n\nvb &lt;- merge(vb_l, \n            vb_w)\n\n\nOur goal will be to compare the mean height of the winning team against the mean height of the losing team. Select only the columns from the data frames that are relevant to this question, and an identifier column, so we can merge them in the next step.\n\n::: {.callout=tip collapse=“true”} The relevant columns are: c(\"gender\", \"l_p1_hgt\", \"l_p2_hgt\", \"w_p1_hgt\", \"w_p2_hgt\"). :::\n::: {.callout=caution collapse=“true”}"
+  },
+  {
+    "objectID": "qmd/final_exercise/final_exercise.html#solution-1",
+    "href": "qmd/final_exercise/final_exercise.html#solution-1",
+    "title": "Final Exercise",
+    "section": "Solution",
+    "text": "Solution\n\nvb &lt;- vb[ , c(\"gender\", \"l_p1_hgt\", \"l_p2_hgt\", \"w_p1_hgt\", \"w_p2_hgt\")]\n\n:::\n\nRemove any remaining NAs from this data set.\n\n::: {.callout=tip collapse=“true”}"
+  },
+  {
+    "objectID": "qmd/final_exercise/final_exercise.html#hint-1",
+    "href": "qmd/final_exercise/final_exercise.html#hint-1",
+    "title": "Final Exercise",
+    "section": "Hint",
+    "text": "Hint\nUse na_omit() to remove all NAs at once.\n:::\n::: {.callout=caution collapse=“true”}"
+  },
+  {
+    "objectID": "qmd/final_exercise/final_exercise.html#solution-2",
+    "href": "qmd/final_exercise/final_exercise.html#solution-2",
+    "title": "Final Exercise",
+    "section": "Solution",
+    "text": "Solution\n\nvb &lt;- na.omit(vb)\n\n:::\n\nCalculate the mean height by team. Add the results in two new columns to the vb data frame.\nPlot two scatterplots to get a feeling for the distribution, one for the winning team mean height and one for the losing team mean height. Use a for-loop.\n\n:::{.callout=warning collapse=“true”} This is a specifity You can pass a changing value into a ggplot function with like this: :::\n::: {.callout=caution collapse=“true”}"
+  },
+  {
+    "objectID": "qmd/final_exercise/final_exercise.html#solution-3",
+    "href": "qmd/final_exercise/final_exercise.html#solution-3",
+    "title": "Final Exercise",
+    "section": "Solution",
+    "text": "Solution\nHuh that is weird? Height should be normally distributed, not bimodal. Ah, we still have men and women in the same data set. So let’s group by gender:\nAh, that looks better.\n:::\n\nBuild two separate data sets, one for men, one for women.\n\n::: {.callout=note collapse=“true”}\nWe haven’t really looked at most of this stuff in depth. Use your favorite search engine and try to solve it anyways, as you will often encounter problems you haven’t seen yet.\n\nDo a paired t-test comparing the mean winners height against the mean losers height. Use a loop to iterate over both data sets, so you can calculate the t test for men and women separately. Save the results in a list.\n\n\n# t.test(paired = \"true\")\n\n\nLook at the mean difference. Not very big in most cases, right? Let’s calculate a standardized effect size, Cohen’s d:\n\nWrite a function to do that, and add the function to your for loop, so it automatically returns the effect size along with the p value.\n:::\n\nFor plotting, add the rows of the men’s data frame to the bottom of the women’s data frame.\nAdd a new column containing the height in meters, not in Inch (one Inch are 0.0254 m).\nReform this resulting data frame into long format.\nUse ggplot to build a violin plot showing the winners and losers distribution by gender. Violin plots are similar to boxplots but have the advantage of conveying more distributional information.\n\nGroup by game and draw lines.\ntuesdata$winning_height &lt;- rowMeans(tuesdata[, c(\"w_p1_hgt\", \"w_p2_hgt\")]) \ntuesdata$losing_height &lt;- rowMeans(tuesdata[, c(\"l_p1_hgt\", \"l_p2_hgt\")]) \n\nvolleyball_data_men &lt;- tuesdata %&gt;% \n  filter(gender == \"M\")\n\n\nhist(volleyball_data_men$winning_height)\nhist(volleyball_data_men$losing_height)\n\nt.test(volleyball_data_men$winning_height, volleyball_data_men$losing_height)\n\n## Transform into long for plotting\n\n\n## Plot boxplot for winner and loser distribution\n\nggplot(volleyball_data_men) +\n  geom_boxplot(aes(y = ))\n\n## Zusatz:\n## Write a function to calculate cohens d\n\n\n## Write a function for inch into meter:\ninch_m &lt;- function(inch){\n  m &lt;- inch * 0.0254\n  return(m)\n}\n\nvolleyball_data_men$winning_height &lt;- inch_m(volleyball_data_men$winning_height)\nvolleyball_data_men$losing_height &lt;- inch_m(volleyball_data_men$losing_height)"
+  },
+  {
     "objectID": "qmd/plotting/plotting_exercise.html",
     "href": "qmd/plotting/plotting_exercise.html",
     "title": "Plotting: Exercises",
@@ -501,7 +550,7 @@
     "href": "qmd/functions/functions.html#how-to-write-a-function",
     "title": "Functions",
     "section": "How to write a function?",
-    "text": "How to write a function?\nEverything that does something in R is a function. We have already used a lot of them, like print(), filter(), merge(). The great thing is: we can define our own functions pretty easily:\nfunction_name &lt;- function(argument_1, argument_2, ...){\n  do some operations\n  \n  return(result)\n}\nWe always have to give the function a concise name (often not that easy). Then we specify some arguments (which should also have concise names), which can be changed by the user. In our introductory example that was just the athlete name. Inside the { } we define the operations, which can use the arguments so the users can specify some parts of the functions behavior. In the end, it is good practice to return the result by using return(), so it is always clear what the function is giving back to the user. One minimal example with three arguments would be to sum three numbers. We can also provide a default option for the arguments, which the function will fall back on, if the user doesn’t specify anything:\n\nsum_num &lt;- function(x, y, z = 0){\n  result &lt;- x + y + z\n  return(result)\n}\n\nsum_num(x = 1, y = 1, z = 2)\n\n[1] 4\n\n## We don't have to use the arguments in order, IF we name them:\nsum_num(y = 2, z = 4, x = 1)\n\n[1] 7\n\n## We don't have to specify z, because the function can use a default:\nsum_num(x = 3, y = 1)\n\n[1] 4\n\n\n\n\n\n\n\n\nTip\n\n\n\nIt often makes sense to explicitly write the argument names into your function call. This makes your code clearer, and avoid a mix up."
+    "text": "How to write a function?\nEverything that does something in R is a function. We have already used a lot of them, like print(), filter(), merge(). The great thing is: we can define our own functions pretty easily:\nfunction_name &lt;- function(argument_1, argument_2, ...){\n  do some operations\n  \n  return(result)\n}\nWe always have to give the function a concise name (often not that easy). Then we specify some arguments (which should also have concise names). In our introductory example that was just the athlete name. Inside the { } we define the operations, which can use the arguments so the users can specify some aspects of the functions behavior. In the end, it is good practice to return the result by using return(), so it is always clear what the function is giving back to the user. One minimal example with three arguments would be to sum three numbers. We can also provide a default option for the arguments, which the function will fall back on, if the user doesn’t specify anything:\n\nsum_num &lt;- function(x, y, z = 0){\n  result &lt;- x + y + z\n  return(result)\n}\n\nsum_num(x = 1, y = 1, z = 2)\n\n[1] 4\n\n## We don't have to use the arguments in order, IF we name them:\nsum_num(y = 2, z = 4, x = 1)\n\n[1] 7\n\n## We don't have to specify z, because the function can use a default:\nsum_num(x = 3, y = 1)\n\n[1] 4\n\n\n\n\n\n\n\n\nTip\n\n\n\nIt often makes sense to explicitly write the argument names into your function call. This makes your code clearer, and avoids a mix up."
   },
   {
     "objectID": "qmd/functions/functions.html#footnotes",
