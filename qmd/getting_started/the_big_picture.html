@@ -856,7 +856,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="plot-the-data">Plot the data</h2>
 <p>We will use the package <code>ggplot2</code> (which is also part of the <code>tidyverse</code>) for <a href="../../qmd/plotting/plotting.html">plotting our data</a>. It should be mentioned that <code>Base R</code> also has some powerful plotting functions, however, <code>ggplot2</code> makes it very easy to build complex and beautiful plots.</p>
 <p>A <code>ggplot</code> is constructed from multiple layers, that can be laid over each other using the <code>+</code> operator.</p>
-<p>We start with the function <code>ggplot()</code>, where we define our data and the x and y axes. This will draw our (empty) coordinate system. We have to use the <code>aes()</code> (aesthetics) function for everything that changes in relation to the data. The simplest example would be our axes, as the exact location of each point on the plot is deposited in our data frame:</p>
+<p>We start with the function <code>ggplot()</code>, where we define our data and the x and y axes. This will draw our (empty) coordinate system. We have to use the <a href=""><code>aes()</code></a> (aesthetics) function for everything that changes in relation to the data. The simplest example would be our axes, as the exact location of each element in the plot is dependent on the x and y position deposited in the data frame:</p>
 <div class="tidy">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
@@ -881,6 +881,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>If we wanted all bars to have the same color, we would have specified the <code>fill</code> argument <strong>outside</strong> of the <code>aes()</code> function, because in that case, it wouldn’t have to change in dependence of our data.</p>
 <p>Now that we have defined our aesthetics, we can add a <code>geom</code>-layer. This will make use of the data we have defined in <code>ggplot()</code> and plot some bars for us:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
