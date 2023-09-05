@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R – loops_exercise</title>
+<title>Introduction to R - Loops: Exercises</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,6 +98,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Introduction to R - Loops: Exercises">
+<meta property="og:description" content="">
+<meta property="og:site-name" content="Introduction to R">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -131,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../qmd/final_exercise/final_exercise.html" rel="" target="">
- <span class="menu-text">Final Exercise</span></a>
+ <span class="menu-text">The Big Picture: Exercise</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -150,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">3) Data manipulation and transformation</li><li class="breadcrumb-item"><a href="../../qmd/loops/loops.html">Loops and Conditions</a></li><li class="breadcrumb-item"><a href="../../qmd/loops/loops_exercise.html">Previous code</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">3) Data manipulation and transformation</li><li class="breadcrumb-item"><a href="../../qmd/loops/loops.html">Loops and Conditions</a></li><li class="breadcrumb-item"><a href="../../qmd/loops/loops_exercise.html">Loops: Exercises</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -243,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/final_exercise/final_exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Final Exercise</span></a>
+ <span class="menu-text">The Big Picture: Exercise</span></a>
   </div>
 </li>
       </ul>
@@ -440,7 +443,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="false">
- <span class="menu-text">Wide and long format</span></a>
+ <span class="menu-text">Reshaping</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -449,7 +452,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/format/format.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">format.html</span></a>
+ <span class="menu-text">Wide and Long Format</span></a>
   </div>
 </li>
       </ul>
@@ -518,7 +521,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/loops/loops_exercise.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Previous code</span></a>
+ <span class="menu-text">Loops: Exercises</span></a>
   </div>
 </li>
       </ul>
@@ -629,7 +632,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Loops: Exercises</h1>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
 
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -666,13 +684,19 @@ Previous code
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">";"</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Merge it</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>characters_stats <span class="ot">&lt;-</span> <span class="fu">merge</span>(</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> characters,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> psych_stats,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.x =</span> <span class="st">"id"</span>, </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.y =</span> <span class="st">"char_id"</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Reshape psych_stats into long format:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>psych_stats <span class="ot">&lt;-</span> psych_stats <span class="sc">%&gt;%</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> messy_neat<span class="sc">:</span>innocent_jaded, </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"question"</span>, </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"rating"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Merge it</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>characters_stats <span class="ot">&lt;-</span> <span class="fu">merge</span>(</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> characters,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> psych_stats,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.x =</span> <span class="st">"id"</span>, </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">by.y =</span> <span class="st">"char_id"</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -791,33 +815,33 @@ Solution
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(question <span class="sc">==</span> i)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Calculate the mean for that subset:</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  question_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(question_dat<span class="sc">$</span>mean_rating)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  question_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(question_dat<span class="sc">$</span>rating)</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Build and print the final statement:</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  statement <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"The mean rating for the fictional universe 'Friends' on the question '"</span>, i, <span class="st">"' is:"</span>, question_mean)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(statement)</span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "The mean rating for the fictional universe 'Friends' on the question ' beautiful/ugly ' is: 19.5"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' feminine/masculine ' is: 40.6166666666667"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' manicured/scruffy ' is: 32.4166666666667"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' slovenly/stylish ' is: 60.0166666666667"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' city-slicker/country-bumpkin ' is: 22.3166666666667"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' attractive/repulsive ' is: 23.6"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' reclusive/social ' is: 72.0333333333333"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' androgynous/gendered ' is: 76.1166666666667"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' 💃/🧕 ' is: 26.3666666666667"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' bad-cook/good-cook ' is: 37.6333333333333"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' overspender/penny-pincher ' is: 50.8"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' historical/modern ' is: 61.7333333333333"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' asexual/sexual ' is: 75.3166666666667"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' 🐒/🐩 ' is: 46.1833333333333"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' chatty/reserved ' is: 19.0166666666667"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' trendy/vintage ' is: 54.95"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' emotional/unemotional ' is: 23.9833333333333"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' main character/side character ' is: 38.65"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' extrovert/introvert ' is: 29.2333333333333"
-[1] "The mean rating for the fictional universe 'Friends' on the question ' rural/urban ' is: 73.8833333333333"
+<pre><code>[1] "The mean rating for the fictional universe 'Friends' on the question ' messy_neat ' is: 47.6833333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' disorganized_self.disciplined ' is: 45.1666666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' diligent_lazy ' is: 42.2333333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' on.time_tardy ' is: 53.3166666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' competitive_cooperative ' is: 33.6"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' scheduled_spontaneous ' is: 55.5333333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' ADHD_OCD ' is: 40.7833333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' chaotic_orderly ' is: 41.6666666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' motivated_unmotivated ' is: 32.2833333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' bossy_meek ' is: 41.4666666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' persistent_quitter ' is: 29.05"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' overachiever_underachiever ' is: 41.85"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' muddy_washed ' is: 64.2166666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' beautiful_ugly ' is: 19.5"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' slacker_workaholic ' is: 53.5333333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' driven_unambitious ' is: 34.1833333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' outlaw_sheriff ' is: 50.2666666666667"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' precise_vague ' is: 51.55"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' bad.cook_good.cook ' is: 37.6333333333333"
+[1] "The mean rating for the fictional universe 'Friends' on the question ' manicured_scruffy ' is: 32.4166666666667"
 ...</code></pre>
 </div>
 </div>
@@ -873,7 +897,7 @@ Solution
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(question <span class="sc">==</span> question_i)</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Calculate the mean for that question</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  question_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(question_dat<span class="sc">$</span>mean_rating)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  question_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(question_dat<span class="sc">$</span>rating)</span>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Save the question in the row corresponding to the position of i:</span></span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  mean_ratings[i, <span class="st">"question"</span>] <span class="ot">&lt;-</span> question_i</span>
@@ -884,13 +908,13 @@ Solution
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mean_ratings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                      question     mean
-1               beautiful/ugly 19.50000
-2           feminine/masculine 40.61667
-3            manicured/scruffy 32.41667
-4             slovenly/stylish 60.01667
-5 city-slicker/country-bumpkin 22.31667
-6         attractive/repulsive 23.60000</code></pre>
+<pre><code>                       question     mean
+1                    messy_neat 47.68333
+2 disorganized_self.disciplined 45.16667
+3                 diligent_lazy 42.23333
+4                 on.time_tardy 53.31667
+5       competitive_cooperative 33.60000
+6         scheduled_spontaneous 55.53333</code></pre>
 </div>
 </div>
 <section id="lets-compare-that-with-a-group_by" class="level3">
@@ -899,18 +923,18 @@ Solution
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>characters_friends <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(question) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_rating =</span> <span class="fu">mean</span>(mean_rating)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_rating =</span> <span class="fu">mean</span>(rating)) <span class="sc">%&gt;%</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Let's look at the rating of this question for comparison:</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question <span class="sc">==</span> <span class="st">'beautiful/ugly'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(question <span class="sc">==</span> <span class="st">'beautiful_ugly'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   question       mean_rating
   &lt;chr&gt;                &lt;dbl&gt;
-1 beautiful/ugly        19.5</code></pre>
+1 beautiful_ugly        19.5</code></pre>
 </div>
 </div>
 </div>
-<p>Great, its the same! So it ist propably a lot easier to just use <code>group_by()</code> with <code>summarise()</code>, but maybe not quite as instructive.</p>
+<p>Great, its the same!</p>
 </section>
 </div>
 </div>

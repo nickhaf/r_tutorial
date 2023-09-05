@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R - Wide and Long Format</title>
+<title>Introduction to R - Reshaping: Exercise</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../qmd/merging/merging.html" rel="next">
-<link href="../../qmd/missing/missing_exercise.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -98,7 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction to R - Wide and Long Format">
+<meta property="og:title" content="Introduction to R - Reshaping: Exercise">
 <meta property="og:description" content="">
 <meta property="og:site-name" content="Introduction to R">
 </head>
@@ -153,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">3) Data manipulation and transformation</li><li class="breadcrumb-item"><a href="../../qmd/format/format.html">Reshaping</a></li><li class="breadcrumb-item"><a href="../../qmd/format/format.html">Wide and Long Format</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Reshaping: Exercise</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -442,16 +440,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="false">
  <span class="menu-text">Reshaping</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/format/format.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../qmd/format/format.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wide and Long Format</span></a>
   </div>
 </li>
@@ -624,19 +622,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#wide-format" id="toc-wide-format" class="nav-link active" data-scroll-target="#wide-format">Wide Format</a></li>
-  <li><a href="#long-format" id="toc-long-format" class="nav-link" data-scroll-target="#long-format">Long Format</a></li>
-  <li><a href="#reshaping-from-wide-to-long-format" id="toc-reshaping-from-wide-to-long-format" class="nav-link" data-scroll-target="#reshaping-from-wide-to-long-format">Reshaping from Wide to Long Format</a></li>
-  <li><a href="#reshaping-from-long-to-wide-format" id="toc-reshaping-from-long-to-wide-format" class="nav-link" data-scroll-target="#reshaping-from-long-to-wide-format">Reshaping from Long to Wide Format</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link active" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/format/format.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/format/format_exercise.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Wide and Long Format</h1>
+<h1 class="title">Reshaping: Exercise</h1>
 </div>
 
 
@@ -651,105 +648,278 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>In this chapter, we will look at a simpler data set that makes it a bit easier to explain reshaping between the wide and long data format, as our relatively complex <code>athletes</code> data set.</p>
-<p>Let’s define our own data set:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Only if you haven't loaded it yet. Will use later.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.2     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.1     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>inhabitants_wide <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"China"</span>, <span class="st">"India"</span>, <span class="st">"USA"</span>),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">inhabitants_2021 =</span> <span class="fu">c</span>(<span class="dv">1425893465</span>, <span class="dv">1407563842</span>, <span class="cn">NA</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">inhabitants_2022 =</span> <span class="fu">c</span>(<span class="dv">1425857720</span>, <span class="dv">1420939232</span>, <span class="dv">338903174</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-title-container flex-fill">
+Previous code
 </div>
-<section id="wide-format" class="level2">
-<h2 class="anchored" data-anchor-id="wide-format">Wide Format</h2>
-<p>In the wide format, we have only one row per unit of analysis. In this example, each country has it’s own row:</p>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inhabitants_wide)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Load the data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>characters <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"characters.rds"</span>))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>psych_stats <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"psych_stats.csv"</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">";"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Take a look at the data sets</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(characters)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  country inhabitants_2021 inhabitants_2022
-1   China       1425893465       1425857720
-2   India       1407563842       1420939232
-3     USA               NA        338903174</code></pre>
+<pre><code>'data.frame':   889 obs. of  7 variables:
+ $ id        : chr  "F2" "F1" "F5" "F4" ...
+ $ name      : chr  "Monica Geller" "Rachel Green" "Chandler Bing" "Joey Tribbiani" ...
+ $ uni_id    : chr  "F" "F" "F" "F" ...
+ $ uni_name  : chr  "Friends" "Friends" "Friends" "Friends" ...
+ $ notability: num  79.7 76.7 74.4 74.3 72.6 51.6 86.5 84.2 82.6 65.6 ...
+ $ link      : chr  "https://openpsychometrics.org/tests/characters/stats/F/2" "https://openpsychometrics.org/tests/characters/stats/F/1" "https://openpsychometrics.org/tests/characters/stats/F/5" "https://openpsychometrics.org/tests/characters/stats/F/4" ...
+ $ image_link: chr  "https://openpsychometrics.org/tests/characters/test-resources/pics/F/2.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/F/1.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/F/5.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/F/4.jpg" ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(psych_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   889 obs. of  365 variables:
+ $ char_id                                     : chr  "F2" "F1" "F5" "F4" ...
+ $ messy_neat                                  : num  95.7 30.2 45.3 13 20.9 ...
+ $ disorganized_self.disciplined               : num  95.2 25.9 42.4 11 20.9 75.6 10.4 31.9 39.6 31.1 ...
+ $ diligent_lazy                               : num  6.1 51.8 52.2 78.1 45.2 ...
+ $ on.time_tardy                               : num  6.2 77.9 57.1 84.1 74 20.6 85.7 68.3 73.6 58.2 ...
+ $ competitive_cooperative                     : num  6.4 28.9 42.8 44.2 55.3 ...
+ $ scheduled_spontaneous                       : num  6.6 72.3 54.9 91.3 94.9 ...
+ $ ADHD_OCD                                    : num  92.9 31.8 26.7 10.4 12.8 70.1 35.5 30.1 51.8 39.2 ...
+ $ chaotic_orderly                             : num  92.2 27 38.2 12.6 11.2 68.8 6.8 20.6 23.4 28.8 ...
+ $ motivated_unmotivated                       : num  7.8 31.8 52.3 45.6 24.7 31.5 80.9 30.5 40.8 50.7 ...
+ $ bossy_meek                                  : num  7.9 30.6 64.8 60.8 40.1 ...
+ $ persistent_quitter                          : num  7.9 35.8 43.9 33.8 21.3 ...
+ $ overachiever_underachiever                  : num  8.2 43.8 55.8 68.8 51.3 23.2 67.7 36.7 44.1 44.4 ...
+ $ muddy_washed                                : num  91 80.2 58.7 42.7 48.1 64.6 27.6 62.4 70.1 69.2 ...
+ $ beautiful_ugly                              : num  9.2 5.3 26.2 11 11.4 ...
+ $ slacker_workaholic                          : num  90.8 45.9 53.4 17.6 32 81.5 23.8 30.1 33.2 34.6 ...
+ $ driven_unambitious                          : num  9.5 30.3 49.8 49.4 43.4 22.7 58.5 34.1 32 47.4 ...
+ $ outlaw_sheriff                              : num  90.3 39.3 46.7 23.8 16.1 85.4 21.4 22.7 27.3 30.1 ...
+ $ precise_vague                               : num  9.9 64.7 53.2 78 78.1 25.4 68.4 60.1 47.3 61.7 ...
+ $ bad.cook_good.cook                          : num  90 11.1 28.2 31.2 29.4 35.9 27.3 46.2 43.8 52.8 ...
+ $ manicured_scruffy                           : num  10.6 7.7 45.6 47.6 62.5 20.5 81.3 37.3 20.3 20.9 ...
+ $ lenient_strict                              : num  89.3 34.2 28.8 11 15.4 76.7 15.2 24.2 38.9 21.5 ...
+ $ relaxed_tense                               : num  89 58.8 66.4 10.4 16.9 88.9 69.9 64.2 54.5 64.8 ...
+ $ demanding_unchallenging                     : num  11 23.9 58.3 66.3 57.1 28.5 35.9 37.8 16.8 60.3 ...
+ $ drop.out_valedictorian                      : num  88.9 32.5 47 14.9 22.1 87.7 12.5 29.6 36.5 51.2 ...
+ $ go.getter_slugabed                          : num  11.7 31.3 52.6 48.1 27.6 41.8 62.6 33.9 27.3 51.1 ...
+ $ competent_incompetent                       : num  11.9 47.1 37.1 77.2 53.6 37.8 51.9 41.1 35.2 56.1 ...
+ $ aloof_obsessed                              : num  88.1 62.3 52.3 35.1 33.2 80.8 75.1 54.9 70.7 61.9 ...
+ $ flexible_rigid                              : num  87.8 41.8 45.9 17.3 13.9 83.7 45.9 27.4 55 32.1 ...
+ $ active_slothful                             : num  12.2 33.1 61.1 56.7 31.4 48.8 73.9 19.8 29.2 35.5 ...
+ $ loose_tight                                 : num  87.4 43.2 44.3 14 15.3 82.5 28.1 26 44.8 43.6 ...
+ $ pointed_random                              : num  12.8 49.9 67.1 86.2 87.4 36.7 65.4 53.1 36.9 56.2 ...
+ $ fresh_stinky                                : num  12.9 14.6 31.9 44.3 39.2 44.3 64.4 30.2 18.2 24.6 ...
+ $ dominant_submissive                         : num  13.6 41.6 73.7 40.2 30.9 69.5 43.5 52.6 36.9 77.9 ...
+ $ anxious_calm                                : num  13.7 28.8 20 66.1 58 11.9 12 32.1 37.1 29.8 ...
+ $ clean_perverted                             : num  13.7 42.5 56.8 77.5 59.4 44 53.1 51.2 61.9 50.6 ...
+ $ neutral_opinionated                         : num  86.3 74.6 67.2 43.4 76.6 84.2 67.3 77.9 82.5 43.9 ...
+ $ always.down_picky                           : num  85.9 72.6 49.8 27.1 35.2 71.9 23.6 36.2 71.8 36.2 ...
+ $ hurried_leisurely                           : num  14.6 55.1 55.9 85.9 81 22.1 48.6 45.6 49 39.3 ...
+ $ attractive_repulsive                        : num  14.7 9.4 28.5 15.7 18.2 ...
+ $ devoted_unfaithful                          : num  14.8 29.1 22.6 41.5 19.6 47.5 34.1 55.7 42.7 48.2 ...
+ $ helpless_resourceful                        : num  85 41.4 56.6 37.9 70.6 52.4 41.4 51.5 36.2 29.8 ...
+ $ deliberate_spontaneous                      : num  15.1 71.7 56.5 89.1 92.9 20.9 78.6 88.3 64 60.9 ...
+ $ plays.hard_works.hard                       : num  84.7 41.3 46.5 13.7 26 81.2 28.2 30 19.9 26.4 ...
+ $ imaginative_practical                       : num  84.7 37.9 54.6 17 5.4 ...
+ $ frenzied_sleepy                             : num  15.5 29.9 34.7 55.6 30 31.1 59.4 25.2 19 46 ...
+ $ queer_straight                              : num  84.3 84.1 65.4 84.3 45.4 77.9 10.2 4.8 73.4 64.1 ...
+ $ assertive_passive                           : num  15.8 40.4 66.3 44.3 39.3 60.9 45.1 45.8 23.4 63.3 ...
+ $ fast.talking_slow.talking                   : num  15.9 20.8 18.3 42.2 21.7 49.6 69.5 34.3 32.5 44.5 ...
+ $ astonishing_methodical                      : num  83.8 28 49.9 19.2 17.4 83 31.2 27.4 36 32.7 ...
+ $ hoarder_unprepared                          : num  16.2 70 63.5 82 54.9 35.5 60.3 64.5 48.3 67.8 ...
+ $ consistent_variable                         : num  16.6 60.2 46.3 63.1 79.3 39.5 72 65.3 69.7 62.3 ...
+ $ involved_remote                             : num  16.7 26.3 42.7 30.2 36.7 36.6 62.2 39.3 26.4 38.7 ...
+ $ backdoor_official                           : num  83.3 51.9 47.4 24.4 20.4 76.4 29.1 29.3 53.5 36.7 ...
+ $ captain_first.mate                          : num  16.7 52.7 73.5 74.2 57.9 68.4 55.9 51 19 73.6 ...
+ $ refined_rugged                              : num  17.3 18.9 48.4 74.4 69.9 24.4 81.6 48 31.4 40.7 ...
+ $ accommodating_stubborn                      : num  82.7 77.2 48.2 43.9 48.3 78.5 78.1 69 85.9 41.5 ...
+ $ barbaric_civilized                          : num  82.6 76.5 66.6 32.9 39.9 77 33.4 44.4 36.7 55.5 ...
+ $ alpha_beta                                  : num  17.7 37.9 73.9 33.6 41.9 78.2 44.3 37.4 17.5 66.6 ...
+ $ loyal_traitorous                            : num  17.8 32.3 20 15.3 14.5 40.3 29.2 43.1 47.2 33.2 ...
+ $ trash_treasure                              : num  82 80.1 82.2 78.4 83.2 47.8 64.5 62.2 68.2 78.4 ...
+ $ fast_slow                                   : num  18.1 43.7 38.1 69 55.3 60.4 57.8 29.4 30 54.5 ...
+ $ perceptive_unobservant                      : num  18.3 59.5 41.5 80 41.1 48.6 21.6 33.3 28 49 ...
+ $ goof.off_studious                           : num  81.4 33.2 20.7 7.4 16.6 ...
+ $ feminist_sexist                             : num  18.6 23.3 43.9 62 10.5 ...
+ $ desperate_high.standards                    : num  81.1 69.2 30.7 36.8 56.7 29.2 33.7 32.5 61.7 25.8 ...
+ $ impatient_patient                           : num  18.9 21.9 34 25.7 39.1 25.8 23.8 35.1 18 57.2 ...
+ $ preppy_punk.rock                            : num  18.9 16.4 41.5 49.5 73.2 14.4 87.7 74.4 26.4 18.2 ...
+ $ naive_paranoid                              : num  80.7 35.5 66.6 22 39.7 71.6 69.6 45.6 50.7 32.1 ...
+ $ important_irrelevant                        : num  19.3 22.3 24.6 24.7 26.4 47.4 12.5 14.8 16.4 33.4 ...
+ $ apprentice_master                           : num  80.6 42.3 44.9 36.3 61.5 60.8 48 48 73 31.5 ...
+ $ healthy_sickly                              : num  19.6 17.8 39.1 26.9 22.6 37 88.9 65.7 56.7 45.5 ...
+ $ morning.lark_night.owl                      : num  19.6 69.9 58.3 80.4 61.9 23.2 90.6 81.9 90.1 78.3 ...
+ $ alert_oblivious                             : num  19.6 70.7 55.5 87.6 78.9 57.1 54.7 48.9 38.3 67.4 ...
+ $ f....the.police_tattle.tale                 : num  80 57.5 56.7 34.4 13.7 ...
+ $ experimental_reliable                       : num  79.7 37.8 62 35 22.2 61.7 28 26.5 30.4 39.8 ...
+ $ loud_quiet                                  : num  20.4 20.8 25 10.6 15.3 39.5 71.9 42.7 13.2 55.2 ...
+ $ high.IQ_low.IQ                              : num  20.5 56.7 28.8 82.6 50.6 19.3 30.9 26.1 47.7 55.6 ...
+ $ oppressed_privileged                        : num  79.2 85.4 67.2 66.5 42.1 84.3 22.4 19.6 59.9 63.4 ...
+ $ animalistic_human                           : num  79.2 75.6 73.7 43.8 42.1 69.3 70.4 55.9 64.4 73.2 ...
+ $ still_twitchy                               : num  79.2 68.6 79.9 76.9 83.6 81.9 77.9 67.4 60.1 58.4 ...
+ $ thick_thin                                  : num  78.8 79.6 52.8 35.2 69.2 60.6 73.3 81.4 66.1 48.8 ...
+ $ repetitive_varied                           : num  21.3 44.5 40.9 43.4 74.1 18.4 40.1 68.4 47.3 42.1 ...
+ $ rational_whimsical                          : num  21.7 72.3 54.4 86.8 93 27.4 67 78.7 69.6 70.9 ...
+ $ egalitarian_racist                          : num  21.7 27.8 24.7 24.3 10.7 ...
+ $ disreputable_prestigious                    : num  78.2 66.2 47 32.5 36.7 68.2 21.2 42.5 65.2 45.8 ...
+ $ ignorant_knowledgeable                      : num  78.2 37.7 66.9 22.2 59.9 68.5 60.8 68.1 44.2 42.6 ...
+ $ hard.work_natural.talent                    : num  21.9 47.5 41.8 69.8 71.2 29.2 55.8 67.5 65.8 57.3 ...
+ $ androgynous_gendered                        : num  78.1 89.4 68.5 82.5 60.1 78.1 32.6 43.4 88.3 87.9 ...
+ $ dispassionate_romantic                      : num  77.9 80.5 64.7 69.6 74.9 67.2 61.5 64.8 59.1 82.3 ...
+ $ eloquent_unpolished                         : num  22.1 32.1 56.1 79.8 69 33.7 76.3 45.2 35 42.9 ...
+ $ permanent_transient                         : num  22.2 56.1 39 59.6 71.1 31.9 68.5 79.7 57.2 70.6 ...
+ $ intense_lighthearted                        : num  22.2 50.8 73.8 79.8 64.2 28.2 22.4 34.7 18.2 44.3 ...
+ $ mischievous_well.behaved                    : num  77.8 34.2 30.6 15.8 20.3 71.4 13.3 19.4 17.6 38.2 ...
+ $ adventurous_stick.in.the.mud                : num  77.7 37.4 59.7 14.4 8 ...
+ $ obedient_rebellious                         : num  22.3 69.2 42.9 72.9 86.2 16.5 92.3 87.1 84.2 38.1 ...
+ $ authoritarian_democratic                    : num  22.4 55.2 70 72.1 75.4 41.6 68 67.4 21.8 68.9 ...
+ $ city.slicker_country.bumpkin                : num  22.7 9 22.4 18.4 42.6 18.8 26.5 20.2 16.8 24 ...
+ $ traditional_unorthodox                      : num  22.8 52.8 54.9 67.2 90 23.1 85.7 90.2 74.5 62.6 ...
+  [list output truncated]</code></pre>
 </div>
 </div>
-<p>However, the variable <code>inhabitants</code> is stretched over multiple rows. In many cases it makes sense to reshape the data, so the <code>inhabitants</code> are all put into one column:</p>
+</div>
+</div>
+</div>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Take a look at the data frame <code>psych_stats</code>! Which format does it have?</p>
+<ul class="task-list">
+<li><input type="checkbox">Wide format</li>
+<li><input type="checkbox">Long format</li>
+<li><input type="checkbox">None of the above</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul class="task-list">
+<li><input type="checkbox" checked="">Wide format</li>
+<li><input type="checkbox">Long format</li>
+<li><input type="checkbox">None of the above</li>
+</ul>
+<p>Each unit of observation, in this case each character, only has one row.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="long-format" class="level2">
-<h2 class="anchored" data-anchor-id="long-format">Long Format</h2>
-<p>This is what happens in the Long data Format does, where each unit of analysis is spread over multiple rows.</p>
-</section>
-<section id="reshaping-from-wide-to-long-format" class="level2">
-<h2 class="anchored" data-anchor-id="reshaping-from-wide-to-long-format">Reshaping from Wide to Long Format</h2>
-<p>To get from Wide Format to Long Format we can use the <code>pivot_longer()</code> function from the <code>tidyverse</code>:</p>
-<div class="tidy">
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Reshape it, so there are only three columns in the data set: <code>char_id</code>, <code>question</code> and <code>rating</code>.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You can select multiple columns like this: <code>column_1:column_10</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>inhabitants_long <span class="ot">&lt;-</span> inhabitants_wide <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"inhabitants_2022"</span>, <span class="st">"inhabitants_2021"</span>),</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"year"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"inhabitants"</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inhabitants_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>psych_stats <span class="ot">&lt;-</span> psych_stats <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> messy_neat<span class="sc">:</span>innocent_jaded, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"question"</span>, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"rating"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(psych_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
-  country year             inhabitants
-  &lt;chr&gt;   &lt;chr&gt;                  &lt;dbl&gt;
-1 China   inhabitants_2022  1425857720
-2 China   inhabitants_2021  1425893465
-3 India   inhabitants_2022  1420939232
-4 India   inhabitants_2021  1407563842
-5 USA     inhabitants_2022   338903174
-6 USA     inhabitants_2021          NA</code></pre>
+  char_id question                      rating
+  &lt;chr&gt;   &lt;chr&gt;                          &lt;dbl&gt;
+1 F2      messy_neat                     95.7 
+2 F2      disorganized_self.disciplined  95.2 
+3 F2      diligent_lazy                   6.10
+4 F2      on.time_tardy                   6.2 
+5 F2      competitive_cooperative         6.40
+6 F2      scheduled_spontaneous           6.60</code></pre>
+</div>
+</div>
+<p>Now we have multiple rows for every character, but all question ratings are nicely aligned in one column.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="reshaping-from-long-to-wide-format" class="level2">
-<h2 class="anchored" data-anchor-id="reshaping-from-long-to-wide-format">Reshaping from Long to Wide Format</h2>
-<p>In other cases it might happen, that multiple variables are put into the same column, togehter with an identifier column:</p>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>Try to reshape the data into long format.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>inhabitants_long_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>psych_stats <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> char_id, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_from =</span> <span class="st">"question"</span>, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_from =</span> <span class="st">"rating"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  country         variable      value
-1   China             area    9597000
-2   China inhabitants_2022 1425857720
-3   India             area    3287000
-4   India inhabitants_2022 1420939232
-5     USA             area    9834000
-6     USA inhabitants_2022  338903174</code></pre>
+<pre><code># A tibble: 889 × 365
+   char_id messy_neat disorganized_self.disciplined diligent_lazy on.time_tardy
+   &lt;chr&gt;        &lt;dbl&gt;                         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+ 1 F2           95.7                           95.2          6.10           6.2
+ 2 F1           30.2                           25.9         51.8           77.9
+ 3 F5           45.3                           42.4         52.2           57.1
+ 4 F4           13                             11           78.1           84.1
+ 5 F3           20.9                           20.9         45.2           74  
+ 6 F6           81                             75.6         20             20.6
+ 7 EU1           9.60                          10.4         62.3           85.7
+ 8 EU2          27.7                           31.9         23.7           68.3
+ 9 EU6          40                             39.6         54.1           73.6
+10 EU3          43.9                           31.1         32.2           58.2
+# ℹ 879 more rows
+# ℹ 360 more variables: competitive_cooperative &lt;dbl&gt;,
+#   scheduled_spontaneous &lt;dbl&gt;, ADHD_OCD &lt;dbl&gt;, chaotic_orderly &lt;dbl&gt;,
+#   motivated_unmotivated &lt;dbl&gt;, bossy_meek &lt;dbl&gt;, persistent_quitter &lt;dbl&gt;,
+#   overachiever_underachiever &lt;dbl&gt;, muddy_washed &lt;dbl&gt;, beautiful_ugly &lt;dbl&gt;,
+#   slacker_workaholic &lt;dbl&gt;, driven_unambitious &lt;dbl&gt;, outlaw_sheriff &lt;dbl&gt;,
+#   precise_vague &lt;dbl&gt;, bad.cook_good.cook &lt;dbl&gt;, manicured_scruffy &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
-<p>In that case it can make sense to spread the the distinct variables into two columns:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>inhabitants_wide_2 <span class="ot">&lt;-</span> inhabitants_long_2 <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">id_cols =</span> <span class="st">"country"</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">"variable"</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">"value"</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>inhabitants_wide_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 3
-  country    area inhabitants_2022
-  &lt;chr&gt;     &lt;dbl&gt;            &lt;dbl&gt;
-1 China   9597000       1425857720
-2 India   3287000       1420939232
-3 USA     9834000        338903174</code></pre>
+<p>This is how we got it! But scratch that, that was just for the sake of the exercise. We want to use <code>psych_stats</code> in the long format from now on.</p>
+</div>
 </div>
 </div>
 
@@ -990,18 +1160,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../qmd/missing/missing_exercise.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Missing values: Exercises</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../qmd/merging/merging.html" class="pagination-link">
-        <span class="nav-page-text">Merging data</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

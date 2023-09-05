@@ -135,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../qmd/final_exercise/final_exercise.html" rel="" target="">
- <span class="menu-text">Final Exercise</span></a>
+ <span class="menu-text">The Big Picture: Exercise</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -247,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/final_exercise/final_exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Final Exercise</span></a>
+ <span class="menu-text">The Big Picture: Exercise</span></a>
   </div>
 </li>
       </ul>
@@ -444,7 +444,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="false">
- <span class="menu-text">Wide and long format</span></a>
+ <span class="menu-text">Reshaping</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -453,7 +453,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/format/format.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">format.html</span></a>
+ <span class="menu-text">Wide and Long Format</span></a>
   </div>
 </li>
       </ul>
@@ -522,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/loops/loops_exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Previous code</span></a>
+ <span class="menu-text">Loops: Exercises</span></a>
   </div>
 </li>
       </ul>
@@ -644,10 +644,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p><img src="missing.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Previous code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>athletes <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"athletes.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 <p>Remember the weird <code>NA</code> rows we encountered when <a href="">subsetting by condition</a>? We were able to steer around that by using <code>filter()</code>, but let’s take a closer look at that now.</p>
 <p>Missing values are denoted in R by <code>NA</code> (or <code>NaN</code> in some cases). They nullify a calculation or comparison pretty strongly - if one missing value is found somewhere along the line, the result will also be <code>NA</code> (if not specified otherwise):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">4</span>, <span class="cn">NA</span>) <span class="sc">&gt;</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">4</span>, <span class="cn">NA</span>) <span class="sc">&gt;</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE   NA</code></pre>
 </div>
@@ -655,7 +673,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>That’s why we got some <code>NA</code> rows when trying to extract specific rows by weight: these rows had an <code>NA</code> in the weight column, and R returned rows with <code>NA's</code> as a result.</p>
 <p>To check if values are <code>NA</code>, we can use <code>is.na()</code>:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(athletes<span class="sc">$</span>Weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(athletes<span class="sc">$</span>Weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    [1]  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE
    [13] FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE
@@ -666,7 +684,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Some <code>TRUEs</code>, so there are missing values here. Let’s count them (Summing a <a href="../../qmd/basics/basics.html#comparisons-and-logical-operators">logical vector</a> counts the number of <code>TRUE</code> values.):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(athletes<span class="sc">$</span>Weight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(athletes<span class="sc">$</span>Weight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 62785</code></pre>
 </div>
@@ -674,7 +692,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We seem to have 62785 missings in this column.</p>
 <p>There are multiple different ways to deal with missings. For our comparison problem, we can add the new condition that all rows selected shouldn’t have an <code>NA</code> in the <code>Weight</code> column:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>athletes[(athletes<span class="sc">$</span>Sport <span class="sc">==</span> <span class="st">"Judo"</span>) <span class="sc">&amp;</span> (athletes<span class="sc">$</span>Weight <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">|</span> athletes<span class="sc">$</span>Weight <span class="sc">&lt;</span> <span class="dv">50</span>) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(athletes<span class="sc">$</span>Weight), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>athletes[(athletes<span class="sc">$</span>Sport <span class="sc">==</span> <span class="st">"Judo"</span>) <span class="sc">&amp;</span> (athletes<span class="sc">$</span>Weight <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">|</span> athletes<span class="sc">$</span>Weight <span class="sc">&lt;</span> <span class="dv">50</span>) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(athletes<span class="sc">$</span>Weight), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       NOC     ID                                 Name Sex Age Height Weight
 471    ALG  13895                  Mohamed Bouaichaoui   M  25    178  120.0
@@ -685,7 +703,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>What happens here? Like always when <a href="https://nickhaf.github.io/r_tutorial/qmd/subsetting/subsetting.html#conditional-filtering">filtering specific rows</a>, we define a <a href="https://nickhaf.github.io/r_tutorial/qmd/basics/basics.html#comparisons-and-logical-operators">logical vector</a>, which has a <code>TRUE</code> for all rows that have a missing on <code>ID</code> and a <code>FALSE</code> for all others (by using the <code>!</code> operator, which inverts the boolean values - otherwise we would extract all rows with missing values in the <code>Weight</code> column):</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.na</span>(athletes<span class="sc">$</span>Weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.na</span>(athletes<span class="sc">$</span>Weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    [1] FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE
    [13]  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE
@@ -697,8 +715,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We also assign the new name <code>athletes_na</code> to the resulting data frame, so we don’t overwrite the original one.</p>
 <p>Removing <code>NA's</code> from a data frame works pretty similar:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>athletes_na <span class="ot">&lt;-</span> athletes[<span class="sc">!</span><span class="fu">is.na</span>(athletes<span class="sc">$</span>Weight), ]</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(athletes_na)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>athletes_na <span class="ot">&lt;-</span> athletes[<span class="sc">!</span><span class="fu">is.na</span>(athletes<span class="sc">$</span>Weight), ]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(athletes_na)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   NOC     ID                 Name Sex Age Height Weight        Team
 3  AFG  44977    Mohammad Halilula   M  28    163     57 Afghanistan
@@ -725,7 +743,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="tidy">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.2     ✔ readr     2.1.4
@@ -738,9 +756,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>athletes_na <span class="ot">&lt;-</span> athletes <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Weight)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(athletes_na)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>athletes_na <span class="ot">&lt;-</span> athletes <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Weight)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(athletes_na)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  NOC     ID                 Name Sex Age Height Weight        Team       Games
 1 AFG  44977    Mohammad Halilula   M  28    163     57 Afghanistan 1980 Summer
