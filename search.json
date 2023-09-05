@@ -697,28 +697,28 @@
     "href": "qmd/format/format.html",
     "title": "Wide and Long Format",
     "section": "",
-    "text": "In this chapter, we will look at a simpler data set that makes it a bit easier to explain reshaping between the wide and long data format, as our relatively complex athletes data set.\nLet’s define our own data set:\nlibrary(tidyverse) # Only if you haven't loaded it yet. Will use later.\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\ninhabitants_wide &lt;- data.frame(\n  country = c(\"China\", \"India\", \"USA\"),\n  inhabitants_2021 = c(1425893465, 1407563842, NA),\n  inhabitants_2022 = c(1425857720, 1420939232, 338903174)\n)"
+    "text": "Previous code\n\n\n\n\n\n\n# install.packages(\"tidyverse\")\n# install.packages(\"here\")\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(here)\n\nhere() starts at /home/runner/work/r_tutorial/r_tutorial\nIn this chapter, we will look at a simpler data set that makes it a bit easier to explain reshaping between the wide and long data format, as our athletes data set is relatively complex.\nLet’s define our own data set:\ninhabitants_wide &lt;- data.frame(\n  country = c(\"China\", \"India\", \"USA\"),\n  inhabitants_2021 = c(1425893465, 1407563842, NA),\n  inhabitants_2022 = c(1425857720, 1420939232, 338903174)\n)"
   },
   {
     "objectID": "qmd/format/format.html#wide-format",
     "href": "qmd/format/format.html#wide-format",
     "title": "Wide and Long Format",
     "section": "Wide Format",
-    "text": "Wide Format\nIn the wide format, we have only one row per unit of analysis. In this example, each country has it’s own row:\n\nhead(inhabitants_wide)\n\n  country inhabitants_2021 inhabitants_2022\n1   China       1425893465       1425857720\n2   India       1407563842       1420939232\n3     USA               NA        338903174\n\n\nHowever, the variable inhabitants is stretched over multiple rows. In many cases it makes sense to reshape the data, so the inhabitants are all put into one column:"
+    "text": "Wide Format\nIn the Wide Format, we have only one row per unit of analysis. In this example, each country has it’s own row:\n\nhead(inhabitants_wide)\n\n  country inhabitants_2021 inhabitants_2022\n1   China       1425893465       1425857720\n2   India       1407563842       1420939232\n3     USA               NA        338903174\n\n\nHowever, the variable inhabitants is stretched over multiple rows. Depending on the application it can make sense to reshape the data, so the inhabitants are all put into one column:"
   },
   {
     "objectID": "qmd/format/format.html#long-format",
     "href": "qmd/format/format.html#long-format",
     "title": "Wide and Long Format",
     "section": "Long Format",
-    "text": "Long Format\nThis is what happens in the Long data Format does, where each unit of analysis is spread over multiple rows."
+    "text": "Long Format\nThis is what happens in the Long Data Format does, where each unit of analysis is spread over multiple rows.\n\nhead(inhabitants_long)\n\n# A tibble: 6 × 3\n  country year             inhabitants\n  &lt;chr&gt;   &lt;chr&gt;                  &lt;dbl&gt;\n1 China   inhabitants_2022  1425857720\n2 China   inhabitants_2021  1425893465\n3 India   inhabitants_2022  1420939232\n4 India   inhabitants_2021  1407563842\n5 USA     inhabitants_2022   338903174\n6 USA     inhabitants_2021          NA"
   },
   {
     "objectID": "qmd/format/format.html#reshaping-from-wide-to-long-format",
     "href": "qmd/format/format.html#reshaping-from-wide-to-long-format",
     "title": "Wide and Long Format",
     "section": "Reshaping from Wide to Long Format",
-    "text": "Reshaping from Wide to Long Format\nTo get from Wide Format to Long Format we can use the pivot_longer() function from the tidyverse:\n\n\ninhabitants_long &lt;- inhabitants_wide %&gt;%\n  pivot_longer(\n    cols = c(\"inhabitants_2022\", \"inhabitants_2021\"),\n    names_to = \"year\",\n    values_to = \"inhabitants\"\n  )\n\nhead(inhabitants_long)\n\n# A tibble: 6 × 3\n  country year             inhabitants\n  &lt;chr&gt;   &lt;chr&gt;                  &lt;dbl&gt;\n1 China   inhabitants_2022  1425857720\n2 China   inhabitants_2021  1425893465\n3 India   inhabitants_2022  1420939232\n4 India   inhabitants_2021  1407563842\n5 USA     inhabitants_2022   338903174\n6 USA     inhabitants_2021          NA"
+    "text": "Reshaping from Wide to Long Format\nTo get from Wide Format to Long Format we can use the pivot_longer() function from the tidyverse:\n\n\ninhabitants_long &lt;- inhabitants_wide %&gt;%\n  pivot_longer(\n    ## Select the columns we want to reshape:\n    cols = c(\"inhabitants_2022\", \"inhabitants_2021\"),\n    ## Define a new column where the column names will go to:\n    names_to = \"year\",\n    ## Define a new column where the values will go to:\n    values_to = \"inhabitants\"\n  )\n\nhead(inhabitants_long)\n\n# A tibble: 6 × 3\n  country year             inhabitants\n  &lt;chr&gt;   &lt;chr&gt;                  &lt;dbl&gt;\n1 China   inhabitants_2022  1425857720\n2 China   inhabitants_2021  1425893465\n3 India   inhabitants_2022  1420939232\n4 India   inhabitants_2021  1407563842\n5 USA     inhabitants_2022   338903174\n6 USA     inhabitants_2021          NA"
   },
   {
     "objectID": "qmd/format/format.html#reshaping-from-long-to-wide-format",
