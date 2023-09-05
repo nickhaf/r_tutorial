@@ -100,10 +100,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Introduction to R - The Big Picture">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://github.com/nickhaf/r_tutorial/qmd/getting_started/the_big_picture_files/figure-html/unnamed-chunk-17-1.png">
+<meta property="og:image" content="https://github.com/nickhaf/r_tutorial/qmd/getting_started/the_big_picture_files/figure-html/unnamed-chunk-15-1.png">
 <meta property="og:site-name" content="Introduction to R">
-<meta property="og:image:height" content="960">
-<meta property="og:image:width" content="1344">
+<meta property="og:image:height" content="1536">
+<meta property="og:image:width" content="2112">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -801,7 +801,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="selecting-columns" class="level2">
 <h2 class="anchored" data-anchor-id="selecting-columns">Selecting columns</h2>
-<p>Now we can trim down our data set a bit more and [select] only the columns we are actually going to need:</p>
+<p>Now we can trim down our data set a bit more and <a href="https://nickhaf.github.io/r_tutorial/qmd/subsetting/subsetting.html#columns-tidyverse">select</a> only the columns we are actually going to need:</p>
 <div class="tidy">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>babynames_F <span class="ot">&lt;-</span> babynames_F <span class="sc">%&gt;%</span></span>
@@ -821,18 +821,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="some-additional-summary-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="some-additional-summary-statistics">Some additional summary statistics</h2>
-<p>Now, the next part can show you how easy it can be to deal with data in R. First, let’s group our data according to year:</p>
+<p>Now, the next part can show you how easy it can be to deal with data in R. It’s <code>tidyverse</code> specific syntax, so don’t worry about it to much for now.</p>
+<p>First, let’s group our data according to year:</p>
 <div class="tidy">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>babynames_F_grouped <span class="ot">&lt;-</span> <span class="fu">group_by</span>(babynames_F, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>Any operations we now perform are performed by year, and not on the whole data set at once. In our case, we want to find the most common name each year, which is the name with the maximum <code>percentage</code>:</p>
+<p>Any operations we now perform are performed by year, and not on the whole data set at once. In our case, we want to find the most common name each year, which is the name with the maximum <code>percentage</code>. With <code>slice_max(percentage)</code> we can extract the row with the highest percentage in each group:</p>
 <div class="tidy">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>babynames_F_max <span class="ot">&lt;-</span> <span class="fu">slice</span>(babynames_F_grouped, <span class="fu">which.max</span>(percentage))</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babynames_F_max)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>babynames_F_max <span class="ot">&lt;-</span> babynames_F_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(percentage)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babynames_F_max)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
 # Groups:   year [6]
@@ -847,14 +849,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The <code>which.max(percentage)</code> command finds the maximum percentage per year. <code>slice()</code> will extract the respective rows, so we have only the row contatining the most common name per year in the end.</p>
-<p>At the moment we only want to get an idea what R can do, so don’t hold up if the functions are not that clear to you right now, hopefully that will change throughout this tutorial.</p>
+<p>Now our data frame contains only the most common name for each year.</p>
+<p>At the moment we only want to get an idea what R can do, so don’t hold up if some of the functions are not that clear to you right now, hopefully that will change throughout this tutorial.</p>
 </section>
 <section id="plot-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="plot-the-data">Plot the data</h2>
 <p>We will use the package <code>ggplot2</code> (which is also part of the <code>tidyverse</code>) for <a href="../../qmd/plotting/plotting.html">plotting our data</a>. It should be mentioned that <code>Base R</code> also has some powerful plotting functions, however, <code>ggplot2</code> makes it very easy to build complex and beautiful plots.</p>
 <p>A <code>ggplot</code> is constructed from multiple layers, that can be laid over each other using the <code>+</code> operator.</p>
-<p>We start with the function <code>ggplot()</code>, where we define our data and the x and y axes.</p>
+<p>We start with the function <code>ggplot()</code>, where we define our data and the x and y axes. This will draw our (empty) coordinate system. We have to use the <code>aes()</code> (aesthetics) function for everything that changes in relation to the data. The simplest example would be our axes, as the exact location of each point on the plot is deposited in our data frame:</p>
 <div class="tidy">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
@@ -862,9 +864,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> year,</span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> percentage)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="the_big_picture_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="1056"></p>
 </div>
-<p>We can also define different colours for different groups. For example, if we want the bars to get filled with a colour corresponding to the name they are representing, we can do that:</p>
+</div>
+<p>We can also define different colors for different groups. For example, if we want the bars to get filled with a color corresponding to the name they are representing, we can do that:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> babynames_F_max,</span>
@@ -881,7 +887,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="the_big_picture_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<p><img src="the_big_picture_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="1056"></p>
 </div>
 </div>
 <p>Let’s give the axes some more informative names and a title to the plot:</p>
@@ -892,7 +898,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Percentage of children given that name relative to total births"</span>)</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="the_big_picture_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<p><img src="the_big_picture_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="1056"></p>
 </div>
 </div>
 <p>Finally, to style the plot a bit, let’s add a predefined theme and a color palette:</p>
@@ -901,11 +907,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="co"># Theme</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Spectral"</span>) <span class="co"># Color palette</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="the_big_picture_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+<p><img src="the_big_picture_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="1056"></p>
 </div>
 </div>
 </div>
-<p>We would have many more options to style this plot further (for example we could sort the names in the Legend by order of appearance), but let’s keep it at that for now.</p>
+<p>We would have many more options to style this plot further (for example we could sort the names in the legend by order of appearance), but let’s keep it at that for now.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
