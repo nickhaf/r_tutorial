@@ -856,7 +856,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="plot-the-data">Plot the data</h2>
 <p>We will use the package <code>ggplot2</code> (which is also part of the <code>tidyverse</code>) for <a href="../../qmd/plotting/plotting.html">plotting our data</a>. It should be mentioned that <code>Base R</code> also has some powerful plotting functions, however, <code>ggplot2</code> makes it very easy to build complex and beautiful plots.</p>
 <p>A <code>ggplot</code> is constructed from multiple layers, that can be laid over each other using the <code>+</code> operator.</p>
-<p>We start with the function <code>ggplot()</code>, where we define our data and the x and y axes. This will draw our (empty) coordinate system. We have to use the <a href=""><code>aes()</code></a> (aesthetics) function for everything that changes in relation to the data. The simplest example would be our axes, as the exact location of each element in the plot is dependent on the x and y position deposited in the data frame:</p>
+<p>We start with the function <code>ggplot()</code>, in which we define our data and the x and y axes. This will draw our (empty) coordinate system. We have to use the <a href=""><code>aes()</code></a> (aesthetics) function for everything that changes in relation to the data. For example, the exact location of each element in the plot is dependent on the x and y position deposited in the data frame, so we have to specify our axes inside the <code>aes()</code> function:</p>
 <div class="tidy">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
@@ -870,33 +870,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="the_big_picture_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="1056"></p>
 </div>
 </div>
+<p>Now that we have defined our aesthetics, we can add a [<code>geom</code>-layer]. This will make use of the data we have defined in <code>ggplot()</code> and plot some bars for us:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="the_big_picture_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="1056"></p>
+</div>
+</div>
 <p>We can also define different colors for different groups. For example, if we want the bars to get filled with a color corresponding to the name they are representing, we can do that:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> babynames_F_max,</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> year,</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> percentage,</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> name</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>If we wanted all bars to have the same color, we would have specified the <code>fill</code> argument <strong>outside</strong> of the <code>aes()</code> function, because in that case, it wouldn’t have to change in dependence of our data.</p>
-<p>Now that we have defined our aesthetics, we can add a <code>geom</code>-layer. This will make use of the data we have defined in <code>ggplot()</code> and plot some bars for us:</p>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill =</span> name))</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="the_big_picture_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="1056"></p>
 </div>
 </div>
+<p>If we wanted all bars to have the same color, we would have specified the <code>fill</code> argument <strong>outside</strong> of the <code>aes()</code> function, because in that case, it wouldn’t have to change in dependence of our data. We could also have defined our <code>fill</code> argument in the <code>aes()</code> function we have defined in <code>ggplot()</code>. In that case, it would have influenced all <code>geom_()</code> functions. Because we defined it in <code>geom_col()</code>, it only influences this <code>geom_col()</code> call.</p>
 <p>Let’s give the axes some more informative names and a title to the plot:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Most common female name in the United States of America by year"</span>) <span class="sc">+</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Birthyear"</span>) <span class="sc">+</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Percentage of children given that name relative to total births"</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Percentage of children given that name"</span>)</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="the_big_picture_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="1056"></p>
@@ -916,7 +913,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>In this tutorial we have learned that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. Either follow the course, or navigate to the chapters you are most interested in. But first, take a look at the new data set you will be working with throughout the exercises.</p>
+<p>In this tutorial we have learned that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. Either follow the course, or navigate to the chapters you are most interested in. But first, take a look at the new data sets you will be working with throughout the exercises.</p>
 
 
 </section>
