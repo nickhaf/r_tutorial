@@ -630,6 +630,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#columns" id="toc-columns" class="nav-link" data-scroll-target="#columns">Columns</a></li>
   <li><a href="#rows-columns" id="toc-rows-columns" class="nav-link" data-scroll-target="#rows-columns">Rows &amp; Columns</a></li>
   <li><a href="#conditional-filtering" id="toc-conditional-filtering" class="nav-link" data-scroll-target="#conditional-filtering">Conditional filtering</a></li>
+  <li><a href="#rows-tidyverse" id="toc-rows-tidyverse" class="nav-link" data-scroll-target="#rows-tidyverse">Rows: Tidyverse</a></li>
+  <li><a href="#columns-tidyverse" id="toc-columns-tidyverse" class="nav-link" data-scroll-target="#columns-tidyverse">Columns: Tidyverse</a></li>
   </ul></li>
   <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a></li>
   <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a></li>
@@ -930,8 +932,9 @@ NA.4   NA   &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;                   &lt;NA&gt;  &l
 <p>Hmm, that looks a bit weird. Some rows only contain <code>NA</code> values. That’s because there are <a href="../../qmd/missing/missing.html">missing values</a> in the <code>Weight</code> column. We will look at that closer in the <a href="../../qmd/missing/missing.html">missings chapter</a> and ignore that problem for now.</p>
 <p>In the long run, always having to specify the name of the data frame for each column or row with condition can become a bit annoying and clutters the code. Also this code leaves all rows with missing values…<br>
 Instead, we can use the <code>filter()</code> function from the tidyverse:</p>
-<section id="rows-tidyverse" class="level4">
-<h4 class="anchored" data-anchor-id="rows-tidyverse">Rows: Tidyverse</h4>
+</section>
+<section id="rows-tidyverse" class="level3">
+<h3 class="anchored" data-anchor-id="rows-tidyverse">Rows: Tidyverse</h3>
 <div class="tidy">
 <div class="cell" data-output.lines="4">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -949,8 +952,8 @@ Instead, we can use the <code>filter()</code> function from the tidyverse:</p>
 </div>
 <p>Note how we can just write our conditions without connecting them with <code>&amp;</code> (<code>filter()</code> does that automatically for us). Also, we don’t have to put the column names into <code>""</code>, because <code>filter()</code> knows that this are column names of the <code>athletes</code> data frame, which makes coding a bit more pleasant. And finally, missing rows are automatically removed, which makes sense in many cases!</p>
 </section>
-<section id="columns-tidyverse" class="level4">
-<h4 class="anchored" data-anchor-id="columns-tidyverse">Columns: Tidyverse</h4>
+<section id="columns-tidyverse" class="level3">
+<h3 class="anchored" data-anchor-id="columns-tidyverse">Columns: Tidyverse</h3>
 <p>For extracting columns, we need <code>select()</code>:</p>
 <div class="tidy">
 <div class="cell" data-output.lines="4">
@@ -965,7 +968,6 @@ Instead, we can use the <code>filter()</code> function from the tidyverse:</p>
 </div>
 </div>
 </div>
-</section>
 </section>
 </section>
 <section id="vectors" class="level2">
