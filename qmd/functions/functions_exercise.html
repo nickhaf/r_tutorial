@@ -755,11 +755,11 @@ Solution
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>calc_bmi <span class="ot">&lt;-</span> <span class="cf">function</span>(kg, meter){ </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">round</span>(kg<span class="sc">/</span>meter<span class="sc">^</span><span class="dv">2</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  bmi <span class="ot">&lt;-</span> <span class="fu">round</span>(kg<span class="sc">/</span>meter<span class="sc">^</span><span class="dv">2</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"Your BMI is: "</span>, res))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"Your BMI is: "</span>, bmi))</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(bmi)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>my_bmi <span class="ot">&lt;-</span> <span class="fu">calc_bmi</span>(<span class="dv">86</span>, <span class="fl">1.87</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -771,7 +771,7 @@ Solution
 <pre><code>[1] 24.59</code></pre>
 </div>
 </div>
-<p>Here we gave the function and its arguments some more informative names and used the <code>return()</code> function to clearly return the result of the calculation, and we can save it in an object. Also, we wrote a more informative printed statement.</p>
+<p>Here we gave the function and its arguments some more informative names. We also used the <code>return()</code> function to clearly return the result of the calculation, which also makes it easy to save the output of the function in an object. Finally, we wrote a more informative printed statement.</p>
 </div>
 </div>
 </div>
