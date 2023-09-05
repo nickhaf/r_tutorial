@@ -303,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/data_structures/data_structures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data structures</span></a>
+ <span class="menu-text">Data Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -661,21 +661,28 @@ Previous code
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Load the data</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>characters <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"characters.rds"</span>))</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>psych_stats <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"psych_stats.csv"</span>),</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">";"</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("here")</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Load the data</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>characters <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"characters.rds"</span>))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>psych_stats <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"psych_stats.csv"</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">";"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Take a look at the <code>characters</code> data set. 1. How many rows and how many columns does the data frame have?</p>
+<p>Take a look at the <code>characters</code> data set.</p>
+<ol type="1">
+<li>How many rows and how many columns does the data frame have?</li>
+</ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -778,10 +785,10 @@ Solution
 6 https://openpsychometrics.org/tests/characters/test-resources/pics/F/6.jpg</code></pre>
 </div>
 </div>
-</div>
-</div>
-</div>
 <p>They are from Friends.</p>
+</div>
+</div>
+</div>
 
 
 </section>

@@ -303,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/data_structures/data_structures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data structures</span></a>
+ <span class="menu-text">Data Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -650,9 +650,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Previous code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("here")</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at /home/runner/work/r_tutorial/r_tutorial</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <section id="data-types" class="level2">
 <h2 class="anchored" data-anchor-id="data-types">Data types</h2>
-<p>There are many different data types out there, most of which can also be loaded into R. Depending on the type, different commands are used. Sometimes, we will have to use additional packages to get access to that function, mainly <code>readxl</code> and <code>haven</code>.</p>
+<p>There are many different data types that can be loaded into R. Depending on the type, different commands are used. Sometimes, we will have to use additional packages to get access to that function, mainly <code>readxl</code>, <code>writexl</code> and <code>haven</code>.</p>
 <div class="cell-output-display">
 <table class="table">
 <colgroup>
@@ -717,13 +754,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>I can head to a specific file by using the full path (<strong>absolute path</strong>): <code>"C:\Users\hafiznij\Documents\GitHub\r_tutorial\raw_data\winners.rda"</code>. This approach has some disadvantages: it will only work on <strong>my</strong> notebook. If I want to continue my project on another device, I will have to change the path. The same goes for other people who want to work with my project. So, to keep these paths more reproducable, we should always use <strong>relative paths</strong>: <code>".\raw_data\winners.rda"</code>. This will always work independently of the device I am working on, as long as I am in the correct <strong>working directory</strong>.</p>
 <p>The working directory is the path R is currently working in. I can obtain it by typing:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "/home/runner/work/r_tutorial/r_tutorial/qmd/load_data"</code></pre>
 </div>
 </div>
-<p>Luckily, we have already created a RStudio projects, which sets the working directory automatically, so we don’t really have to deal with that.</p>
-<p>Now take a look at the working directory and the relative path I used for loading the <code>winners.rda</code>. Notice something? Correct, both paths combined equal the <strong>absolute path</strong> to the file. So by splitting it up, we obtain a more reproducible path, that works independent of where the current working directory is.</p>
+<p>Luckily, we have already created a RStudio project, which sets the working directory automatically, so we don’t really have to deal with that.</p>
+<p>Now take a look at the working directory and the relative path I used for loading the <code>winners.rda</code>. Notice something? Correct, both paths combined equal the <strong>absolute path</strong> to the file. So by splitting it up, we obtain a more reproducible path, that works independently of where the current working directory is.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -734,7 +771,7 @@ The <code>here</code> package
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Another great way to deal with the path confusion is to use the <code>here</code> package. It can build the paths relative to the directory where your RStudio project is saved in. For example, <code>".\raw_data\winners.rda"</code> becomes <code>here::here("raw_data", "winners.rda")</code>. This is not incredibly important right now, especially if you have all your files in the same folder. But it can become very valuable with increasing project complexity and file structure, so look into it if you want to get a head start! I also I have to use it sometimes during the tutorial because of I have organized my project, so don’t be confused! It is just another way to build file paths. Look <a href="https://here.r-lib.org/">here</a> (:D) if you want to learn more about the package.</p>
+<p>Another great way to deal with the path confusion is to use the <code>here</code> package. It can build the paths relative to the directory where your R Studio project is saved in. For example, <code>".\raw_data\winners.rda"</code> becomes <code>here::here("raw_data", "winners.rda")</code>. This is not incredibly important right now, especially if you have all your files in the same folder. But it can become very valuable with increasing project complexity and file structure, so look into it if you want to get a head start! I also I have to use it sometimes during the tutorial because of the way I have organized my project, so don’t be confused! It is just another way to build file paths. Look <a href="https://here.r-lib.org/">here</a> (:D) if you want to learn more about the package.</p>
 </div>
 </div>
 </section>
@@ -742,7 +779,7 @@ The <code>here</code> package
 <h2 class="anchored" data-anchor-id="example">Example</h2>
 <p>Let’s load our Olympic athletes data set into R. By looking at it’s ending, we can see it is as <code>.rds</code> file, so it is R-specific, and can only be loaded into R. By taking a quick look into our <a href="#Data-types">table</a> we can see we have to use the <code>readRDS()</code> function for loading <code>.rds</code> files.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>athletes <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"athletes.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>athletes <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"raw_data"</span>, <span class="st">"athletes.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

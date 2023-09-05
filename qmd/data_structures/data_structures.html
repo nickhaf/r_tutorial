@@ -150,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">2) Basics</li><li class="breadcrumb-item"><a href="../../qmd/data_structures/data_structures.html">Data structures</a></li><li class="breadcrumb-item"><a href="../../qmd/data_structures/data_structures.html">Data structures</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">2) Basics</li><li class="breadcrumb-item"><a href="../../qmd/data_structures/data_structures.html">Data structures</a></li><li class="breadcrumb-item"><a href="../../qmd/data_structures/data_structures.html">Data Structures</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -300,7 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/data_structures/data_structures.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Data structures</span></a>
+ <span class="menu-text">Data Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -621,11 +621,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-structures" id="toc-data-structures" class="nav-link active" data-scroll-target="#data-structures">Data structures</a>
+  <li><a href="#data-structures" id="toc-data-structures" class="nav-link active" data-scroll-target="#data-structures">Data Structures</a>
   <ul class="collapse">
   <li><a href="#vector" id="toc-vector" class="nav-link" data-scroll-target="#vector">Vector</a>
   <ul class="collapse">
-  <li><a href="#remarks-data-types" id="toc-remarks-data-types" class="nav-link" data-scroll-target="#remarks-data-types">Remarks: Data types</a></li>
+  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types">Data types</a></li>
   </ul></li>
   <li><a href="#data-frame" id="toc-data-frame" class="nav-link" data-scroll-target="#data-frame">Data frame</a>
   <ul class="collapse">
@@ -643,7 +643,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="data-structures" class="level1">
-<h1>Data structures</h1>
+<h1>Data Structures</h1>
 <p>There are five main data structures in R which differ on their dimensions (one dimension, two dimensions, n dimensions) and the type of the elements they are containing (same type, different types):<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="cell-output-display">
 <table class="table">
@@ -694,8 +694,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1]  TRUE FALSE</code></pre>
 </div>
 </div>
-<section id="remarks-data-types" class="level3">
-<h3 class="anchored" data-anchor-id="remarks-data-types">Remarks: Data types</h3>
+<section id="data-types" class="level3">
+<h3 class="anchored" data-anchor-id="data-types">Data types</h3>
 <p>If we take a look at the structure of the vectors we have just created, we see se a short description of the data type we are dealing with in front of the vector:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(num_vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -727,7 +727,7 @@ returning NA</code></pre>
 </section>
 <section id="data-frame" class="level2">
 <h2 class="anchored" data-anchor-id="data-frame">Data frame</h2>
-<p>A data frame is two dimensional and can store elements of different types. It is the closest to data tables we are probably most used to working with.</p>
+<p>A data frame is two dimensional and can store elements of different types. It is the closest to the data tables we are probably most used to working with in Excel.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>persons <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Anna"</span>, <span class="st">"Alex"</span>, <span class="st">"John"</span>, <span class="st">"Jessi"</span>),</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">18</span>),</span>
@@ -735,7 +735,7 @@ returning NA</code></pre>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">big5_extro =</span> <span class="fu">c</span>(<span class="fl">3.5</span>, <span class="dv">2</span>, <span class="fl">4.5</span>, <span class="fl">4.2</span>)</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                      )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that we do nothing else here than combining vectors to a data frame. Each vector will be one column.</p>
+<p>Note that we do nothing else here than combining vectors to a data frame. Each vector will be one column, with an assigned column name.</p>
 <section id="adding-new-columns" class="level3">
 <h3 class="anchored" data-anchor-id="adding-new-columns">Adding new columns</h3>
 <p>Adding new columns to a data frame is pretty straight forward. We just define the column name, and then assign it some input. For example, we could add a column with the neuroticsm ratings for each person:</p>
@@ -755,13 +755,14 @@ returning NA</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>persons <span class="ot">&lt;-</span> <span class="fu">mutate</span>(persons, <span class="at">big5_agree=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>persons <span class="ot">&lt;-</span> persons <span class="sc">%&gt;%</span> </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">big5_agree=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="tibbles" class="level3">
 <h3 class="anchored" data-anchor-id="tibbles">Tibbles</h3>
-<p>A special type of data frames are the so called <code>tibbles</code>. Tibbles are a modern version of data frames and the standard data frame type of the <code>tidyverse</code>, as they have some advantageous characteristics (e.g., note the more informative printing of the data frame). So don’t be confused if you run into them, in general they behave like data frames.</p>
+<p>A special type of data frame are the so called <code>tibbles</code>. Tibbles are a modern version of data frames and the standard data frame type of the <code>tidyverse</code>, as they have some advantageous characteristics (e.g., note the more informative printing of the data frame). So don’t be confused if you run into them, in general they behave like data frames.</p>
 <div class="tidy">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>persons_tibble <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -805,7 +806,7 @@ $rating_type
 [1] "self_rating"</code></pre>
 </div>
 </div>
-<p>Here, we define the list <code>personality_rating</code>, which includes a data frame with the personality rating, and some meta information in the form of a character vector, describing the rating type. We won’t use it any more in this workshop, but keep in mind it exists, as it quickly becomes necessary for managing more complex tasks.</p>
+<p>Here, we define the list <code>personality_ratings</code>, which includes a data frame with the personality rating, and some meta information in the form of a character vector, describing the rating type. We won’t use it much in this workshop, but keep in mind it exists, as it quickly becomes necessary for managing more complex tasks.</p>
 
 
 </section>
