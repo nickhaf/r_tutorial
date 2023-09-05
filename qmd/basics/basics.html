@@ -150,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">2) Basics</li><li class="breadcrumb-item"><a href="../../qmd/basics/basics.html">Basics</a></li><li class="breadcrumb-item"><a href="../../qmd/basics/basics.html">Basic operations</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">2) Basics</li><li class="breadcrumb-item"><a href="../../qmd/basics/basics.html">Basics</a></li><li class="breadcrumb-item"><a href="../../qmd/basics/basics.html">Basic Operations</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -271,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/basics/basics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Basic operations</span></a>
+ <span class="menu-text">Basic Operations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -283,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/basics/basics_exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Basic operations: Exercises</span></a>
+ <span class="menu-text">Basic Operations: Exercises</span></a>
   </div>
 </li>
       </ul>
@@ -621,14 +621,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#basic-operations" id="toc-basic-operations" class="nav-link active" data-scroll-target="#basic-operations">Basic operations</a>
+  <li><a href="#basic-operations" id="toc-basic-operations" class="nav-link active" data-scroll-target="#basic-operations">Basic Operations</a>
   <ul class="collapse">
-  <li><a href="#basic-mathematical-operations" id="toc-basic-mathematical-operations" class="nav-link" data-scroll-target="#basic-mathematical-operations">Basic mathematical operations</a></li>
-  <li><a href="#assignment-operator" id="toc-assignment-operator" class="nav-link" data-scroll-target="#assignment-operator">Assignment operator</a></li>
-  <li><a href="#combination-of-elements" id="toc-combination-of-elements" class="nav-link" data-scroll-target="#combination-of-elements">Combination of elements</a></li>
-  <li><a href="#comparisons-and-logical-operators" id="toc-comparisons-and-logical-operators" class="nav-link" data-scroll-target="#comparisons-and-logical-operators">Comparisons and Logical operators</a></li>
+  <li><a href="#basic-mathematical-operations" id="toc-basic-mathematical-operations" class="nav-link" data-scroll-target="#basic-mathematical-operations">Basic Mathematical Operations</a></li>
+  <li><a href="#assignment-operator" id="toc-assignment-operator" class="nav-link" data-scroll-target="#assignment-operator">Assignment Operator</a></li>
+  <li><a href="#combination-of-elements" id="toc-combination-of-elements" class="nav-link" data-scroll-target="#combination-of-elements">Combination of Elements</a></li>
+  <li><a href="#comparisons-and-logical-operators" id="toc-comparisons-and-logical-operators" class="nav-link" data-scroll-target="#comparisons-and-logical-operators">Comparisons and Logical Operators</a></li>
   <li><a href="#in" id="toc-in" class="nav-link" data-scroll-target="#in">%in%</a></li>
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">!</a></li>
+  <li><a href="#or-and-and" id="toc-or-and-and" class="nav-link" data-scroll-target="#or-and-and">| (“or”) and &amp;(“and”)</a></li>
   <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
   <li><a href="#help" id="toc-help" class="nav-link" data-scroll-target="#help">HELP!</a></li>
   </ul></li>
@@ -641,10 +642,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="basic-operations" class="level1">
-<h1>Basic operations</h1>
+<h1>Basic Operations</h1>
 <p>Let’s take a quick look at the most important basic operations in R. You can also use a <a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf">cheat sheet</a> to keep an overview during the course.</p>
 <section id="basic-mathematical-operations" class="level2">
-<h2 class="anchored" data-anchor-id="basic-mathematical-operations">Basic mathematical operations</h2>
+<h2 class="anchored" data-anchor-id="basic-mathematical-operations">Basic Mathematical Operations</h2>
 <p>We can use R as a calculator:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="dv">3</span><span class="sc">^</span><span class="dv">2</span></span>
@@ -652,7 +653,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="assignment-operator" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-operator">Assignment operator</h2>
+<h2 class="anchored" data-anchor-id="assignment-operator">Assignment Operator</h2>
 <p>We can create objects in R by using the assignment operator <code>&lt;-</code>, which assigns a value to an object:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Assign the result of 1 + 1 to the object 'result':</span></span>
@@ -670,15 +671,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="combination-of-elements" class="level2">
-<h2 class="anchored" data-anchor-id="combination-of-elements">Combination of elements</h2>
+<h2 class="anchored" data-anchor-id="combination-of-elements">Combination of Elements</h2>
 <p>We can combine multiple elements to build a new one:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>new_element <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this case, this new element is a <a href="https://nickhaf.github.io/r_tutorial/qmd/data_structures/data_structures.html#vector">vector</a>, which is a one dimensional collection of element. The <code>c()</code> stands for combine, or concatenate, and is the basic function for building a vector out of single elements.</p>
+<p>In this case, this new element is a <a href="https://nickhaf.github.io/r_tutorial/qmd/data_structures/data_structures.html#vector">vector</a>, which is a one dimensional collection of values. The <code>c()</code> stands for combine, or concatenate, and is the basic function for building a vector out of single elements.</p>
 </section>
 <section id="comparisons-and-logical-operators" class="level2">
-<h2 class="anchored" data-anchor-id="comparisons-and-logical-operators">Comparisons and Logical operators</h2>
+<h2 class="anchored" data-anchor-id="comparisons-and-logical-operators">Comparisons and Logical Operators</h2>
 <p>The boolean variables in R are <code>TRUE</code> and <code>FALSE</code>. Comparison operators return either <code>TRUE</code> or <code>FALSE</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -734,7 +735,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<p>Mainly we will use these logical operation to check which elements in a <a href="data_structures.qmd#vector">vector</a> satisfy some requirements:</p>
+<p>Mainly we will use these logical operations to check which elements in a <a href="data_structures.qmd#vector">vector</a> satisfy some requirements:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a vector of numbers ranging from 1 to 10</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>vec_num <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
@@ -771,45 +772,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
+<section id="or-and-and" class="level2">
+<h2 class="anchored" data-anchor-id="or-and-and">| (“or”) and &amp;(“and”)</h2>
+<p>We can also combine multiple logical operations by using <code>|</code> (“or”) and/or <code>&amp;</code> (“and”):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">&amp;</span> <span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">|</span> <span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">20</span> <span class="sc">|</span> <span class="st">"a"</span> <span class="sc">==</span> <span class="st">"b"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">20</span> <span class="sc">&amp;</span> <span class="st">"a"</span> <span class="sc">==</span> <span class="st">"b"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</section>
 <section id="functions" class="level2">
 <h2 class="anchored" data-anchor-id="functions">Functions</h2>
-<p>Everything that <strong>does</strong> something in R is a <a href="../../qmd/functions/functions.html">function</a>. A function call has the form: <code>functionname(argument1 = value, argument2 = value, ...)</code>. One basic example for a function is the function that can calculate the square root:</p>
+<p>Everything that <strong>does</strong> something in R is a <a href="../../qmd/functions/functions.html">function</a>. A function call has the form: <code>functionname(argument1 = value, argument2 = value, ...)</code>. One basic example is the function that can calculate the square root:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
 <p>We can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">4</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">4</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 4 4 4 4 4 4 4 4 4 4</code></pre>
 </div>
 </div>
-<p>will rep <code>4</code> <code>10</code> times. If we swap the arguments, the <code>10</code> will be repeat <code>4</code> times:</p>
+<p>will rep <code>4</code> <code>10</code> times. If we swap the arguments, the <code>10</code> will be repeated <code>4</code> times:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">10</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">10</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10 10 10 10</code></pre>
 </div>
 </div>
 <p>But if we specify which value belongs to which function argument, the order doesn’t matter:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="at">times =</span> <span class="dv">10</span>, <span class="at">x =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="at">times =</span> <span class="dv">10</span>, <span class="at">x =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 4 4 4 4 4 4 4 4 4 4</code></pre>
 </div>
 </div>
-<p>How do we know which arguments a function has?:</p>
+<p>How do we know which arguments a function has? By using the documentation:</p>
 </section>
 <section id="help" class="level2">
 <h2 class="anchored" data-anchor-id="help">HELP!</h2>
 <p>One of the most important functions in R is the help-function <code>?</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>?rep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>?rep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>will open the documentation for the function with the description of its usage, details about the arguments … In the next chapter we will take a very quick look at R’s data types.</p>
+<p>will open the documentation for the function with the description of its usage, details about the arguments … Take a look and become acquainted with the structure of the function documentation, it is an important tool!</p>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R - Basic operations: Exercises</title>
+<title>Introduction to R - Basic Operations: Exercises</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,7 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction to R - Basic operations: Exercises">
+<meta property="og:title" content="Introduction to R - Basic Operations: Exercises">
 <meta property="og:description" content="">
 <meta property="og:site-name" content="Introduction to R">
 </head>
@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">2) Basics</li><li class="breadcrumb-item"><a href="../../qmd/basics/basics.html">Basics</a></li><li class="breadcrumb-item"><a href="../../qmd/basics/basics_exercise.html">Basic operations: Exercises</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">2) Basics</li><li class="breadcrumb-item"><a href="../../qmd/basics/basics.html">Basics</a></li><li class="breadcrumb-item"><a href="../../qmd/basics/basics_exercise.html">Basic Operations: Exercises</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -274,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/basics/basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Basic operations</span></a>
+ <span class="menu-text">Basic Operations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -286,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/basics/basics_exercise.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Basic operations: Exercises</span></a>
+ <span class="menu-text">Basic Operations: Exercises</span></a>
   </div>
 </li>
       </ul>
@@ -636,7 +636,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Basic operations: Exercises</h1>
+<h1 class="title">Basic Operations: Exercises</h1>
 </div>
 
 
@@ -653,12 +653,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>What does the function <code>seq</code> do? “,</p>
+<p>What does the function <code>seq</code> do?</p>
 <ul class="task-list">
 <li><input type="checkbox">Repeats a value multiple times.</li>
 <li><input type="checkbox">Builds a sequence of values.</li>
 <li><input type="checkbox">Loads a SQL data base.</li>
-<li><input type="checkbox">It’s part of another package and therefore not loaded in R.</li>
+<li><input type="checkbox">It’s part of another package and therefore not loaded in <code>Base R</code>.</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -749,7 +749,7 @@ Solution
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <p>Build the following vector with as little code as possible:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>vec_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="fl">5.1</span>, <span class="fl">5.2</span>, <span class="fl">5.3</span>, <span class="fl">5.4</span>, <span class="fl">5.5</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>vec_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.0</span>, <span class="fl">2.0</span>, <span class="fl">3.0</span>, <span class="fl">4.0</span>, <span class="fl">5.0</span>, <span class="fl">5.1</span>, <span class="fl">5.2</span>, <span class="fl">5.3</span>, <span class="fl">5.4</span>, <span class="fl">5.5</span>, <span class="fl">2.0</span>, <span class="fl">2.0</span>, <span class="fl">2.0</span>, <span class="fl">2.0</span>, <span class="fl">2.0</span>, <span class="fl">2.0</span>, <span class="fl">2.0</span>, <span class="fl">2.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -780,7 +780,11 @@ Solution
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>vec_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">5</span>, <span class="at">to =</span> <span class="fl">5.5</span>, <span class="at">by =</span> <span class="fl">0.1</span>), <span class="fu">rep</span>(<span class="dv">2</span>, <span class="dv">8</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>vec_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">5</span>, <span class="at">to =</span> <span class="fl">5.5</span>, <span class="at">by =</span> <span class="fl">0.1</span>), <span class="fu">rep</span>(<span class="at">x =</span> <span class="dv">2</span>, <span class="at">times =</span> <span class="dv">8</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>vec_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1.0 2.0 3.0 4.0 5.0 5.0 5.1 5.2 5.3 5.4 5.5 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -788,9 +792,9 @@ Solution
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>Find all of the elements in the vector that are either equal to <code>1000</code>, or lie between than <code>sqrt(11)</code> and <code>log(1.001)</code>.</p>
+<p>Find all of the elements in the vector <code>vec_num</code> that are either equal to <code>1000</code>, or lie between <code>sqrt(11)</code> and <code>log(1.001)</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>vec_num <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">sqrt</span>(<span class="dv">100</span>)<span class="sc">^</span><span class="dv">3</span>, <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">6</span>), <span class="fl">22.02</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">4</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fl">0.25</span>, <span class="sc">-</span><span class="dv">120987</span><span class="sc">/</span>(<span class="dv">47621</span> <span class="sc">*</span> <span class="fl">1.3</span> <span class="sc">^</span> <span class="dv">4</span> ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vec_num <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">sqrt</span>(<span class="dv">100</span>)<span class="sc">^</span><span class="dv">3</span>, <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">6</span>), <span class="fl">22.02</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">4</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fl">0.25</span>, <span class="sc">-</span><span class="dv">120987</span><span class="sc">/</span>(<span class="dv">47621</span> <span class="sc">*</span> <span class="fl">1.3</span> <span class="sc">^</span> <span class="dv">4</span> ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -821,7 +825,7 @@ Solution
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vec_num <span class="sc">==</span> <span class="dv">1000</span> <span class="sc">|</span> (vec_num <span class="sc">&lt;</span> <span class="fu">sqrt</span>(<span class="dv">11</span>) <span class="sc">&amp;</span> vec_num <span class="sc">&gt;</span> <span class="fu">log</span>(<span class="fl">1.001</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>vec_num <span class="sc">==</span> <span class="dv">1000</span> <span class="sc">|</span> (vec_num <span class="sc">&lt;</span> <span class="fu">sqrt</span>(<span class="dv">11</span>) <span class="sc">&amp;</span> vec_num <span class="sc">&gt;</span> <span class="fu">log</span>(<span class="fl">1.001</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE  TRUE FALSE FALSE</code></pre>
 </div>

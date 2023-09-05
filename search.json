@@ -30,65 +30,72 @@
   {
     "objectID": "qmd/basics/basics.html",
     "href": "qmd/basics/basics.html",
-    "title": "Basic operations",
+    "title": "Basic Operations",
     "section": "",
-    "text": "Let’s take a quick look at the most important basic operations in R. You can also use a cheat sheet to keep an overview during the course.\n\n\nWe can use R as a calculator:\n\n(1 + 2) * 3^2\n2 - 3/log(8)\n\n\n\n\nWe can create objects in R by using the assignment operator &lt;-, which assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\nresult\n\n[1] 2\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- 10 &gt; 1\nlog_result\n\n[1] TRUE\n\n\n\n\n\nWe can combine multiple elements to build a new one:\n\nnew_element &lt;- c(1, 10, 15)\n\nIn this case, this new element is a vector, which is a one dimensional collection of element. The c() stands for combine, or concatenate, and is the basic function for building a vector out of single elements.\n\n\n\nThe boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\nThese are the comparison operators you will typically use:\n\n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n%in%\npart of\n\n\n\n\n\nMainly we will use these logical operation to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined.\n\n\n\nThe %in% operator is used to check for each element of its first argument if it is part of the second argument:\n\nc(\"Monica\", \"Rachel\", \"Barny\") %in% c(\"Monica\", \"Rachel\", \"Ross\", \"Joey\", \"Phoebe\", \"Chandler\")\n\n[1]  TRUE  TRUE FALSE\n\n\n\n\n\nWe can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE\n\n\n\n\n\nEverything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeat 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:\n\n\n\nOne of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments … In the next chapter we will take a very quick look at R’s data types."
+    "text": "Let’s take a quick look at the most important basic operations in R. You can also use a cheat sheet to keep an overview during the course.\n\n\nWe can use R as a calculator:\n\n(1 + 2) * 3^2\n2 - 3/log(8)\n\n\n\n\nWe can create objects in R by using the assignment operator &lt;-, which assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\nresult\n\n[1] 2\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- 10 &gt; 1\nlog_result\n\n[1] TRUE\n\n\n\n\n\nWe can combine multiple elements to build a new one:\n\nnew_element &lt;- c(1, 10, 15)\n\nIn this case, this new element is a vector, which is a one dimensional collection of values. The c() stands for combine, or concatenate, and is the basic function for building a vector out of single elements.\n\n\n\nThe boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\nThese are the comparison operators you will typically use:\n\n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n%in%\npart of\n\n\n\n\n\nMainly we will use these logical operations to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined.\n\n\n\nThe %in% operator is used to check for each element of its first argument if it is part of the second argument:\n\nc(\"Monica\", \"Rachel\", \"Barny\") %in% c(\"Monica\", \"Rachel\", \"Ross\", \"Joey\", \"Phoebe\", \"Chandler\")\n\n[1]  TRUE  TRUE FALSE\n\n\n\n\n\nWe can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE\n\n\n\n\n\nWe can also combine multiple logical operations by using | (“or”) and/or & (“and”):\n\nTRUE & FALSE\n\n[1] FALSE\n\nTRUE | FALSE\n\n[1] TRUE\n\n(10 &lt; 20 | \"a\" == \"b\")\n\n[1] TRUE\n\n(10 &lt; 20 & \"a\" == \"b\")\n\n[1] FALSE\n\n\n\n\n\nEverything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeated 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has? By using the documentation:\n\n\n\nOne of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments … Take a look and become acquainted with the structure of the function documentation, it is an important tool!"
   },
   {
     "objectID": "qmd/basics/basics.html#basic-mathematical-operations",
     "href": "qmd/basics/basics.html#basic-mathematical-operations",
-    "title": "Basic operations",
+    "title": "Basic Operations",
     "section": "",
     "text": "We can use R as a calculator:\n\n(1 + 2) * 3^2\n2 - 3/log(8)"
   },
   {
     "objectID": "qmd/basics/basics.html#assignment-operator",
     "href": "qmd/basics/basics.html#assignment-operator",
-    "title": "Basic operations",
+    "title": "Basic Operations",
     "section": "",
     "text": "We can create objects in R by using the assignment operator &lt;-, which assigns a value to an object:\n\n## Assign the result of 1 + 1 to the object 'result':\nresult &lt;- 1 + 1\nresult\n\n[1] 2\n\n## Assign the result of the comparison to the object 'log_result':\nlog_result &lt;- 10 &gt; 1\nlog_result\n\n[1] TRUE"
   },
   {
     "objectID": "qmd/basics/basics.html#combination-of-elements",
     "href": "qmd/basics/basics.html#combination-of-elements",
-    "title": "Basic operations",
+    "title": "Basic Operations",
     "section": "",
-    "text": "We can combine multiple elements to build a new one:\n\nnew_element &lt;- c(1, 10, 15)\n\nIn this case, this new element is a vector, which is a one dimensional collection of element. The c() stands for combine, or concatenate, and is the basic function for building a vector out of single elements."
+    "text": "We can combine multiple elements to build a new one:\n\nnew_element &lt;- c(1, 10, 15)\n\nIn this case, this new element is a vector, which is a one dimensional collection of values. The c() stands for combine, or concatenate, and is the basic function for building a vector out of single elements."
   },
   {
     "objectID": "qmd/basics/basics.html#comparisons-and-logical-operators",
     "href": "qmd/basics/basics.html#comparisons-and-logical-operators",
-    "title": "Basic operations",
+    "title": "Basic Operations",
     "section": "",
-    "text": "The boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\nThese are the comparison operators you will typically use:\n\n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n%in%\npart of\n\n\n\n\n\nMainly we will use these logical operation to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined."
+    "text": "The boolean variables in R are TRUE and FALSE. Comparison operators return either TRUE or FALSE:\n\n1 &lt; 2\n\n[1] TRUE\n\n# But:\n2 &lt; 1\n\n[1] FALSE\n\n\nThese are the comparison operators you will typically use:\n\n\n\n\n\nOperator\nDescription\n\n\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&lt;=\nless or equal\n\n\n&gt;=\ngreater or equal\n\n\n%in%\npart of\n\n\n\n\n\nMainly we will use these logical operations to check which elements in a vector satisfy some requirements:\n\n# Build a vector of numbers ranging from 1 to 10\nvec_num &lt;- 1:10\n\n# Check which of these numbers are smaller than 5\nvec_num &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\nThis will become important later on, when we want to subset vectors and data frames to extract only those values that satisfy some requirements we defined."
   },
   {
     "objectID": "qmd/basics/basics.html#in",
     "href": "qmd/basics/basics.html#in",
-    "title": "Basic operations",
+    "title": "Basic Operations",
     "section": "",
     "text": "The %in% operator is used to check for each element of its first argument if it is part of the second argument:\n\nc(\"Monica\", \"Rachel\", \"Barny\") %in% c(\"Monica\", \"Rachel\", \"Ross\", \"Joey\", \"Phoebe\", \"Chandler\")\n\n[1]  TRUE  TRUE FALSE"
   },
   {
     "objectID": "qmd/basics/basics.html#section",
     "href": "qmd/basics/basics.html#section",
-    "title": "Basic operations",
+    "title": "Basic Operations",
     "section": "",
     "text": "We can invert boolean values by using !:\n\n!TRUE\n\n[1] FALSE\n\n!(1 &gt; 100)\n\n[1] TRUE"
   },
   {
+    "objectID": "qmd/basics/basics.html#or-and-and",
+    "href": "qmd/basics/basics.html#or-and-and",
+    "title": "Basic Operations",
+    "section": "",
+    "text": "We can also combine multiple logical operations by using | (“or”) and/or & (“and”):\n\nTRUE & FALSE\n\n[1] FALSE\n\nTRUE | FALSE\n\n[1] TRUE\n\n(10 &lt; 20 | \"a\" == \"b\")\n\n[1] TRUE\n\n(10 &lt; 20 & \"a\" == \"b\")\n\n[1] FALSE"
+  },
+  {
     "objectID": "qmd/basics/basics.html#functions",
     "href": "qmd/basics/basics.html#functions",
-    "title": "Basic operations",
+    "title": "Basic Operations",
     "section": "",
-    "text": "Everything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example for a function is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeat 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has?:"
+    "text": "Everything that does something in R is a function. A function call has the form: functionname(argument1 = value, argument2 = value, ...). One basic example is the function that can calculate the square root:\n\nsqrt(4)\n\n[1] 2\n\n\nWe can also assign the name of the function argument to our value. This is clearer, as we don’t rely on the order of the function arguments:\n\nrep(4, 10)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nwill rep 4 10 times. If we swap the arguments, the 10 will be repeated 4 times:\n\nrep(10, 4)\n\n[1] 10 10 10 10\n\n\nBut if we specify which value belongs to which function argument, the order doesn’t matter:\n\nrep(times = 10, x = 4)\n\n [1] 4 4 4 4 4 4 4 4 4 4\n\n\nHow do we know which arguments a function has? By using the documentation:"
   },
   {
     "objectID": "qmd/basics/basics.html#help",
     "href": "qmd/basics/basics.html#help",
-    "title": "Basic operations",
+    "title": "Basic Operations",
     "section": "",
-    "text": "One of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments … In the next chapter we will take a very quick look at R’s data types."
+    "text": "One of the most important functions in R is the help-function ?:\n\n?rep\n\nwill open the documentation for the function with the description of its usage, details about the arguments … Take a look and become acquainted with the structure of the function documentation, it is an important tool!"
   },
   {
     "objectID": "qmd/getting_started/data_sets.html",
@@ -857,42 +864,42 @@
     "objectID": "qmd/basics/tidyverse.html#the-pipe-operator",
     "href": "qmd/basics/tidyverse.html#the-pipe-operator",
     "title": "Tidyverse",
-    "section": "The pipe operator",
-    "text": "The pipe operator\ntidyverse code is often written using the pipe operator %&gt;% (read as ‘then do’), which makes it easy to connect multiple function calls:\nIn base R, one could write:\n\nsum(seq(from = 1, to = mean(c(45:100), na.rm = TRUE), by = 0.1))\n\n[1] 26313\n\n\nWhich, in the tidyverse, would be written:\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nc(45:100) %&gt;%\n  mean(na.rm = TRUE) %&gt;%\n  seq(from = 1, to = ., by = 0.1) %&gt;%\n  sum\n\n[1] 26313\n\n\n\nMuch nicer to read, right?\nSome notes on this syntax:\n\nIf we don’t have any additional arguments we want to put into the function, we can just write the function name without any brackets, like we do at the end with sum.\nThe pipe operator will give the result of the last function as input into the next function. That’s why we don’t have to specify the vector within the mean() function.\nIf we want to clearly state which of the function arguments should receive the input, we can write a ., which can be read as output of the previous function call. That’s what we do in the seq() function. It calculates a sequence from 1 to the mean of c(45:100)."
+    "section": "The Pipe Operator",
+    "text": "The Pipe Operator\ntidyverse code is often written using the pipe operator %&gt;% (read as ‘then do’), which makes it easy to connect multiple function calls:\nIn base R, one could write:\n\nsum(seq(from = 1, to = mean(c(45:100), na.rm = TRUE), by = 0.1))\n\n[1] 26313\n\n\nWhich, in the tidyverse, would be written like so:\n\n\nlibrary(tidyverse)\n\nc(45:100) %&gt;%\n  mean(na.rm = TRUE) %&gt;%\n  seq(from = 1, to = ., by = 0.1) %&gt;%\n  sum\n\n[1] 26313\n\n\n\nMuch nicer to read, right?\nSome notes on this syntax:\n\nIf we don’t have any additional arguments we want to put into the function, we can just write the function name without any brackets, like we do at the end with sum.\nThe pipe operator will give the result of the last function as input into the next function. That’s why we don’t have to specify the vector within the mean() function.\nIf we want to clearly state which of the function arguments should receive the input, we can write a ., which can be read as output of the previous function call. That’s what we do in the seq() function. It calculates a sequence from 1 to the mean of c(45:100)."
   },
   {
     "objectID": "qmd/basics/basics_exercise.html",
     "href": "qmd/basics/basics_exercise.html",
-    "title": "Basic operations: Exercises",
+    "title": "Basic Operations: Exercises",
     "section": "",
-    "text": "What does the function seq do? “,\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse the help function ?.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R."
+    "text": "What does the function seq do?\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in Base R.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse the help function ?.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R."
   },
   {
     "objectID": "qmd/basics/basics_exercise.html#exercise-1",
     "href": "qmd/basics/basics_exercise.html#exercise-1",
-    "title": "Basic operations: Exercises",
+    "title": "Basic Operations: Exercises",
     "section": "",
-    "text": "What does the function seq do? “,\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse the help function ?.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R."
+    "text": "What does the function seq do?\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in Base R.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse the help function ?.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nRepeats a value multiple times.\nBuilds a sequence of values.\nLoads a SQL data base.\nIt’s part of another package and therefore not loaded in R."
   },
   {
     "objectID": "qmd/basics/basics_exercise.html#exercise-2",
     "href": "qmd/basics/basics_exercise.html#exercise-2",
-    "title": "Basic operations: Exercises",
+    "title": "Basic Operations: Exercises",
     "section": "Exercise 2",
     "text": "Exercise 2\nWhy does the following code not work? Correct it so it does.\n\nc(1, 2, 3, 4, 5)\nmean(num_vec)\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nDoes the object num_vec actually exist?\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe object num_vec hasn’t been assigned yet. So let’s do that:\n\nnum_vec &lt;- c(1, 2, 3, 4, 5)\nmean(num_vec)\n\n[1] 3"
   },
   {
     "objectID": "qmd/basics/basics_exercise.html#exercise-3",
     "href": "qmd/basics/basics_exercise.html#exercise-3",
-    "title": "Basic operations: Exercises",
+    "title": "Basic Operations: Exercises",
     "section": "Exercise 3",
-    "text": "Exercise 3\nBuild the following vector with as little code as possible:\n\nvec_1 &lt;- c(1, 2, 3, 4, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 2, 2, 2, 2, 2, 2, 2, 2)\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse seq() and rep(). You can also build consecutive sequences using :.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nvec_1 &lt;- c(1:5, seq(from = 5, to = 5.5, by = 0.1), rep(2, 8))"
+    "text": "Exercise 3\nBuild the following vector with as little code as possible:\n\nvec_1 &lt;- c(1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0)\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse seq() and rep(). You can also build consecutive sequences using :.\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nvec_1 &lt;- c(1:5, seq(from = 5, to = 5.5, by = 0.1), rep(x = 2, times = 8))\nvec_1\n\n [1] 1.0 2.0 3.0 4.0 5.0 5.0 5.1 5.2 5.3 5.4 5.5 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0"
   },
   {
     "objectID": "qmd/basics/basics_exercise.html#exercise-4",
     "href": "qmd/basics/basics_exercise.html#exercise-4",
-    "title": "Basic operations: Exercises",
+    "title": "Basic Operations: Exercises",
     "section": "Exercise 4",
-    "text": "Exercise 4\nFind all of the elements in the vector that are either equal to 1000, or lie between than sqrt(11) and log(1.001).\n\nvec_num &lt;- c(sqrt(100)^3, exp(-6), 22.02/3 * sqrt(4^2) * 0.25, -120987/(47621 * 1.3 ^ 4 ))\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nYou need to combine three logical statements. Go at it step by step: first find all elements in vec_num that are equal to 1000, and then add a comparison for the rest of the statement behind an | (or).\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nvec_num == 1000 | (vec_num &lt; sqrt(11) & vec_num &gt; log(1.001))\n\n[1]  TRUE  TRUE FALSE FALSE"
+    "text": "Exercise 4\nFind all of the elements in the vector vec_num that are either equal to 1000, or lie between sqrt(11) and log(1.001).\n\nvec_num &lt;- c(sqrt(100)^3, exp(-6), 22.02/3 * sqrt(4^2) * 0.25, -120987/(47621 * 1.3 ^ 4 ))\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nYou need to combine three logical statements. Go at it step by step: first find all elements in vec_num that are equal to 1000, and then add a comparison for the rest of the statement behind an | (or).\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nvec_num == 1000 | (vec_num &lt; sqrt(11) & vec_num &gt; log(1.001))\n\n[1]  TRUE  TRUE FALSE FALSE"
   }
 ]
