@@ -2,17 +2,30 @@
 title: "Getting an Overview: Exercises"
 ---
 
-Let's take a look at the `characters` data set we have loaded in [last chapters exercise](../load_data/load_data_exercise.qmd):
+::: {.callout-caution icon="false" collapse="true"}
+## Previous code
 
-::: {.callout-caution icon="false"}
-```{r}
+```{r, message = FALSE}
+# install.packages("tidyverse")
+# install.packages("here")
+
+library(tidyverse)
+library(here)
+
+## Load the data
 characters <- readRDS(file = here::here("raw_data", "characters.rds"))
+psych_stats <- read.csv(
+  file = here::here("raw_data", "psych_stats.csv"),
+  sep = ";"
+)
 ```
 :::
 
 ## Exercise 1
 
-1.  How many rows and how many columns does the data frame have?
+Take a look at the `characters` data set. 
+
+1. How many rows and how many columns does the data frame have?
 
 ::: {.callout-tip collapse="true"}
 ## Hint
@@ -44,6 +57,6 @@ Use `head()`.
 ```{r}
 head(characters)
 ```
+They are from Friends.
 :::
 
-They are from Friends. 

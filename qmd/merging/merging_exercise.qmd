@@ -2,22 +2,36 @@
 title: "Merging: Exercise"
 ---
 
-Now we have gotten to know our `characters` data set a bit more. However, the personality ratings are not included yet. For that, we need to load the `psych_stats` data set as well, which contains the ratings for all characters. We have already done that in [Exercise 2 of the Load data chapter](https://nickhaf.github.io/r_tutorial/qmd/load_data/load_data_exercise.html#exercies-2), so here is the code again:
+::: {.callout-caution icon="false" collapse="true"}
+## Previous code
 
-::: {.calout-caution icon="false"}
-```{r load characters}
+```{r, message = FALSE}
+# install.packages("tidyverse")
+# install.packages("here")
+
+library(tidyverse)
+library(here)
+
+## Load the data
 characters <- readRDS(file = here::here("raw_data", "characters.rds"))
-```
-
-```{r load psych_stats}
 psych_stats <- read.csv(
   file = here::here("raw_data", "psych_stats.csv"),
   sep = ";"
 )
+
+## Reshape into long format:
+psych_stats <- psych_stats %>%
+  pivot_longer(cols = messy_neat:innocent_jaded, 
+               names_to = "question", 
+               values_to = "rating")
+
+## Take a look at the data sets
+str(characters)
+str(psych_stats)
 ```
 :::
 
-Now we want to combine both data frames into one, so all information belonging together can be found in the same data frame.
+Now we have gotten to know our `characters` data set a bit more. However, the personality ratings are not included yet. For that, we need to combine it with the `psych_stats` data set.
 
 ## Exercise 1
 
@@ -32,7 +46,7 @@ Identify the common columns. Are they named the same in both data frames? Look a
 ::: {.callout-caution collapse="true"}
 ## Solution
 
-First, let\`s take a look at both data sets again:
+First, let's take a look at both data sets again:
 
 ```{r}
 str(characters)
