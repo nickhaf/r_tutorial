@@ -644,7 +644,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#adding-new-columns" id="toc-adding-new-columns" class="nav-link" data-scroll-target="#adding-new-columns">Adding new columns</a></li>
   <li><a href="#tibbles" id="toc-tibbles" class="nav-link" data-scroll-target="#tibbles">Tibbles</a></li>
   </ul></li>
-  <li><a href="#honorable-mention-list" id="toc-honorable-mention-list" class="nav-link" data-scroll-target="#honorable-mention-list">Honorable mention: List</a></li>
+  <li><a href="#list" id="toc-list" class="nav-link" data-scroll-target="#list">List</a></li>
+  <li><a href="#matrix-array" id="toc-matrix-array" class="nav-link" data-scroll-target="#matrix-array">Matrix &amp; Array</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/data_structures/data_structures.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
@@ -688,7 +689,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Let’s take a closer look at the two we will use mostly throughout this workshop:</p>
 <section id="vector" class="level2">
 <h2 class="anchored" data-anchor-id="vector">Vector</h2>
-<p>Atomic vectors (from hereon only called vectors) contain elements of only the same type:</p>
+<p>Atomic vectors (from here on only called vectors) contain elements of only the same type:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>num_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2023</span>, <span class="dv">8</span>, <span class="dv">8</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>num_vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -797,8 +798,8 @@ returning NA</code></pre>
 </div>
 </section>
 </section>
-<section id="honorable-mention-list" class="level2">
-<h2 class="anchored" data-anchor-id="honorable-mention-list">Honorable mention: List</h2>
+<section id="list" class="level2">
+<h2 class="anchored" data-anchor-id="list">List</h2>
 <p>A list is a one dimensional object, which can, unlike a vector, contain elements of different types, but also of different lengths. For example, we can store a vectors of different lengths and data frames in a list, which makes it the most versatile data structure:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>personality_rating <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
@@ -819,6 +820,55 @@ $rating_type
 </div>
 </div>
 <p>Here, we define the list <code>personality_ratings</code>, which includes a data frame with the personality rating, and some meta information in the form of a character vector, describing the rating type. We won’t use it much in this workshop, but keep in mind it exists, as it quickly becomes necessary for managing more complex tasks.</p>
+</section>
+<section id="matrix-array" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-array">Matrix &amp; Array</h2>
+<p>Finally, just for the sake of comprehensiveness (we won’t use them in the following workshop, but that doesn’t mean they are irrelevant):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="st">"3"</span>,<span class="dv">4</span>), </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">nrow =</span> <span class="dv">2</span>, </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ncol =</span> <span class="dv">2</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                    )</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>my_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,] "1"  "3" 
+[2,] "2"  "4" </code></pre>
+</div>
+</div>
+<p>Note how everything gets converted to character (with the “” around it), because we used a <code>"3"</code> instead of <code>3</code>? That’s because a matrix can only have values of the same type.</p>
+<p>Last but not least, just so you have seen it once:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>my_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>my_array</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>, , 1
+
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+
+, , 2
+
+     [,1] [,2] [,3]
+[1,]    7    9   11
+[2,]    8   10   12
+
+, , 3
+
+     [,1] [,2] [,3]
+[1,]   13   15   17
+[2,]   14   16   18
+
+, , 4
+
+     [,1] [,2] [,3]
+[1,]   19   21   23
+[2,]   20   22   24</code></pre>
+</div>
+</div>
+<p>By using the <code>dim</code> argument I specify that each matrix in this array has <code>2</code> rows, <code>3</code> columns, and that I want <code>4</code> matrices.</p>
 
 
 </section>
