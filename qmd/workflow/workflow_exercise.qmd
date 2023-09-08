@@ -2,8 +2,7 @@
 title: "Workflow: Exercises"
 ---
 
-The following exercise will set up your working space for the rest of the workshop. All code you write will be saved in the script(s) you create here.  
-
+The following exercise will set up your working space for the rest of the workshop. All code you write will be saved in the script(s) you create here.
 
 ## Exercise 1
 
@@ -26,12 +25,22 @@ Go to `File` - `New File` - `R Script`. Save it in you folder.
 
 ::: callout-tip
 ## Organizing your scripts
-How you organize your scripts is up do you. I recommend to create seperate scripts for every use case. For this workshop, you could create one script for the exercises, and one script for the theory part, in case you want to try out some things by yourself. 
+
+How you organize your scripts is up do you. I recommend to create seperate scripts for every use case. For this workshop, you could create one script for the exercises, and one script for the theory part, in case you want to try out some things by yourself.
 :::
 
 ::: callout-tip
 ## Organizing your directory
-Within your project folder, create a folder named `R`, where all your R Scripts will go. You can do the same for `data`, `plots` etc. later on. This will help you to structure your working directory.
+
+Within your project folder, create
+
+1.  a folder named `R`, where all your R Scripts will go.
+
+2.  a folder names `raw_data`, where you can store the downloaded datasets, that we will use later on, that is `babynames.csv`, `babynames_n.csv`, characters.rds, and `athletes.rds.` Please download it from [here](https://github.com/nickhaf/r_tutorial/tree/main/raw_data).
+
+You can do the same for `data`, `plots` etc. later on. This will help you to structure your working directory.
 :::
 
-Now that you are ready to go, let's get an overview of how working with data in R can look like. 
+<!-- KAS: Ich fände es irgendwie ein bisschen günstiger, wenn man sie hier schon mal ein paar Daten runterladen lässt, denn schon auf der nächsten Seite kommt man per Querlink zu Athletes und weiß nicht, woher man das nehmen soll, weil es auch nicht im "Previous Code" drin ist. -->
+
+Now that you are ready to go, let's get an overview of how working with data in R can look like.

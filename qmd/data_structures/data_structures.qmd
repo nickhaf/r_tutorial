@@ -20,7 +20,7 @@ Let's take a closer look at the two we will use mostly throughout this workshop:
 
 ## Vector
 
-Atomic vectors (from hereon only called vectors) contain elements of only the same type:
+Atomic vectors (from here on only called vectors) contain elements of only the same type:
 
 ```{r}
 num_vec <- c(2023, 8, 8)
@@ -102,6 +102,8 @@ persons_tibble
 
 ## Honorable mention: List
 
+<!-- KAS: Passt "honorable mention" hier? -->
+
 A list is a one dimensional object, which can, unlike a vector, contain elements of different types, but also of different lengths. For example, we can store a vectors of different lengths and data frames in a list, which makes it the most versatile data structure:
 
 ```{r}
@@ -115,3 +117,5 @@ personality_rating
 ```
 
 Here, we define the list `personality_rating`, which includes a data frame with the personality rating, and some meta information in the form of a character vector, describing the rating type. We won't use it any more in this workshop, but keep in mind it exists, as it quickly becomes necessary for managing more complex tasks.
+
+<!-- KAS: Matrix und Arrays evtl. auch kurz illustrieren? -->
