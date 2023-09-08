@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to R - Workflow</title>
+<title>Introduction to R - Additional Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../qmd/workflow/workflow_exercise.html" rel="next">
-<link href="../../qmd/setup/setup.html" rel="prev">
+<link href="../../qmd/plotting/plotting_exercise.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction to R - Workflow">
+<meta property="og:title" content="Introduction to R - Additional Resources">
 <meta property="og:description" content="">
 <meta property="og:site-name" content="Introduction to R">
 </head>
@@ -119,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">1) Getting Started</li><li class="breadcrumb-item"><a href="../../qmd/workflow/workflow.html">Workflow</a></li><li class="breadcrumb-item"><a href="../../qmd/workflow/workflow.html">Workflow</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../qmd/resources/resources.html">5) Additional Resources</a></li><li class="breadcrumb-item"><a href="../../qmd/resources/resources.html">Additional Resources</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -167,16 +166,16 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">Workflow</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/workflow/workflow.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../qmd/workflow/workflow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workflow</span></a>
   </div>
 </li>
@@ -534,7 +533,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../qmd/resources/resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../../qmd/resources/resources.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Additional Resources</span></a>
   </div>
 </li>
@@ -579,17 +578,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link active" data-scroll-target="#rstudio-projects">RStudio Projects</a></li>
-  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts">Scripts</a></li>
+  <li><a href="#cheat-sheets" id="toc-cheat-sheets" class="nav-link active" data-scroll-target="#cheat-sheets">Cheat Sheets</a>
+  <ul class="collapse">
+  <li><a href="#base-r" id="toc-base-r" class="nav-link" data-scroll-target="#base-r"><code>Base R</code></a></li>
+  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse"><code>tidyverse</code></a></li>
+  </ul></li>
+  <li><a href="#books" id="toc-books" class="nav-link" data-scroll-target="#books">Books</a></li>
+  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/workflow/workflow.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/resources/resources.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Workflow</h1>
+<h1 class="title">Additional Resources</h1>
 </div>
 
 
@@ -604,16 +608,28 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="rstudio-projects" class="level2">
-<h2 class="anchored" data-anchor-id="rstudio-projects">RStudio Projects</h2>
-<p>Over time, it will become increasingly hard to organize all your files, working directories and workspaces in a sensible manner. A reasonable big project will consist of multiple script files, data, output and plots. To keep everything toghether, <a href="https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects">RStudio Projects</a> can be used (highly recommended). Therefore, when starting a new project in R, the first thing you should do is creating an RStudio project.</p>
-<p>You can create a new RStudio project by clicking on <code>File - New Project</code> in the RStudio window. You can either create a totally new directory, or choose an already existing folder for the project.</p>
+<p>Here you can find a collection of resources that might help you with this tutorial, or might motivate you to do some further reading.</p>
+<section id="cheat-sheets" class="level1">
+<h1>Cheat Sheets</h1>
+<p>Cheat Sheets organize the most important commands in an clear way. You can use the recommendations already while doing this workshop, or even create your own.</p>
+<section id="base-r" class="level2">
+<h2 class="anchored" data-anchor-id="base-r"><code>Base R</code></h2>
+<p>You can find a collection of the most important <code>Base R</code> commands <a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf">here</a>.</p>
 </section>
-<section id="scripts" class="level2">
-<h2 class="anchored" data-anchor-id="scripts">Scripts</h2>
-<p>Scripts are the documents code is saved in. Therefore, every time you start a new project, you should also create at least one script to put your code in. If you have a lot of code, you can also split it up among several scripts to make it more readable.</p>
-<p>You can create a new script by clicking on <code>File - New File - R Script</code> in the RStudio window.</p>
-<p>Now it’s your turn! In the <a href="./workflow/workflow_exercise.qmd">Workflow: Exercises</a> you will set yourself up for the following workshop.</p>
+<section id="tidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="tidyverse"><code>tidyverse</code></h2>
+<p>A collection of <code>tidyverse</code> commands for <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">data wrangling</a>.</p>
+<p>And for <a href="https://rstudio.github.io/cheatsheets/data-visualization.pdf">ggplot2</a>.</p>
+</section>
+</section>
+<section id="books" class="level1">
+<h1>Books</h1>
+<p>If you want to do some further reading I highly recommend these books: <a href="https://r4ds.hadley.nz/">R for Data Science</a> is a great way to get started with working in R, but will also go into more depths in the later chapters, so it is not just for beginners.</p>
+<p><a href="https://adv-r.hadley.nz/">Advanced R</a> is definitely not for beginners, but helps R users and programmers coming from other languages to understand R and improve their programming skills in R.</p>
+</section>
+<section id="data-visualization" class="level1">
+<h1>Data Visualization</h1>
+<p>Finally, the amazing <a href="https://r-graph-gallery.com/">R Graph Gallery</a> which helps to get inspiration for own plots. And it provides the corresponding code, to get you started directly.</p>
 
 
 </section>
@@ -854,14 +870,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../qmd/setup/setup.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Setup</span>
+      <a href="../../qmd/plotting/plotting_exercise.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Plotting: Exercises</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../qmd/workflow/workflow_exercise.html" class="pagination-link">
-        <span class="nav-page-text">Workflow: Exercises</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
