@@ -235,7 +235,7 @@
     "href": "qmd/packages/packages.html",
     "title": "Packages",
     "section": "",
-    "text": "1\nPackages are extensions to the base R you get by default. Most times they provide many new functions, bundled around a specific use case. When working with R you will have to rely heavily on packages developed by others. There are many, many great packages out there facilitating your work with R and making possible many different analyses, visualizations and many more.\nWe can compare them somewhat to apps in an appstore:\n[^2] First, we have to install the package: install.packages(\"packagename\"). It’s like downloading an app from the playstore. [^2]: Icons from icons8.de.\n2 Then, we have to load them in each session where we want to use them (like tapping on the app icon): library(packagename)."
+    "text": "1\nPackages are extensions to the base R you get by default. Most times they provide many new functions, bundled around a specific use case. When working with R you will have to rely heavily on packages developed by others. There are many, many great packages out there facilitating your work with R and making possible many different analyses, visualizations and many more.\nWe can compare them somewhat to apps in an appstore:\n2 First, we have to install the package: install.packages(\"packagename\"). It’s like downloading an app from the playstore. 3: Icons from icons8.de.\n4 Then, we have to load them in each session where we want to use them (like tapping on the app icon): library(packagename)."
   },
   {
     "objectID": "qmd/packages/packages.html#install-packages",
@@ -270,7 +270,7 @@
     "href": "qmd/packages/packages.html#footnotes",
     "title": "Packages",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nImage by Jan Antonin Kolar on Unsplash.↩︎\nIcons from icons8.de.↩︎"
+    "text": "Footnotes\n\n\nImage by Jan Antonin Kolar on Unsplash.↩︎\nIcons from icons8.de.↩︎\nIcons from icons8.de.↩︎\nIcons from icons8.de.↩︎"
   },
   {
     "objectID": "qmd/functions/functions.html",
@@ -893,7 +893,7 @@
     "href": "qmd/getting_started/the_big_picture.html#selecting-columns",
     "title": "The Big Picture",
     "section": "Selecting columns",
-    "text": "Selecting columns\nNow we can trim down our data set a bit more and select only the columns we are actually going to need:\n\n\nbabynames_F &lt;- babynames_F %&gt;%\n  select(year, name, percentage)\nhead(babynames_F)\n\n  year     name percentage\n1 1880     Mary   7.238359\n2 1880     Anna   2.667896\n3 1880     Emma   2.052149\n4 1880   Minnie   1.788843\n5 1880 Margaret   1.616720\n6 1880      Ida   1.508119"
+    "text": "Selecting columns\nNow we can trim down our data set a bit more and select only the columns we are actually going to need:\n\n\nbabynames_F &lt;- babynames_F %&gt;%\n  select(year, name, percentage) # We take the percentage instead of the prop here, because i find it a little bit more intuitive to plot.\nhead(babynames_F)\n\n  year     name percentage\n1 1880     Mary   7.238359\n2 1880     Anna   2.667896\n3 1880     Emma   2.052149\n4 1880   Minnie   1.788843\n5 1880 Margaret   1.616720\n6 1880      Ida   1.508119"
   },
   {
     "objectID": "qmd/getting_started/the_big_picture.html#some-additional-summary-statistics",
