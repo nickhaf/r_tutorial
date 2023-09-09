@@ -135,10 +135,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../qmd/getting_started/the_big_picture.html" rel="" target="">
  <span class="menu-text">The Big Picture</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../qmd/final_exercise/final_exercise.html" rel="" target="">
- <span class="menu-text">The Big Picture: Final Exercise</span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -563,12 +559,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" aria-expanded="true">
- <span class="menu-text">5) Additional Resources</span></a>
+ <span class="menu-text">5) Final Exercise</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../qmd/final_exercise/final_exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Big Picture: Final Exercise</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" aria-expanded="true">
+ <span class="menu-text">6) Additional Resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../qmd/resources/resources.html" class="sidebar-item-text sidebar-link">
@@ -577,13 +590,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" aria-expanded="false">
  <span class="menu-text">Direkt Links to Cheat Sheets</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf" class="sidebar-item-text sidebar-link">
@@ -858,7 +871,7 @@ Goal
 <h2 class="anchored" data-anchor-id="plot-the-data">Plot the data</h2>
 <p>We will use the package <code>ggplot2</code> (which is also part of the <code>tidyverse</code>) for <a href="../../qmd/plotting/plotting.html">plotting our data</a>. It should be mentioned that <code>Base R</code> also has some powerful plotting functions, however, <code>ggplot2</code> makes it very easy to build complex and beautiful plots.</p>
 <p>A <code>ggplot</code> is constructed from multiple layers that can be laid over each other using the <code>+</code> operator.</p>
-<p>We start with the function <code>ggplot()</code>, in which we define our data and the x and y axes. This will draw our (empty) coordinate system. We have to use the <a href="https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html#aes"><code>aes()</code></a> (aesthetics) function for everything that changes in relation to the data. For example, the exact location of each element in the plot is dependent on the x and y position deposited in the data, so we have to specify our axes inside the <code>aes()</code> function:</p>
+<p>We start with the function <a href="https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html#ggplot"><code>ggplot()</code></a>, in which we define our data and the x and y axes. This will draw our (empty) coordinate system. We have to use the <a href="https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html#aes"><code>aes()</code></a> (aesthetics) function for everything that changes in relation to the data. For example, the exact location of each element in the plot is dependent on the x and y position deposited in the data, so we have to specify our axes inside the <code>aes()</code> function:</p>
 <div class="tidy">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
@@ -895,7 +908,7 @@ Goal
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Most common female name in the United States of America by year"</span>) <span class="sc">+</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Birthyear"</span>) <span class="sc">+</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Percentage of children given that name"</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Percentage of newborn children with that name"</span>)</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="the_big_picture_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="1056"></p>
@@ -915,7 +928,7 @@ Goal
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>In this tutorial we have learned that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. Either follow the course, or navigate to the chapters you are most interested in. But first, take a look at the new data sets you will be working with throughout the exercises.</p>
+<p>In this tutorial we have learned that R is a flexible tool for editing and plotting data. Of course, we barely scratched the surface. Therefore, we want to dive a bit deeper into each step. If you already have some R experience, you can now move on to <a href="../../qmd/final_exercise/final_exercise.html">The Big Picture: Exercise</a> to identify topics your want to work on. If you are a R beginner, I would suggest you follow the course, as outlined on the left.</p>
 
 
 </section>
