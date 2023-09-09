@@ -66,6 +66,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Introduction to R - Workflow: Exercises">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://github.com/nickhaf/r_tutorial/qmd/pictures/download.png">
 <meta property="og:site-name" content="Introduction to R">
 </head>
 
@@ -580,6 +581,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link active" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2-download-data" id="toc-exercise-2-download-data" class="nav-link" data-scroll-target="#exercise-2-download-data">Exercise 2: Download Data</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/qmd/workflow/workflow_exercise.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -658,6 +660,42 @@ Organizing your scripts
 <p>How you organize your scripts is up do you. I recommend to create seperate scripts for every use case. For this workshop, you could create one script for the exercises, and one script for the theory part, in case you want to try out some things by yourself.</p>
 </div>
 </div>
+</section>
+<section id="exercise-2-download-data" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-download-data">Exercise 2: Download Data</h2>
+<ol start="4" type="1">
+<li>Within your folder create a new folder named <code>raw_data</code>. Then go to <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">this site</a> download the following data sets, and save them into your newly created folder. You can also just download the respective data set when it comes up in the workshop, in case you don’t want to download them all at once.</li>
+</ol>
+<ul>
+<li><code>athlete_events.csv</code></li>
+<li><code>athletes.rds</code></li>
+<li><code>babynames.csv</code></li>
+<li><code>babynames_n.csv</code></li>
+<li><code>characters.rds</code></li>
+<li><code>contintents.csv</code></li>
+<li><code>psych_stats.vsv</code></li>
+<li><code>region_wide.csv</code></li>
+<li><code>vb_l.sav</code></li>
+<li><code>vb_w.csv</code></li>
+<li><code>world_coordinates.rds</code></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You can left-click on the respective data set you want to download. This will take you to this window, where you can click on the download button to download the data:</p>
+<p><img src="../pictures/download.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -668,7 +706,7 @@ Organizing your directory
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Within your project folder, create a folder named <code>R</code>, where all your R Scripts will go. You can do the same for <code>data</code>, <code>plots</code> etc. later on. This will help you to structure your working directory and make it easier to find specific files.</p>
+<p>Within your project folder, create a folder named <code>R</code>, where all your R Scripts will go. You can do the same for <code>data</code>, <code>plots</code> etc. This will help you to structure your working directory and make it easier to find specific files.</p>
 </div>
 </div>
 <p>Now that you are ready to go, let’s get an overview of how working with data in R can look like.</p>
