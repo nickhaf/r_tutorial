@@ -666,7 +666,7 @@ Goal
 </div>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p><a href="../../qmd/packages/packages.html">Packages</a> are extensions to the <code>base R</code> you get by default. Let’s install a package collection, that makes it easier to work with data in R:</p>
+<p><a href="../../qmd/packages/packages.html">Packages</a> are extensions to the <code>base R</code> you get by default. Let’s install a package collection that makes it easier to work with data in R:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -728,12 +728,12 @@ Goal
  $ ID  : int  1 2 3 4 5 6 7 8 9 10 ...</code></pre>
 </div>
 </div>
-<p>On the left we can see the columns of this data frame, named <code>year</code>, <code>sex</code>, <code>names</code>, and <code>ID</code>. On the right we see the first values in each column, for example <code>1880</code>, <code>1880</code>, <code>1880</code>, <code>NA</code> etc … in the <code>year</code>-column.</p>
+<p>On the left we can see the columns of this data, named <code>year</code>, <code>sex</code>, <code>names</code>, and <code>ID</code>. On the right we see the first values in each column, for example <code>1880</code>, <code>1880</code>, <code>1880</code>, <code>NA</code> etc … in the <code>year</code>-column.</p>
 <p>So, what we can infer from the data and its online description is that it contains the most common names for boys and girls in the USA for each year since <code>1880</code>.</p>
 </section>
 <section id="merging" class="level2">
 <h2 class="anchored" data-anchor-id="merging">Merging</h2>
-<p>Sadly the data is not complete. If we had the number of people born with a specific name for every year, we could find out which name was the most common each year. However, the number of people is missing from our data (ok, i split it up for illustrative purposes). So let’s <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">download</a> it and load it into R:</p>
+<p>Sadly the data is not complete. If we had the number of people born with a specific name for every year, we could find out which name was the most common each year (which is our goal, as you might remember). However, the number of people is missing from our data (ok, i split it up for illustrative purposes). So let’s <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">download</a> <code>babynames_n.csv</code> (in case you haven’t already) and <a href="../../qmd/load_data/load_data.html">load it into R</a>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>babynames_n <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./raw_data/babynames_n.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -754,7 +754,7 @@ Goal
 6  6 1880   F  Margaret 1578 0.01616720</code></pre>
 </div>
 </div>
-<p>Great, now we can see the number of people born with that name in each year since 1880, and the propability that they get this specific name, calculated from the total of births in this year! But hold on! The column <code>years</code> seems to include missing values (<code>NA's</code>). It is always a good idea to at least think about the <a href="../../qmd/missing/missing.html">missing values</a> before doing any analyses, so let’s do just that:</p>
+<p>Great, now we can see the number of people born with that name in each year since 1880, and the propability that they get this specific name, calculated from the total of births in this year! But hold on! The column <code>years</code> seems to include <a href="../../qmd/missing/missing.html">missing values</a> (<code>NA's</code>). It is always a good idea to at least think about the <a href="../../qmd/missing/missing.html">missing values</a> before doing any analyses, so let’s do just that:</p>
 </section>
 <section id="missings" class="level2">
 <h2 class="anchored" data-anchor-id="missings">Missings</h2>
@@ -782,11 +782,11 @@ Goal
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"F"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>Wondering what the <code>%&gt;%</code> means? That’s a <a href="https://nickhaf.github.io/r_tutorial/qmd/basics/tidyverse.html#the-pipe-operator">pipe operator</a>, which is used, mainly in the <code>tidyverse</code>, to connect multiple function calls. This can make code a lot more readable. In our case, we start with the <code>babynames_merged</code> data frame and then perform an operation on it, in this case filtering specific values.</p>
+<p>Wondering what the <code>%&gt;%</code> means? That’s a <a href="https://nickhaf.github.io/r_tutorial/qmd/basics/tidyverse.html#the-pipe-operator">pipe operator</a>, which is used, mainly in the <a href="../../qmd/basics/tidyverse.html"><code>tidyverse</code></a>, to connect multiple function calls. This can make code a lot more readable. Here we start with the <code>babynames_merged</code> data set and then perform an operation on it, in this case filtering specific values.</p>
 </section>
 <section id="adding-a-new-column" class="level2">
 <h2 class="anchored" data-anchor-id="adding-a-new-column">Adding a new column</h2>
-<p>Now, we want to plot the percentages of each name, instead of the probability, because it looks a bit more intuitive. So, let’s <a href="https://nickhaf.github.io/r_tutorial/qmd/getting_started/the_big_picture.html#adding-a-new-column">build a new column</a> named <code>percentage</code>, which is just the <code>prop</code> column multiplied by <code>100</code>:</p>
+<p>Now, we want to plot the percentages of each name instead of the probability, because it looks a bit more intuitive (in my opinion). So, let’s <a href="https://nickhaf.github.io/r_tutorial/qmd/getting_started/the_big_picture.html#adding-a-new-column">build a new column</a> named <code>percentage</code>, which is just the <code>prop</code> column multiplied by <code>100</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>babynames_F<span class="sc">$</span>percentage <span class="ot">&lt;-</span> babynames_F<span class="sc">$</span>prop <span class="sc">*</span> <span class="dv">100</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babynames_F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -851,14 +851,14 @@ Goal
 </div>
 </div>
 </div>
-<p>Now our data frame contains only the most common name for each year.</p>
+<p>Now our data contains only the most common name for each year. For <code>1880</code> that’s <code>Mary</code>, with <code>7.24</code> of newborns named that way.</p>
 <p>At the moment we only want to get an idea what R can do, so don’t hold up if some of the functions are not that clear to you right now, hopefully that will change throughout this tutorial.</p>
 </section>
 <section id="plot-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="plot-the-data">Plot the data</h2>
 <p>We will use the package <code>ggplot2</code> (which is also part of the <code>tidyverse</code>) for <a href="../../qmd/plotting/plotting.html">plotting our data</a>. It should be mentioned that <code>Base R</code> also has some powerful plotting functions, however, <code>ggplot2</code> makes it very easy to build complex and beautiful plots.</p>
-<p>A <code>ggplot</code> is constructed from multiple layers, that can be laid over each other using the <code>+</code> operator.</p>
-<p>We start with the function <code>ggplot()</code>, in which we define our data and the x and y axes. This will draw our (empty) coordinate system. We have to use the <a href="https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html#aes"><code>aes()</code></a> (aesthetics) function for everything that changes in relation to the data. For example, the exact location of each element in the plot is dependent on the x and y position deposited in the data frame, so we have to specify our axes inside the <code>aes()</code> function:</p>
+<p>A <code>ggplot</code> is constructed from multiple layers that can be laid over each other using the <code>+</code> operator.</p>
+<p>We start with the function <code>ggplot()</code>, in which we define our data and the x and y axes. This will draw our (empty) coordinate system. We have to use the <a href="https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html#aes"><code>aes()</code></a> (aesthetics) function for everything that changes in relation to the data. For example, the exact location of each element in the plot is dependent on the x and y position deposited in the data, so we have to specify our axes inside the <code>aes()</code> function:</p>
 <div class="tidy">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
