@@ -657,7 +657,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Caution
+Goal
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -695,12 +695,12 @@ Caution
 </section>
 <section id="load-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-data">Load Data</h2>
-<p>Data is <a href="../../qmd/load_data/load_data.html">loaded into R</a> so you can work with it. For this chapter, we are going to use the data set <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-22/readme.md"><code>babynames</code></a>, which we can find on the <a href="https://github.com/rfordatascience/tidytuesday"><code>tidytuesday</code></a> site. I have already tweaked the data set a bit, so download it from <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">here</a> to follow along. Right-click on the respective data set found under this link, select ‘save as’ and then choose a folder on your notebook where to save it. We have talked about where that optimally should be in <a href="../../qmd/workflow/workflow_exercise.html">Workflow: Exercises</a>.</p>
+<p>Data is <a href="../../qmd/load_data/load_data.html">loaded into R</a> so you can work with it. For this chapter, we are going to use the data set <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-22/readme.md"><code>babynames</code></a>, which we can find on the <a href="https://github.com/rfordatascience/tidytuesday"><code>tidytuesday</code></a> site. I have already tweaked the data set a bit, so download it from <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">here</a> to follow along (in case you haven’t already in the <a href="https://nickhaf.github.io/r_tutorial/qmd/workflow/workflow_exercise.html#exercise-2-download-data">previous exercise</a>.</p>
 <p>So, after downloading it and saving it in the folder <code>raw_data</code> within my project directory, I can load the data set into R with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>babynames <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./raw_data/babynames.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This will load the data into R and assigning it the name <code>babynames</code> by using the <code>&lt;-</code>. You can see the data popping up in your <code>Environment</code> pane on the upper right. Note that the file path might differ on your device, depending on where you saved your data.</p>
+<p>This will load the data into R and assigning it the name <code>babynames</code> by using the <code>&lt;-</code> operator. You can see the data popping up in your <code>Environment</code> pane on the upper right. Note that the file path might differ on your device, depending on where you’ve saved your data.</p>
 </section>
 <section id="take-a-look" class="level2">
 <h2 class="anchored" data-anchor-id="take-a-look">Take a look</h2>
