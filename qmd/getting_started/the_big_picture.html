@@ -651,6 +651,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>Now that we have completed our set up, let’s dive right into programming with <code>R</code>. In this chapter, we will go through a “mini-project” with very basic data, which follows a possible workflow when working with data in <code>R</code>. We will install and load packages, load data, perform some operations on this data, calculate some summary statistics and plot them. In later chapters we will go into a little more detail for each topic, so don’t worry if you don’t understand something quite yet, it will be covered again. The goal of this chapter is to simply give you an idea of what is possible in R, before dealing with the specifics.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Our goal for this chapter is to get an overview of the most common name each year in the USA beginning at the end of the 19th century.</p>
+</div>
+</div>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
 <p><a href="../../qmd/packages/packages.html">Packages</a> are extensions to the <code>base R</code> you get by default. Let’s install a package collection, that makes it easier to work with data in R:</p>
@@ -682,7 +695,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="load-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-data">Load Data</h2>
-<p>Data is <a href="../../qmd/load_data/load_data.html">loaded into R</a> so you can work with it. For this chapter, we are going to use the data set <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-22/readme.md"><code>babynames</code></a>, which we can find on the <a href="https://github.com/rfordatascience/tidytuesday"><code>tidytuesday</code></a> site. I have already tweaked the data set a bit, so download it from <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">here</a> to follow along. Right-click on the respective data set found under this link, select ‘save as’ and then choose a folder on your notebook where to save it. We have talked about where that optimally should be in <a href="../../qmd/workflow/workflow_exercise.html">Workflow: Exercises</a>. Our goal is to look at the most common name in every year and make a nice plot out of it.</p>
+<p>Data is <a href="../../qmd/load_data/load_data.html">loaded into R</a> so you can work with it. For this chapter, we are going to use the data set <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-22/readme.md"><code>babynames</code></a>, which we can find on the <a href="https://github.com/rfordatascience/tidytuesday"><code>tidytuesday</code></a> site. I have already tweaked the data set a bit, so download it from <a href="https://github.com/nickhaf/r_tutorial/tree/main/raw_data">here</a> to follow along. Right-click on the respective data set found under this link, select ‘save as’ and then choose a folder on your notebook where to save it. We have talked about where that optimally should be in <a href="../../qmd/workflow/workflow_exercise.html">Workflow: Exercises</a>.</p>
 <p>So, after downloading it and saving it in the folder <code>raw_data</code> within my project directory, I can load the data set into R with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>babynames <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./raw_data/babynames.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
