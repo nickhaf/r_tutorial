@@ -2,138 +2,138 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/index.html</loc>
-    <lastmod>2023-09-10T13:09:32.361Z</lastmod>
+    <lastmod>2023-09-10T13:24:41.486Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/basics/basics.html</loc>
-    <lastmod>2023-09-10T13:09:08.029Z</lastmod>
+    <lastmod>2023-09-10T13:24:16.514Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/getting_started/data_sets.html</loc>
-    <lastmod>2023-09-10T13:08:19.493Z</lastmod>
+    <lastmod>2023-09-10T13:23:27.029Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/statistical_analyses/statistical_analyses.html</loc>
-    <lastmod>2023-09-10T13:07:42.798Z</lastmod>
+    <lastmod>2023-09-10T13:22:47.708Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/merging/merging.html</loc>
-    <lastmod>2023-09-10T13:07:18.666Z</lastmod>
+    <lastmod>2023-09-10T13:22:22.888Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/format/format_exercise.html</loc>
-    <lastmod>2023-09-10T13:06:26.122Z</lastmod>
+    <lastmod>2023-09-10T13:21:28.567Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/peeking/peeking.html</loc>
-    <lastmod>2023-09-10T13:05:36.527Z</lastmod>
+    <lastmod>2023-09-10T13:20:38.023Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/data_structures/data_structures_exercise.html</loc>
-    <lastmod>2023-09-10T13:04:46.271Z</lastmod>
+    <lastmod>2023-09-10T13:19:46.470Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/packages/packages.html</loc>
-    <lastmod>2023-09-10T13:03:57.636Z</lastmod>
+    <lastmod>2023-09-10T13:18:56.945Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/functions/functions.html</loc>
-    <lastmod>2023-09-10T13:03:09.024Z</lastmod>
+    <lastmod>2023-09-10T13:18:07.196Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/load_data/load_data.html</loc>
-    <lastmod>2023-09-10T13:02:18.961Z</lastmod>
+    <lastmod>2023-09-10T13:17:16.164Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/missing/missing_exercise.html</loc>
-    <lastmod>2023-09-10T13:01:29.369Z</lastmod>
+    <lastmod>2023-09-10T13:16:25.295Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/workflow/workflow_exercise.html</loc>
-    <lastmod>2023-09-10T13:00:37.262Z</lastmod>
+    <lastmod>2023-09-10T13:15:31.834Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/subsetting/subsetting_exercise.html</loc>
-    <lastmod>2023-09-10T13:00:36.378Z</lastmod>
+    <lastmod>2023-09-10T13:15:30.918Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/loops/loops_exercise.html</loc>
-    <lastmod>2023-09-10T12:58:49.007Z</lastmod>
+    <lastmod>2023-09-10T13:13:35.841Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/plotting/plotting_exercise.html</loc>
-    <lastmod>2023-09-10T12:57:55.831Z</lastmod>
+    <lastmod>2023-09-10T13:12:41.060Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/resources/resources.html</loc>
-    <lastmod>2023-09-10T12:56:46.752Z</lastmod>
+    <lastmod>2023-09-10T13:11:29.039Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/final_exercise/final_exercise.html</loc>
-    <lastmod>2023-09-10T12:56:46.040Z</lastmod>
+    <lastmod>2023-09-10T13:11:28.299Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/plotting/plotting.html</loc>
-    <lastmod>2023-09-10T12:57:23.472Z</lastmod>
+    <lastmod>2023-09-10T13:12:07.084Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/loops/loops.html</loc>
-    <lastmod>2023-09-10T12:58:21.655Z</lastmod>
+    <lastmod>2023-09-10T13:13:07.736Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/subsetting/subsetting.html</loc>
-    <lastmod>2023-09-10T13:00:11.546Z</lastmod>
+    <lastmod>2023-09-10T13:15:05.650Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/workflow/workflow.html</loc>
-    <lastmod>2023-09-10T13:00:36.778Z</lastmod>
+    <lastmod>2023-09-10T13:15:31.330Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/missing/missing.html</loc>
-    <lastmod>2023-09-10T13:01:04.693Z</lastmod>
+    <lastmod>2023-09-10T13:16:00.091Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/load_data/load_data_exercise.html</loc>
-    <lastmod>2023-09-10T13:01:53.409Z</lastmod>
+    <lastmod>2023-09-10T13:16:49.847Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/functions/functions_exercise.html</loc>
-    <lastmod>2023-09-10T13:02:42.752Z</lastmod>
+    <lastmod>2023-09-10T13:17:40.292Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/packages/packages_exercise.html</loc>
-    <lastmod>2023-09-10T13:03:33.300Z</lastmod>
+    <lastmod>2023-09-10T13:18:32.041Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/data_structures/data_structures.html</loc>
-    <lastmod>2023-09-10T13:04:22.584Z</lastmod>
+    <lastmod>2023-09-10T13:19:22.250Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/peeking/peeking_exercise.html</loc>
-    <lastmod>2023-09-10T13:05:10.915Z</lastmod>
+    <lastmod>2023-09-10T13:20:11.686Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/format/format.html</loc>
-    <lastmod>2023-09-10T13:06:01.291Z</lastmod>
+    <lastmod>2023-09-10T13:21:03.255Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/merging/merging_exercise.html</loc>
-    <lastmod>2023-09-10T13:06:52.390Z</lastmod>
+    <lastmod>2023-09-10T13:21:55.776Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/setup/setup.html</loc>
-    <lastmod>2023-09-10T13:07:42.478Z</lastmod>
+    <lastmod>2023-09-10T13:22:47.336Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/getting_started/the_big_picture.html</loc>
-    <lastmod>2023-09-10T13:08:19.085Z</lastmod>
+    <lastmod>2023-09-10T13:23:26.601Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/basics/tidyverse.html</loc>
-    <lastmod>2023-09-10T13:08:43.985Z</lastmod>
+    <lastmod>2023-09-10T13:23:52.026Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/nickhaf/r_tutorial/qmd/basics/basics_exercise.html</loc>
-    <lastmod>2023-09-10T13:09:31.881Z</lastmod>
+    <lastmod>2023-09-10T13:24:40.954Z</lastmod>
   </url>
 </urlset>
