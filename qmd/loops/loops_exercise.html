@@ -810,7 +810,7 @@ Hint
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Build a <code>for loop</code> that goes over all unique questions (use <code>unique()</code> in your subsetted data frames. Inside this <code>for-loop</code> you can subset again, this time only the rows containing the question that the loop is at at the moment, and calculate its mean rating from here. Then use <code>paste()</code> to build and print the statement.</p>
+<p>Build a <code>for loop</code> that goes over all unique questions (use <code>unique()</code>) in your subsetted data frame. Inside this <code>for-loop</code> you can subset again, this time only the rows containing the question that the loop is at at the moment, and calculate its mean rating from here. Then use <code>paste()</code> to build and print the statement.</p>
 </div>
 </div>
 </div>
@@ -885,7 +885,7 @@ Hints
 <ol type="1">
 <li>Build an empty data frame where you will save your results.</li>
 <li>Now you can’t easily loop over the question column itself, because you need the position of each element to save it in the respective row of your new data frame: <code>for(i in 1:length(unique(characters_friends$question))){</code>.</li>
-<li>Now you can save the result of your calculateion in row <code>i</code> of your new data frame.</li>
+<li>Now you can save the result of your calculation in row <code>i</code> and column <code>mean</code> of your new data frame.</li>
 </ol>
 </div>
 </div>

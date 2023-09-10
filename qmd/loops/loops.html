@@ -856,7 +856,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In general, try not to repeat yourself when writing code. As a general rule of thumb, use loops and/or <a href="../../qmd/functions/functions.html">functions</a> if you need to copy/paste something more than two times.</p>
+<p>In general, try not to repeat yourself when writing code. As a general rule of thumb, use loops and/or <a href="../../qmd/functions/functions.html">functions</a> if you need to copy/paste something more than two times. In the above example, we could also have put the <code>paste()</code> call into a function of it own, to trim down the code even more and make it more readable.</p>
 </div>
 </div>
 </section>
@@ -866,7 +866,7 @@ Tip
 <pre><code>for(counter in values){
   repeat something with changing counter
 }</code></pre>
-<p>What does that mean? Let’s look at a simple example first. We want to multiply the values from <code>10</code> to <code>20</code> with <code>100</code> and then print them into our console:</p>
+<p>What does this mean? Let’s look at a simple example first. We want to multiply the values from <code>10</code> to <code>20</code> with <code>100</code> and then print them into our console:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">20</span>){</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  new_i <span class="ot">&lt;-</span> i <span class="sc">*</span> <span class="dv">100</span></span>
