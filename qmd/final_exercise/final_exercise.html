@@ -96,6 +96,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Introduction to R - Final Exercise">
@@ -1312,7 +1314,7 @@ Note
 <section id="functions" class="level3">
 <h3 class="anchored" data-anchor-id="functions">3) Functions</h3>
 <p>Look at the mean differences. Not very big, right? Let’s calculate a standardized effect size, Cohen’s <em>d</em>! We can do that for a paired t test by dividing the mean of the differences of both groups by the standard deviation of the difference of both groups:</p>
-<p>$d = $</p>
+<p><span class="math inline">\(d=\frac{mean_{Diff}}{sd_{Diff}}\)</span></p>
 <p>with <em>Diff</em> as the differences of the paired sample values.</p>
 <p>Write a <a href="../../qmd/functions/functions.html">function</a> to do that, then add it to your loop so Cohen’s <em>d</em> gets printed into your console. You can use the function <code>lsr::cohensD()</code> to check your function.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
