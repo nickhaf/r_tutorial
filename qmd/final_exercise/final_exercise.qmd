@@ -290,7 +290,7 @@ for (i in c("M", "W")) {
 }
 ```
 
-So, following Cohen's conventions, this are negligible effect sizes, so the height differences in professional volleyball are probably not that important for the outcome of the match. Not that surprising all together, because the height differences were very small in the first place, and there are probably much more important factors to winning a volleyball match than a minimal height advantage.
+So, following Cohen's conventions, this are negilable to small effect sizes, so the height differences in professional volleyball are probably not that important for the outcome of the match, even though there seems to be a small effect. Not that surprising all together, because the height differences were very small in the first place, and there are probably much more important factors to winning a volleyball match than a minimal height advantage, but it still seems to matter a little bit.
 :::
 
 ## Exercise 3
